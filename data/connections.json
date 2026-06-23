@@ -1,0 +1,143 @@
+[
+  {
+    "source": "kasacja",
+    "target": "langer",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "major",
+    "note": "Pierwsze pojawienie się Piotra Langera w Kasacji otwiera antagonistyczny rdzeń późniejszego Langerverse."
+  },
+  {
+    "source": "ekspozycja",
+    "target": "zaginiecie",
+    "type": "wzmianka",
+    "certainty": 100,
+    "note": "Sprawa morderstw na Giewoncie funkcjonuje jako medialne tło wydarzeń rozgrywanych wokół Chyłki."
+  },
+  {
+    "source": "przewieszenie",
+    "target": "rewizja",
+    "type": "wzmianka",
+    "certainty": 100,
+    "note": "Ucieczka Forsta jest śledzona w mediach, także przez Kormaka w tle warszawskich wydarzeń."
+  },
+  {
+    "source": "immunitet",
+    "target": "trawers",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "major",
+    "note": "Pierwsze fizyczne spotkanie: Chyłka zostaje poproszona o pomoc dla osadzonego Forsta, a Trawers pokazuje tę scenę z perspektywy celi."
+  },
+  {
+    "source": "inwigilacja",
+    "target": "deniwelacja",
+    "type": "wzmianka",
+    "certainty": 90,
+    "note": "Ucieczka Forsta i zakopiańskie śledztwo biegną równolegle do warszawskich afer polityczno-prawnych."
+  },
+  {
+    "source": "oskarzenie",
+    "target": "zerwa",
+    "type": "wzmianka",
+    "certainty": 90,
+    "note": "Działania Langera i destabilizacja prokuratury rezonują z wydarzeniami badanymi wokół Forsta."
+  },
+  {
+    "source": "wyrok",
+    "target": "halny",
+    "type": "wzmianka",
+    "certainty": 95,
+    "note": "Kormak zaczyna głębiej prześwietlać zakopiańskie układy pod kątem informatycznym."
+  },
+  {
+    "source": "ekstradycja",
+    "target": "halny",
+    "type": "wzmianka",
+    "certainty": 95,
+    "note": "Sytuacja na Podhalu gęstnieje równolegle z późnym etapem warszawskiej osi Chyłki."
+  },
+  {
+    "source": "precedens",
+    "target": "przepasc",
+    "type": "wzmianka",
+    "certainty": 100,
+    "note": "Napięcie w Tatrach buduje bezpośredni wstęp pod ponowne spotkanie Chyłki i Forsta."
+  },
+  {
+    "source": "afekt",
+    "target": "widmo-brockenu",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "major",
+    "note": "Chyłka jedzie w Tatry, Forst pojawia się w Afekcie, a w Widmie Brockenu oboje prowadzą pełnoprawne wspólne śledztwo."
+  },
+  {
+    "source": "skazanie",
+    "target": "langer",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "major",
+    "note": "Langerverse odsłania przeszłość i teraźniejszość Piotra Langera równolegle do dramatów Chyłki i Zordona."
+  },
+  {
+    "source": "werdykt",
+    "target": "langer",
+    "type": "crossover",
+    "certainty": 100,
+    "note": "Wątek Niny Pokory i Langera zostaje osadzony pod późną osią Chyłki."
+  },
+  {
+    "source": "zarzut",
+    "target": "paderborn",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "major",
+    "note": "Śledztwo przeciwko Langerowi prowadzą prokuratorzy znani z serii Chyłka: Olgierd Paderborn i Karolina Siarkowska."
+  },
+  {
+    "source": "obrona",
+    "target": "ozyrys",
+    "type": "crossover",
+    "certainty": 100,
+    "note": "Krwawa gra Langera z prokuraturą wchodzi w decydującą fazę."
+  },
+  {
+    "source": "zarzut",
+    "target": "kasprowy",
+    "type": "wzmianka",
+    "certainty": 95,
+    "note": "Kasprowy jest ustawiony nad Zarzutem i Obroną jako przedostatni tom górskich przygód komisarza."
+  },
+  {
+    "source": "obrona",
+    "target": "kasprowy",
+    "type": "wzmianka",
+    "certainty": 95,
+    "note": "Równoległe późne napięcie osi Forsta i Chyłki przed finałem uniwersum."
+  },
+  {
+    "source": "substytucja",
+    "target": "arachnia",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "finale",
+    "note": "Wyraźna linia do finału: po Substytucji rozpoczyna się proces stulecia Langera w Arachnii."
+  },
+  {
+    "source": "urwisko",
+    "target": "arachnia",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "finale",
+    "note": "Urwisko i Arachnia dzieją się w tym samym czasie: w Warszawie ważą się losy Langera, a na Podhalu Forst walczy o przetrwanie."
+  },
+  {
+    "source": "substytucja",
+    "target": "urwisko",
+    "type": "wzmianka",
+    "certainty": 100,
+    "importance": "major",
+    "note": "Substytucja zostawia czytelnika tuż przed rozbiciem finału na równoległy proces i tatrzańską walkę Forsta."
+  }
+]

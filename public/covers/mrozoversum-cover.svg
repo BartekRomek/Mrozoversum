@@ -1,0 +1,16 @@
+<svg width="640" height="920" viewBox="0 0 640 920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="920" fill="#101117"/>
+  <rect x="34" y="34" width="572" height="852" fill="#151821" stroke="#E11D48" stroke-width="3"/>
+  <path d="M62 190H578" stroke="#F43F5E" stroke-opacity="0.45" stroke-width="2"/>
+  <path d="M62 704H578" stroke="#F59E0B" stroke-opacity="0.35" stroke-width="2"/>
+  <circle cx="320" cy="406" r="142" fill="#08090D" stroke="#F43F5E" stroke-opacity="0.48" stroke-width="3"/>
+  <path d="M181 408C226 346 270 315 319 315C369 315 415 346 459 408C413 470 368 501 319 501C269 501 224 470 181 408Z" fill="#E11D48" fill-opacity="0.14" stroke="#F4F1EA" stroke-opacity="0.28" stroke-width="2"/>
+  <circle cx="320" cy="408" r="43" fill="#F43F5E" fill-opacity="0.75"/>
+  <circle cx="320" cy="408" r="16" fill="#08090D"/>
+  <path d="M122 117H518" stroke="#F4F1EA" stroke-opacity="0.75" stroke-width="8"/>
+  <path d="M149 139H491" stroke="#F4F1EA" stroke-opacity="0.3" stroke-width="4"/>
+  <text x="320" y="610" text-anchor="middle" fill="#F4F1EA" font-family="Arial, sans-serif" font-size="46" font-weight="700">MROZOVERSUM</text>
+  <text x="320" y="656" text-anchor="middle" fill="#F4F1EA" fill-opacity="0.6" font-family="Arial, sans-serif" font-size="22" letter-spacing="5">DOSSIER</text>
+  <path d="M106 772H534" stroke="#F4F1EA" stroke-opacity="0.22" stroke-width="2"/>
+  <path d="M106 810H534" stroke="#F4F1EA" stroke-opacity="0.14" stroke-width="2"/>
+</svg>
