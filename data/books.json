@@ -3,11 +3,33 @@
     "id": "kasacja",
     "title": "Kasacja",
     "series": "Chylka",
-    "cover": "/covers/mrozoversum-cover.svg",
+    "cover": "/covers/kasacja-seria-z-joanna-chylka-tom-1-b-iext202568433.jpg.avif",
     "description": "Strefa 1. Pierwsze pojawienie się Piotra Langera i narodziny głównego antagonisty uniwersum.",
     "certainty": 100,
     "order": 1,
     "timeline": 1,
+    "year": 2015
+  },
+  {
+    "id": "langer-axis-kasacja",
+    "title": "Narodziny antagonisty",
+    "series": "Langer",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Langera.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 1,
+    "year": 2015
+  },
+  {
+    "id": "ekspozycja",
+    "title": "Ekspozycja",
+    "series": "Forst",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Strefa 1. Sprawa morderstw na Giewoncie zaczyna funkcjonować jako ogólnopolskie tło medialne.",
+    "certainty": 100,
+    "order": 1,
+    "timeline": 3,
     "year": 2015
   },
   {
@@ -22,6 +44,17 @@
     "year": 2015
   },
   {
+    "id": "przewieszenie",
+    "title": "Przewieszenie",
+    "series": "Forst",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Strefa 1. Ucieczka Forsta staje się głośna w całym kraju.",
+    "certainty": 100,
+    "order": 2,
+    "timeline": 4,
+    "year": 2016
+  },
+  {
     "id": "rewizja",
     "title": "Rewizja",
     "series": "Chylka",
@@ -29,7 +62,7 @@
     "description": "Strefa 1. Warszawska oś wraca na pierwszy plan po medialnym tle spraw z Podhala.",
     "certainty": 100,
     "order": 3,
-    "timeline": 3,
+    "timeline": 5,
     "year": 2016
   },
   {
@@ -40,7 +73,18 @@
     "description": "Strefa 2. Pierwszy fizyczny węzeł z Forstem: Chyłka dostaje prośbę o pomoc dla osadzonego komisarza.",
     "certainty": 100,
     "order": 4,
-    "timeline": 4,
+    "timeline": 6,
+    "year": 2016
+  },
+  {
+    "id": "trawers",
+    "title": "Trawers",
+    "series": "Forst",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Strefa 2. Ta sama scena co w Immunitecie, widziana z perspektywy celi w Krasnymstawie.",
+    "certainty": 100,
+    "order": 3,
+    "timeline": 8,
     "year": 2016
   },
   {
@@ -48,10 +92,21 @@
     "title": "Inwigilacja",
     "series": "Chylka",
     "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 3. Warszawska oś biegnie równolegle z ucieczką Forsta i śledzeniem zakopiańskich układów.",
+    "description": "Strefa 3. Warszawska oś biegnie równolegle z ucieczką Forsta.",
     "certainty": 100,
     "order": 5,
-    "timeline": 5,
+    "timeline": 7,
+    "year": 2017
+  },
+  {
+    "id": "deniwelacja",
+    "title": "Deniwelacja",
+    "series": "Forst",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Strefa 3. Forst ucieka, a zakopiańska policja bada jego przeszłość.",
+    "certainty": 100,
+    "order": 4,
+    "timeline": 10,
     "year": 2017
   },
   {
@@ -62,8 +117,19 @@
     "description": "Strefa 3. Kolejne afery polityczno-prawne w Warszawie narastają równolegle do wydarzeń na Podhalu.",
     "certainty": 100,
     "order": 6,
-    "timeline": 6,
+    "timeline": 9,
     "year": 2017
+  },
+  {
+    "id": "zerwa",
+    "title": "Zerwa",
+    "series": "Forst",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Strefa 3. Górska oś biegnie nad Oskarżeniem.",
+    "certainty": 100,
+    "order": 5,
+    "timeline": 12,
+    "year": 2018
   },
   {
     "id": "testament",
@@ -73,7 +139,7 @@
     "description": "Strefa 3. Środkowy odcinek osi Chyłki po pierwszym przecięciu z Forstem.",
     "certainty": 100,
     "order": 7,
-    "timeline": 7,
+    "timeline": 11,
     "year": 2018
   },
   {
@@ -84,7 +150,7 @@
     "description": "Strefa 3. Warszawska część uniwersum stabilizuje własną oś po wydarzeniach z Testamentu.",
     "certainty": 100,
     "order": 8,
-    "timeline": 8,
+    "timeline": 13,
     "year": 2018
   },
   {
@@ -95,7 +161,7 @@
     "description": "Strefa 3. Kolejny punkt osi Chyłki przed ponownym zagęszczeniem spraw na Podhalu.",
     "certainty": 100,
     "order": 9,
-    "timeline": 9,
+    "timeline": 16,
     "year": 2019
   },
   {
@@ -103,11 +169,22 @@
     "title": "Wyrok",
     "series": "Chylka",
     "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 3. Punkt odniesienia dla wydarzeń Forsta z Halnego, gdy Kormak głębiej prześwietla zakopiańskie układy.",
+    "description": "Strefa 3. Punkt odniesienia dla wydarzeń Forsta z Halnego.",
     "certainty": 100,
     "order": 10,
-    "timeline": 10,
+    "timeline": 17,
     "year": 2019
+  },
+  {
+    "id": "halny",
+    "title": "Halny",
+    "series": "Forst",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Strefa 3. Sytuacja na Podhalu znów gęstnieje.",
+    "certainty": 100,
+    "order": 6,
+    "timeline": 14,
+    "year": 2020
   },
   {
     "id": "ekstradycja",
@@ -117,7 +194,7 @@
     "description": "Strefa 3. Drugi punkt odniesienia dla zagęszczającej się sytuacji na Podhalu w czasie Halnego.",
     "certainty": 100,
     "order": 11,
-    "timeline": 11,
+    "timeline": 18,
     "year": 2020
   },
   {
@@ -128,150 +205,7 @@
     "description": "Strefa 3. Napięcie w Tatrach buduje bezpośredni wstęp pod ponowne spotkanie bohaterów.",
     "certainty": 100,
     "order": 12,
-    "timeline": 12,
-    "year": 2020
-  },
-  {
-    "id": "afekt",
-    "title": "Afekt",
-    "series": "Chylka",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 4. Drugi fizyczny węzeł: Chyłka jedzie w Tatry, a komisarz Forst pojawia się w jej osi.",
-    "certainty": 100,
-    "order": 13,
-    "timeline": 13,
-    "year": 2021
-  },
-  {
-    "id": "egzekucja",
-    "title": "Egzekucja",
-    "series": "Chylka",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 5. Bieg równoległy Chyłki, Forsta i Langerverse po tatrzańskim crossoverze.",
-    "certainty": 100,
-    "order": 14,
-    "timeline": 14,
-    "year": 2021
-  },
-  {
-    "id": "skazanie",
-    "title": "Skazanie",
-    "series": "Chylka",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 5. Warszawska oś osobistych i zawodowych dramatów Chyłki i Zordona.",
-    "certainty": 100,
-    "order": 15,
-    "timeline": 15,
-    "year": 2022
-  },
-  {
-    "id": "werdykt",
-    "title": "Werdykt",
-    "series": "Chylka",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 5. Punkt równoległy wobec startu Langerverse i dalszego biegu spraw Chyłki.",
-    "certainty": 100,
-    "order": 16,
-    "timeline": 16,
-    "year": 2022
-  },
-  {
-    "id": "zarzut",
-    "title": "Zarzut",
-    "series": "Chylka",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 5. Oś Chyłki wchodzi w lata, w których działania Langera i prokuratury nabierają bezpośredniego znaczenia.",
-    "certainty": 100,
-    "order": 17,
-    "timeline": 17,
-    "year": 2023
-  },
-  {
-    "id": "obrona",
-    "title": "Obrona",
-    "series": "Chylka",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 5. Bezpośredni poprzednik finałowego rozbicia i ostatnich decyzji Chyłki.",
-    "certainty": 100,
-    "order": 18,
-    "timeline": 18,
-    "year": 2024
-  },
-  {
-    "id": "substytucja",
-    "title": "Substytucja",
-    "series": "Chylka",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 6. Ostatni tom dedykowany Chyłce. Zapadają kluczowe decyzje i sojusze, w tym zgoda na obronę Piotra Langera przed procesem stulecia.",
-    "certainty": 100,
-    "order": 19,
     "timeline": 19,
-    "year": 2026
-  },
-  {
-    "id": "ekspozycja",
-    "title": "Ekspozycja",
-    "series": "Forst",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 1. Sprawa morderstw na Giewoncie zaczyna funkcjonować jako ogólnopolskie tło medialne.",
-    "certainty": 100,
-    "order": 1,
-    "timeline": 2.35,
-    "year": 2015
-  },
-  {
-    "id": "przewieszenie",
-    "title": "Przewieszenie",
-    "series": "Forst",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 1. Ucieczka Forsta staje się głośna w całym kraju, a Kormak śledzi doniesienia w tle warszawskich wydarzeń.",
-    "certainty": 100,
-    "order": 2,
-    "timeline": 2.7,
-    "year": 2016
-  },
-  {
-    "id": "trawers",
-    "title": "Trawers",
-    "series": "Forst",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 2. Ta sama scena co w Immunitecie, widziana z perspektywy celi w Krasnymstawie. Chyłka osobiście wkracza jako obrońca Forsta.",
-    "certainty": 100,
-    "order": 3,
-    "timeline": 4,
-    "year": 2016
-  },
-  {
-    "id": "deniwelacja",
-    "title": "Deniwelacja",
-    "series": "Forst",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 3. Forst ucieka, a zakopiańska policja bada jego przeszłość równolegle do afer polityczno-prawnych w Warszawie.",
-    "certainty": 100,
-    "order": 4,
-    "timeline": 5,
-    "year": 2017
-  },
-  {
-    "id": "zerwa",
-    "title": "Zerwa",
-    "series": "Forst",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 3. Górska oś biegnie nad Oskarżeniem, gdy działania Langera destabilizują struktury prokuratury.",
-    "certainty": 100,
-    "order": 5,
-    "timeline": 6,
-    "year": 2018
-  },
-  {
-    "id": "halny",
-    "title": "Halny",
-    "series": "Forst",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 3. Sytuacja na Podhalu znów gęstnieje, a Kormak głębiej prześwietla zakopiańskie układy informatycznie.",
-    "certainty": 100,
-    "order": 6,
-    "timeline": 10.5,
     "year": 2020
   },
   {
@@ -282,7 +216,18 @@
     "description": "Strefa 3. Napięcie w Tatrach sięga zenitu, budując bezpośredni wstęp pod ponowne spotkanie bohaterów.",
     "certainty": 100,
     "order": 7,
-    "timeline": 12,
+    "timeline": 15,
+    "year": 2021
+  },
+  {
+    "id": "afekt",
+    "title": "Afekt",
+    "series": "Chylka",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Strefa 4. Drugi fizyczny węzeł: Chyłka jedzie w Tatry, a komisarz Forst pojawia się w jej osi.",
+    "certainty": 100,
+    "order": 13,
+    "timeline": 20,
     "year": 2021
   },
   {
@@ -290,10 +235,32 @@
     "title": "Widmo Brockenu",
     "series": "Forst",
     "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 4. Pełnoprawne wspólne śledztwo Chyłki i Forsta na Podhalu. Ich losy zostają splecione na stałe.",
+    "description": "Strefa 4. Pełnoprawne wspólne śledztwo Chyłki i Forsta na Podhalu.",
     "certainty": 100,
     "order": 8,
-    "timeline": 13.25,
+    "timeline": 25,
+    "year": 2022
+  },
+  {
+    "id": "egzekucja",
+    "title": "Egzekucja",
+    "series": "Chylka",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Strefa 5. Bieg równoległy Chyłki, Forsta i Langerverse po tatrzańskim crossoverze.",
+    "certainty": 100,
+    "order": 14,
+    "timeline": 21,
+    "year": 2021
+  },
+  {
+    "id": "skazanie",
+    "title": "Skazanie",
+    "series": "Chylka",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Strefa 5. Warszawska oś osobistych i zawodowych dramatów Chyłki i Zordona.",
+    "certainty": 100,
+    "order": 15,
+    "timeline": 22,
     "year": 2022
   },
   {
@@ -304,40 +271,40 @@
     "description": "Strefa 5. Górska oś rozciąga się nad Egzekucją i Skazaniem, równolegle do narastającego Langerverse.",
     "certainty": 100,
     "order": 9,
-    "timeline": 14.7,
+    "timeline": 26,
     "year": 2023
-  },
-  {
-    "id": "kasprowy",
-    "title": "Kasprowy",
-    "series": "Forst",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 5. Przedostatni tom górskich przygód komisarza, ustawiony nad Zarzutem i Obroną.",
-    "certainty": 100,
-    "order": 10,
-    "timeline": 17.5,
-    "year": 2025
-  },
-  {
-    "id": "urwisko",
-    "title": "Urwisko",
-    "series": "Forst",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 6. Wielki finał górnej osi. Dzieje się w tym samym czasie co proces w Arachnii, gdy Forst toczy ostateczną walkę o przetrwanie w Tatrach.",
-    "certainty": 100,
-    "order": 11,
-    "timeline": 20,
-    "year": 2026
   },
   {
     "id": "langer",
     "title": "Langer",
     "series": "Langer",
     "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Strefa 5. Odsłania mroczną przeszłość i zakulisową teraźniejszość Piotra Langera, rozgrywając się równolegle do dramatów Chyłki i Zordona.",
+    "description": "Strefa 5. Odsłania mroczną przeszłość i zakulisową teraźniejszość Piotra Langera.",
     "certainty": 100,
     "order": 1,
-    "timeline": 15.5,
+    "timeline": 23,
+    "year": 2023
+  },
+  {
+    "id": "werdykt",
+    "title": "Werdykt",
+    "series": "Chylka",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Strefa 5. Punkt równoległy wobec startu Langerverse i dalszego biegu spraw Chyłki.",
+    "certainty": 100,
+    "order": 16,
+    "timeline": 24,
+    "year": 2022
+  },
+  {
+    "id": "zarzut",
+    "title": "Zarzut",
+    "series": "Chylka",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Strefa 5. Oś Chyłki wchodzi w lata, w których działania Langera i prokuratury nabierają bezpośredniego znaczenia.",
+    "certainty": 100,
+    "order": 17,
+    "timeline": 26,
     "year": 2023
   },
   {
@@ -348,7 +315,29 @@
     "description": "Strefa 5. Śledztwo przeciwko Langerowi prowadzą znani z serii o Chyłce prokuratorzy Olgierd Paderborn i Karolina Siarkowska.",
     "certainty": 100,
     "order": 2,
-    "timeline": 17,
+    "timeline": 26,
+    "year": 2024
+  },
+  {
+    "id": "kasprowy",
+    "title": "Kasprowy",
+    "series": "Forst",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Strefa 5. Przedostatni tom górskich przygód komisarza, ustawiony nad Zarzutem i Obroną.",
+    "certainty": 100,
+    "order": 10,
+    "timeline": 27,
+    "year": 2025
+  },
+  {
+    "id": "obrona",
+    "title": "Obrona",
+    "series": "Chylka",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Strefa 5. Bezpośredni poprzednik finałowego rozbicia i ostatnich decyzji Chyłki.",
+    "certainty": 100,
+    "order": 18,
+    "timeline": 27,
     "year": 2024
   },
   {
@@ -359,8 +348,30 @@
     "description": "Strefa 5. Krwawa gra Langera z prokuraturą wchodzi w decydującą fazę.",
     "certainty": 100,
     "order": 3,
-    "timeline": 18,
+    "timeline": 28,
     "year": 2025
+  },
+  {
+    "id": "substytucja",
+    "title": "Substytucja",
+    "series": "Chylka",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Strefa 6. Ostatni tom dedykowany Chyłce. Zapadają kluczowe decyzje i sojusze, w tym zgoda na obronę Piotra Langera przed procesem stulecia.",
+    "certainty": 100,
+    "order": 19,
+    "timeline": 29,
+    "year": 2026
+  },
+  {
+    "id": "urwisko",
+    "title": "Urwisko",
+    "series": "Forst",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Strefa 6. Wielki finał górnej osi. Dzieje się w tym samym czasie co proces w Arachnii, gdy Forst toczy ostateczną walkę o przetrwanie w Tatrach.",
+    "certainty": 100,
+    "order": 11,
+    "timeline": 30,
+    "year": 2026
   },
   {
     "id": "arachnia",
@@ -370,51 +381,7 @@
     "description": "Strefa 6. Właściwy proces Langera. Joanna Chyłka staje naprzeciw prokurator Karoliny Siarkowskiej i walczy o uniewinnienie potwora.",
     "certainty": 100,
     "order": 4,
-    "timeline": 20,
+    "timeline": 30,
     "year": 2026
-  },
-  {
-    "id": "behawiorysta",
-    "title": "Behawiorysta",
-    "series": "Behawiorysta",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Osobny startowy rząd uniwersum dla osi Gerarda Edlinga, gotowy do dalszego mapowania relacji.",
-    "certainty": 90,
-    "order": 1,
-    "timeline": 4.6,
-    "year": 2016
-  },
-  {
-    "id": "iluzjonista",
-    "title": "Iluzjonista",
-    "series": "Behawiorysta",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Drugi punkt startowy serii Edlinga, zostawiony jako osobna grupa do dalszej weryfikacji powiązań.",
-    "certainty": 90,
-    "order": 2,
-    "timeline": 9,
-    "year": 2019
-  },
-  {
-    "id": "listy-zza-swiatow",
-    "title": "Listy zza światów",
-    "series": "Zaorski",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Osobny startowy rząd Seweryna Zaorskiego, przygotowany pod dalsze rozbudowanie mapy.",
-    "certainty": 90,
-    "order": 1,
-    "timeline": 9,
-    "year": 2019
-  },
-  {
-    "id": "glosy-z-zaswiatow",
-    "title": "Głosy z zaświatów",
-    "series": "Zaorski",
-    "cover": "/covers/mrozoversum-cover.svg",
-    "description": "Kontynuacja osi Zaorskiego jako osobna grupa startowa.",
-    "certainty": 90,
-    "order": 2,
-    "timeline": 11,
-    "year": 2020
   }
 ]

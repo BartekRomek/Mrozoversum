@@ -12,7 +12,7 @@ export function BookNode({ data }: NodeProps) {
   return (
     <article
       className={clsx(
-        "group w-[154px] overflow-hidden border bg-[#11131a]/95 shadow-2xl transition duration-200",
+        "group w-[154px] overflow-hidden border bg-[#11131a]/95 shadow-2xl transition duration-200 relative",
         isSelected
           ? "border-rose-400 shadow-rose-950/60"
           : "border-white/10 shadow-black/50",
@@ -26,7 +26,10 @@ export function BookNode({ data }: NodeProps) {
           : `0 18px 48px rgba(0,0,0,.48), 0 0 24px ${seriesColors[book.series]}24`
       }}
     >
-      <Handle type="target" position={Position.Left} />
+      {/* Uchwyty docelowe (przyjmujące strzałki) - z lewej i z góry */}
+      <Handle type="target" position={Position.Left} id="target-left" />
+      <Handle type="target" position={Position.Top} id="target-top" />
+
       <div className="relative h-[214px] bg-[#171923]">
         <img
           src={book.cover}
@@ -66,7 +69,10 @@ export function BookNode({ data }: NodeProps) {
           {book.certainty}%
         </span>
       </div>
-      <Handle type="source" position={Position.Right} />
+
+      {/* Uchwyty źródłowe (wypuszczające strzałki) - z prawej i z dołu */}
+      <Handle type="source" position={Position.Right} id="source-right" />
+      <Handle type="source" position={Position.Bottom} id="source-bottom" />
     </article>
   );
 }
