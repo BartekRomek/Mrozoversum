@@ -5,12 +5,16 @@
     "type": "crossover",
     "certainty": 100,
     "importance": "major",
+    "pathType": "straight",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-top",
+    "characters": ["piotr-langer"],
     "note": "Joanna Chyłka podejmuje się obrony Piotra Langera Juniora, oskarżonego o brutalne podwójne morderstwo. Ta sprawa na zawsze splata ich losy, a z pozoru zwykły, bogaty klient okazuje się genialnym psychopatą, który od tego momentu stanie się największym koszmarem w karierze i życiu osobistym duetu Chyłka-Zordon."
   },
   {
     "source": "werdykt",
     "target": "widmo-brockenu",
-    "type": "crossover",
+    "type": "kontynuacja",
     "certainty": 100,
     "importance": "major",
     "note": "Chyłka jedzie w Tatry, Forst pojawia się w Afekcie, a w Widmie Brockenu oboje prowadzą pełnoprawne wspólne śledztwo."
@@ -21,6 +25,9 @@
     "type": "wzmianka",
     "certainty": 100,
     "importance": "finale",
+    "pathType": "straight",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-top",
     "note": "Urwisko i Arachnia dzieją się w tym samym czasie: w Warszawie ważą się losy Langera, a na Podhalu Forst walczy o przetrwanie."
   }
 ]

@@ -14,8 +14,9 @@ import {
   type EdgeMouseHandler,
   type NodeMouseHandler
 } from "@xyflow/react";
-import { BookMarked, GitBranch, Network } from "lucide-react";
+import { BookMarked, GitBranch, Network, X } from "lucide-react";
 import { BookNode } from "@/components/BookNode";
+import { CharacterCard } from "@/components/CharacterCard"; // Dodaj import
 import { BookDetailsPanel } from "@/components/BookDetailsPanel";
 import { FilterBar } from "@/components/FilterBar";
 import {
@@ -24,19 +25,19 @@ import {
   seriesLabels,
   seriesOrder
 } from "@/lib/catalog";
-import type { Book, BookConnection, BookNodeData, RelationType, SeriesId } from "@/lib/types";
+import type { Book, BookConnection, BookNodeData, RelationType, SeriesId, Character } from "@/lib/types";
 
 type MrozoversumMapProps = {
   books: Book[];
   connections: BookConnection[];
+  characters?: Character[]; // Dodane
 };
 
-// Nowy, niewidzialny węzeł na osi
 function AxisPointNode() {
   return (
     <div className="w-3 h-3 rounded-full bg-rose-500 shadow-[0_0_12px_rgba(225,29,72,0.9)] transform -translate-x-1/2 -translate-y-1/2">
-      <Handle type="target" position={Position.Top} className="opacity-0" />
-      <Handle type="source" position={Position.Bottom} className="opacity-0" />
+      <Handle type="target" position={Position.Top} id="target-top" className="opacity-0" />
+      <Handle type="source" position={Position.Bottom} id="source-bottom" className="opacity-0" />
     </div>
   );
 }
@@ -55,7 +56,7 @@ const rowY: Record<SeriesId, number> = {
 };
 
 const relationDash: Record<RelationType, string | undefined> = {
-  cameo: "8 7",
+  kontynuacja: "6 6", 
   wzmianka: "3 7",
   crossover: undefined
 };
@@ -79,21 +80,22 @@ function TimelineLines() {
   );
 }
 
-export function MrozoversumMap({ books, connections }: MrozoversumMapProps) {
+export function MrozoversumMap({ books, connections, characters = [] }: MrozoversumMapProps) {
   const [query, setQuery] = useState("");
   const [selectedSeries, setSelectedSeries] = useState<SeriesId[]>(seriesOrder);
+  
   const [selectedRelations, setSelectedRelations] = useState<RelationType[]>([
-    "cameo",
+    "kontynuacja",
     "wzmianka",
     "crossover"
   ]);
+  
   const [selectedBookId, setSelectedBookId] = useState<string | null>("kasacja");
   const [selectedConnectionId, setSelectedConnectionId] = useState<string | null>(null);
   const [coverOverrides, setCoverOverrides] = useState<Record<string, string>>({});
 
   useEffect(() => {
     const storedCovers = window.localStorage.getItem("mrozoversum-cover-overrides");
-
     if (storedCovers) {
       setCoverOverrides(JSON.parse(storedCovers) as Record<string, string>);
     }
@@ -143,22 +145,13 @@ export function MrozoversumMap({ books, connections }: MrozoversumMapProps) {
   );
 
   const connectedToSelected = useMemo(() => {
-    if (!selectedBookId) {
-      return new Set<string>();
-    }
+    if (!selectedBookId) return new Set<string>();
 
     const related = new Set<string>([selectedBookId]);
-
     for (const connection of connections) {
-      if (connection.source === selectedBookId) {
-        related.add(connection.target);
-      }
-
-      if (connection.target === selectedBookId) {
-        related.add(connection.source);
-      }
+      if (connection.source === selectedBookId) related.add(connection.target);
+      if (connection.target === selectedBookId) related.add(connection.source);
     }
-
     return related;
   }, [connections, selectedBookId]);
 
@@ -174,20 +167,15 @@ export function MrozoversumMap({ books, connections }: MrozoversumMapProps) {
     const xPositions = new Map<string, number>();
 
     for (const [series, seriesBooks] of groupedBySeries) {
-      const seriesIndex = seriesOrder.indexOf(series);
       let lastX = Number.NEGATIVE_INFINITY;
 
       for (const book of [...seriesBooks].sort((left, right) => {
         const leftTimeline = left.timeline ?? left.order;
         const rightTimeline = right.timeline ?? right.order;
-
         return leftTimeline - rightTimeline;
       })) {
         const timelineSlot = book.timeline ?? book.order;
-        const baseX =
-          series === "Chylka"
-            ? (timelineSlot - 1) * 245
-            : (timelineSlot - 1) * 245 + seriesIndex * 18;
+        const baseX = (timelineSlot - 1) * 245;
         const x = Math.max(baseX, lastX + 188);
 
         xPositions.set(book.id, x);
@@ -199,12 +187,21 @@ export function MrozoversumMap({ books, connections }: MrozoversumMapProps) {
       .filter((book) => filteredBookIds.has(book.id))
       .map((book) => {
         const isAxis = book.id.includes("axis");
+        
+        let finalX = xPositions.get(book.id) ?? 0;
+        
+        if (isAxis) {
+          const parentBookId = book.id.split("-axis-")[1];
+          const parentX = parentBookId ? (xPositions.get(parentBookId) ?? 0) : finalX;
+          
+          finalX = parentX + 77; 
+        }
 
         return {
           id: book.id,
           type: isAxis ? "axisPoint" : "book",
           position: {
-            x: (xPositions.get(book.id) ?? 0) + (isAxis ? 120 : 0),
+            x: finalX,
             y: rowY[book.series] + (isAxis ? 150 : 0)
           },
           data: {
@@ -221,42 +218,44 @@ export function MrozoversumMap({ books, connections }: MrozoversumMapProps) {
       const id = `${connection.source}-${connection.target}-${connection.type}`;
 
       return {
-      id,
-      source: connection.source,
-      target: connection.target,
-      type: "smoothstep",
-      animated: connection.type === "crossover",
-      label: `${connection.type} ${connection.certainty}%`,
-      labelStyle: {
-        fill: "#f4f1ea",
-        fontSize: 11,
-        fontWeight: 600
-      },
-      labelBgPadding: [7, 4],
-      labelBgBorderRadius: 6,
-      labelBgStyle: {
-        fill:
-          selectedConnectionId === id
-            ? "rgba(225, 29, 72, 0.95)"
-            : "rgba(9, 10, 15, 0.9)",
-        stroke: "rgba(255, 255, 255, 0.16)"
-      },
-      style: {
-        stroke: relationColors[connection.type],
-        strokeWidth:
-          connection.importance === "finale"
-            ? 5
-            : connection.importance === "major" || connection.type === "crossover"
-              ? 3
-              : 2,
-        strokeDasharray: relationDash[connection.type],
-        opacity:
-          selectedBookId &&
-          connection.source !== selectedBookId &&
-          connection.target !== selectedBookId
-            ? 0.18
-            : 0.92
-      }
+        id,
+        source: connection.source,
+        target: connection.target,
+        sourceHandle: connection.sourceHandle, 
+        targetHandle: connection.targetHandle, 
+        type: connection.pathType || "smoothstep",
+        animated: connection.type === "crossover",
+        label: `${connection.type} ${connection.certainty}%`,
+        labelStyle: {
+          fill: "#f4f1ea",
+          fontSize: 11,
+          fontWeight: 600
+        },
+        labelBgPadding: [7, 4],
+        labelBgBorderRadius: 6,
+        labelBgStyle: {
+          fill:
+            selectedConnectionId === id
+              ? "rgba(225, 29, 72, 0.95)"
+              : "rgba(9, 10, 15, 0.9)",
+          stroke: "rgba(255, 255, 255, 0.16)"
+        },
+        style: {
+          stroke: relationColors[connection.type],
+          strokeWidth:
+            connection.importance === "finale"
+              ? 5
+              : connection.importance === "major" || connection.type === "crossover" || connection.type === "kontynuacja"
+                ? 3
+                : 2,
+          strokeDasharray: relationDash[connection.type],
+          opacity:
+            selectedBookId &&
+            connection.source !== selectedBookId &&
+            connection.target !== selectedBookId
+              ? 0.18
+              : 0.92
+        }
       };
     });
   }, [selectedBookId, selectedConnectionId, visibleConnections]);
@@ -271,15 +270,14 @@ export function MrozoversumMap({ books, connections }: MrozoversumMapProps) {
     : null;
 
   const onNodeClick: NodeMouseHandler = useCallback((_, node) => {
-    // Nie otwieraj panelu bocznego, jeśli kliknięto w kropkę na osi
     if (node.id.includes("axis")) return; 
-    
     setSelectedBookId(node.id);
     setSelectedConnectionId(null);
   }, []);
 
   const onEdgeClick: EdgeMouseHandler = useCallback((_, edge) => {
     setSelectedConnectionId(edge.id);
+    setSelectedBookId(null);
   }, []);
 
   const toggleSeries = (series: SeriesId) => {
@@ -301,7 +299,7 @@ export function MrozoversumMap({ books, connections }: MrozoversumMapProps) {
   const resetFilters = () => {
     setQuery("");
     setSelectedSeries(seriesOrder);
-    setSelectedRelations(["cameo", "wzmianka", "crossover"]);
+    setSelectedRelations(["kontynuacja", "wzmianka", "crossover"]);
   };
 
   const updateBookCover = (bookId: string, cover: string) => {
@@ -389,39 +387,66 @@ export function MrozoversumMap({ books, connections }: MrozoversumMapProps) {
         onUpdateCover={updateBookCover}
       />
 
-      <ConnectionDetails
+      {/* Zintegrowany ConnectionDetailsSidebar */}
+      <ConnectionDetailsSidebar
         connection={selectedConnection}
         source={selectedConnection ? bookById.get(selectedConnection.source) ?? null : null}
         target={selectedConnection ? bookById.get(selectedConnection.target) ?? null : null}
+        allCharacters={characters}
         onClose={() => setSelectedConnectionId(null)}
       />
     </div>
   );
 }
 
-function ConnectionDetails({
+function ConnectionDetailsSidebar({
   connection,
   source,
   target,
+  allCharacters,
   onClose
 }: {
   connection: BookConnection | null;
   source: Book | null;
   target: Book | null;
+  allCharacters: Character[];
   onClose: () => void;
 }) {
   if (!connection || !source || !target) return null;
-  const title = connection.type === "crossover" ? "Crossover" : connection.type === "cameo" ? "Cameo" : "Wzmianka";
+  
+  const title = connection.type === "crossover" ? "Crossover" : connection.type === "kontynuacja" ? "Kontynuacja" : "Wzmianka";
+  const involvedCharacters = connection.characters 
+    ? allCharacters.filter(char => connection.characters!.includes(char.id)) 
+    : [];
+
   return (
-    <aside className="fixed bottom-5 left-1/2 z-40 w-[calc(100vw-2rem)] max-w-[560px] -translate-x-1/2 border border-white/12 bg-[#090a0f]/96 p-4 shadow-2xl shadow-black/60 backdrop-blur-xl" style={{ borderRadius: 8 }}>
-      <div className="flex items-start justify-between gap-4">
+    <aside className="fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col border-l border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl">
+      <header className="flex items-center justify-between border-b border-white/10 px-6 py-5">
         <div>
-          <p className="text-xs uppercase tracking-[0.22em] text-white/42">Relacja: {title}</p>
-          <h2 className="mt-1 text-lg font-semibold text-white">{source.title} → {target.title}</h2>
+          <p className="text-xs uppercase tracking-[0.22em] text-rose-400">{title}</p>
+          <h2 className="mt-1 text-lg font-semibold text-white">{target.title} → {source.title}</h2>
         </div>
-        <button type="button" onClick={onClose} className="h-8 border border-white/10 px-3 text-xs text-white/60 transition hover:text-white" style={{ borderRadius: 8 }}>zamknij</button>
+        <button type="button" onClick={onClose} className="text-white/60 hover:text-white">
+          <X size={20} />
+        </button>
+      </header>
+      
+      <div className="flex-1 overflow-y-auto p-6">
+        <p className="text-sm leading-6 text-white/72">{connection.note || "Brak opisu."}</p>
+
+        {involvedCharacters.length > 0 && (
+          <div className="mt-8">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
+              Powiązane postacie ({involvedCharacters.length})
+            </h3>
+            <div className="grid grid-cols-2 gap-4">
+              {involvedCharacters.map(char => (
+                <CharacterCard key={char.id} character={char} />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
-      <p className="mt-3 text-sm leading-6 text-white/72">{connection.note || "Brak opisu."}</p>
     </aside>
   );
 }

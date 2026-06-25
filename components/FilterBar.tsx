@@ -20,7 +20,8 @@ type FilterBarProps = {
   onReset: () => void;
 };
 
-const relationTypes: RelationType[] = ["cameo", "wzmianka", "crossover"];
+// TUTAJ ZMIANA: usunięto cameo, dodano kontynuacja
+const relationTypes: RelationType[] = ["kontynuacja", "wzmianka", "crossover"];
 
 export function FilterBar({
   query,
