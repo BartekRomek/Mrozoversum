@@ -16,7 +16,6 @@ import {
 } from "@xyflow/react";
 import { BookMarked, GitBranch, Network, X } from "lucide-react";
 import { BookNode } from "@/components/BookNode";
-import { CharacterCard } from "@/components/CharacterCard"; // Dodaj import
 import { BookDetailsPanel } from "@/components/BookDetailsPanel";
 import { FilterBar } from "@/components/FilterBar";
 import {
@@ -27,10 +26,11 @@ import {
 } from "@/lib/catalog";
 import type { Book, BookConnection, BookNodeData, RelationType, SeriesId, Character } from "@/lib/types";
 
+// TUTAJ ZMIANA: Dodano opcjonalne pobieranie postaci
 type MrozoversumMapProps = {
   books: Book[];
   connections: BookConnection[];
-  characters?: Character[]; // Dodane
+  characters?: Character[]; 
 };
 
 function AxisPointNode() {
@@ -193,7 +193,6 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
         if (isAxis) {
           const parentBookId = book.id.split("-axis-")[1];
           const parentX = parentBookId ? (xPositions.get(parentBookId) ?? 0) : finalX;
-          
           finalX = parentX + 77; 
         }
 
@@ -277,7 +276,7 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
 
   const onEdgeClick: EdgeMouseHandler = useCallback((_, edge) => {
     setSelectedConnectionId(edge.id);
-    setSelectedBookId(null);
+    setSelectedBookId(null); // Opcjonalne: zamyka panel książki, gdy otwierasz panel relacji
   }, []);
 
   const toggleSeries = (series: SeriesId) => {
@@ -378,6 +377,7 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
         </ReactFlow>
       </section>
 
+      {/* Panele boczne */}
       <BookDetailsPanel
         book={selectedBook}
         books={displayBooks}
@@ -387,7 +387,6 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
         onUpdateCover={updateBookCover}
       />
 
-      {/* Zintegrowany ConnectionDetailsSidebar */}
       <ConnectionDetailsSidebar
         connection={selectedConnection}
         source={selectedConnection ? bookById.get(selectedConnection.source) ?? null : null}
@@ -399,6 +398,7 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
   );
 }
 
+// TUTAJ ZMIANA: Zmieniliśmy komponent na pełny pasek boczny
 function ConnectionDetailsSidebar({
   connection,
   source,
@@ -415,33 +415,55 @@ function ConnectionDetailsSidebar({
   if (!connection || !source || !target) return null;
   
   const title = connection.type === "crossover" ? "Crossover" : connection.type === "kontynuacja" ? "Kontynuacja" : "Wzmianka";
+  
+  // Filtrowanie postaci powiązanych z tym crossoverem
   const involvedCharacters = connection.characters 
     ? allCharacters.filter(char => connection.characters!.includes(char.id)) 
     : [];
 
   return (
-    <aside className="fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col border-l border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl">
+    <aside className="fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col border-l border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl transition-transform sm:w-[480px]">
       <header className="flex items-center justify-between border-b border-white/10 px-6 py-5">
         <div>
           <p className="text-xs uppercase tracking-[0.22em] text-rose-400">{title}</p>
-          <h2 className="mt-1 text-lg font-semibold text-white">{target.title} → {source.title}</h2>
+          <h2 className="mt-1 text-xl font-semibold text-white">{target.title} → {source.title}</h2>
         </div>
-        <button type="button" onClick={onClose} className="text-white/60 hover:text-white">
+        <button 
+          type="button" 
+          onClick={onClose} 
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/60 transition hover:bg-white/10 hover:text-white"
+        >
           <X size={20} />
         </button>
       </header>
       
       <div className="flex-1 overflow-y-auto p-6">
-        <p className="text-sm leading-6 text-white/72">{connection.note || "Brak opisu."}</p>
+        <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4 text-sm leading-6 text-white/80">
+          {connection.note || "Brak szczegółowego opisu dla tego powiązania."}
+        </div>
 
+        {/* Sekcja Kart Postaci */}
         {involvedCharacters.length > 0 && (
           <div className="mt-8">
             <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
               Powiązane postacie ({involvedCharacters.length})
             </h3>
-            <div className="grid grid-cols-2 gap-4">
+            
+            <div className="flex flex-col gap-3">
               {involvedCharacters.map(char => (
-                <CharacterCard key={char.id} character={char} />
+                <div key={char.id} className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-3 transition hover:bg-white/[0.06]">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#11131a] border border-white/10">
+                    {char.avatar ? (
+                      <img src={char.avatar} alt={char.name} className="h-full w-full object-cover" />
+                    ) : (
+                      <span className="text-lg font-bold text-white/30">{char.name.charAt(0)}</span>
+                    )}
+                  </div>
+                  <div>
+                    <h4 className="text-[15px] font-semibold text-white">{char.name}</h4>
+                    {char.role && <p className="mt-0.5 text-xs text-white/50">{char.role}</p>}
+                  </div>
+                </div>
               ))}
             </div>
           </div>
