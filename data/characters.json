@@ -1,0 +1,14 @@
+[
+  {
+    "id": "joanna-chylka",
+    "name": "Joanna Chyłka",
+    "isProtagonist": true,
+    "description": "Prawniczka, główna bohaterka serii."
+  },
+  {
+    "id": "piotr-langer",
+    "name": "Piotr Langer",
+    "isProtagonist": false,
+    "description": "Antagonista, syn Piotra Langera seniora."
+  }
+]
