@@ -414,23 +414,18 @@ function ConnectionDetailsSidebar({
   if (!connection || !source || !target) return null;
   
   const title = connection.type === "crossover" ? "Crossover" : connection.type === "kontynuacja" ? "Kontynuacja" : "Wzmianka";
-  
   const involvedCharacters = connection.characters 
     ? allCharacters.filter(char => connection.characters!.includes(char.id)) 
     : [];
 
   return (
-    <aside className="fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col border-l border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl transition-transform sm:w-[480px]">
+    <aside className="fixed inset-y-0 right-0 z-50 flex w-1/2 min-w-[520px] max-w-[960px] flex-col border-l border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl transition-transform">
       <header className="flex items-center justify-between border-b border-white/10 px-6 py-5">
         <div>
           <p className="text-xs uppercase tracking-[0.22em] text-rose-400">{title}</p>
           <h2 className="mt-1 text-xl font-semibold text-white">{target.title} → {source.title}</h2>
         </div>
-        <button 
-          type="button" 
-          onClick={onClose} 
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/60 transition hover:bg-white/10 hover:text-white"
-        >
+        <button type="button" onClick={onClose} className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/60 transition hover:bg-white/10 hover:text-white">
           <X size={20} />
         </button>
       </header>
@@ -440,14 +435,13 @@ function ConnectionDetailsSidebar({
           {connection.note || "Brak szczegółowego opisu dla tego powiązania."}
         </div>
 
-        {/* Sekcja Kart Postaci */}
         {involvedCharacters.length > 0 && (
           <div className="mt-8">
             <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
               Powiązane postacie ({involvedCharacters.length})
             </h3>
             
-            <div className="flex flex-col gap-3">
+            <div className="grid grid-cols-3 gap-4">
               {involvedCharacters.map(char => (
                 <CharacterCard key={char.id} character={char} />
               ))}

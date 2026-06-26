@@ -11,6 +11,7 @@
   {
     "id": "kordian-orynski",
     "name": "Kordian Oryński",
+    "pseudonym": "ZORDON",
     "role": "Prawnik",
     "series": "Chylka",
     "debut": "Kasacja",
@@ -34,5 +35,41 @@
     "debut": "Ekspozycja",
     "description": "Komisarz policji w Zakopane, główny bohater serii.",
     "avatar": "avatars/Forst.png"
-  }
+  },
+  {
+    "id": "piotr-langer-senior",
+    "name": "Piotr Langer Senior",
+    "role": "Biznesmen",
+    "series": "Chylka",
+    "debut": "Kasacja",
+    "description": "Biznesmen, ojciec Piotra Langera juniora, znany z mrocznego charakteru",
+    "avatar": "avatars/Langer-Senior.png"
+  },
+  {
+    "id": "artur-zelazny",
+    "name": "Artur Żelazny",
+    "role": "Imeinny partner kancelarii",
+    "series": "Chylka",
+    "debut": "Kasacja",
+    "description": "Współpracownik Joanny Chyłki i Kordiana Oryńskiego, prawnik.",
+    "avatar": "avatars/zelazny.png"
+  },
+  {
+    "id": "hary-mcvay",
+    "name": "Hary McVay",
+    "role": "Imeinny partner kancelarii",
+    "series": "Chylka",
+    "debut": "Kasacja",
+    "description": "Współpracownik Joanny Chyłki i Kordiana Oryńskiego, prawnik.",
+    "avatar": "avatars/mcvay.png"
+  },
+  {
+    "id": "kormak",
+    "name": "Kormak",
+    "role": "Specjalista do spraw informacji",
+    "series": "Chylka",
+    "debut": "Kasacja",
+    "description": "Współpracownik Joanny Chyłki i Kordiana Oryńskiego, prawnik.",
+    "avatar": "avatars/kormak.png"
+  } 
 ]

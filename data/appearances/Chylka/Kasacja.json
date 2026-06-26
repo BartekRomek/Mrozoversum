@@ -1,0 +1,8 @@
+[
+  { "characterId": "joanna-chylka", "isFirstAppearance": true, "role": "main" },
+  { "characterId": "kordian-orynski", "isFirstAppearance": true, "role": "main" },
+  { "characterId": "piotr-langer", "isFirstAppearance": true, "role": "antagonist" },
+  { "characterId": "piotr-langer-senior", "isFirstAppearance": true, "role": "supporting" },
+  { "characterId": "artur-zelazny", "isFirstAppearance": true, "role": "supporting" },
+  { "characterId": "hary-mcvay", "isFirstAppearance": true, "role": "supporting" }
+]

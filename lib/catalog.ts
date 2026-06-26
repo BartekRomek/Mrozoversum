@@ -14,7 +14,7 @@ export const seriesOrder: SeriesId[] = [
 
 export const seriesColors: Record<SeriesId, string> = {
   Chylka: "#ff7300",
-  Forst: "#38bdf8",
+  Forst: "#66d5fd",
   Langer: "#ff0000",
 };
 
