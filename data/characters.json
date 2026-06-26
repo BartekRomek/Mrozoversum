@@ -2,13 +2,28 @@
   {
     "id": "joanna-chylka",
     "name": "Joanna Chyłka",
-    "isProtagonist": true,
-    "description": "Prawniczka, główna bohaterka serii."
+    "role": "Prawniczka",
+    "series": "Chylka",
+    "debut": "Kasacja",
+    "description": "Prawniczka, główna bohaterka serii.",
+    "avatar": "avatars/Chylka.png"
+  },
+  {
+    "id": "kordzian-orynski",
+    "name": "Kordzian Oryński",
+    "role": "Prawnik",
+    "series": "Chylka",
+    "debut": "Kasacja",
+    "description": "Prawnik, główny bohaterky serii.",
+    "avatar": "avatars/Kordzian-Oryński.png"
   },
   {
     "id": "piotr-langer",
     "name": "Piotr Langer",
-    "isProtagonist": false,
-    "description": "Antagonista, syn Piotra Langera seniora."
+    "role": "Antagonista",
+    "series": "Langer",
+    "debut": "Kasacja",
+    "description": "Antagonista, syn Piotra Langera seniora.",
+    "avatar": "avatars/Langer.png"
   }
 ]

@@ -18,6 +18,7 @@ import { BookMarked, GitBranch, Network, X } from "lucide-react";
 import { BookNode } from "@/components/BookNode";
 import { BookDetailsPanel } from "@/components/BookDetailsPanel";
 import { FilterBar } from "@/components/FilterBar";
+import { CharacterCard } from "@/components/CharacterCard";
 import {
   relationColors,
   seriesColors,
@@ -26,7 +27,6 @@ import {
 } from "@/lib/catalog";
 import type { Book, BookConnection, BookNodeData, RelationType, SeriesId, Character } from "@/lib/types";
 
-// TUTAJ ZMIANA: Dodano opcjonalne pobieranie postaci
 type MrozoversumMapProps = {
   books: Book[];
   connections: BookConnection[];
@@ -276,7 +276,7 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
 
   const onEdgeClick: EdgeMouseHandler = useCallback((_, edge) => {
     setSelectedConnectionId(edge.id);
-    setSelectedBookId(null); // Opcjonalne: zamyka panel książki, gdy otwierasz panel relacji
+    setSelectedBookId(null); 
   }, []);
 
   const toggleSeries = (series: SeriesId) => {
@@ -398,7 +398,6 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
   );
 }
 
-// TUTAJ ZMIANA: Zmieniliśmy komponent na pełny pasek boczny
 function ConnectionDetailsSidebar({
   connection,
   source,
@@ -416,7 +415,6 @@ function ConnectionDetailsSidebar({
   
   const title = connection.type === "crossover" ? "Crossover" : connection.type === "kontynuacja" ? "Kontynuacja" : "Wzmianka";
   
-  // Filtrowanie postaci powiązanych z tym crossoverem
   const involvedCharacters = connection.characters 
     ? allCharacters.filter(char => connection.characters!.includes(char.id)) 
     : [];
@@ -451,19 +449,7 @@ function ConnectionDetailsSidebar({
             
             <div className="flex flex-col gap-3">
               {involvedCharacters.map(char => (
-                <div key={char.id} className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-3 transition hover:bg-white/[0.06]">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#11131a] border border-white/10">
-                    {char.avatar ? (
-                      <img src={char.avatar} alt={char.name} className="h-full w-full object-cover" />
-                    ) : (
-                      <span className="text-lg font-bold text-white/30">{char.name.charAt(0)}</span>
-                    )}
-                  </div>
-                  <div>
-                    <h4 className="text-[15px] font-semibold text-white">{char.name}</h4>
-                    {char.role && <p className="mt-0.5 text-xs text-white/50">{char.role}</p>}
-                  </div>
-                </div>
+                <CharacterCard key={char.id} character={char} />
               ))}
             </div>
           </div>

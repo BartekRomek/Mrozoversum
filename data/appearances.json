@@ -6,6 +6,12 @@
     "role": "main"
   },
   {
+    "characterId": "kordzian-orynski",
+    "bookId": "kasacja",
+    "isFirstAppearance": true,
+    "role": "main"
+  },
+  {
     "characterId": "piotr-langer",
     "bookId": "kasacja",
     "isFirstAppearance": true,
