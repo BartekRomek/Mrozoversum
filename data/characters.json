@@ -9,8 +9,8 @@
     "avatar": "avatars/Chylka.png"
   },
   {
-    "id": "kordzian-orynski",
-    "name": "Kordzian Oryński",
+    "id": "kordian-orynski",
+    "name": "Kordian Oryński",
     "role": "Prawnik",
     "series": "Chylka",
     "debut": "Kasacja",
@@ -23,7 +23,16 @@
     "role": "Antagonista",
     "series": "Langer",
     "debut": "Kasacja",
-    "description": "Antagonista, syn Piotra Langera seniora.",
+    "description": "Antagonista, syn Piotra Langera seniora, biznesmen i filantrop z mrocznym charakterem",
     "avatar": "avatars/Langer.png"
+  },
+  {
+    "id": "wiktor-forst",
+    "name": "Wiktor Forst",
+    "role": "Komisarz Policji",
+    "series": "Forst",
+    "debut": "Ekspozycja",
+    "description": "Komisarz policji w Zakopane, główny bohater serii.",
+    "avatar": "avatars/Forst.png"
   }
 ]

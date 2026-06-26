@@ -6,7 +6,7 @@
     "role": "main"
   },
   {
-    "characterId": "kordzian-orynski",
+    "characterId": "kordian-orynski",
     "bookId": "kasacja",
     "isFirstAppearance": true,
     "role": "main"
@@ -16,5 +16,11 @@
     "bookId": "kasacja",
     "isFirstAppearance": true,
     "role": "antagonist"
+  },
+  {
+    "characterId": "wiktor-forst",
+    "bookId": "ekspozycja",
+    "isFirstAppearance": true,
+    "role": "Main"
   }
 ]
