@@ -35,7 +35,7 @@ export function CharacterCard({ character }: CharacterCardProps) {
         {character.isNew && (
           <div className="absolute top-4 right-4 z-30 animate-pulse">
             <div className="border border-[#00ff1a] text-[#00ff1a] text-[8px] font-bold uppercase px-2 py-0.5 rounded-md tracking-widest leading-none bg-black/20 backdrop-blur-sm">
-              New
+              Debiut
             </div>
           </div>
         )}
