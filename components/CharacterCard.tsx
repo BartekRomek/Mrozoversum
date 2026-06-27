@@ -11,7 +11,7 @@ const seriesIcons: Record<string, string> = {
 };
 
 interface CharacterCardProps {
-  character: Character;
+  character: Character & { isNew?: boolean };
 }
 
 export function CharacterCard({ character }: CharacterCardProps) {
@@ -25,12 +25,22 @@ export function CharacterCard({ character }: CharacterCardProps) {
 
   return (
     <div 
-      className="flex flex-col w-full shrink-0 overflow-hidden rounded-xl bg-[#0f1115] border border-white/5 transition-transform duration-300 hover:scale-[1.02]"
+      className="flex flex-col w-full h-full shrink-0 overflow-hidden rounded-xl bg-[#0f1115] border border-white/5 transition-transform duration-300 hover:scale-[1.02]"
       style={{ boxShadow: `0 8px 32px rgba(0,0,0,0.6)` }}
     >
-      <div className="relative h-[260px] bg-[#1a1d24] flex items-center justify-center">
+      {/* Sekcja obrazka */}
+      <div className="relative h-[260px] bg-[#1a1d24] flex items-center justify-center shrink-0">
         
-        {/* Ikona */}
+        {/* Etykieta NEW - przezroczysty środek, zielona obwódka */}
+        {character.isNew && (
+          <div className="absolute top-4 right-4 z-30 animate-pulse">
+            <div className="border border-[#00ff1a] text-[#00ff1a] text-[8px] font-bold uppercase px-2 py-0.5 rounded-md tracking-widest leading-none bg-black/20 backdrop-blur-sm">
+              New
+            </div>
+          </div>
+        )}
+
+        {/* Ikona serii */}
         {seriesIcons[seriesId] && (
           <div 
             className="absolute top-4 left-4 z-20 w-8 h-8 opacity-90"
@@ -62,12 +72,11 @@ export function CharacterCard({ character }: CharacterCardProps) {
         <div className="absolute inset-x-0 bottom-0 z-10 h-32 bg-gradient-to-t from-[#0f1115] to-transparent pointer-events-none" />
       </div>
 
-      <div className="relative z-20 flex flex-col px-4 pb-5 pt-0 text-center">
+      {/* Sekcja tekstowa */}
+      <div className="relative z-20 flex flex-col px-4 pb-5 pt-0 text-center flex-grow">
         
-        {/* TYPOGRAFIA POSTACI - SZTYWNY UKŁAD */}
-        <div className="flex flex-col items-center justify-start min-h-[76px]">
+        <div className="flex flex-col items-center justify-start min-h-[92px]">
           
-          {/* 1. Imię i Nazwisko (Sztywna wysokość na max 2 linijki tekstu) */}
           <div className="flex flex-col items-center justify-end min-h-[44px] mb-1">
             <h3 className="flex flex-col text-[17px] sm:text-lg font-bold text-white/95 uppercase tracking-widest leading-[1.1]">
               <span>{firstName}</span>
@@ -75,7 +84,6 @@ export function CharacterCard({ character }: CharacterCardProps) {
             </h3>
           </div>
           
-          {/* 2. Pseudonim (Zawsze renderowany, przezroczysty jeśli go brak) */}
           <span 
             className={`text-[10px] font-medium tracking-widest uppercase mb-1 ${
               character.pseudonym ? "text-white/50" : "opacity-0 select-none"
@@ -84,7 +92,6 @@ export function CharacterCard({ character }: CharacterCardProps) {
             {character.pseudonym ? `"${character.pseudonym}"` : '"BRAK"'}
           </span>
 
-          {/* 3. Rola (Kolorowa, zawsze na tej samej wysokości) */}
           <span 
             className="text-[10px] font-bold uppercase tracking-widest mt-0.5"
             style={{ color: brandColor }}
@@ -93,8 +100,8 @@ export function CharacterCard({ character }: CharacterCardProps) {
           </span>
         </div>
 
-        {/* DOLNE METADANE (Seria i Debiut) */}
-        <div className="mt-5 flex items-end justify-between">
+        {/* DOLNE METADANE */}
+        <div className="mt-auto flex items-end justify-between pt-4">
           <div className="flex flex-col items-start gap-1.5 w-1/2">
             <span className="text-[8px] sm:text-[9px] text-white/40 uppercase tracking-widest truncate w-full text-left">
               Seria

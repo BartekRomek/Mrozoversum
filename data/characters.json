@@ -21,7 +21,7 @@
   {
     "id": "piotr-langer",
     "name": "Piotr Langer",
-    "role": "Antagonista",
+    "role": "Sadysta z Mokotowa",
     "series": "Langer",
     "debut": "Kasacja",
     "description": "Antagonista, syn Piotra Langera seniora, biznesmen i filantrop z mrocznym charakterem",
@@ -37,13 +37,13 @@
     "avatar": "avatars/Forst.png"
   },
   {
-    "id": "piotr-langer-senior",
-    "name": "Piotr Langer Senior",
-    "role": "Biznesmen",
+    "id": "kormak",
+    "name": "Kormak",
+    "role": "Specjalista do spraw informacji",
     "series": "Chylka",
     "debut": "Kasacja",
-    "description": "Biznesmen, ojciec Piotra Langera juniora, znany z mrocznego charakteru",
-    "avatar": "avatars/Langer-Senior.png"
+    "description": "Współpracownik Joanny Chyłki i Kordiana Oryńskiego, prawnik.",
+    "avatar": "avatars/kormak.png"
   },
   {
     "id": "artur-zelazny",
@@ -55,6 +55,15 @@
     "avatar": "avatars/zelazny.png"
   },
   {
+    "id": "piotr-langer-senior",
+    "name": "Piotr Langer Senior",
+    "role": "Magnat finansowy",
+    "series": "Chylka",
+    "debut": "Kasacja",
+    "description": "Biznesmen, ojciec Piotra Langera juniora, znany z mrocznego charakteru",
+    "avatar": "avatars/Langer-Senior.png"
+  },
+  {
     "id": "hary-mcvay",
     "name": "Hary McVay",
     "role": "Imeinny partner kancelarii",
@@ -64,12 +73,48 @@
     "avatar": "avatars/mcvay.png"
   },
   {
-    "id": "kormak",
-    "name": "Kormak",
-    "role": "Specjalista do spraw informacji",
+    "id": "siwowlosy",
+    "name": "Siwowłosy",
+    "role": "Bezwzględny architekt intryg",
     "series": "Chylka",
     "debut": "Kasacja",
-    "description": "Współpracownik Joanny Chyłki i Kordiana Oryńskiego, prawnik.",
-    "avatar": "avatars/kormak.png"
-  } 
+    "description": "Boss mafijny, bezwzględny architekt intryg, który staje się głównym antagonistą.",
+    "avatar": "avatars/siwowlosy.png"
+  },
+  {
+    "id": "gorzym",
+    "name": "Gorzym",
+    "role": "Cyngiel mafii",
+    "series": "Chylka",
+    "debut": "Kasacja",
+    "description": "Cyngiel mafii, który wykonuje rozkazy Siwowłosego.",
+    "avatar": "avatars/gorzym.png"
+  },
+  {
+    "id": "rejchart",
+    "name": "Karol Rejchert",
+    "role": "Prokurator",
+    "series": "Chylka",
+    "debut": "Kasacja",
+    "description": "Prokurator, oskaryciel Langera.",
+    "avatar": "avatars/rejchart.png"
+  },
+  {
+    "id": "anka",
+    "name": "Anka",
+    "role": "Recepcjonistka w kancelarii Żelazny & McVay.",
+    "series": "Chylka",
+    "debut": "Kasacja",
+    "description": "Recepcjonistka w kancelarii Żelazny & McVay.",
+    "avatar": "avatars/anka.png"
+  },
+  {
+    "id": "magdalena-obertal",
+    "name": "Magdalena Obertał",
+    "role": "Siostra Chyłki",
+    "series": "Chylka",
+    "debut": "Kasacja",
+    "description": "Siostra Joanny Chyłki.",
+    "avatar": "avatars/magdalena-o.png"
+  }
 ]
