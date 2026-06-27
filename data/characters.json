@@ -102,10 +102,10 @@
   {
     "id": "anka",
     "name": "Anka",
-    "role": "Recepcjonistka w kancelarii Żelazny & McVay.",
+    "role": "Recepcjonistka w Żelazny & McVay.",
     "series": "Chylka",
     "debut": "Kasacja",
-    "description": "Recepcjonistka w kancelarii Żelazny & McVay.",
+    "description": "Recepcjonistka w Żelazny & McVay.",
     "avatar": "avatars/anka.png"
   },
   {
@@ -116,5 +116,153 @@
     "debut": "Kasacja",
     "description": "Siostra Joanny Chyłki.",
     "avatar": "avatars/magdalena-o.png"
+  },
+  {
+    "id": "angelika-szlezyngier",
+    "name": "Angelika Szlezyngier",
+    "role": "Matka Nikoli",
+    "series": "Chylka",
+    "debut": "Zaginięcie",
+    "description": "Matka Nikoli.",
+    "avatar": "avatars/angelika-szle.png"
+  },
+  {
+    "id": "awit-szlezyngier",
+    "name": "Awit Szlezyngier",
+    "role": "Biznesmen",
+    "series": "Chylka",
+    "debut": "Kasacja",
+    "description": "-",
+    "avatar": "avatars/awit-szle.png"
+  },
+  {
+    "id": "tatar",
+    "name": "Sakrat Tatarnikow",
+    "pseudonym": "TATAR",
+    "role": "Biaruski Ogrodnik",
+    "series": "Chylka",
+    "debut": "Zaginięcie",
+    "description": "Biaruski Ogrodnik, biologiczny ojciec Nikoli, który wplątuje się w intrygę związaną z jej porwaniem.",
+    "avatar": "avatars/tatar.png"
+  },
+  {
+    "id": "olga-szrebska",
+    "name": "Olga Szrebska",
+    "pseudonym": "",
+    "role": "Dziennikarka NSI",
+    "series": "Chylka",
+    "debut": "Zaginięcie",
+    "description": "Dziennikarka NSI, która śledzi sprawę porwania Nikoli.",
+    "avatar": "avatars/olga-szrebska.png"
+  },
+  {
+    "id": "witold-t",
+    "name": "Witold Trzciński ",
+    "pseudonym": "WITO",
+    "role": "Przemytnik",
+    "series": "Chylka",
+    "debut": "Zaginięcie",
+    "description": "Przemytnik, który wplątuje się w sprawę porwania Nikoli.",
+    "avatar": "avatars/wito.png"
+  },
+  {
+    "id": "zbigniew-aronowicz",
+    "name": "Zbigniew Aronowicz",
+    "pseudonym": "",
+    "role": "Prokurator",
+    "series": "Chylka",
+    "debut": "Zaginięcie",
+    "description": "Prokurator, oskaryciel Szlezyngiera.",
+    "avatar": "avatars/zbigniew-aronowicz.png"
+  },
+  {
+    "id": "daniel-kosmowski",
+    "name": "Daniel Kosmowski",
+    "pseudonym": "",
+    "role": "Prawnik",
+    "series": "Chylka",
+    "debut": "Zaginięcie",
+    "description": "Prawnik.",
+    "avatar": "avatars/daniel-kosmowski.png"
+  },
+  {
+    "id": "antoni-ekiel",
+    "name": "Antoni Ekiel",
+    "pseudonym": "",
+    "role": "Starszy mieszkaniec Sajenka",
+    "series": "Chylka",
+    "debut": "Zaginięcie",
+    "description": "Starszy mieszkaniec Sajenka.",
+    "avatar": "avatars/antoni-ekiel.png"
+  },
+  {
+    "id": "bukano",
+    "name": "Robert Horwat",
+    "pseudonym": "Bukano",
+    "role": "Rom oskarżony o brutalne morderstwo",
+    "series": "Chylka",
+    "debut": "Rewizja",
+    "description": "Rom oskarżony o brutalne morderstwo.",
+    "avatar": "avatars/bukano.png"
+  },
+  {
+    "id": "koro",
+    "name": "Roman Dembski",
+    "pseudonym": "Koro",
+    "role": "Świadek w procesie / Przyjaciel Bukano z dzieciństwa",
+    "series": "Chylka",
+    "debut": "Rewizja",
+    "description": "Świadek w procesie.",
+    "avatar": "avatars/koro.png"
+  },
+  {
+    "id": "weszo",
+    "name": "Jan Szylar",
+    "pseudonym": "Weszo",
+    "role": "Wójt cygańskiej społeczności / kluczowy świadek w procesie",
+    "series": "Chylka",
+    "debut": "Rewizja",
+    "description": "wójt cygańskiej społeczności.",
+    "avatar": "avatars/weszo.png"
+  },
+  {
+    "id": "borsuk",
+    "name": "Lew Buchelt",
+    "pseudonym": "Borsuk",
+    "role": "Adwokat / Patron Kordiana",
+    "series": "Chylka",
+    "debut": "Rewizja",
+    "description": "adwokat / patron Kordiana.",
+    "avatar": "avatars/borsuk.png"
+  },
+  {
+    "id": "szczerbaty",
+    "name": "Szczerbiński",
+    "pseudonym": "Szczerbaty",
+    "role": "Policjant",
+    "series": "Chylka",
+    "debut": "Rewizja",
+    "description": "policjant.",
+    "avatar": "avatars/Szczerbaty.png"
+  },
+  {
+    "id": "filip-obertal",
+    "name": "Filip Obertał",
+    "pseudonym": "",
+    "role": "Ojciec Chyłki",
+    "series": "Chylka",
+    "debut": "Rewizja",
+    "description": "ojejciec Chyłki.",
+    "avatar": "avatars/Filip-Obertal.png"
+  },
+  {
+    "id": "salus",
+    "name": "Salus",
+    "pseudonym": "Donald Trump, Kryminalista, Górniczka",
+    "role": "Zarząd firmy ubezpieczeniowej",
+    "series": "Chylka",
+    "debut": "Rewizja",
+    "description": "Zarząd firmy ubezpieczeniowej",
+    "avatar": "avatars/salus.png"
   }
 ]

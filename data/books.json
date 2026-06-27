@@ -22,6 +22,17 @@
     "year": 2015
   },
   {
+    "id": "langer-axis-rewizja",
+    "title": "Langer",
+    "series": "Langer",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Langera.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 4,
+    "year": 2016
+  },
+  {
     "id": "ekspozycja",
     "title": "Ekspozycja",
     "series": "Forst",
@@ -36,7 +47,7 @@
     "id": "zaginiecie",
     "title": "Zaginięcie",
     "series": "Chylka",
-    "cover": "/covers/mrozoversum-cover.svg",
+    "cover": "/covers/zaginiecie.jpg.avif",
     "description": "Strefa 1. Drugi tom osi Chyłki, poprzedzający ogólnopolskie medialne echo spraw Forsta.",
     "certainty": 100,
     "order": 2,
@@ -58,11 +69,11 @@
     "id": "rewizja",
     "title": "Rewizja",
     "series": "Chylka",
-    "cover": "/covers/mrozoversum-cover.svg",
+    "cover": "/covers/rewizja.jpg.avif",
     "description": "Strefa 1. Warszawska oś wraca na pierwszy plan po medialnym tle spraw z Podhala.",
     "certainty": 100,
     "order": 3,
-    "timeline": 5,
+    "timeline": 4,
     "year": 2016
   },
   {
@@ -84,7 +95,7 @@
     "description": "Strefa 2. Ta sama scena co w Immunitecie, widziana z perspektywy celi w Krasnymstawie.",
     "certainty": 100,
     "order": 3,
-    "timeline": 8,
+    "timeline": 6.5,
     "year": 2016
   },
   {

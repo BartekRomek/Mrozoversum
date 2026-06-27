@@ -17,10 +17,9 @@ type BookDetailsPanelProps = {
   onUpdateCover: (bookId: string, cover: string) => void;
 };
 
-// Funkcja pomocnicza: wyciąga nazwę pliku z okładki i zamienia ścieżkę na /background/...
 const getBackgroundUrl = (coverPath: string) => {
   if (!coverPath) return "";
-  const filename = coverPath.split("/").pop(); // Pobiera samo "kasacja.jpg"
+  const filename = coverPath.split("/").pop(); 
   return `/background/${filename}`;
 };
 
@@ -39,23 +38,27 @@ export function BookDetailsPanel({
       .filter((a) => a.bookId === book.id)
       .map((appearance) => {
         const char = charactersData.find((c) => c.id === appearance.characterId);
-        return char ? { ...char, isNew: appearance.isNew || false } : null;
+        return char ? { 
+          ...char, 
+          isNew: appearance.isNew || false,
+          isAntagonist: appearance.role === "antagonist" 
+        } : null;
       })
-      .filter((char): char is Character & { isNew: boolean } => !!char);
+      .filter((char): char is Character & { isNew: boolean; isAntagonist: boolean } => !!char);
   }, [book]);
 
   const backgroundUrl = book ? getBackgroundUrl(book.cover) : "";
 
   return (
     <aside
-      className={`fixed inset-y-0 right-0 z-30 w-1/2 min-w-[520px] max-w-[960px] border-l border-white/10 shadow-2xl shadow-black/80 transition-transform duration-500 ${
+      // IDEALNA STAŁA SZEROKOŚĆ Z MACBOOKA: w-[735px]
+      className={`fixed inset-y-0 right-0 z-30 w-[735px] max-w-[100vw] border-l border-white/10 shadow-2xl shadow-black/80 transition-transform duration-500 ${
         book ? "translate-x-0" : "translate-x-full"
       }`}
     >
       {book ? (
         <div className="relative h-full bg-[#090a0f] overflow-y-auto">
           
-          {/* PRZYCISK ZAMYKANIA */}
           <button 
             onClick={onClose} 
             className="fixed top-8 right-8 z-50 p-2 rounded-xl bg-black/20 border border-white/10 text-white/50 hover:text-white backdrop-blur-md transition-all hover:bg-white/10"
@@ -63,21 +66,16 @@ export function BookDetailsPanel({
             <X size={20} />
           </button>
 
-          {/* DEDYKOWANE TŁO Z FOLDERU /background */}
           <div className="absolute top-0 left-0 right-0 h-[700px] pointer-events-none z-0 overflow-hidden">
             <div 
               className="absolute inset-0 bg-cover bg-top blur-[10px] scale-105 opacity-40 transition-all duration-700"
               style={{ backgroundImage: `url(${backgroundUrl})` }}
             />
-            {/* Gradient pionowy schodzący w czerń */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#090a0f]/60 to-[#090a0f]" />
-            {/* Gradient poziomy maskujący lewą krawędź */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#090a0f] via-[#090a0f]/50 to-transparent" />
-            {/* Twardy gradient na samym dole */}
             <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#090a0f] to-transparent" />
           </div>
 
-          {/* GŁÓWNA ZAWARTOŚĆ */}
           <div className="relative z-10 flex flex-col min-h-full px-8 pt-8 pb-12">
             
             <div className="pr-16">
@@ -106,7 +104,6 @@ export function BookDetailsPanel({
               </div>
             </div>
 
-            {/* SEKCJA OKŁADKI I OPISU - Zmiana na items-center */}
             <div className="flex gap-8 mt-10 items-center">
               
               <div className="w-[180px] flex-shrink-0">
@@ -128,6 +125,7 @@ export function BookDetailsPanel({
                 </h3>
               </div>
               
+              {/* Twarde 3 kolumny, idealne pod 735px szerokości panelu */}
               <div className="grid grid-cols-3 gap-5 auto-rows-min">
                 {relatedCharacters.map((char) => (
                   <CharacterCard key={char.id} character={char} />

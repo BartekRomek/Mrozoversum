@@ -11,7 +11,7 @@ const seriesIcons: Record<string, string> = {
 };
 
 interface CharacterCardProps {
-  character: Character & { isNew?: boolean };
+  character: Character & { isNew?: boolean; isAntagonist?: boolean };
 }
 
 export function CharacterCard({ character }: CharacterCardProps) {
@@ -23,19 +23,34 @@ export function CharacterCard({ character }: CharacterCardProps) {
   const firstName = nameParts[0];
   const lastName = nameParts.slice(1).join(" ");
 
+  const isAntagonist = character.isAntagonist;
+
   return (
     <div 
-      className="flex flex-col w-full h-full shrink-0 overflow-hidden rounded-xl bg-[#0f1115] border border-white/5 transition-transform duration-300 hover:scale-[1.02]"
+      // Usunęliśmy szarą obwódkę na sztywno. Dodajemy ją tylko, gdy postać NIE jest antagonistą.
+      className={`relative flex flex-col w-full h-full shrink-0 overflow-hidden rounded-xl bg-[#0f1115] transition-transform duration-300 hover:scale-[1.02] ${
+        isAntagonist ? "" : "border border-white/5"
+      }`}
       style={{ boxShadow: `0 8px 32px rgba(0,0,0,0.6)` }}
     >
+      {/* 🔴 PULSUJĄCA OBWÓDKA KARTY DLA ANTAGONISTY (Zmieniono na 1px i wyrównano do samego brzegu) */}
+      {isAntagonist && (
+        <div className="absolute inset-0 z-50 pointer-events-none rounded-xl border border-red-600/90 animate-pulse shadow-[inset_0_0_12px_rgba(220,38,38,0.3)]" />
+      )}
+
       {/* Sekcja obrazka */}
       <div className="relative h-[260px] bg-[#1a1d24] flex items-center justify-center shrink-0">
         
-        {/* Etykieta NEW - przezroczysty środek, zielona obwódka */}
+        {/* POMNIEJSZONA Etykieta DEBIUT */}
         {character.isNew && (
           <div className="absolute top-4 right-4 z-30 animate-pulse">
-            <div className="border border-[#00ff1a] text-[#00ff1a] text-[8px] font-bold uppercase px-2 py-0.5 rounded-md tracking-widest leading-none bg-black/20 backdrop-blur-sm">
-              Debiut
+            <div className="flex flex-col items-center justify-center border border-[#00ff1a]/80 text-[#00ff1a] px-1.5 py-[3px] rounded-sm bg-black/30 backdrop-blur-sm text-center">
+              <span className="text-[6.5px] font-bold uppercase tracking-widest leading-none mb-[1.5px]">
+                Debiut
+              </span>
+              <span className="text-[6.5px] font-bold uppercase tracking-widest leading-none opacity-90">
+                w serii
+              </span>
             </div>
           </div>
         )}
@@ -75,6 +90,17 @@ export function CharacterCard({ character }: CharacterCardProps) {
       {/* Sekcja tekstowa */}
       <div className="relative z-20 flex flex-col px-4 pb-5 pt-0 text-center flex-grow">
         
+        {/* 🔴 ETYKIETA "ANTAGONISTA" NAD IMIENIEM */}
+        {isAntagonist && (
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-30 animate-pulse">
+            <div className="flex items-center justify-center border border-red-600/80 text-red-500 px-2 py-[2px] rounded-sm bg-black/40 backdrop-blur-sm">
+              <span className="text-[8px] font-bold uppercase tracking-widest leading-none">
+                Antagonista
+              </span>
+            </div>
+          </div>
+        )}
+
         <div className="flex flex-col items-center justify-start min-h-[92px]">
           
           <div className="flex flex-col items-center justify-end min-h-[44px] mb-1">
@@ -94,7 +120,7 @@ export function CharacterCard({ character }: CharacterCardProps) {
 
           <span 
             className="text-[10px] font-bold uppercase tracking-widest mt-0.5"
-            style={{ color: brandColor }}
+            style={{ color: isAntagonist ? "#ef4444" : brandColor }}
           >
             {character.role || "Brak danych"}
           </span>
