@@ -19,13 +19,14 @@
     "avatar": "avatars/Kordzian-Oryński.png"
   },
   {
-    "id": "piotr-langer",
-    "name": "Piotr Langer",
-    "role": "Sadysta z Mokotowa",
-    "series": "Langer",
-    "debut": "Kasacja",
-    "description": "Antagonista, syn Piotra Langera seniora, biznesmen i filantrop z mrocznym charakterem",
-    "avatar": "avatars/Langer.png"
+  "id": "piotr-langer",
+  "name": "Piotr Langer",
+  "role": "Biznesmen i filantrop",
+  "hiddenRole": "Sadysta z Mokotowa",
+  "series": "Langer",
+  "debut": "Kasacja",
+  "description": "Syn Piotra Langera seniora, biznesmen i filantrop z mrocznym charakterem",
+  "avatar": "avatars/Langer.png"
   },
   {
     "id": "wiktor-forst",
@@ -57,7 +58,8 @@
   {
     "id": "piotr-langer-senior",
     "name": "Piotr Langer Senior",
-    "role": "Magnat finansowy",
+    "role": "Biznesmen i filantrop",
+    "hiddenRole": "Mecenas zbrodni",
     "series": "Chylka",
     "debut": "Kasacja",
     "description": "Biznesmen, ojciec Piotra Langera juniora, znany z mrocznego charakteru",
@@ -76,6 +78,7 @@
     "id": "siwowlosy",
     "name": "Siwowłosy",
     "role": "Bezwzględny architekt intryg",
+    "hiddenRole": "Boss Mafi",
     "series": "Chylka",
     "debut": "Kasacja",
     "description": "Boss mafijny, bezwzględny architekt intryg, który staje się głównym antagonistą.",
@@ -84,7 +87,8 @@
   {
     "id": "gorzym",
     "name": "Gorzym",
-    "role": "Cyngiel mafii",
+    "role": "Osiłek",
+    "hiddenRole": "Cyngiel mafii",
     "series": "Chylka",
     "debut": "Kasacja",
     "description": "Cyngiel mafii, który wykonuje rozkazy Siwowłosego.",
@@ -274,5 +278,88 @@
     "debut": "Immunitet",
     "description": "ojejciec Chyłki.",
     "avatar": "avatars/pruszko.png"
+  },
+  {
+    "id": "edmund-osica",
+    "name": "Edmund Osica",
+    "pseudonym": "",
+    "role": "Inspektor Policji w Zakopanem",
+    "series": "Forst",
+    "debut": "Ekspozycja",
+    "description": "Inspektor Policji w Zakopanem.",
+    "avatar": "avatars/osica.png"
+  },
+  {
+    "id": "bieszynski",
+    "name": "Bieszyński",
+    "pseudonym": "",
+    "role": "Szef MSWiA",
+    "series": "Forst",
+    "debut": "Ekspozycja",
+    "description": "Minister Spraw Wewnętrznych i Administracji.",
+    "avatar": "avatars/bieszynski.png"
+  },
+  {
+    "id": "jegor-sazonow",
+    "name": "Jegor Sazonow",
+    "pseudonym": "",
+    "role": "Rosyjski prawnik",
+    "series": "Forst",
+    "debut": "Ekspozycja",
+    "description": "Rosyjski prawnik.",
+    "avatar": "avatars/sazanow.png"
+  },
+{
+    "id": "gazajew",
+    "name": "Siarhiej Gazajew",
+    "pseudonym": "",
+    "role": "Białoruski agent KGB",
+    "series": "Forst",
+    "debut": "Ekspozycja",
+    "description": "Białoruski agent KGB",
+    "avatar": "avatars/gazajew.png"
+  },
+  {
+  "id": "witalij-morawczuk",
+  "name": "Witalij Morawczuk",
+  "pseudonym": "Łowotar",
+  "isDead": true,
+  "role": "Schorowany starzec",
+  "hiddenRole": "Krwawy kat z przeszłości",
+  "series": "Forst",
+  "debut": "Ekspozycja",
+  "description": "Krwawy kat z przeszłości",
+  "avatar": "avatars/lowotar.png"
+  },
+  {
+  "id": "antonina-sznajderman",
+  "name": "Antonina Sznajderman",
+  "role": "Poczciwa staruszka",
+  "hiddenRole": "Nauczycielka Sprawiedliwości",
+  "series": "Forst",
+  "debut": "Ekspozycja",
+  "description": "Nauczycielka Sprawiedliwości",
+  "avatar": "avatars/sznajderman.png"
+  },
+  {
+  "id": "bracia-sznajderman",
+  "name": "Bracia Sznajderman",
+  "pseudonym": "Piotr i Michał",
+  "role": "Synowie Antoniny",
+  "hiddenRole": "Ślepo oddani cyngle matki",
+  "series": "Forst",
+  "debut": "Ekspozycja",
+  "description": "Ślepo oddani cyngle matki.",
+  "avatar": "avatars/bracia.png"
+  },
+  {
+  "id": "filipczenko",
+  "name": "Aleksiej Filipczenko",
+  "role": "Zrezygnowany więzień",
+  "series": "Forst",
+  "debut": "Ekspozycja",
+  "description": "zrezygnowany więzień.",
+  "avatar": "avatars/filipczenko.png"
   }
+
 ]

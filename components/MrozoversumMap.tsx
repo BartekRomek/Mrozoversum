@@ -15,6 +15,7 @@ import {
   type NodeMouseHandler
 } from "@xyflow/react";
 import { BookMarked, GitBranch, Network, X } from "lucide-react";
+import { clsx } from "clsx"; // Dodano import clsx dla przycisku
 import { BookNode } from "@/components/BookNode";
 import { BookDetailsPanel } from "@/components/BookDetailsPanel";
 import { FilterBar } from "@/components/FilterBar";
@@ -96,6 +97,9 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
   const [selectedBookId, setSelectedBookId] = useState<string | null>("kasacja");
   const [selectedConnectionId, setSelectedConnectionId] = useState<string | null>(null);
   const [coverOverrides, setCoverOverrides] = useState<Record<string, string>>({});
+  
+  // DODANO: Stan dla przełącznika spoilerów
+  const [showSpoilers, setShowSpoilers] = useState(false);
 
   useEffect(() => {
     const storedCovers = window.localStorage.getItem("mrozoversum-cover-overrides");
@@ -338,6 +342,21 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
         </div>
       </header>
 
+      {/* DODANO: Pasek z przyciskiem do ukrywania/pokazywania spoilerów */}
+      <div className="flex justify-end px-4 pt-3 pb-1 bg-[#08090d]/95 lg:px-6">
+        <button
+          onClick={() => setShowSpoilers(!showSpoilers)}
+          className={clsx(
+            "flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border",
+            showSpoilers
+              ? "bg-rose-500/10 border-rose-500/50 text-rose-300"
+              : "bg-white/5 border-white/10 text-white/50 hover:bg-white/10 hover:text-white"
+          )}
+        >
+          {showSpoilers ? "☠️ Tryb Spoilerów" : "🛡️ Tryb Bezpieczny"}
+        </button>
+      </div>
+
       <FilterBar
         query={query}
         selectedSeries={selectedSeries}
@@ -399,6 +418,7 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
         target={selectedConnection ? bookById.get(selectedConnection.target) ?? null : null}
         allCharacters={characters}
         onClose={() => setSelectedConnectionId(null)}
+        showSpoilers={showSpoilers} // DODANO: Przekazanie stanu do paska bocznego
       />
     </div>
   );
@@ -409,13 +429,15 @@ function ConnectionDetailsSidebar({
   source,
   target,
   allCharacters,
-  onClose
+  onClose,
+  showSpoilers // DODANO: Odbiór stanu
 }: {
   connection: BookConnection | null;
   source: Book | null;
   target: Book | null;
   allCharacters: Character[];
   onClose: () => void;
+  showSpoilers: boolean; // DODANO: Typowanie
 }) {
   if (!connection || !source || !target) return null;
   
@@ -449,7 +471,11 @@ function ConnectionDetailsSidebar({
             
             <div className="grid grid-cols-3 gap-4">
               {involvedCharacters.map(char => (
-                <CharacterCard key={char.id} character={char} />
+                <CharacterCard 
+                  key={char.id} 
+                  character={char} 
+                  showSpoilers={showSpoilers} // DODANO: Przekazanie stanu do karty postaci
+                />
               ))}
             </div>
           </div>

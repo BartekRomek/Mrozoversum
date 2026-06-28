@@ -5,7 +5,7 @@
   { "characterId": "kormak", "isFirstAppearance": true, "role": "supporting", "isNew": true },
   { "characterId": "artur-zelazny", "isFirstAppearance": true, "role": "supporting", "isNew": true },
   { "characterId": "hary-mcvay", "isFirstAppearance": true, "role": "supporting", "isNew": true },
-  { "characterId": "piotr-langer-senior", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
+  { "characterId": "piotr-langer-senior", "isFirstAppearance": true, "role": "antagonist", "isNew": true, "isDead": true },
   { "characterId": "siwowlosy", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
   { "characterId": "gorzym", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
   { "characterId": "rejchart", "isFirstAppearance": true, "role": "supporting", "isNew": true },

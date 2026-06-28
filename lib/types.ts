@@ -12,18 +12,24 @@ export type Book = {
   timeline?: number;
   year?: number;
   duration?: number; 
+  volume?: string | number; 
+  genre?: string;           
 };
 
 export type Character = {
   id: string;
   name: string;
   role: string;
-  isAntagonist?: boolean; // Nowa flaga
+  hiddenRole?: string;      
+  isAntagonist?: boolean;   // Zostawiamy, jeśli definiujesz to czasem globalnie
+  pseudonym?: string;       
   avatar: string;
   description: string;
   series: string;
   debut: string;
 };
+
+// ... (BookConnection i BookNodeData pozostają bez zmian)
 
 export type BookConnection = {
   source: string;
