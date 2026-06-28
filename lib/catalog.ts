@@ -21,11 +21,13 @@ export const seriesColors: Record<SeriesId, string> = {
 export const relationLabels: Record<RelationType, string> = {
   wzmianka: "wzmianka",
   crossover: "crossover",
-  kontynuacja: "kontynuacja"
+  kontynuacja: "kontynuacja",
+  epizod: "epizod",
 };
 
 export const relationColors: Record<RelationType, string> = {
   wzmianka: "#fbff00",
   crossover: "#ff0000",
-  kontynuacja: "#a855f7" // Fioletowy kolor dla kontynuacji (możesz zmienić)
+  kontynuacja: "#a855f7",
+  epizod: "#04ff00",
 };

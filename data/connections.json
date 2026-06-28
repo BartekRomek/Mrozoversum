@@ -1,25 +1,25 @@
 [
   {
-    "source": "kasacja",
-    "target": "langer-axis-kasacja",
+    "source": "langer-axis-kasacja",
+    "target": "kasacja",
     "type": "crossover",
     "certainty": 100,
     "importance": "major",
     "pathType": "straight",
     "sourceHandle": "source-bottom",
-    "targetHandle": "target-top",
+    "targetHandle": "target-bottom",
     "characters": ["piotr-langer"],
     "note": "Piotr Langer jest głównym klientem Joanny Chyłki i Kordiana Oryńskiego, oskarżonym o brutalne morderstwo dwóch osób, z których zwłokami przebywał w mieszkaniu przez dziesięć dni. Przyjmuje postawę milczenia i apatii, co początkowo sugeruje chorobę psychiczną, jednak ostatecznie przed sądem stanowczo zaprzecza swojej niepoczytalności. Udział Langera opiera się na genialnej manipulacji systemem prawnym i własnymi obrońcami: zza krat steruje procesem, nadając ukryte wiadomości alfabetem Morse’a za pomocą mrugania powiekami. Wiadomości te prowadzą prawników do Siwowłosego oraz grobu Antoniego Wansela, co staje się kluczowe dla podważenia ustaleń faktycznych i ostatecznego uniewinnienia go przez Sąd Najwyższy. Finał ujawnia, że Langer faktycznie dokonał zbrodni, a cały proces i rzekomy spisek mafii były zaplanowaną mistyfikacją."
   },
   {
-    "source": "rewizja",
-    "target": "langer-axis-rewizja",
+    "source": "langer-axis-rewizja",
+    "target": "rewizja",
     "type": "crossover",
     "certainty": 100,
     "importance": "major",
     "pathType": "straight",
     "sourceHandle": "source-bottom",
-    "targetHandle": "target-top",
+    "targetHandle": "target-bottom",
     "characters": ["piotr-langer"],
     "note": "Mroza Piotr Langer junior pełni rolę głównego antagonisty, który z ukrycia manipuluje kluczowymi wydarzeniami i bohaterami. Jako prokurent oraz większościowy udziałowiec firmy ubezpieczeniowej Salus, wykorzystuje ją jako narzędzie do prania brudnych pieniędzy. Langer wywiera silną presję psychiczną na Kordiana Oryńskiego, grożąc mu zniszczeniem kariery, jeśli ten nie doprowadzi do odsunięcia Joanny Chyłki od sprawy Roberta Horwata (Bukano). Jego macki sięgają głęboko w struktury wymiaru sprawiedliwości oraz kancelarii Żelazny & McVay; potajemnie współpracuje z ambitnym prokuratorem Mateuszem Zakiertskim oraz ma wpływ na decyzje kadrowe Artura Żelaznego, co skutkuje m.in. przymusowym przeniesieniem Kormaka do Krakowa. Pod koniec powieści to właśnie Langer ujawnia Chyłce tożsamość prawdziwego mordercy – członka zarządu Salusa – twierdząc, że sam został przez niego oszukany i okradziony. Jednocześnie nakazuje prawnikom odnalezienie zwłok Bukano, aby ostatecznie potwierdzić jego śmierć."
   },
@@ -42,5 +42,50 @@
     "sourceHandle": "source-bottom",
     "targetHandle": "target-top",
     "note": "Urwisko i Arachnia dzieją się w tym samym czasie: w Warszawie ważą się losy Langera, a na Podhalu Forst walczy o przetrwanie."
+  },
+  {
+    "source": "immunitet",
+    "target": "trawers",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "major",
+    "sourceHandle": "source-left",
+    "targetHandle": "target-left",
+    "characters": ["kormak", "joanna-chylka", "kordian-orynski", "marcin-pruszko", "borsuk"],
+    "note": "Chyłka jedzie w Tatry, Forst pojawia się w Afekcie, a w Widmie Brockenu oboje prowadzą pełnoprawne wspólne śledztwo."
+  },
+  {
+    "source": "inwigilacja",
+    "target": "trawers",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "major",
+    "sourceHandle": "source-right",
+    "targetHandle": "target-right",
+    "characters": ["joanna-chylka", "kordian-orynski"],
+    "note": "Chyłka jedzie w Tatry, Forst pojawia się w Afekcie, a w Widmie Brockenu oboje prowadzą pełnoprawne wspólne śledztwo."
+  },
+  {
+    "source": "rewizja",
+    "target": "przewieszenie",
+    "type": "epizod",
+    "certainty": 100,
+    "importance": "major",
+    "sourceHandle": "source-right",
+    "targetHandle": "target-right",
+    "characters": ["kormak"],
+    "note": "Kormak współpracuje z Wiktorem Forstem za pośrednictwem Internetu (na portalu Reddit). Pomaga mu zidentyfikować tajemniczą monetę znalezioną w ustach Olgi Szrebskiej jako grecki obol Demetriusza I Baktryjskiego. Forst kontaktuje się z nim telefonicznie, a Kormak przekazuje mu analizy dotyczące symboliki Koła Dharmy i powiązań z kulturą Gandhary."
+  },
+  {
+    "source": "szrebska-axis-ekspozycja",
+    "target": "ekspozycja",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "major",
+    "pathType": "straight",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-bottom",
+    "characters": ["olga-szrebska"],
+    "note": "Piotr Langer jest głównym klientem Joanny Chyłki i Kordiana Oryńskiego, oskarżonym o brutalne morderstwo dwóch osób, z których zwłokami przebywał w mieszkaniu przez dziesięć dni. Przyjmuje postawę milczenia i apatii, co początkowo sugeruje chorobę psychiczną, jednak ostatecznie przed sądem stanowczo zaprzecza swojej niepoczytalności. Udział Langera opiera się na genialnej manipulacji systemem prawnym i własnymi obrońcami: zza krat steruje procesem, nadając ukryte wiadomości alfabetem Morse’a za pomocą mrugania powiekami. Wiadomości te prowadzą prawników do Siwowłosego oraz grobu Antoniego Wansela, co staje się kluczowe dla podważenia ustaleń faktycznych i ostatecznego uniewinnienia go przez Sąd Najwyższy. Finał ujawnia, że Langer faktycznie dokonał zbrodni, a cały proces i rzekomy spisek mafii były zaplanowaną mistyfikacją."
   }
 ]

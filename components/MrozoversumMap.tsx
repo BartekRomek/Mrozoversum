@@ -55,10 +55,12 @@ const rowY: Record<SeriesId, number> = {
   Zaorski: 690
 };
 
+// DODANO OBSŁUGĘ epizod - określ rodzaj przerywania linii (np. kropkowana)
 const relationDash: Record<RelationType, string | undefined> = {
   kontynuacja: "6 6", 
   wzmianka: "3 7",
-  crossover: undefined
+  crossover: undefined,
+  epizod: "2 4" // Dodane
 };
 
 function TimelineLines() {
@@ -87,7 +89,8 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
   const [selectedRelations, setSelectedRelations] = useState<RelationType[]>([
     "kontynuacja",
     "wzmianka",
-    "crossover"
+    "crossover",
+    "epizod"
   ]);
   
   const [selectedBookId, setSelectedBookId] = useState<string | null>("kasacja");
@@ -223,7 +226,7 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
         sourceHandle: connection.sourceHandle, 
         targetHandle: connection.targetHandle, 
         type: connection.pathType || "smoothstep",
-        animated: connection.type === "crossover",
+        animated: connection.type === "crossover" || connection.type === "epizod", // <--- Dodano epizod
         label: `${connection.type} ${connection.certainty}%`,
         labelStyle: {
           fill: "#f4f1ea",
@@ -240,11 +243,12 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
           stroke: "rgba(255, 255, 255, 0.16)"
         },
         style: {
+          // Upewnij się, że relationColors w pliku catalog ma też kolor dla "epizod"!
           stroke: relationColors[connection.type],
           strokeWidth:
             connection.importance === "finale"
               ? 5
-              : connection.importance === "major" || connection.type === "crossover" || connection.type === "kontynuacja"
+              : connection.importance === "major" || connection.type === "crossover" || connection.type === "kontynuacja" || connection.type === "epizod"
                 ? 3
                 : 2,
           strokeDasharray: relationDash[connection.type],
@@ -298,7 +302,7 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
   const resetFilters = () => {
     setQuery("");
     setSelectedSeries(seriesOrder);
-    setSelectedRelations(["kontynuacja", "wzmianka", "crossover"]);
+    setSelectedRelations(["kontynuacja", "wzmianka", "crossover", "epizod"]);
   };
 
   const updateBookCover = (bookId: string, cover: string) => {
@@ -360,6 +364,8 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
           zoomOnPinch
           nodesDraggable={false}
           proOptions={{ hideAttribution: true }}
+          // DODANO: Ustawienie kątów prostych (z zaokrąglonymi rogami) na wszystkich liniach domyślnie
+          defaultEdgeOptions={{ type: 'smoothstep' }} 
         >
           <Background gap={28} color="rgba(255,255,255,0.05)" />
           <TimelineLines />
@@ -413,7 +419,7 @@ function ConnectionDetailsSidebar({
 }) {
   if (!connection || !source || !target) return null;
   
-  const title = connection.type === "crossover" ? "Crossover" : connection.type === "kontynuacja" ? "Kontynuacja" : "Wzmianka";
+  const title = connection.type === "crossover" ? "Crossover" : connection.type === "kontynuacja" ? "Kontynuacja" : connection.type === "epizod" ? "epizod" : "Wzmianka";
   const involvedCharacters = connection.characters 
     ? allCharacters.filter(char => connection.characters!.includes(char.id)) 
     : [];
@@ -423,7 +429,7 @@ function ConnectionDetailsSidebar({
       <header className="flex items-center justify-between border-b border-white/10 px-6 py-5">
         <div>
           <p className="text-xs uppercase tracking-[0.22em] text-rose-400">{title}</p>
-          <h2 className="mt-1 text-xl font-semibold text-white">{target.title} → {source.title}</h2>
+          <h2 className="mt-1 text-xl font-semibold text-white">{source.title} → {target.title}</h2>
         </div>
         <button type="button" onClick={onClose} className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/60 transition hover:bg-white/10 hover:text-white">
           <X size={20} />

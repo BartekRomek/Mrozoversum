@@ -150,7 +150,7 @@
     "name": "Olga Szrebska",
     "pseudonym": "",
     "role": "Dziennikarka NSI",
-    "series": "Chylka",
+    "series": "Forst",
     "debut": "Zaginięcie",
     "description": "Dziennikarka NSI, która śledzi sprawę porwania Nikoli.",
     "avatar": "avatars/olga-szrebska.png"
@@ -264,5 +264,15 @@
     "debut": "Rewizja",
     "description": "Zarząd firmy ubezpieczeniowej",
     "avatar": "avatars/salus.png"
+  },
+  {
+    "id": "marcin-pruszko",
+    "name": "Marcin Pruszko",
+    "pseudonym": "",
+    "role": "Prokurator",
+    "series": "Chylka",
+    "debut": "Immunitet",
+    "description": "ojejciec Chyłki.",
+    "avatar": "avatars/pruszko.png"
   }
 ]

@@ -20,8 +20,7 @@ type FilterBarProps = {
   onReset: () => void;
 };
 
-// TUTAJ ZMIANA: usunięto cameo, dodano kontynuacja
-const relationTypes: RelationType[] = ["kontynuacja", "wzmianka", "crossover"];
+const relationTypes: RelationType[] = ["kontynuacja", "wzmianka", "crossover", "epizod"];
 
 export function FilterBar({
   query,

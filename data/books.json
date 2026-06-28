@@ -96,7 +96,8 @@
     "certainty": 100,
     "order": 3,
     "timeline": 6.5,
-    "year": 2016
+    "year": 2016,
+    "duration": 2.4
   },
   {
     "id": "inwigilacja",
@@ -394,5 +395,16 @@
     "order": 4,
     "timeline": 30,
     "year": 2026
+  },
+  {
+    "id": "szrebska-axis-ekspozycja",
+    "title": "Szrebska",
+    "series": "Chylka",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Chyłka",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 3,
+    "year": 2015
   }
 ]
