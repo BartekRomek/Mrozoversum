@@ -1,0 +1,11 @@
+[
+  { "characterId": "wiktor-forst", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "edmund-osica", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "wadris-hansen", "isFirstAppearance": true, "role": "main", "isNew": true },
+  { "characterId": "gjord-hansen", "isFirstAppearance": true, "role": "supporting", "isNew": true },
+  { "characterId": "michal-sznajderman", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+  { "characterId": "kormak", "isFirstAppearance": true, "role": "main", "isNew": true },
+  { "characterId": "olga-szrebska", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "iwo-eliasz", "isFirstAppearance": true, "role": "antagonist", "isNew": true }
+
+]

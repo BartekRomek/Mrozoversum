@@ -1,7 +1,7 @@
 [
   { "characterId": "wiktor-forst", "isFirstAppearance": true, "role": "main", "isNew": true },
   { "characterId": "edmund-osica", "isFirstAppearance": true, "role": "main", "isNew": true },
-  { "characterId": "olga-szrebska", "isFirstAppearance": true, "role": "supporting", "isNew": true },
+  { "characterId": "olga-szrebska", "isFirstAppearance": true, "role": "supporting", "isNew": true, "isDead": true},
   { "characterId": "bieszynski", "isFirstAppearance": true, "role": "supporting", "isNew": true },
   { "characterId": "jegor-sazonow", "isFirstAppearance": true, "role": "supporting", "isNew": true },
   { "characterId": "gazajew", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
@@ -9,5 +9,4 @@
   { "characterId": "antonina-sznajderman", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
   { "characterId": "bracia-sznajderman", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
   { "characterId": "filipczenko", "isFirstAppearance": true, "role": "supporting", "isNew": true }
-
 ]

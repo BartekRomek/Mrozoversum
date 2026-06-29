@@ -360,6 +360,45 @@
   "debut": "Ekspozycja",
   "description": "zrezygnowany więzień.",
   "avatar": "avatars/filipczenko.png"
+  },
+  {
+  "id": "wadris-hansen",
+  "name": "Dominika Wadryś-Hansen",
+  "role": "Prokurator okręgowa z Krakowa",
+  "series": "Forst",
+  "debut": "Przewieszenie",
+  "description": "Prokurator okręgowa z Krakowa",
+  "avatar": "avatars/wadris-hansen.png"
+  },
+  {
+  "id": "gjord-hansen",
+  "name": "Gjord Hansen",
+  "role": "Mąż Dominiki Wadryś-Hansen",
+  "series": "Forst",
+  "debut": "Przewieszenie",
+  "hiddenRole": "Iwo Eliasz / BESTIA Z GIWEONTU",
+  "description": "Mąż Dominiki Wadryś-Hansen",
+  "avatar": "avatars/gjord-hansen.png",
+  "hiddenAvatar": "avatars/bestia.jpg"
+  },
+  {
+  "id": "michal-sznajderman",
+  "name": "Michał Sznajderman",
+  "role": "Młodszy brat zmarłego Piotra",
+  "series": "Forst",
+  "debut": "Ekspozycja",
+  "description": "Młodszy brat zmarłego Piotra",
+  "avatar": "avatars/michal-sznajderman.png"
+  },
+  {
+  "id": "iwo-eliasz",
+  "name": "Iwo Eliasz",
+  "role": "Górołaz",
+  "series": "Forst",
+  "hiddenRole": "BESTIA Z GIWEONTU",
+  "debut": "Przewieszenie",
+  "description": "Górołaz",
+  "avatar": "avatars/bestia.png"
   }
 
 ]
