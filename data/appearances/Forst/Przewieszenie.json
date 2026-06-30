@@ -6,6 +6,8 @@
   { "characterId": "michal-sznajderman", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
   { "characterId": "kormak", "isFirstAppearance": true, "role": "main", "isNew": true },
   { "characterId": "olga-szrebska", "isFirstAppearance": true, "role": "main", "isNew": false },
-  { "characterId": "iwo-eliasz", "isFirstAppearance": true, "role": "antagonist", "isNew": true }
+  { "characterId": "iwo-eliasz", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
+  { "characterId": "agata-osica", "isFirstAppearance": true, "role": "supporting", "isNew": true, "isDead": true },
+  { "characterId": "gerc", "isFirstAppearance": true, "role": "supporting", "isNew": true }
 
 ]

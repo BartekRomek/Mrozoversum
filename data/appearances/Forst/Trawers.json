@@ -1,0 +1,9 @@
+[
+  { "characterId": "wiktor-forst", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "edmund-osica", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "wadris-hansen", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "olga-szrebska", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "iwo-eliasz", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+  { "characterId": "joanna-chylka", "isFirstAppearance": true, "role": "supporting", "isNew": true },
+  { "characterId": "kormak", "isFirstAppearance": true, "role": "supporting", "isNew": false }
+]

@@ -49,21 +49,21 @@
     "type": "crossover",
     "certainty": 100,
     "importance": "major",
-    "sourceHandle": "source-left",
-    "targetHandle": "target-left",
-    "characters": ["kormak", "joanna-chylka", "kordian-orynski", "marcin-pruszko", "borsuk"],
-    "note": "Chyłka jedzie w Tatry, Forst pojawia się w Afekcie, a w Widmie Brockenu oboje prowadzą pełnoprawne wspólne śledztwo."
+    "sourceHandle": "source-top",
+    "targetHandle": "target-bottom",
+    "characters": ["kormak", "joanna-chylka", "kordian-orynski", "marcin-pruszko"],
+    "note": "Crossover pomiędzy cyklami o Joannie Chyłce i Wiktorze Forście rozpoczyna się pod koniec powieści „Immunitet”, gdy Joanna Chyłka otrzymuje telefon od Wiktora Forsta. W „Trawersie” prawniczka osobiście odwiedza go w krakowskim areszcie na Podgórzu i podejmuje się jego obrony, mimo że sprawa wydaje się beznadziejna. Dzięki odnalezieniu nowego świadka na Ukrainie doprowadza ostatecznie do uniewinnienia Forsta i jego wyjścia na wolność. Towarzyszy jej Kordian „Zordon” Oryński, aplikant kancelarii Żelazny & McVay, który pojawia się u boku Joanny podczas jej wizyt w Krakowie. Istotną rolę odgrywa również Kormak, współpracujący z Wiktorem Forstem za pośrednictwem telefonu. Dostarcza mu informacji niezbędnych do prowadzenia śledztwa, analizuje zdobyte materiały, rozszyfrowuje współrzędne GPS prowadzące na Szpiglasowy Wierch oraz pomaga w interpretacji kolejnych tropów. Kolejną postacią łączącą oba cykle jest prokurator Marcin Pruszko, który w serii o Joannie Chyłce prowadzi jako oskarżyciel proces sędziego Sebastiana Sendala, natomiast w „Trawersie” uczestniczy wspólnie z prokuratorem Aleksandrem Gercem w czynnościach procesowych dotyczących sprawy Wiktora Forsta oraz śledztwa prowadzonego w urzędzie wojewódzkim."
   },
   {
-    "source": "inwigilacja",
-    "target": "trawers",
-    "type": "crossover",
+    "source": "trawers",
+    "target": "immunitet",
+    "type": "wzmianka",
     "certainty": 100,
     "importance": "major",
-    "sourceHandle": "source-right",
-    "targetHandle": "target-right",
-    "characters": ["joanna-chylka", "kordian-orynski"],
-    "note": "Chyłka jedzie w Tatry, Forst pojawia się w Afekcie, a w Widmie Brockenu oboje prowadzą pełnoprawne wspólne śledztwo."
+    "sourceHandle": "source-top",
+    "targetHandle": "target-left",
+    "characters": ["gerc", "wadris-hansen"],
+    "note": "Aleksander Gerc pełni rolę drugoplanową, będąc przede wszystkim postacią przywoływaną w kontekście wydarzeń z przeszłości. Joanna Chyłka, która określa go mało pochlebnym mianem pudla, wspomina go jako głównego oskarżyciela w procesie komisarza Wiktora Forsta, gdzie Gerc doprowadził do jego skazania za zabójstwo ukraińskiego zbrodniarza wojennego. Gerc pojawia się jako doświadczony oskarżyciel, któremu asystował Marcin Pruszko, zanim przejął sprawę sędziego Sebastiana Sendala. Postać Gerca występuje również jako prokurator dyżurny, który zajmował się czynnościami śledczymi w sprawie zabójstwa dziennikarki Olgi Szrebskiej. Jest on charakteryzowany przez Chyłkę jako jeden z prokuratorów, którzy skupiają się na wydobywaniu brudów oskarżonych, by zniszczyć ich wizerunek, co czyni go groźnym, choć cynicznym przedstawicielem organów ścigania."
   },
   {
     "source": "rewizja",
@@ -71,8 +71,8 @@
     "type": "epizod",
     "certainty": 100,
     "importance": "major",
-    "sourceHandle": "source-right",
-    "targetHandle": "target-right",
+    "sourceHandle": "source-top",
+    "targetHandle": "target-bottom",
     "characters": ["kormak"],
     "note": "Kormak współpracuje z Wiktorem Forstem za pośrednictwem Internetu (na portalu Reddit). Pomaga mu zidentyfikować tajemniczą monetę znalezioną w ustach Olgi Szrebskiej jako grecki obol Demetriusza I Baktryjskiego. Forst kontaktuje się z nim telefonicznie, a Kormak przekazuje mu analizy dotyczące symboliki Koła Dharmy i powiązań z kulturą Gandhary."
   },

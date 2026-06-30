@@ -398,7 +398,72 @@
   "hiddenRole": "BESTIA Z GIWEONTU",
   "debut": "Przewieszenie",
   "description": "Górołaz",
-  "avatar": "avatars/bestia.png"
+  "avatar": "avatars/iwo.png"
+  },
+  {
+  "id": "agata-osica",
+  "name": "Agata Osica",
+  "role": "Córka Edmunda Osicy",
+  "series": "Forst",
+  "debut": "Przewieszenie",
+  "description": "Córka Edmunda Osicy",
+  "avatar": "avatars/agata-osica.png"
+  },
+  {
+  "id": "gerc",
+  "name": "Aleksander Gerc",
+  "role": "Krakowski Prokurator",
+  "series": "Forst",
+  "debut": "Przewieszenie",
+  "description": "Krakowski Prokurator",
+  "avatar": "avatars/gerc.png"
+  },
+  {
+  "id": "sendal",
+  "name": "Sebastian Sendal",
+  "role": "Sędzia Trybunału Konstytucyjnego",
+  "series": "Chylka",
+  "debut": "Immuniteet",
+  "description": "Sędzia Trybunału Konstytucyjnego",
+  "avatar": "avatars/sendal.png"
+  },
+  {
+  "id": "n-sendal",
+  "name": "Natalia Sendal",
+  "role": "Żona Sebatiana Sendala",
+  "series": "Chylka",
+  "debut": "Immuniteet",
+  "description": "Żona Sebastiana",
+  "avatar": "avatars/n-sendal.png"
+  },
+  {
+  "id": "paulina-zabitowska",
+  "name": "Paulina Zabitowska",
+  "role": "Posłanka na Sejm RP",
+  "series": "Chylka",
+  "debut": "Immuniteet",
+  "description": "Posłanka na Sejm RP",
+  "avatar": "avatars/zabitowska.png"
+  },
+  {
+  "id": "grzegorz-kostrzewa",
+  "name": "Grzegorz Kostrzewa",
+  "role": "Najlepszy przyjaciel Sebastiana Sendala",
+  "series": "Chylka",
+  "debut": "Immuniteet",
+  "description": "Najlepszy przyjaciel Sebastiana Sendala",
+  "avatar": "avatars/kostrzewa.png"
+  },
+  {
+  "id": "fahad",
+  "name": "Fahad Al-Jassam",
+  "role": "Oskarżony o planowanie zamachu",
+  "pseudonym": "",
+  "series": "Chylka",
+  "debut": "Inwigilacja",
+  "description": "Oskarżony o planowanie zamachu",
+  "avatar": "avatars/fahad.png"
   }
+
 
 ]

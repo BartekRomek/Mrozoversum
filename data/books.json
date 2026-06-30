@@ -84,7 +84,7 @@
     "description": "Strefa 2. Pierwszy fizyczny węzeł z Forstem: Chyłka dostaje prośbę o pomoc dla osadzonego komisarza.",
     "certainty": 100,
     "order": 4,
-    "timeline": 6,
+    "timeline": 5,
     "year": 2016
   },
   {
@@ -95,9 +95,8 @@
     "description": "Strefa 2. Ta sama scena co w Immunitecie, widziana z perspektywy celi w Krasnymstawie.",
     "certainty": 100,
     "order": 3,
-    "timeline": 6.5,
-    "year": 2016,
-    "duration": 2.4
+    "timeline": 5.25,
+    "year": 2016
   },
   {
     "id": "inwigilacja",
@@ -107,7 +106,7 @@
     "description": "Strefa 3. Warszawska oś biegnie równolegle z ucieczką Forsta.",
     "certainty": 100,
     "order": 5,
-    "timeline": 7,
+    "timeline": 6,
     "year": 2017
   },
   {
