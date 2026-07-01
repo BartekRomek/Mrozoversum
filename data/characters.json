@@ -516,6 +516,42 @@
   "debut": "Inwigilacja",
   "description": "Sędzia",
   "avatar": "avatars/tatarek.png"
+  },
+  {
+  "id": "tesarewicz",
+  "name": "Tadeusz Tesarewicz",
+  "role": "Działacz opozycyjny z czasów PRL",
+  "series": "Chylka",
+  "debut": "Inwigilacja",
+  "description": "Działacz opozycyjny z czasów PRL",
+  "avatar": "avatars/tesarewicz.png"
+  },
+  {
+  "id": "ferus",
+  "name": "Paulina Feruś",
+  "role": "Młoda prokurator",
+  "series": "Chylka",
+  "debut": "Inwigilacja",
+  "description": "Młoda prokurator",
+  "avatar": "avatars/ferus.png"
+  },
+  {
+  "id": "skopinski",
+  "name": "Marian Skopiński",
+  "role": " Emerytowany prokurator",
+  "series": "Chylka",
+  "debut": "Inwigilacja",
+  "description": "Emerytowany prokurator",
+  "avatar": "avatars/skopinski.png"
+  },
+  {
+  "id": "wiliam",
+  "name": "William McVay",
+  "role": "Syn Harry’ego McVaya",
+  "series": "Chylka",
+  "debut": "Inwigilacja",
+  "description": "Syn Harry’ego McVaya",
+  "avatar": "avatars/wiliam.png"
   }
 
 ]
