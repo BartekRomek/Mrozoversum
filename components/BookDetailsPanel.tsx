@@ -57,18 +57,44 @@ export function BookDetailsPanel({
         // typ w appearancesData jeszcze nie miał oficjalnie pola isDead.
         const isDeadInThisBook = (appearance as any).isDead === true;
 
-        const canSwitch = !!char.hiddenRole && isAntagonistInThisBook;
+        // NOWE: Pobieranie ukrytej tożsamości z appearancesData i ukrytego imienia z characters.json
+        const hiddenIdentityInThisBook = (appearance as any).hiddenIdentity;
+        const hiddenName = (char as any).hiddenName;
+        const hiddenRole = (char as any).hiddenRole;
+        const hiddenPseudonym = (char as any).hiddenPseudonym;
+        const hiddenAvatar = (char as any).hiddenAvatar;
+
+        // POPRAWKA: Strzałki (canSwitch) aktywują się, gdy postać posiada ukrytą tożsamość
+        // LUB gdy jest antagonistą i posiada jakiekolwiek ukryte dane.
+        const canSwitch = !!hiddenIdentityInThisBook || (isAntagonistInThisBook && (
+          !!hiddenName || !!hiddenRole || !!hiddenPseudonym || !!hiddenAvatar
+        ));
 
         return { 
           ...char, 
           isNew: appearance.isNew || false,
           isAntagonist: isAntagonistInThisBook,
           isDead: isDeadInThisBook, // <-- UPEWNIJ SIĘ, ŻE TO TU JEST
+          hiddenIdentity: hiddenIdentityInThisBook, // Przekazanie etykiety ukrytej tożsamości
+          hiddenName, // Przekazanie ukrytego imienia
+          hiddenRole,
+          hiddenPseudonym,
+          hiddenAvatar,
           canSwitch 
         };
       })
-      // Czyste rzutowanie odrzucające wszystkie wartości null z uwzględnieniem isDead
-      .filter(Boolean) as (Character & { isNew: boolean; isAntagonist: boolean; isDead: boolean; canSwitch: boolean })[];
+      // Czyste rzutowanie odrzucające wszystkie wartości null z uwzględnieniem isDead, ukrytych danych itd.
+      .filter(Boolean) as (Character & { 
+        isNew: boolean; 
+        isAntagonist: boolean; 
+        isDead: boolean; 
+        canSwitch: boolean; 
+        hiddenIdentity?: string | boolean; 
+        hiddenName?: string;
+        hiddenRole?: string;
+        hiddenPseudonym?: string;
+        hiddenAvatar?: string;
+      })[];
 
     return chars;
   }, [book]);
@@ -186,7 +212,6 @@ export function BookDetailsPanel({
                       key={char.id} 
                       character={char} 
                       showSpoilers={showSpoilers}
-                      canSwitch={char.canSwitch} 
                     />
                   ))}
                 </div>

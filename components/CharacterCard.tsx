@@ -12,7 +12,19 @@ const seriesIcons: Record<string, string> = {
 };
 
 interface CharacterCardProps {
-  character: Character & { isNew?: boolean; isAntagonist?: boolean; isDead?: boolean; pseudonym?: string; hiddenRole?: string; canSwitch?: boolean };
+  // Rozszerzony typ: dodano hiddenIdentity (jako string lub boolean), hiddenName, hiddenPseudonym oraz hiddenAvatar
+  character: Character & { 
+    isNew?: boolean; 
+    isAntagonist?: boolean; 
+    isDead?: boolean; 
+    pseudonym?: string; 
+    hiddenRole?: string; 
+    canSwitch?: boolean; 
+    hiddenIdentity?: string | boolean; 
+    hiddenName?: string;
+    hiddenPseudonym?: string;
+    hiddenAvatar?: string;
+  };
   showSpoilers?: boolean; 
 }
 
@@ -21,24 +33,41 @@ export function CharacterCard({ character, showSpoilers = false }: CharacterCard
   const [isLocallyRevealed, setIsLocallyRevealed] = useState(false);
 
   useEffect(() => {
-    setIsLocallyRevealed(showSpoilers && (!!character.isAntagonist || !!character.isDead));
-  }, [showSpoilers, character.isAntagonist, character.isDead]);
+    // Karta jest lokalnie odkryta, jeśli pokazujemy spoilery i ma JAKĄKOLWIEK tajemnicę
+    setIsLocallyRevealed(showSpoilers && (!!character.isAntagonist || !!character.isDead || !!character.hiddenIdentity));
+  }, [showSpoilers, character.isAntagonist, character.isDead, character.hiddenIdentity]);
 
   const seriesId = (character.series as any) || "Chylka";
   const brandColor = seriesColors[seriesId] || "#00ff1a"; 
 
-  const nameParts = character.name.split(" ");
-  const firstName = nameParts[0];
-  const lastName = nameParts.slice(1).join(" ");
-
+  // Stany pokazywania poszczególnych "sekretów"
   const isShowingAntagonist = isLocallyRevealed && character.isAntagonist;
   const isShowingDeath = isLocallyRevealed && character.isDead;
-  
-  const displayRole = (isShowingAntagonist && character.hiddenRole) 
-    ? character.hiddenRole 
-    : character.role;
+  const isShowingHiddenIdentity = isLocallyRevealed && !!character.hiddenIdentity;
 
-  // Przełączanie karty jeśli postać ma ukryte informacje (i jest canSwitch, które obsłuży BookDetailsPanel, ale sprawdzamy to też tu)
+  // LOGIKA IMIENIA I DANYCH (Jeśli pokazujemy ukrytą tożsamość i postać ma ukryte dane, podmień)
+  const currentNameToDisplay = (isShowingHiddenIdentity && character.hiddenName) ? character.hiddenName : character.name;
+  const nameParts = currentNameToDisplay.split(" ");
+  const firstName = nameParts[0];
+  const lastName = nameParts.slice(1).join(" ");
+  
+  // POPRAWIONE: Logika dla pseudonimu (tylko antagonista) i avatara (antagonista LUB ukryta tożsamość)
+  const currentPseudonym = (isShowingAntagonist && character.hiddenPseudonym) ? character.hiddenPseudonym : character.pseudonym;
+  const currentAvatar = ((isShowingAntagonist || isShowingHiddenIdentity) && character.hiddenAvatar) ? character.hiddenAvatar : character.avatar;
+
+  // LOGIKA ROLI I KOLORU
+  const highlightRole = isShowingAntagonist || isShowingHiddenIdentity;
+  const displayRole = (highlightRole && character.hiddenRole) ? character.hiddenRole : character.role;
+
+  // Ustawianie koloru dolnego napisu roli (Fioletowy priorytet, potem Czerwony, potem kolor serii)
+  let roleColor = brandColor;
+  if (isShowingHiddenIdentity) {
+    roleColor = "#a855f7"; // Fioletowy dla ukrytej tożsamości
+  } else if (isShowingAntagonist) {
+    roleColor = "#ef4444"; // Czerwony dla antagonisty
+  }
+
+  // Przełączanie karty jeśli postać ma ukryte informacje
   const toggleReveal = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -50,15 +79,20 @@ export function CharacterCard({ character, showSpoilers = false }: CharacterCard
   return (
     <div 
       className={`relative flex flex-col w-full h-full shrink-0 overflow-hidden rounded-xl bg-[#0f1115] transition-transform duration-300 hover:scale-[1.02] ${
-        isShowingAntagonist || isShowingDeath ? "" : "border border-white/5"
+        isShowingHiddenIdentity || isShowingAntagonist || isShowingDeath ? "" : "border border-white/5"
       }`}
       style={{ boxShadow: `0 8px 32px rgba(0,0,0,0.6)` }}
     >
-      {/* 🔴/⚪ PULSUJĄCA OBWÓDKA (Zewnętrzna - bez inset, żeby nie ściskać karty) */}
-      {isShowingAntagonist && (
+      {/* 🟣 PULSUJĄCA OBWÓDKA (Fioletowa - najwyższy priorytet) */}
+      {isShowingHiddenIdentity && (
+        <div className="absolute inset-0 z-50 pointer-events-none rounded-xl border border-purple-500/90 animate-pulse shadow-[0_0_12px_rgba(168,85,247,0.5)]" />
+      )}
+      {/* 🔴 PULSUJĄCA OBWÓDKA (Czerwona - jeśli nie ma fioletowej) */}
+      {!isShowingHiddenIdentity && isShowingAntagonist && (
         <div className="absolute inset-0 z-50 pointer-events-none rounded-xl border border-red-600/90 animate-pulse shadow-[0_0_12px_rgba(220,38,38,0.5)]" />
       )}
-      {!isShowingAntagonist && isShowingDeath && (
+      {/* ⚪ PULSUJĄCA OBWÓDKA (Biała - jeśli nie ma fioletowej ani czerwonej) */}
+      {!isShowingHiddenIdentity && !isShowingAntagonist && isShowingDeath && (
         <div className="absolute inset-0 z-50 pointer-events-none rounded-xl border border-white/90 animate-pulse shadow-[0_0_12px_rgba(255,255,255,0.5)]" />
       )}
 
@@ -77,10 +111,10 @@ export function CharacterCard({ character, showSpoilers = false }: CharacterCard
           <div className="absolute top-4 left-4 z-20 w-8 h-8 opacity-90" style={{ backgroundColor: brandColor, WebkitMaskImage: `url(${seriesIcons[seriesId]})`, maskImage: `url(${seriesIcons[seriesId]})`, WebkitMaskSize: 'contain', maskSize: 'contain', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.8))' }} />
         )}
 
-        {character.avatar && character.avatar !== "" ? (
-          <img src={character.avatar} alt={character.name} className="absolute inset-0 z-10 h-full w-full object-cover" />
+        {currentAvatar && currentAvatar !== "" ? (
+          <img key={currentAvatar} src={currentAvatar} alt={currentNameToDisplay} className="absolute inset-0 z-10 h-full w-full object-cover animate-in fade-in duration-500" />
         ) : (
-          <span className="relative z-10 font-mono text-5xl font-bold text-white/5">{character.name.charAt(0)}</span>
+          <span className="relative z-10 font-mono text-5xl font-bold text-white/5">{currentNameToDisplay.charAt(0)}</span>
         )}
 
         {/* Strzałki widoczne TYLKO gdy canSwitch z BookDetailsPanel jest true */}
@@ -104,11 +138,22 @@ export function CharacterCard({ character, showSpoilers = false }: CharacterCard
         {/* ETYKIETY - Stały kontener 28px, by karta nie skakała */}
         <div className="h-[28px] w-full flex flex-col items-center justify-center mt-2 mb-2">
           {isShowingDeath && (
-            <div className="flex items-center justify-center border border-white/80 text-white px-2 py-[2px] rounded-sm bg-black/60 backdrop-blur-sm animate-pulse">
+            <div className="flex items-center justify-center border border-white/80 text-white px-2 py-[2px] rounded-sm bg-black/60 backdrop-blur-sm animate-pulse mb-1">
               <span className="text-[8px] font-bold uppercase tracking-widest leading-none">Śmierć</span>
             </div>
           )}
-          {isShowingAntagonist && (
+          
+          {/* FIOLETOWY KAFELEK - Ukryta tożsamość */}
+          {isShowingHiddenIdentity && (
+            <div className="flex items-center justify-center border border-purple-500/80 text-purple-500 px-2 py-[2px] rounded-sm bg-black/40 backdrop-blur-sm animate-pulse">
+              <span className="text-[8px] font-bold uppercase tracking-widest leading-none">
+                {typeof character.hiddenIdentity === "string" ? character.hiddenIdentity : "UKRYTA TOŻSAMOŚĆ"}
+              </span>
+            </div>
+          )}
+
+          {/* CZERWONY KAFELEK - Antagonista (Ukryty, jeśli postać ma fioletowy kafelek) */}
+          {!isShowingHiddenIdentity && isShowingAntagonist && (
             <div className="flex items-center justify-center border border-red-600/80 text-red-500 px-2 py-[2px] rounded-sm bg-black/40 backdrop-blur-sm animate-pulse mt-1">
               <span className="text-[8px] font-bold uppercase tracking-widest leading-none">Antagonista</span>
             </div>
@@ -119,16 +164,16 @@ export function CharacterCard({ character, showSpoilers = false }: CharacterCard
         <div className="flex flex-col items-center justify-start min-h-[120px]">
           <div className="flex flex-col items-center justify-end min-h-[44px] mb-1">
             <h3 className="flex flex-col text-[17px] sm:text-lg font-bold text-white/95 uppercase tracking-widest leading-[1.1]">
-              <span>{firstName}</span>
-              {lastName && <span>{lastName}</span>}
+              <span className="transition-all duration-300">{firstName}</span>
+              {lastName && <span className="transition-all duration-300">{lastName}</span>}
             </h3>
           </div>
           
-          <span className={`text-[10px] font-medium tracking-widest uppercase mb-1 ${character.pseudonym ? "text-white/50" : "opacity-0 select-none"}`}>
-            {character.pseudonym ? `"${character.pseudonym}"` : '"BRAK"'}
+          <span className={`text-[10px] font-medium tracking-widest uppercase mb-1 transition-all duration-300 ${currentPseudonym ? "text-white/50" : "opacity-0 select-none"}`}>
+            {currentPseudonym ? `"${currentPseudonym}"` : '"BRAK"'}
           </span>
 
-          <span className="text-[10px] font-bold uppercase tracking-widest mt-0.5" style={{ color: isShowingAntagonist ? "#ef4444" : brandColor }}>
+          <span className="text-[10px] font-bold uppercase tracking-widest mt-0.5 transition-colors duration-300" style={{ color: roleColor }}>
             {displayRole || "Brak danych"}
           </span>
         </div>

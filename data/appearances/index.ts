@@ -7,6 +7,8 @@ import przewieszenie from './forst/Przewieszenie.json';
 import trawers from './forst/Trawers.json';
 import immunitet from './chylka/immunitet.json';
 import inwigilacja from './chylka/Inwigilacja.json';
+import oskarzenie from './chylka/Oskarzenie.json';
+
 
 
 
@@ -19,7 +21,7 @@ export const appearancesData = [
   ...trawers.map((char: any) => ({ ...char, bookId: 'trawers' })),
   ...immunitet.map((char: any) => ({ ...char, bookId: 'immunitet' })),
   ...inwigilacja.map((char: any) => ({ ...char, bookId: 'inwigilacja' })),
-
+  ...oskarzenie.map((char: any) => ({ ...char, bookId: 'oskarzenie' })),
 
 
 

@@ -3,7 +3,10 @@
   { "characterId": "edmund-osica", "isFirstAppearance": true, "role": "main", "isNew": false },
   { "characterId": "wadris-hansen", "isFirstAppearance": true, "role": "main", "isNew": false },
   { "characterId": "olga-szrebska", "isFirstAppearance": true, "role": "main", "isNew": false },
-  { "characterId": "iwo-eliasz", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+  { "characterId": "iwo-eliasz-hansen", "isFirstAppearance": true, "role": "antagonist", "isNew": false},
+  { "characterId": "gjord-hansen", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
   { "characterId": "joanna-chylka", "isFirstAppearance": true, "role": "supporting", "isNew": true },
-  { "characterId": "kormak", "isFirstAppearance": true, "role": "supporting", "isNew": false }
+  { "characterId": "kormak", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+  { "characterId": "gerc", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+  { "characterId": "michal-sznajderman", "isFirstAppearance": true, "role": "antagonist", "isNew": false, "isDead": true }
 ]

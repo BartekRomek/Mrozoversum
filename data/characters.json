@@ -376,10 +376,11 @@
   "role": "Mąż Dominiki Wadryś-Hansen",
   "series": "Forst",
   "debut": "Przewieszenie",
-  "hiddenRole": "Iwo Eliasz / BESTIA Z GIWEONTU",
+  "hiddenRole": "BESTIA Z GIWEONTU",
+  "hiddenPseudonym": "Iwo Eliasz",
   "description": "Mąż Dominiki Wadryś-Hansen",
   "avatar": "avatars/gjord-hansen.png",
-  "hiddenAvatar": "avatars/bestia.jpg"
+  "hiddenAvatar": "/avatars/bestia.png"
   },
   {
   "id": "michal-sznajderman",
@@ -398,7 +399,21 @@
   "hiddenRole": "BESTIA Z GIWEONTU",
   "debut": "Przewieszenie",
   "description": "Górołaz",
-  "avatar": "avatars/iwo.png"
+  "avatar": "avatars/iwo.png",
+  "hiddenAvatar": "/avatars/bestia.png"
+  },
+  {
+  "id": "iwo-eliasz-hansen",
+  "name": "Iwo Eliasz",
+  "role": "Górołaz",
+  "series": "Forst",
+  "hiddenRole": "BESTIA Z GIWEONTU",
+  "hiddenPseudonym": "Gjord Hansen",
+  "debut": "Przewieszenie",
+  "description": "Górołaz",
+  "avatar": "avatars/iwo.png",
+  "hiddenAvatar": "/avatars/bestia.png"
+
   },
   {
   "id": "agata-osica",
@@ -457,13 +472,50 @@
   {
   "id": "fahad",
   "name": "Fahad Al-Jassam",
+  "hiddenName": "Andrzej Zechwatowicz",
   "role": "Oskarżony o planowanie zamachu",
-  "pseudonym": "",
+  "hiddenRole": "Oficer Agencji Wywiadu",
   "series": "Chylka",
   "debut": "Inwigilacja",
   "description": "Oskarżony o planowanie zamachu",
-  "avatar": "avatars/fahad.png"
+  "avatar": "avatars/fahad.png",
+  "hiddenAvatar": "avatars/oficer-wywiadu.png"
+  },
+  {
+  "id": "paderborn",
+  "name": "Olgierd Paderborn",
+  "role": "Prokurator",
+  "series": "Chylka",
+  "debut": "Inwigilacja",
+  "description": "Prokurator",
+  "avatar": "avatars/paderborn.png"
+  },
+  {
+  "id": "messer",
+  "name": "Paweł Messer",
+  "role": "Imienny partner w kancelarii Czymański Messer Krat",
+  "series": "Chylka",
+  "debut": "Inwigilacja",
+  "description": "Imienny partner w kancelarii Czymański Messer Krat",
+  "avatar": "avatars/messer.png"
+  },
+  {
+  "id": "lipczynscy",
+  "name": "Anna i Tadeusz Lipczyńscy",
+  "role": "`przybrani rodzice Przemka Lipczyńskiego",
+  "series": "Chylka",
+  "debut": "Inwigilacja",
+  "description": "`przybrani rodzice Przemka Lipczyńskiego",
+  "avatar": "avatars/lipczynscy.png"
+  },
+  {
+  "id": "tatarek",
+  "name": "Wiesław Tatarek",
+  "role": "Sędzia",
+  "series": "Chylka",
+  "debut": "Inwigilacja",
+  "description": "Sędzia",
+  "avatar": "avatars/tatarek.png"
   }
-
 
 ]
