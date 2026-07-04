@@ -114,7 +114,7 @@
   },
   {
     "id": "magdalena-obertal",
-    "name": "Magdalena Obertał",
+    "name": "Magdalena",
     "role": "Siostra Chyłki",
     "series": "Chylka",
     "debut": "Kasacja",
@@ -552,6 +552,151 @@
   "debut": "Inwigilacja",
   "description": "Syn Harry’ego McVaya",
   "avatar": "avatars/wiliam.png"
+  },
+  {
+  "id": "kranz",
+  "name": "Rafał Kranz",
+  "role": "Ginekolog",
+  "hiddenRole": "Prawdizy morderca",
+  "series": "Chylka",
+  "debut": "Testament",
+  "description": "Prawdizy morderca",
+  "avatar": "avatars/kranz.png"
   }
+,  {
+  "id": "widera",
+  "name": "Beata Widera",
+  "role": "Zmarła pacjentka",
+  "series": "Chylka",
+  "debut": "Testament",
+  "description": "Zmarła pacjentka",
+  "avatar": "avatars/widera.png"
+  },
+  {
+  "id": "czerska",
+  "name": "Elżbieta Czerska",
+  "role": "Pacjentka",
+  "hiddenRole": "Siostra bliźniaczka Beaty Widery",
+  "series": "Chylka",
+  "debut": "Testament",
+  "description": "Pacjentka",
+  "avatar": "avatars/czerska.png"
+  },
+  {
+  "id": "kabelis",
+  "name": "Klara Kabelis",
+  "role": "Polska himalaistka",
+  "series": "Chylka",
+  "debut": "Kontratyp",
+  "description": "Polska himalaistka",
+  "avatar": "avatars/kabelis.png"
+  },
+  {
+  "id": "lemur",
+  "name": "Julian Brencz",
+  "hiddenName": "Zdun",
+  "role": "Mąż Magdaleny",
+  "hiddenRole": "Porywacz własnej córki",
+  "series": "Chylka",
+  "debut": "Kontratyp",
+  "description": "Mąż Magdaleny",
+  "avatar": "avatars/lemur.png",
+  "hiddenAvatar": "avatars/lemur_hidden.png"
+  },
+  {
+  "id": "skalski",
+  "name": "Adrian Skalski",
+  "role": "Oskarżony o zamordowanie żony i dwójki dzieci.",
+  "series": "Chylka",
+  "debut": "Umorzenie",
+  "description": "Oskarżony o zamordowanie żony i dwójki dzieci.",
+  "avatar": "avatars/skalski.png"
+  },
+  {
+  "id": "architekt",
+  "name": "Igor Weda-Lendowski",
+  "role": "Mąż Tesy",
+  "hiddenRole": "Architekt",
+  "series": "Chylka",
+  "debut": "Umorzenie",
+  "description": "OMąż Tesy, ARCHITEKT",
+  "avatar": "avatars/architekt.png"
+  },
+  {
+  "id": "tesa",
+  "name": "Teresa",
+  "pseudonym": "Tesa",
+  "role": "Była żona Igora Wedy-Lendowskiego",
+  "series": "Chylka",
+  "debut": "Umorzenie",
+  "description": "Była żona Igora Wedy-Lendowskiego",
+  "avatar": "avatars/tesa.png"
+  },
+  {
+  "id": "smaga",
+  "name": "Wioletta Smaga",
+  "role": "Przewodnicząca składu orzekającego",
+  "series": "Chylka",
+  "debut": "Umorzenie",
+  "description": "Przewodnicząca składu orzekającego",
+  "avatar": "avatars/smaga.png"
+  },
+  {
+  "id": "balajew",
+  "name": "Siergiej Wasiljewicz Bałajew",
+  "role": "Szef rosyjskiej organizacji przestępczej w Hiszpanii ",
+  "series": "Forst",
+  "debut": "Deniwelacja",
+  "description": "Szef rosyjskiej organizacji przestępczej w Hiszpanii ",
+  "avatar": "avatars/balajew.png"
+  },
+ {
+  "id": "krieger",
+  "name": "Robert Krieger",
+  "role": "Dawny przyjaciel Forsta",
+  "hiddenRole": "Naśladowca Bestii z Giweontu",
+  "series": "Forst",
+  "debut": "Deniwelacja",
+  "description": "Dawny przyjaciel Forsta",
+  "avatar": "avatars/krieger.png"
+  },
+ {
+  "id": "krieger-forst",
+  "name": "Robert Krieger",
+  "role": "Wiktor Forst",
+  "series": "Forst",
+  "debut": "Deniwelacja",
+  "description": "Fałszywa torzsamość Forsta",
+  "avatar": "avatars/Forst.png"
+  },
+  {
+  "id": "mysza",
+  "name": "Mysza",
+  "role": "Polka Przetrzymywana w rezydencji Bałajewa",
+  "series": "Forst",
+  "debut": "Deniwelacja",
+  "description": "Przetrzymywana w rezydencji Bałajewa",
+  "avatar": "avatars/mysza.png"
+  },
+  {
+  "id": "n-calavera",
+  "name": "Noelia Calavera",
+  "role": "Przetrzymywana w rezydencji Bałajewa",
+  "series": "Forst",
+  "debut": "Deniwelacja",
+  "description": "Przetrzymywana w rezydencji Bałajewa",
+  "avatar": "avatars/n-calavera.png"
+  },
+  {
+  "id": "j-calavera",
+  "name": "Joaquín Calavera",
+  "role": "Ojciec Noelii",
+  "series": "Forst",
+  "debut": "Deniwelacja",
+  "description": "Ojciec Noelii,",
+  "avatar": "avatars/j-calavera.png"
+  }
+
+
 
 ]

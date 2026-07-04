@@ -117,7 +117,7 @@
     "description": "Strefa 3. Forst ucieka, a zakopiańska policja bada jego przeszłość.",
     "certainty": 100,
     "order": 4,
-    "timeline": 10,
+    "timeline": 9,
     "year": 2017
   },
   {
@@ -150,7 +150,7 @@
     "description": "Strefa 3. Górska oś biegnie nad Oskarżeniem.",
     "certainty": 100,
     "order": 5,
-    "timeline": 12,
+    "timeline": 10,
     "year": 2018
   },
   {
@@ -161,7 +161,7 @@
     "description": "Strefa 3. Środkowy odcinek osi Chyłki po pierwszym przecięciu z Forstem.",
     "certainty": 100,
     "order": 7,
-    "timeline": 11,
+    "timeline": 8,
     "year": 2018
   },
   {
@@ -172,7 +172,7 @@
     "description": "Strefa 3. Warszawska część uniwersum stabilizuje własną oś po wydarzeniach z Testamentu.",
     "certainty": 100,
     "order": 8,
-    "timeline": 13,
+    "timeline": 11,
     "year": 2018
   },
   {
@@ -183,7 +183,7 @@
     "description": "Strefa 3. Kolejny punkt osi Chyłki przed ponownym zagęszczeniem spraw na Podhalu.",
     "certainty": 100,
     "order": 9,
-    "timeline": 16,
+    "timeline": 12,
     "year": 2019
   },
   {
@@ -194,7 +194,7 @@
     "description": "Strefa 3. Punkt odniesienia dla wydarzeń Forsta z Halnego.",
     "certainty": 100,
     "order": 10,
-    "timeline": 17,
+    "timeline": 13,
     "year": 2019
   },
   {
@@ -205,7 +205,7 @@
     "description": "Strefa 3. Sytuacja na Podhalu znów gęstnieje.",
     "certainty": 100,
     "order": 6,
-    "timeline": 14,
+    "timeline": 16,
     "year": 2020
   },
   {
@@ -216,7 +216,7 @@
     "description": "Strefa 3. Drugi punkt odniesienia dla zagęszczającej się sytuacji na Podhalu w czasie Halnego.",
     "certainty": 100,
     "order": 11,
-    "timeline": 18,
+    "timeline": 14,
     "year": 2020
   },
   {
@@ -227,7 +227,7 @@
     "description": "Strefa 3. Napięcie w Tatrach buduje bezpośredni wstęp pod ponowne spotkanie bohaterów.",
     "certainty": 100,
     "order": 12,
-    "timeline": 19,
+    "timeline": 15,
     "year": 2020
   },
   {
@@ -238,7 +238,7 @@
     "description": "Strefa 3. Napięcie w Tatrach sięga zenitu, budując bezpośredni wstęp pod ponowne spotkanie bohaterów.",
     "certainty": 100,
     "order": 7,
-    "timeline": 15,
+    "timeline": 19,
     "year": 2021
   },
   {
@@ -249,7 +249,7 @@
     "description": "Strefa 4. Drugi fizyczny węzeł: Chyłka jedzie w Tatry, a komisarz Forst pojawia się w jej osi.",
     "certainty": 100,
     "order": 13,
-    "timeline": 20,
+    "timeline": 17,
     "year": 2021
   },
   {
@@ -260,7 +260,7 @@
     "description": "Strefa 4. Pełnoprawne wspólne śledztwo Chyłki i Forsta na Podhalu.",
     "certainty": 100,
     "order": 8,
-    "timeline": 25,
+    "timeline": 22,
     "year": 2022
   },
   {
@@ -271,7 +271,7 @@
     "description": "Strefa 5. Bieg równoległy Chyłki, Forsta i Langerverse po tatrzańskim crossoverze.",
     "certainty": 100,
     "order": 14,
-    "timeline": 21,
+    "timeline": 18,
     "year": 2021
   },
   {
@@ -282,7 +282,7 @@
     "description": "Strefa 5. Warszawska oś osobistych i zawodowych dramatów Chyłki i Zordona.",
     "certainty": 100,
     "order": 15,
-    "timeline": 22,
+    "timeline": 20,
     "year": 2022
   },
   {
@@ -293,7 +293,7 @@
     "description": "Strefa 5. Górska oś rozciąga się nad Egzekucją i Skazaniem, równolegle do narastającego Langerverse.",
     "certainty": 100,
     "order": 9,
-    "timeline": 26,
+    "timeline": 23.5,
     "year": 2023
   },
   {
@@ -304,7 +304,7 @@
     "description": "Piotr Langer nie wymaga opisu.",
     "certainty": 100,
     "order": 1,
-    "timeline": 23,
+    "timeline": 22.5,
     "year": 2023
   },
   {
@@ -315,7 +315,7 @@
     "description": "Strefa 5. Punkt równoległy wobec startu Langerverse i dalszego biegu spraw Chyłki.",
     "certainty": 100,
     "order": 16,
-    "timeline": 24,
+    "timeline": 21,
     "year": 2022
   },
   {
@@ -326,7 +326,7 @@
     "description": "Strefa 5. Oś Chyłki wchodzi w lata, w których działania Langera i prokuratury nabierają bezpośredniego znaczenia.",
     "certainty": 100,
     "order": 17,
-    "timeline": 26,
+    "timeline": 23.5,
     "year": 2023
   },
   {
@@ -337,7 +337,7 @@
     "description": "Czy astrologia może stać się narzędziem zbrodni doskonałej? Olgierd Paderborn, znany z serii o Joannie Chyłce bezkompromisowy prokurator, musi zmierzyć się z tym pytaniem, prowadząc śledztwo w sprawie brutalnego seryjnego mordercy - Rzeźnika znad Odry. W tej mrocznej i pełnej napięcia historii dołącza do niego Karolina Siarkowska, a ich wspólne dochodzenie odkrywa przerażające powiązania między krwawymi zbrodniami a nieprzewidywalnym światem astrologii.",
     "certainty": 100,
     "order": 2,
-    "timeline": 26,
+    "timeline": 24.5,
     "year": 2024
   },
   {
@@ -348,7 +348,7 @@
     "description": "Strefa 5. Przedostatni tom górskich przygód komisarza, ustawiony nad Zarzutem i Obroną.",
     "certainty": 100,
     "order": 10,
-    "timeline": 27,
+    "timeline": 25.5,
     "year": 2025
   },
   {
@@ -359,7 +359,7 @@
     "description": "Strefa 5. Bezpośredni poprzednik finałowego rozbicia i ostatnich decyzji Chyłki.",
     "certainty": 100,
     "order": 18,
-    "timeline": 27,
+    "timeline": 25.5,
     "year": 2024
   },
   {
@@ -370,7 +370,7 @@
     "description": "Strefa 5. Krwawa gra Langera z prokuraturą wchodzi w decydującą fazę.",
     "certainty": 100,
     "order": 3,
-    "timeline": 28,
+    "timeline": 26.5,
     "year": 2025
   },
   {
@@ -381,7 +381,7 @@
     "description": "Strefa 6. Ostatni tom dedykowany Chyłce. Zapadają kluczowe decyzje i sojusze, w tym zgoda na obronę Piotra Langera przed procesem stulecia.",
     "certainty": 100,
     "order": 19,
-    "timeline": 29,
+    "timeline": 27.5,
     "year": 2026
   },
   {
@@ -392,7 +392,7 @@
     "description": "Strefa 6. Wielki finał górnej osi. Dzieje się w tym samym czasie co proces w Arachnii, gdy Forst toczy ostateczną walkę o przetrwanie w Tatrach.",
     "certainty": 100,
     "order": 11,
-    "timeline": 30,
+    "timeline": 28.5,
     "year": 2026
   },
   {
@@ -403,7 +403,7 @@
     "description": "Strefa 6. Właściwy proces Langera. Joanna Chyłka staje naprzeciw prokurator Karoliny Siarkowskiej i walczy o uniewinnienie potwora.",
     "certainty": 100,
     "order": 4,
-    "timeline": 30,
+    "timeline": 28.5,
     "year": 2026
   },
   {
@@ -415,6 +415,17 @@
     "certainty": 100,
     "order": 0,
     "timeline": 3,
+    "year": 2015
+  },
+  {
+    "id": "forst-axis-kontratyp",
+    "title": "Forst",
+    "series": "Forst",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Forst",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 11,
     "year": 2015
   }
 ]
