@@ -100,5 +100,65 @@
     "targetHandle": "target-top",
     "characters": ["wiktor-forst"],
     "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+  },
+  {
+    "source": "langer-axis-wyrok",
+    "target": "wyrok",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "straight",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-bottom",
+    "characters": ["piotr-langer"],
+    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+  },
+  {
+    "source": "langer-axis-ekstradycja",
+    "target": "ekstradycja",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "straight",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-bottom",
+    "characters": ["piotr-langer"],
+    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+  },
+    {
+    "source": "chylka-axis-halny",
+    "target": "halny",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "straight",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-bottom",
+    "characters": ["joanna-chylka", "kordian-orynski"],
+    "note": "Chyłka i Zordon reprezentują Olgę Szrebską"
+  },
+    {
+    "source": "dominika-axis-ekstradycja",
+    "target": "ekstradycja",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "straight",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-top",
+    "characters": ["wadris-hansen"],
+    "note": "Dominika Wadriś-Hansen prowadzi postępowanie przeciwko Joannie Chyłce w sprawie zabójstwa Piotra Langera."
+  },
+  {
+  "source": "paderborn-axis-zerwa",
+  "target": "zerwa",
+  "type": "crossover",
+  "certainty": 100,
+  "importance": "finale",
+  "pathType": "straight",
+  "sourceHandle": "source-bottom",
+  "targetHandle": "target-bottom",
+  "characters": ["paderborn"],
+  "note": "Przydzielony do prowadzenia śledztwa w sprawie tragedii na Giewoncie; współpracuje z Dominiką i Forstem jednocześnie ich kontrolując."
   }
 ]

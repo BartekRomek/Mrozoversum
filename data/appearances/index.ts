@@ -8,12 +8,22 @@ import oskarzenie from './chylka/Oskarzenie.json';
 import testament from './chylka/Testament.json';
 import kontratyp from './chylka/Kontratyp.json';
 import umorzenie from './chylka/Umorzenie.json';
+import wyrok from './chylka/Wyrok.json';
+import ekstradycja from './chylka/Ekstradycja.json';
+import precedens from './chylka/Precedens.json';
+import afekt from './chylka/Afekt.json';
+
+
+
+
 
 //FORST
 import ekspozycja from './forst/Ekspozycja.json';
 import przewieszenie from './forst/Przewieszenie.json';
 import trawers from './forst/Trawers.json';
 import deniwelacja from './forst/Deniwelacja.json';
+import zerwa from './forst/Zerwa.json';
+
 
 
 
@@ -30,6 +40,10 @@ export const appearancesData = [
   ...testament.map((char: any) => ({ ...char, bookId: 'testament' })),
   ...kontratyp.map((char: any) => ({ ...char, bookId: 'kontratyp' })),
   ...umorzenie.map((char: any) => ({ ...char, bookId: 'umorzenie' })),
+  ...wyrok.map((char: any) => ({ ...char, bookId: 'wyrok' })),
+  ...ekstradycja.map((char: any) => ({ ...char, bookId: 'ekstradycja' })),
+  ...precedens.map((char: any) => ({ ...char, bookId: 'precedens' })),
+
 
 
   //forst
@@ -37,6 +51,7 @@ export const appearancesData = [
   ...przewieszenie.map((char: any) => ({ ...char, bookId: 'przewieszenie' })),
   ...trawers.map((char: any) => ({ ...char, bookId: 'trawers' })),
   ...deniwelacja.map((char: any) => ({ ...char, bookId: 'deniwelacja' })),
+  ...zerwa.map((char: any) => ({ ...char, bookId: 'zerwa' }))
 
 
 

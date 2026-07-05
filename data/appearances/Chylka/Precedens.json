@@ -1,0 +1,19 @@
+[
+  { "characterId": "joanna-chylka", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "kordian-orynski", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "paderborn", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "alina-karas", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
+  { "characterId": "amelia-kulic", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
+  { "characterId": "kormak", "isFirstAppearance": true, "role": "false", "isNew": false },
+  { "characterId": "artur-zelazny", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+  { "characterId": "wiliam", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+  { "characterId": "szymon-bloch", "isFirstAppearance": true, "role": "supporting", "isNew": true },
+  { "characterId": "nachurny", "isFirstAppearance": true, "role": "supporting", "isNew": true, "hiddenIdentity": "Konsorcjum" },
+  { "characterId": "szczerbaty", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+  { "characterId": "smaga", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+  { "characterId": "ferus", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+  { "characterId": "daniel-kosmowski", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+  { "characterId": "anka", "isFirstAppearance": true, "role": "supporting", "isNew": false }
+
+
+]

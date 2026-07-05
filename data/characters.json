@@ -161,8 +161,7 @@
   },
   {
     "id": "witold-t",
-    "name": "Witold Trzciński ",
-    "pseudonym": "WITO",
+    "name": "WITO",
     "role": "Przemytnik",
     "series": "Chylka",
     "debut": "Zaginięcie",
@@ -644,10 +643,10 @@
   {
   "id": "balajew",
   "name": "Siergiej Wasiljewicz Bałajew",
-  "role": "Szef rosyjskiej organizacji przestępczej w Hiszpanii ",
+  "role": "Szef rosyjskiej organizacji przestępczej",
   "series": "Forst",
   "debut": "Deniwelacja",
-  "description": "Szef rosyjskiej organizacji przestępczej w Hiszpanii ",
+  "description": "Szef rosyjskiej organizacji przestępczej ",
   "avatar": "avatars/balajew.png"
   },
  {
@@ -695,7 +694,121 @@
   "debut": "Deniwelacja",
   "description": "Ojciec Noelii,",
   "avatar": "avatars/j-calavera.png"
+  },
+  {
+  "id": "siarka",
+  "name": "Karolina Siarkowska",
+  "pseudonym": "Siarka",
+  "role": "Prokuratorka",
+  "series": "Langer",
+  "debut": "Wyrok",
+  "description": "Prokuratorka",
+  "avatar": "avatars/siarka.png"
+  },
+  {
+  "id": "benzo",
+  "name": "Grzegorz Benzowicz",
+  "pseudonym": "Benzo",
+  "role": "Siedemnastolatek oskarżony o brutalne zabójstwo",
+  "hiddenRole": "Prawdizy morderca",
+  "series": "Chylka",
+  "debut": "Wyrok",
+  "description": "Siedemnastolatek oskarżony o brutalne zabójstwo",
+  "avatar": "avatars/benzo.png"
+  },
+  {
+  "id": "o-dymczenko",
+  "name": "Oksana Demczenko",
+  "role": "Żona Witalija",
+  "hiddenRole": "Pomocniczka Langera",
+  "series": "Chylka",
+  "debut": "Ekstradycja",
+  "description": "Żona Witalija",
+  "avatar": "avatars/o-dymczenko.png"
+  },
+  {
+  "id": "w-dymczenko",
+  "name": "Witalij Demczenko",
+  "role": "Ukrainiec oskarżony o potrójne zabójstwo",
+  "series": "Chylka",
+  "debut": "Ekstradycja",
+  "description": "Ukrainiec oskarżony o potrójne zabójstwo",
+  "avatar": "avatars/w-dymczenko.png"
+  },
+  {
+  "id": "zuzanna-chylka",
+  "name": "Zuzanna Chylka",
+  "role": "Matka Chyłki",
+  "series": "Chylka",
+  "debut": "Ekstradycja",
+  "description": "Matka Chyłki",
+  "avatar": "avatars/zuzanna-chylka.png"
+  },
+  {
+  "id": "alina-karas",
+  "name": "Alina Karaś",
+  "role": "Słynna aktorka",
+  "series": "Chylka",
+  "debut": "Precedens",
+  "description": "Słynna aktorka",
+  "avatar": "avatars/alina-karas.png"
+  },
+ {
+  "id": "amelia-kulic",
+  "name": "Amelia Kulić",
+  "role": "Siostra Aliny",
+  "series": "Chylka",
+  "debut": "Precedens",
+  "description": "Siostra Aliny",
+  "avatar": "avatars/amelia-kulic.png"
+  },
+ {
+  "id": "szymon-bloch",
+  "name": "Szymon Bloch",
+  "role": "Były dziennikarz śledczy",
+  "series": "Chylka",
+  "debut": "Precedens",
+  "description": "Były dziennikarz śledczy",
+  "avatar": "avatars/szymon-bloch.png"
+  },
+ {
+  "id": "nachurny",
+  "name": "Miłosz Nachurny",
+  "role": "Tymczasowy nadzorca sądowy",
+  "hiddenRole": "Człowiek „Konsorcjum”",
+  "series": "Chylka",
+  "debut": "Precedens",
+  "description": "Tymczasowy nadzorca sądowy",
+  "avatar": "avatars/nachurny.png"
+  },
+ {
+  "id": "barat",
+  "name": "Gašpar Barát",
+  "role": "Słowacki detektyw wydziału zabójstw",
+  "series": "Forst",
+  "debut": "Zerwa",
+  "description": "Słowacki detektyw wydziału zabójstw",
+  "avatar": "avatars/barat.png"
+  },
+ {
+  "id": "hänninen",
+  "name": "Tia Hänninen",
+  "role": "Sprzedawczyni w sklepie w Inari",
+  "series": "Forst",
+  "debut": "Zerwa",
+  "description": "Sprzedawczyni w sklepie w Inari",
+  "avatar": "avatars/hänninen.png"
+  },
+ {
+  "id": "hirvonen",
+  "name": "Joakim Hirvonen",
+  "role": "jeden z Fińskiego Czteropaku",
+  "series": "Forst",
+  "debut": "Zerwa",
+  "description": "jeden z Fińskiego Czteropaku",
+  "avatar": "avatars/hirvonen.png"
   }
+
 
 
 

@@ -153,6 +153,17 @@
     "timeline": 10,
     "year": 2018
   },
+   {
+    "id": "paderborn-axis-zerwa",
+    "title": "Paderborn",
+    "series": "Chylka",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi CHylka.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 10,
+    "year": 2018
+  },
   {
     "id": "testament",
     "title": "Testament",
@@ -197,10 +208,32 @@
     "timeline": 13,
     "year": 2019
   },
+   {
+    "id": "langer-axis-wyrok",
+    "title": "Langer",
+    "series": "Langer",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Langera.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 13,
+    "year": 2019
+  },
   {
     "id": "halny",
     "title": "Halny",
     "series": "Forst",
+    "cover": "/covers/Halny.jpg",
+    "description": "Strefa 3. Sytuacja na Podhalu znów gęstnieje.",
+    "certainty": 100,
+    "order": 6,
+    "timeline": 16,
+    "year": 2020
+  },
+    {
+    "id": "chylka-axis-halny",
+    "title": "Chylka i Zordon",
+    "series": "Chylka",
     "cover": "/covers/Halny.jpg",
     "description": "Strefa 3. Sytuacja na Podhalu znów gęstnieje.",
     "certainty": 100,
@@ -216,6 +249,17 @@
     "description": "Strefa 3. Drugi punkt odniesienia dla zagęszczającej się sytuacji na Podhalu w czasie Halnego.",
     "certainty": 100,
     "order": 11,
+    "timeline": 14,
+    "year": 2020
+  },
+   {
+    "id": "dominika-axis-ekstradycja",
+    "title": "Dominika Wadriś-Hansen",
+    "series": "Forst",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Langera.",
+    "certainty": 100,
+    "order": 0,
     "timeline": 14,
     "year": 2020
   },
@@ -427,5 +471,16 @@
     "order": 0,
     "timeline": 11,
     "year": 2015
+  },
+   {
+    "id": "langer-axis-ekstradycja",
+    "title": "Langer",
+    "series": "Langer",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Langera.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 14,
+    "year": 2019
   }
 ]
