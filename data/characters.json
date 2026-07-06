@@ -19,25 +19,6 @@
     "avatar": "avatars/Kordzian-Oryński.png"
   },
   {
-  "id": "piotr-langer",
-  "name": "Piotr Langer",
-  "role": "Biznesmen i filantrop",
-  "hiddenRole": "Sadysta z Mokotowa",
-  "series": "Langer",
-  "debut": "Kasacja",
-  "description": "Syn Piotra Langera seniora, biznesmen i filantrop z mrocznym charakterem",
-  "avatar": "avatars/Langer.png"
-  },
-  {
-    "id": "wiktor-forst",
-    "name": "Wiktor Forst",
-    "role": "Komisarz Policji",
-    "series": "Forst",
-    "debut": "Ekspozycja",
-    "description": "Komisarz policji w Zakopane, główny bohater serii.",
-    "avatar": "avatars/Forst.png"
-  },
-  {
     "id": "kormak",
     "name": "Kormak",
     "role": "Specjalista do spraw informacji",
@@ -148,16 +129,6 @@
     "debut": "Zaginięcie",
     "description": "Biaruski Ogrodnik, biologiczny ojciec Nikoli, który wplątuje się w intrygę związaną z jej porwaniem.",
     "avatar": "avatars/tatar.png"
-  },
-  {
-    "id": "olga-szrebska",
-    "name": "Olga Szrebska",
-    "pseudonym": "",
-    "role": "Dziennikarka NSI",
-    "series": "Forst",
-    "debut": "Zaginięcie",
-    "description": "Dziennikarka NSI, która śledzi sprawę porwania Nikoli.",
-    "avatar": "avatars/olga-szrebska.png"
   },
   {
     "id": "witold-t",
@@ -279,6 +250,362 @@
     "avatar": "avatars/pruszko.png"
   },
   {
+    "id": "sendal",
+    "name": "Sebastian Sendal",
+    "role": "Sędzia Trybunału Konstytucyjnego",
+    "series": "Chylka",
+    "debut": "Immuniteet",
+    "description": "Sędzia Trybunału Konstytucyjnego",
+    "avatar": "avatars/sendal.png"
+  },
+  {
+    "id": "n-sendal",
+    "name": "Natalia Sendal",
+    "role": "Żona Sebatiana Sendala",
+    "series": "Chylka",
+    "debut": "Immuniteet",
+    "description": "Żona Sebastiana",
+    "avatar": "avatars/n-sendal.png"
+  },
+  {
+    "id": "paulina-zabitowska",
+    "name": "Paulina Zabitowska",
+    "role": "Posłanka na Sejm RP",
+    "series": "Chylka",
+    "debut": "Immuniteet",
+    "description": "Posłanka na Sejm RP",
+    "avatar": "avatars/zabitowska.png"
+  },
+  {
+    "id": "grzegorz-kostrzewa",
+    "name": "Grzegorz Kostrzewa",
+    "role": "Najlepszy przyjaciel Sebastiana Sendala",
+    "series": "Chylka",
+    "debut": "Immuniteet",
+    "description": "Najlepszy przyjaciel Sebastiana Sendala",
+    "avatar": "avatars/kostrzewa.png"
+  },
+  {
+    "id": "fahad",
+    "name": "Fahad Al-Jassam",
+    "hiddenName": "Andrzej Zechwatowicz",
+    "role": "Oskarżony o planowanie zamachu",
+    "hiddenRole": "Oficer Agencji Wywiadu",
+    "series": "Chylka",
+    "debut": "Inwigilacja",
+    "description": "Oskarżony o planowanie zamachu",
+    "avatar": "avatars/fahad.png",
+    "hiddenAvatar": "avatars/oficer-wywiadu.png"
+  },
+  {
+    "id": "messer",
+    "name": "Paweł Messer",
+    "role": "Imienny partner w kancelarii Kosmowski Messer Krat",
+    "hiddenRole": "Przewodzi „KONSORCJUM”",
+    "series": "Chylka",
+    "debut": "Inwigilacja",
+    "description": "Imienny partner w kancelarii Kosmowski Messer Krat",
+    "avatar": "avatars/messer.png"
+  },
+  {
+    "id": "kosmowski-partner",
+    "name": "Daniel Kosmowski",
+    "role": "Imienny partner w kancelarii Kosmowski Messer Krat",
+    "series": "Chylka",
+    "debut": "Zaginięcie",
+    "description": "Imienny partner w kancelarii Kosmowski Messer Krat",
+    "avatar": "avatars/daniel-kosmowski.png"
+  },
+  {
+    "id": "krat",
+    "name": "Wojciech Krat",
+    "role": "Imienny partner w kancelarii Kosmowski Messer Krat",
+    "series": "Chylka",
+    "debut": "Afekt",
+    "description": "Imienny partner w kancelarii Kosmowski Messer Krat",
+    "avatar": "avatars/krat.png"
+  },
+  {
+    "id": "lipczynscy",
+    "name": "Anna i Tadeusz Lipczyńscy",
+    "role": "`przybrani rodzice Przemka Lipczyńskiego",
+    "series": "Chylka",
+    "debut": "Inwigilacja",
+    "description": "`przybrani rodzice Przemka Lipczyńskiego",
+    "avatar": "avatars/lipczynscy.png"
+  },
+  {
+    "id": "tatarek",
+    "name": "Wiesław Tatarek",
+    "role": "Sędzia",
+    "series": "Chylka",
+    "debut": "Inwigilacja",
+    "description": "Sędzia",
+    "avatar": "avatars/tatarek.png"
+  },
+  {
+    "id": "tesarewicz",
+    "name": "Tadeusz Tesarewicz",
+    "role": "Działacz opozycyjny z czasów PRL",
+    "series": "Chylka",
+    "debut": "Inwigilacja",
+    "description": "Działacz opozycyjny z czasów PRL",
+    "avatar": "avatars/tesarewicz.png"
+  },
+  {
+    "id": "ferus",
+    "name": "Paulina Feruś",
+    "role": "Młoda prokurator",
+    "series": "Chylka",
+    "debut": "Inwigilacja",
+    "description": "Młoda prokurator",
+    "avatar": "avatars/ferus.png"
+  },
+  {
+    "id": "skopinski",
+    "name": "Marian Skopiński",
+    "role": " Emerytowany prokurator",
+    "series": "Chylka",
+    "debut": "Inwigilacja",
+    "description": "Emerytowany prokurator",
+    "avatar": "avatars/skopinski.png"
+  },
+  {
+    "id": "wiliam",
+    "name": "William McVay",
+    "role": "Syn Harry’ego McVaya",
+    "series": "Chylka",
+    "debut": "Inwigilacja",
+    "description": "Syn Harry’ego McVaya",
+    "avatar": "avatars/wiliam.png"
+  },
+  {
+    "id": "kranz",
+    "name": "Rafał Kranz",
+    "role": "Ginekolog",
+    "hiddenRole": "Prawdizy morderca",
+    "series": "Chylka",
+    "debut": "Testament",
+    "description": "Prawdizy morderca",
+    "avatar": "avatars/kranz.png"
+  },
+  {
+    "id": "widera",
+    "name": "Beata Widera",
+    "role": "Zmarła pacjentka",
+    "series": "Chylka",
+    "debut": "Testament",
+    "description": "Zmarła pacjentka",
+    "avatar": "avatars/widera.png"
+  },
+  {
+    "id": "czerska",
+    "name": "Elżbieta Czerska",
+    "role": "Pacjentka",
+    "hiddenRole": "Siostra bliźniaczka Beaty Widery",
+    "series": "Chylka",
+    "debut": "Testament",
+    "description": "Pacjentka",
+    "avatar": "avatars/czerska.png"
+  },
+  {
+    "id": "kabelis",
+    "name": "Klara Kabelis",
+    "role": "Polska himalaistka",
+    "series": "Chylka",
+    "debut": "Kontratyp",
+    "description": "Polska himalaistka",
+    "avatar": "avatars/kabelis.png"
+  },
+  {
+    "id": "lemur",
+    "name": "Julian Brencz",
+    "hiddenName": "Zdun",
+    "role": "Mąż Magdaleny",
+    "hiddenRole": "Porywacz własnej córki",
+    "series": "Chylka",
+    "debut": "Kontratyp",
+    "description": "Mąż Magdaleny",
+    "avatar": "avatars/lemur.png",
+    "hiddenAvatar": "avatars/lemur_hidden.png"
+  },
+  {
+    "id": "skalski",
+    "name": "Adrian Skalski",
+    "role": "Oskarżony o zamordowanie żony i dwójki dzieci.",
+    "series": "Chylka",
+    "debut": "Umorzenie",
+    "description": "Oskarżony o zamordowanie żony i dwójki dzieci.",
+    "avatar": "avatars/skalski.png"
+  },
+  {
+    "id": "architekt",
+    "name": "Igor Weda-Lendowski",
+    "role": "Mąż Tesy",
+    "hiddenRole": "Architekt",
+    "series": "Chylka",
+    "debut": "Umorzenie",
+    "description": "OMąż Tesy, ARCHITEKT",
+    "avatar": "avatars/architekt.png"
+  },
+  {
+    "id": "tesa",
+    "name": "Teresa",
+    "pseudonym": "Tesa",
+    "role": "Była żona Igora Wedy-Lendowskiego",
+    "series": "Chylka",
+    "debut": "Umorzenie",
+    "description": "Była żona Igora Wedy-Lendowskiego",
+    "avatar": "avatars/tesa.png"
+  },
+  {
+    "id": "smaga",
+    "name": "Wioletta Smaga",
+    "role": "Przewodnicząca składu orzekającego",
+    "series": "Chylka",
+    "debut": "Umorzenie",
+    "description": "Przewodnicząca składu orzekającego",
+    "avatar": "avatars/smaga.png"
+  },
+  {
+    "id": "benzo",
+    "name": "Grzegorz Benzowicz",
+    "pseudonym": "Benzo",
+    "role": "Siedemnastolatek oskarżony o brutalne zabójstwo",
+    "hiddenRole": "Prawdizy morderca",
+    "series": "Chylka",
+    "debut": "Wyrok",
+    "description": "Siedemnastolatek oskarżony o brutalne zabójstwo",
+    "avatar": "avatars/benzo.png"
+  },
+  {
+    "id": "o-dymczenko",
+    "name": "Oksana Demczenko",
+    "role": "Żona Witalija",
+    "hiddenRole": "Pomocniczka Langera",
+    "series": "Chylka",
+    "debut": "Ekstradycja",
+    "description": "Żona Witalija",
+    "avatar": "avatars/o-dymczenko.png"
+  },
+  {
+    "id": "w-dymczenko",
+    "name": "Witalij Demczenko",
+    "role": "Ukrainiec oskarżony o potrójne zabójstwo",
+    "series": "Chylka",
+    "debut": "Ekstradycja",
+    "description": "Ukrainiec oskarżony o potrójne zabójstwo",
+    "avatar": "avatars/w-dymczenko.png"
+  },
+  {
+    "id": "zuzanna-chylka",
+    "name": "Zuzanna Chylka",
+    "role": "Matka Chyłki",
+    "series": "Chylka",
+    "debut": "Ekstradycja",
+    "description": "Matka Chyłki",
+    "avatar": "avatars/zuzanna-chylka.png"
+  },
+  {
+    "id": "alina-karas",
+    "name": "Alina Karaś",
+    "role": "Słynna aktorka",
+    "series": "Chylka",
+    "debut": "Precedens",
+    "description": "Słynna aktorka",
+    "avatar": "avatars/alina-karas.png"
+  },
+  {
+    "id": "amelia-kulic",
+    "name": "Amelia Kulić",
+    "role": "Siostra Aliny",
+    "series": "Chylka",
+    "debut": "Precedens",
+    "description": "Siostra Aliny",
+    "avatar": "avatars/amelia-kulic.png"
+  },
+  {
+    "id": "szymon-bloch",
+    "name": "Szymon Bloch",
+    "role": "Były dziennikarz śledczy",
+    "series": "Chylka",
+    "debut": "Precedens",
+    "description": "Były dziennikarz śledczy",
+    "avatar": "avatars/szymon-bloch.png"
+  },
+  {
+    "id": "nachurny",
+    "name": "Miłosz Nachurny",
+    "role": "Tymczasowy nadzorca sądowy",
+    "hiddenRole": "Człowiek „Konsorcjum”",
+    "series": "Chylka",
+    "debut": "Precedens",
+    "description": "Tymczasowy nadzorca sądowy",
+    "avatar": "avatars/nachurny.png"
+  },
+  {
+    "id": "m-halski-afekt",
+    "name": "Mirosław Halski",
+    "role": "Szef sztabu wyborczego, oskarżony o pedofilię i gwałty",
+    "series": "Wladza",
+    "debut": "Władza absolutna",
+    "description": "Szef sztabu wyborczego, oskarżony o pedofilię i gwałty",
+    "avatar": "avatars/m-halski.png"
+  },
+  {
+    "id": "k-halski-afekt",
+    "name": "Kazimierz Halski",
+    "role": "Lider Jedności Obozu Narodowego i kandydat na prezydenta RP",
+    "series": "Wladza",
+    "debut": "Wotum nieufności",
+    "description": "Lider Jedności Obozu Narodowego i kandydat na prezydenta RP",
+    "avatar": "avatars/k-halski.png"
+  },
+  {
+    "id": "milena-hauer-prezydent",
+    "name": "Milena Hauer",
+    "role": "Urzędująca prezydent RP",
+    "series": "Wladza",
+    "debut": "Wotum nieufności",
+    "description": "Urzędująca prezydent RP",
+    "avatar": "avatars/milena-hauer-prezydent.png"
+  },
+  {
+    "id": "asia",
+    "name": "Joanna Piechodzka",
+    "pseudonym": "Asia",
+    "role": "Była dziewczyna Kordiana",
+    "series": "Chylka"  ,
+    "debut": "Afekt",
+    "description": "Była dziewczyna Kordiana",
+    "avatar": "avatars/asia.png"
+  },
+
+
+
+
+
+
+  {
+    "id": "wiktor-forst",
+    "name": "Wiktor Forst",
+    "role": "Komisarz Policji",
+    "series": "Forst",
+    "debut": "Ekspozycja",
+    "description": "Komisarz policji w Zakopane, główny bohater serii.",
+    "avatar": "avatars/Forst.png"
+  },
+  {
+    "id": "olga-szrebska",
+    "name": "Olga Szrebska",
+    "pseudonym": "",
+    "role": "Dziennikarka NSI",
+    "series": "Forst",
+    "debut": "Zaginięcie",
+    "description": "Dziennikarka NSI, która śledzi sprawę porwania Nikoli.",
+    "avatar": "avatars/olga-szrebska.png"
+  },
+  {
     "id": "edmund-osica",
     "name": "Edmund Osica",
     "pseudonym": "",
@@ -308,7 +635,7 @@
     "description": "Rosyjski prawnik.",
     "avatar": "avatars/sazanow.png"
   },
-{
+  {
     "id": "gazajew",
     "name": "Siarhiej Gazajew",
     "pseudonym": "",
@@ -319,497 +646,232 @@
     "avatar": "avatars/gazajew.png"
   },
   {
-  "id": "witalij-morawczuk",
-  "name": "Witalij Morawczuk",
-  "pseudonym": "Łowotar",
-  "isDead": true,
-  "role": "Schorowany starzec",
-  "hiddenRole": "Krwawy kat z przeszłości",
-  "series": "Forst",
-  "debut": "Ekspozycja",
-  "description": "Krwawy kat z przeszłości",
-  "avatar": "avatars/lowotar.png"
+    "id": "witalij-morawczuk",
+    "name": "Witalij Morawczuk",
+    "pseudonym": "Łowotar",
+    "isDead": true,
+    "role": "Schorowany starzec",
+    "hiddenRole": "Krwawy kat z przeszłości",
+    "series": "Forst",
+    "debut": "Ekspozycja",
+    "description": "Krwawy kat z przeszłości",
+    "avatar": "avatars/lowotar.png"
   },
   {
-  "id": "antonina-sznajderman",
-  "name": "Antonina Sznajderman",
-  "role": "Poczciwa staruszka",
-  "hiddenRole": "Nauczycielka Sprawiedliwości",
-  "series": "Forst",
-  "debut": "Ekspozycja",
-  "description": "Nauczycielka Sprawiedliwości",
-  "avatar": "avatars/sznajderman.png"
+    "id": "antonina-sznajderman",
+    "name": "Antonina Sznajderman",
+    "role": "Poczciwa staruszka",
+    "hiddenRole": "Nauczycielka Sprawiedliwości",
+    "series": "Forst",
+    "debut": "Ekspozycja",
+    "description": "Nauczycielka Sprawiedliwości",
+    "avatar": "avatars/sznajderman.png"
   },
   {
-  "id": "bracia-sznajderman",
-  "name": "Bracia Sznajderman",
-  "pseudonym": "Piotr i Michał",
-  "role": "Synowie Antoniny",
-  "hiddenRole": "Ślepo oddani cyngle matki",
-  "series": "Forst",
-  "debut": "Ekspozycja",
-  "description": "Ślepo oddani cyngle matki.",
-  "avatar": "avatars/bracia.png"
+    "id": "bracia-sznajderman",
+    "name": "Bracia Sznajderman",
+    "pseudonym": "Piotr i Michał",
+    "role": "Synowie Antoniny",
+    "hiddenRole": "Ślepo oddani cyngle matki",
+    "series": "Forst",
+    "debut": "Ekspozycja",
+    "description": "Ślepo oddani cyngle matki.",
+    "avatar": "avatars/bracia.png"
   },
   {
-  "id": "filipczenko",
-  "name": "Aleksiej Filipczenko",
-  "role": "Zrezygnowany więzień",
-  "series": "Forst",
-  "debut": "Ekspozycja",
-  "description": "zrezygnowany więzień.",
-  "avatar": "avatars/filipczenko.png"
+    "id": "filipczenko",
+    "name": "Aleksiej Filipczenko",
+    "role": "Zrezygnowany więzień",
+    "series": "Forst",
+    "debut": "Ekspozycja",
+    "description": "zrezygnowany więzień.",
+    "avatar": "avatars/filipczenko.png"
   },
   {
-  "id": "wadris-hansen",
-  "name": "Dominika Wadryś-Hansen",
-  "role": "Prokurator okręgowa z Krakowa",
-  "series": "Forst",
-  "debut": "Przewieszenie",
-  "description": "Prokurator okręgowa z Krakowa",
-  "avatar": "avatars/wadris-hansen.png"
+    "id": "wadris-hansen",
+    "name": "Dominika Wadryś-Hansen",
+    "role": "Prokurator okręgowa z Krakowa",
+    "series": "Forst",
+    "debut": "Przewieszenie",
+    "description": "Prokurator okręgowa z Krakowa",
+    "avatar": "avatars/wadris-hansen.png"
   },
   {
-  "id": "gjord-hansen",
-  "name": "Gjord Hansen",
-  "role": "Mąż Dominiki Wadryś-Hansen",
-  "series": "Forst",
-  "debut": "Przewieszenie",
-  "hiddenRole": "BESTIA Z GIWEONTU",
-  "hiddenPseudonym": "Iwo Eliasz",
-  "description": "Mąż Dominiki Wadryś-Hansen",
-  "avatar": "avatars/gjord-hansen.png",
-  "hiddenAvatar": "/avatars/bestia.png"
+    "id": "gjord-hansen",
+    "name": "Gjord Hansen",
+    "role": "Mąż Dominiki Wadryś-Hansen",
+    "series": "Forst",
+    "debut": "Przewieszenie",
+    "hiddenRole": "BESTIA Z GIWEONTU",
+    "hiddenPseudonym": "Iwo Eliasz",
+    "description": "Mąż Dominiki Wadryś-Hansen",
+    "avatar": "avatars/gjord-hansen.png",
+    "hiddenAvatar": "/avatars/bestia.png"
   },
   {
-  "id": "michal-sznajderman",
-  "name": "Michał Sznajderman",
-  "role": "Młodszy brat zmarłego Piotra",
-  "series": "Forst",
-  "debut": "Ekspozycja",
-  "description": "Młodszy brat zmarłego Piotra",
-  "avatar": "avatars/michal-sznajderman.png"
+    "id": "michal-sznajderman",
+    "name": "Michał Sznajderman",
+    "role": "Młodszy brat zmarłego Piotra",
+    "series": "Forst",
+    "debut": "Ekspozycja",
+    "description": "Młodszy brat zmarłego Piotra",
+    "avatar": "avatars/michal-sznajderman.png"
   },
   {
-  "id": "iwo-eliasz",
-  "name": "Iwo Eliasz",
-  "role": "Górołaz",
-  "series": "Forst",
-  "hiddenRole": "BESTIA Z GIWEONTU",
-  "debut": "Przewieszenie",
-  "description": "Górołaz",
-  "avatar": "avatars/iwo.png",
-  "hiddenAvatar": "/avatars/bestia.png"
+    "id": "iwo-eliasz",
+    "name": "Iwo Eliasz",
+    "role": "Górołaz",
+    "series": "Forst",
+    "hiddenRole": "BESTIA Z GIWEONTU",
+    "debut": "Przewieszenie",
+    "description": "Górołaz",
+    "avatar": "avatars/iwo.png",
+    "hiddenAvatar": "/avatars/bestia.png"
   },
   {
-  "id": "iwo-eliasz-hansen",
-  "name": "Iwo Eliasz",
-  "role": "Górołaz",
-  "series": "Forst",
-  "hiddenRole": "BESTIA Z GIWEONTU",
-  "hiddenPseudonym": "Gjord Hansen",
-  "debut": "Przewieszenie",
-  "description": "Górołaz",
-  "avatar": "avatars/iwo.png",
-  "hiddenAvatar": "/avatars/bestia.png"
+    "id": "iwo-eliasz-hansen",
+    "name": "Iwo Eliasz",
+    "role": "Górołaz",
+    "series": "Forst",
+    "hiddenRole": "BESTIA Z GIWEONTU",
+    "hiddenPseudonym": "Gjord Hansen",
+    "debut": "Przewieszenie",
+    "description": "Górołaz",
+    "avatar": "avatars/iwo.png",
+    "hiddenAvatar": "/avatars/bestia.png"
+  },
+  {
+    "id": "agata-osica",
+    "name": "Agata Osica",
+    "role": "Córka Edmunda Osicy",
+    "series": "Forst",
+    "debut": "Przewieszenie",
+    "description": "Córka Edmunda Osicy",
+    "avatar": "avatars/agata-osica.png"
+  },
+  {
+    "id": "gerc",
+    "name": "Aleksander Gerc",
+    "role": "Krakowski Prokurator",
+    "series": "Forst",
+    "debut": "Przewieszenie",
+    "description": "Krakowski Prokurator",
+    "avatar": "avatars/gerc.png"
+  },
+  {
+    "id": "balajew",
+    "name": "Siergiej Wasiljewicz Bałajew",
+    "role": "Szef rosyjskiej organizacji przestępczej",
+    "series": "Forst",
+    "debut": "Deniwelacja",
+    "description": "Szef rosyjskiej organizacji przestępczej ",
+    "avatar": "avatars/balajew.png"
+  },
+  {
+    "id": "krieger",
+    "name": "Robert Krieger",
+    "role": "Dawny przyjaciel Forsta",
+    "hiddenRole": "Naśladowca Bestii z Giweontu",
+    "series": "Forst",
+    "debut": "Deniwelacja",
+    "description": "Dawny przyjaciel Forsta",
+    "avatar": "avatars/krieger.png"
+  },
+  {
+    "id": "krieger-forst",
+    "name": "Robert Krieger",
+    "role": "Wiktor Forst",
+    "series": "Forst",
+    "debut": "Deniwelacja",
+    "description": "Fałszywa torzsamość Forsta",
+    "avatar": "avatars/Forst.png"
+  },
+  {
+    "id": "mysza",
+    "name": "Mysza",
+    "role": "Polka Przetrzymywana w rezydencji Bałajewa",
+    "series": "Forst",
+    "debut": "Deniwelacja",
+    "description": "Przetrzymywana w rezydencji Bałajewa",
+    "avatar": "avatars/mysza.png"
+  },
+  {
+    "id": "n-calavera",
+    "name": "Noelia Calavera",
+    "role": "Przetrzymywana w rezydencji Bałajewa",
+    "series": "Forst",
+    "debut": "Deniwelacja",
+    "description": "Przetrzymywana w rezydencji Bałajewa",
+    "avatar": "avatars/n-calavera.png"
+  },
+  {
+    "id": "j-calavera",
+    "name": "Joaquín Calavera",
+    "role": "Ojciec Noelii",
+    "series": "Forst",
+    "debut": "Deniwelacja",
+    "description": "Ojciec Noelii,",
+    "avatar": "avatars/j-calavera.png"
+  },
+  {
+    "id": "barat",
+    "name": "Gašpar Barát",
+    "role": "Słowacki detektyw wydziału zabójstw",
+    "series": "Forst",
+    "debut": "Zerwa",
+    "description": "Słowacki detektyw wydziału zabójstw",
+    "avatar": "avatars/barat.png"
+  },
+  {
+    "id": "hänninen",
+    "name": "Tia Hänninen",
+    "role": "Sprzedawczyni w sklepie w Inari",
+    "series": "Forst",
+    "debut": "Zerwa",
+    "description": "Sprzedawczyni w sklepie w Inari",
+    "avatar": "avatars/hänninen.png"
+  },
+  {
+    "id": "hirvonen",
+    "name": "Joakim Hirvonen",
+    "role": "Jeden z Fińskiego Czteropaku",
+    "series": "Forst",
+    "debut": "Zerwa",
+    "description": "jeden z Fińskiego Czteropaku",
+    "avatar": "avatars/hirvonen.png"
+  },
 
+
+
+
+  
+  {
+    "id": "piotr-langer",
+    "name": "Piotr Langer",
+    "role": "Biznesmen i filantrop",
+    "hiddenRole": "Sadysta z Mokotowa",
+    "series": "Langer",
+    "debut": "Kasacja",
+    "description": "Syn Piotra Langera seniora, biznesmen i filantrop z mrocznym charakterem",
+    "avatar": "avatars/Langer.png"
   },
   {
-  "id": "agata-osica",
-  "name": "Agata Osica",
-  "role": "Córka Edmunda Osicy",
-  "series": "Forst",
-  "debut": "Przewieszenie",
-  "description": "Córka Edmunda Osicy",
-  "avatar": "avatars/agata-osica.png"
+    "id": "siarka",
+    "name": "Karolina Siarkowska",
+    "pseudonym": "Siarka",
+    "role": "Prokuratorka",
+    "series": "Langer",
+    "debut": "Wyrok",
+    "description": "Prokuratorka",
+    "avatar": "avatars/siarka.png"
   },
   {
-  "id": "gerc",
-  "name": "Aleksander Gerc",
-  "role": "Krakowski Prokurator",
-  "series": "Forst",
-  "debut": "Przewieszenie",
-  "description": "Krakowski Prokurator",
-  "avatar": "avatars/gerc.png"
-  },
-  {
-  "id": "sendal",
-  "name": "Sebastian Sendal",
-  "role": "Sędzia Trybunału Konstytucyjnego",
-  "series": "Chylka",
-  "debut": "Immuniteet",
-  "description": "Sędzia Trybunału Konstytucyjnego",
-  "avatar": "avatars/sendal.png"
-  },
-  {
-  "id": "n-sendal",
-  "name": "Natalia Sendal",
-  "role": "Żona Sebatiana Sendala",
-  "series": "Chylka",
-  "debut": "Immuniteet",
-  "description": "Żona Sebastiana",
-  "avatar": "avatars/n-sendal.png"
-  },
-  {
-  "id": "paulina-zabitowska",
-  "name": "Paulina Zabitowska",
-  "role": "Posłanka na Sejm RP",
-  "series": "Chylka",
-  "debut": "Immuniteet",
-  "description": "Posłanka na Sejm RP",
-  "avatar": "avatars/zabitowska.png"
-  },
-  {
-  "id": "grzegorz-kostrzewa",
-  "name": "Grzegorz Kostrzewa",
-  "role": "Najlepszy przyjaciel Sebastiana Sendala",
-  "series": "Chylka",
-  "debut": "Immuniteet",
-  "description": "Najlepszy przyjaciel Sebastiana Sendala",
-  "avatar": "avatars/kostrzewa.png"
-  },
-  {
-  "id": "fahad",
-  "name": "Fahad Al-Jassam",
-  "hiddenName": "Andrzej Zechwatowicz",
-  "role": "Oskarżony o planowanie zamachu",
-  "hiddenRole": "Oficer Agencji Wywiadu",
-  "series": "Chylka",
-  "debut": "Inwigilacja",
-  "description": "Oskarżony o planowanie zamachu",
-  "avatar": "avatars/fahad.png",
-  "hiddenAvatar": "avatars/oficer-wywiadu.png"
-  },
-  {
-  "id": "paderborn",
-  "name": "Olgierd Paderborn",
-  "role": "Prokurator",
-  "series": "Chylka",
-  "debut": "Inwigilacja",
-  "description": "Prokurator",
-  "avatar": "avatars/paderborn.png"
-  },
-  {
-  "id": "messer",
-  "name": "Paweł Messer",
-  "role": "Imienny partner w kancelarii Czymański Messer Krat",
-  "series": "Chylka",
-  "debut": "Inwigilacja",
-  "description": "Imienny partner w kancelarii Czymański Messer Krat",
-  "avatar": "avatars/messer.png"
-  },
-  {
-  "id": "lipczynscy",
-  "name": "Anna i Tadeusz Lipczyńscy",
-  "role": "`przybrani rodzice Przemka Lipczyńskiego",
-  "series": "Chylka",
-  "debut": "Inwigilacja",
-  "description": "`przybrani rodzice Przemka Lipczyńskiego",
-  "avatar": "avatars/lipczynscy.png"
-  },
-  {
-  "id": "tatarek",
-  "name": "Wiesław Tatarek",
-  "role": "Sędzia",
-  "series": "Chylka",
-  "debut": "Inwigilacja",
-  "description": "Sędzia",
-  "avatar": "avatars/tatarek.png"
-  },
-  {
-  "id": "tesarewicz",
-  "name": "Tadeusz Tesarewicz",
-  "role": "Działacz opozycyjny z czasów PRL",
-  "series": "Chylka",
-  "debut": "Inwigilacja",
-  "description": "Działacz opozycyjny z czasów PRL",
-  "avatar": "avatars/tesarewicz.png"
-  },
-  {
-  "id": "ferus",
-  "name": "Paulina Feruś",
-  "role": "Młoda prokurator",
-  "series": "Chylka",
-  "debut": "Inwigilacja",
-  "description": "Młoda prokurator",
-  "avatar": "avatars/ferus.png"
-  },
-  {
-  "id": "skopinski",
-  "name": "Marian Skopiński",
-  "role": " Emerytowany prokurator",
-  "series": "Chylka",
-  "debut": "Inwigilacja",
-  "description": "Emerytowany prokurator",
-  "avatar": "avatars/skopinski.png"
-  },
-  {
-  "id": "wiliam",
-  "name": "William McVay",
-  "role": "Syn Harry’ego McVaya",
-  "series": "Chylka",
-  "debut": "Inwigilacja",
-  "description": "Syn Harry’ego McVaya",
-  "avatar": "avatars/wiliam.png"
-  },
-  {
-  "id": "kranz",
-  "name": "Rafał Kranz",
-  "role": "Ginekolog",
-  "hiddenRole": "Prawdizy morderca",
-  "series": "Chylka",
-  "debut": "Testament",
-  "description": "Prawdizy morderca",
-  "avatar": "avatars/kranz.png"
+    "id": "paderborn",
+    "name": "Olgierd Paderborn",
+    "role": "Prokurator",
+    "series": "Langer",
+    "debut": "Inwigilacja",
+    "description": "Prokurator",
+    "avatar": "avatars/paderborn.png"
   }
-,  {
-  "id": "widera",
-  "name": "Beata Widera",
-  "role": "Zmarła pacjentka",
-  "series": "Chylka",
-  "debut": "Testament",
-  "description": "Zmarła pacjentka",
-  "avatar": "avatars/widera.png"
-  },
-  {
-  "id": "czerska",
-  "name": "Elżbieta Czerska",
-  "role": "Pacjentka",
-  "hiddenRole": "Siostra bliźniaczka Beaty Widery",
-  "series": "Chylka",
-  "debut": "Testament",
-  "description": "Pacjentka",
-  "avatar": "avatars/czerska.png"
-  },
-  {
-  "id": "kabelis",
-  "name": "Klara Kabelis",
-  "role": "Polska himalaistka",
-  "series": "Chylka",
-  "debut": "Kontratyp",
-  "description": "Polska himalaistka",
-  "avatar": "avatars/kabelis.png"
-  },
-  {
-  "id": "lemur",
-  "name": "Julian Brencz",
-  "hiddenName": "Zdun",
-  "role": "Mąż Magdaleny",
-  "hiddenRole": "Porywacz własnej córki",
-  "series": "Chylka",
-  "debut": "Kontratyp",
-  "description": "Mąż Magdaleny",
-  "avatar": "avatars/lemur.png",
-  "hiddenAvatar": "avatars/lemur_hidden.png"
-  },
-  {
-  "id": "skalski",
-  "name": "Adrian Skalski",
-  "role": "Oskarżony o zamordowanie żony i dwójki dzieci.",
-  "series": "Chylka",
-  "debut": "Umorzenie",
-  "description": "Oskarżony o zamordowanie żony i dwójki dzieci.",
-  "avatar": "avatars/skalski.png"
-  },
-  {
-  "id": "architekt",
-  "name": "Igor Weda-Lendowski",
-  "role": "Mąż Tesy",
-  "hiddenRole": "Architekt",
-  "series": "Chylka",
-  "debut": "Umorzenie",
-  "description": "OMąż Tesy, ARCHITEKT",
-  "avatar": "avatars/architekt.png"
-  },
-  {
-  "id": "tesa",
-  "name": "Teresa",
-  "pseudonym": "Tesa",
-  "role": "Była żona Igora Wedy-Lendowskiego",
-  "series": "Chylka",
-  "debut": "Umorzenie",
-  "description": "Była żona Igora Wedy-Lendowskiego",
-  "avatar": "avatars/tesa.png"
-  },
-  {
-  "id": "smaga",
-  "name": "Wioletta Smaga",
-  "role": "Przewodnicząca składu orzekającego",
-  "series": "Chylka",
-  "debut": "Umorzenie",
-  "description": "Przewodnicząca składu orzekającego",
-  "avatar": "avatars/smaga.png"
-  },
-  {
-  "id": "balajew",
-  "name": "Siergiej Wasiljewicz Bałajew",
-  "role": "Szef rosyjskiej organizacji przestępczej",
-  "series": "Forst",
-  "debut": "Deniwelacja",
-  "description": "Szef rosyjskiej organizacji przestępczej ",
-  "avatar": "avatars/balajew.png"
-  },
- {
-  "id": "krieger",
-  "name": "Robert Krieger",
-  "role": "Dawny przyjaciel Forsta",
-  "hiddenRole": "Naśladowca Bestii z Giweontu",
-  "series": "Forst",
-  "debut": "Deniwelacja",
-  "description": "Dawny przyjaciel Forsta",
-  "avatar": "avatars/krieger.png"
-  },
- {
-  "id": "krieger-forst",
-  "name": "Robert Krieger",
-  "role": "Wiktor Forst",
-  "series": "Forst",
-  "debut": "Deniwelacja",
-  "description": "Fałszywa torzsamość Forsta",
-  "avatar": "avatars/Forst.png"
-  },
-  {
-  "id": "mysza",
-  "name": "Mysza",
-  "role": "Polka Przetrzymywana w rezydencji Bałajewa",
-  "series": "Forst",
-  "debut": "Deniwelacja",
-  "description": "Przetrzymywana w rezydencji Bałajewa",
-  "avatar": "avatars/mysza.png"
-  },
-  {
-  "id": "n-calavera",
-  "name": "Noelia Calavera",
-  "role": "Przetrzymywana w rezydencji Bałajewa",
-  "series": "Forst",
-  "debut": "Deniwelacja",
-  "description": "Przetrzymywana w rezydencji Bałajewa",
-  "avatar": "avatars/n-calavera.png"
-  },
-  {
-  "id": "j-calavera",
-  "name": "Joaquín Calavera",
-  "role": "Ojciec Noelii",
-  "series": "Forst",
-  "debut": "Deniwelacja",
-  "description": "Ojciec Noelii,",
-  "avatar": "avatars/j-calavera.png"
-  },
-  {
-  "id": "siarka",
-  "name": "Karolina Siarkowska",
-  "pseudonym": "Siarka",
-  "role": "Prokuratorka",
-  "series": "Langer",
-  "debut": "Wyrok",
-  "description": "Prokuratorka",
-  "avatar": "avatars/siarka.png"
-  },
-  {
-  "id": "benzo",
-  "name": "Grzegorz Benzowicz",
-  "pseudonym": "Benzo",
-  "role": "Siedemnastolatek oskarżony o brutalne zabójstwo",
-  "hiddenRole": "Prawdizy morderca",
-  "series": "Chylka",
-  "debut": "Wyrok",
-  "description": "Siedemnastolatek oskarżony o brutalne zabójstwo",
-  "avatar": "avatars/benzo.png"
-  },
-  {
-  "id": "o-dymczenko",
-  "name": "Oksana Demczenko",
-  "role": "Żona Witalija",
-  "hiddenRole": "Pomocniczka Langera",
-  "series": "Chylka",
-  "debut": "Ekstradycja",
-  "description": "Żona Witalija",
-  "avatar": "avatars/o-dymczenko.png"
-  },
-  {
-  "id": "w-dymczenko",
-  "name": "Witalij Demczenko",
-  "role": "Ukrainiec oskarżony o potrójne zabójstwo",
-  "series": "Chylka",
-  "debut": "Ekstradycja",
-  "description": "Ukrainiec oskarżony o potrójne zabójstwo",
-  "avatar": "avatars/w-dymczenko.png"
-  },
-  {
-  "id": "zuzanna-chylka",
-  "name": "Zuzanna Chylka",
-  "role": "Matka Chyłki",
-  "series": "Chylka",
-  "debut": "Ekstradycja",
-  "description": "Matka Chyłki",
-  "avatar": "avatars/zuzanna-chylka.png"
-  },
-  {
-  "id": "alina-karas",
-  "name": "Alina Karaś",
-  "role": "Słynna aktorka",
-  "series": "Chylka",
-  "debut": "Precedens",
-  "description": "Słynna aktorka",
-  "avatar": "avatars/alina-karas.png"
-  },
- {
-  "id": "amelia-kulic",
-  "name": "Amelia Kulić",
-  "role": "Siostra Aliny",
-  "series": "Chylka",
-  "debut": "Precedens",
-  "description": "Siostra Aliny",
-  "avatar": "avatars/amelia-kulic.png"
-  },
- {
-  "id": "szymon-bloch",
-  "name": "Szymon Bloch",
-  "role": "Były dziennikarz śledczy",
-  "series": "Chylka",
-  "debut": "Precedens",
-  "description": "Były dziennikarz śledczy",
-  "avatar": "avatars/szymon-bloch.png"
-  },
- {
-  "id": "nachurny",
-  "name": "Miłosz Nachurny",
-  "role": "Tymczasowy nadzorca sądowy",
-  "hiddenRole": "Człowiek „Konsorcjum”",
-  "series": "Chylka",
-  "debut": "Precedens",
-  "description": "Tymczasowy nadzorca sądowy",
-  "avatar": "avatars/nachurny.png"
-  },
- {
-  "id": "barat",
-  "name": "Gašpar Barát",
-  "role": "Słowacki detektyw wydziału zabójstw",
-  "series": "Forst",
-  "debut": "Zerwa",
-  "description": "Słowacki detektyw wydziału zabójstw",
-  "avatar": "avatars/barat.png"
-  },
- {
-  "id": "hänninen",
-  "name": "Tia Hänninen",
-  "role": "Sprzedawczyni w sklepie w Inari",
-  "series": "Forst",
-  "debut": "Zerwa",
-  "description": "Sprzedawczyni w sklepie w Inari",
-  "avatar": "avatars/hänninen.png"
-  },
- {
-  "id": "hirvonen",
-  "name": "Joakim Hirvonen",
-  "role": "jeden z Fińskiego Czteropaku",
-  "series": "Forst",
-  "debut": "Zerwa",
-  "description": "jeden z Fińskiego Czteropaku",
-  "avatar": "avatars/hirvonen.png"
-  }
-
-
-
-
 ]

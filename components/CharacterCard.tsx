@@ -9,6 +9,7 @@ const seriesIcons: Record<string, string> = {
   "Chylka": "/icons/chylka.svg",
   "Forst": "/icons/forst.svg",
   "Langer": "/icons/langer.svg",
+  "Wladza": "/icons/wladza.svg",
 };
 
 interface CharacterCardProps {
@@ -178,21 +179,11 @@ export function CharacterCard({ character, showSpoilers = false }: CharacterCard
           </span>
         </div>
 
-        <div className="mt-auto flex items-end justify-between pt-4 border-t border-white/5">
-          <div className="flex flex-col items-start gap-1.5 w-1/2">
-            <span className="text-[8px] sm:text-[9px] text-white/40 uppercase tracking-widest truncate w-full text-left">Seria</span>
-            <div className="flex items-center gap-1.5 w-full">
-              <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full shrink-0" style={{ backgroundColor: brandColor }} />
-              <span className="text-[10px] sm:text-xs font-semibold text-white/90 uppercase tracking-wider truncate">{seriesLabels[seriesId] || character.series}</span>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-end gap-1.5 w-1/2">
-            <span className="text-[8px] sm:text-[9px] text-white/40 uppercase tracking-widest truncate w-full text-right">Debiut</span>
-            <div className="flex items-center gap-1.5 w-full justify-end">
-              <Calendar size={12} className="text-white/60 shrink-0" />
-              <span className="text-[10px] sm:text-xs font-semibold text-white/90 uppercase tracking-wider truncate">{character.debut || "Nieznany"}</span>
-            </div>
+        <div className="mt-auto flex flex-col items-center pt-4 border-t border-white/5 pb-1">
+          <span className="text-[8px] sm:text-[9px] text-white/40 uppercase tracking-widest mb-1">Debiut</span>
+          <div className="flex items-center gap-1.5">
+            <Calendar size={12} className="text-white/60 shrink-0" />
+            <span className="text-[10px] sm:text-xs font-semibold text-white/90 uppercase tracking-wider">{character.debut || "Nieznany"}</span>
           </div>
         </div>
       </div>

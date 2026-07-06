@@ -160,5 +160,17 @@
   "targetHandle": "target-bottom",
   "characters": ["paderborn"],
   "note": "Przydzielony do prowadzenia śledztwa w sprawie tragedii na Giewoncie; współpracuje z Dominiką i Forstem jednocześnie ich kontrolując."
+  },
+  {
+    "source": "langer-axis-afekt",
+    "target": "afekt",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "straight",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-bottom",
+    "characters": ["piotr-langer"],
+    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
   }
 ]

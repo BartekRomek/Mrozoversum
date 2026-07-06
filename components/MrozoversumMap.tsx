@@ -48,11 +48,13 @@ const nodeTypes = {
   axisPoint: AxisPointNode
 };
 
+// ZAKTUALIZOWANO: Dodano oś W kręgach władzy (-720 to powyżej Forsta, który ma -360)
 const rowY: Record<SeriesId, number> = {
-  Chylka: 0,
+  Wladza: -720,
   Forst: -360,
+  Chylka: 0,
   Langer: 340,
-  Behawiorysta: -700,
+  Behawiorysta: -1080,
   Zaorski: 690
 };
 
@@ -71,11 +73,15 @@ function TimelineLines() {
   return (
     <svg className="absolute inset-0 pointer-events-none z-0 w-full h-full overflow-visible">
       <g transform={`translate(${x}, ${y}) scale(${zoom})`}>
+        {/* ZAKTUALIZOWANO: Dodano linię dla Władzy */}
+        <line x1="-50000" y1={rowY.Wladza + offset} x2="50000" y2={rowY.Wladza + offset} stroke="rgba(225, 29, 72, 0.25)" strokeWidth="1.5" />
         <line x1="-50000" y1={rowY.Forst + offset} x2="50000" y2={rowY.Forst + offset} stroke="rgba(225, 29, 72, 0.25)" strokeWidth="1.5" />
         <line x1="-50000" y1={rowY.Chylka + offset} x2="50000" y2={rowY.Chylka + offset} stroke="rgba(225, 29, 72, 0.25)" strokeWidth="1.5" />
         <line x1="-50000" y1={rowY.Langer + offset} x2="50000" y2={rowY.Langer + offset} stroke="rgba(225, 29, 72, 0.25)" strokeWidth="1.5" />
       </g>
 
+      {/* ZAKTUALIZOWANO: Dodano napis dla Władzy */}
+      <text x="24" y={(rowY.Wladza + offset) * zoom + y - 8} fill="rgba(225, 29, 72, 0.9)" fontSize="13" fontWeight="800" letterSpacing="3" className="font-mono">W KRĘGACH WŁADZY</text>
       <text x="24" y={(rowY.Forst + offset) * zoom + y - 8} fill="rgba(225, 29, 72, 0.9)" fontSize="13" fontWeight="800" letterSpacing="3" className="font-mono">FORST</text>
       <text x="24" y={(rowY.Chylka + offset) * zoom + y - 8} fill="rgba(225, 29, 72, 0.9)" fontSize="13" fontWeight="800" letterSpacing="3" className="font-mono">CHYŁKA</text>
       <text x="24" y={(rowY.Langer + offset) * zoom + y - 8} fill="rgba(225, 29, 72, 0.9)" fontSize="13" fontWeight="800" letterSpacing="3" className="font-mono">LANGER</text>

@@ -4,18 +4,21 @@ export const seriesLabels: Record<SeriesId, string> = {
   Chylka: "Chyłka",
   Forst: "Forst",
   Langer: "Langer",
+  Wladza: "W kręgach władzy"
 };
 
 export const seriesOrder: SeriesId[] = [
   "Chylka",
   "Forst",
   "Langer",
+  "Wladza"
 ];
 
 export const seriesColors: Record<SeriesId, string> = {
   Chylka: "#ff7300",
   Forst: "#66d5fd",
   Langer: "#ff0000",
+  Wladza: "#00ac0e"
 };
 
 export const relationLabels: Record<RelationType, string> = {
@@ -28,6 +31,6 @@ export const relationLabels: Record<RelationType, string> = {
 export const relationColors: Record<RelationType, string> = {
   wzmianka: "#fbff00",
   crossover: "#ff0000",
-  kontynuacja: "#a855f7",
-  epizod: "#04ff00",
-};
+  kontynuacja: "#00ff08",
+  epizod: "#00fff2",
+}; 

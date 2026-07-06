@@ -43,6 +43,8 @@ export const appearancesData = [
   ...wyrok.map((char: any) => ({ ...char, bookId: 'wyrok' })),
   ...ekstradycja.map((char: any) => ({ ...char, bookId: 'ekstradycja' })),
   ...precedens.map((char: any) => ({ ...char, bookId: 'precedens' })),
+  ...afekt.map((char: any) => ({ ...char, bookId: 'afekt' })),
+
 
 
 

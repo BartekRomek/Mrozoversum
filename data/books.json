@@ -472,7 +472,7 @@
     "timeline": 11,
     "year": 2015
   },
-   {
+  {
     "id": "langer-axis-ekstradycja",
     "title": "Langer",
     "series": "Langer",
@@ -482,5 +482,27 @@
     "order": 0,
     "timeline": 14,
     "year": 2019
+  },
+  {
+    "id": "langer-axis-afekt",
+    "title": "Langer",
+    "series": "Langer",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Langera.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 17,
+    "year": 2019
+  },
+  {
+    "id": "wotum-nieufnosci",
+    "title": "Wotum nieufności",
+    "series": "Wladza",
+    "cover": "/covers/wotum-nieufnosci.jpg", 
+    "description": "Marszałek Sejmu Daria Seyda budzi się w pokoju hotelowym, nie pamiętając, jak się w nim znalazła...",
+    "certainty": 100,
+    "order": 1,
+    "timeline": 7,
+    "year": 2017
   }
 ]
