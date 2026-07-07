@@ -12,7 +12,8 @@
   { "characterId": "milena-hauer-prezydent", "isFirstAppearance": true, "role": "main", "isNew": true },
   { "characterId": "siarka", "isFirstAppearance": true, "role": "main", "isNew": false },
   { "characterId": "asia", "isFirstAppearance": true, "role": "main", "isNew": true },
-  { "characterId": "nachurny", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "zawada", "isFirstAppearance": true, "role": "main", "isNew": true },
+  { "characterId": "nachurny", "isFirstAppearance": true, "role": "main", "isNew": false, "hiddenIdentity": "Konsorcjum"  },
   { "characterId": "borsuk", "isFirstAppearance": true, "role": "main", "isNew": false },
   { "characterId": "wiliam", "isFirstAppearance": true, "role": "main", "isNew": false },
   { "characterId": "szczerbaty", "isFirstAppearance": true, "role": "main", "isNew": false }

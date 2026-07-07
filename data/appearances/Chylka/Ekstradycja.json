@@ -8,8 +8,7 @@
   { "characterId": "kormak", "isFirstAppearance": true, "role": "main", "isNew": false },
   { "characterId": "artur-zelazny", "isFirstAppearance": true, "role": "supporting", "isNew": false },
   { "characterId": "szczerbaty", "isFirstAppearance": true, "role": "supporting", "isNew": false },
-  { "characterId": "filip-obertal", "isFirstAppearance": true, "role": "supporting", "isNew": false },
-  { "characterId": "zuzanna-chylka", "isFirstAppearance": true, "role": "supporting", "isNew": true }
+  { "characterId": "filip-obertal", "isFirstAppearance": true, "role": "supporting", "isNew": false }
 
 
 

@@ -12,6 +12,8 @@ import wyrok from './chylka/Wyrok.json';
 import ekstradycja from './chylka/Ekstradycja.json';
 import precedens from './chylka/Precedens.json';
 import afekt from './chylka/Afekt.json';
+import egzekucja from './chylka/Egzekucja.json';
+import skazanie from './chylka/Skazanie.json';
 
 
 
@@ -44,6 +46,11 @@ export const appearancesData = [
   ...ekstradycja.map((char: any) => ({ ...char, bookId: 'ekstradycja' })),
   ...precedens.map((char: any) => ({ ...char, bookId: 'precedens' })),
   ...afekt.map((char: any) => ({ ...char, bookId: 'afekt' })),
+  ...egzekucja.map((char: any) => ({ ...char, bookId: 'egzekucja' })),
+  ...skazanie.map((char: any) => ({ ...char, bookId: 'skazanie' })),
+
+
+  
 
 
 

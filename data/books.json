@@ -492,7 +492,29 @@
     "certainty": 100,
     "order": 0,
     "timeline": 17,
-    "year": 2019
+    "year": 2021
+  },
+  {
+    "id": "langer-axis-egzekucja",
+    "title": "Langer",
+    "series": "Langer",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Langera.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 18,
+    "year": 2021
+  },
+  {
+    "id": "langer-axis-skazanie",
+    "title": "Langer",
+    "series": "Langer",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Langera.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 20,
+    "year": 2021
   },
   {
     "id": "wotum-nieufnosci",
@@ -504,5 +526,16 @@
     "order": 1,
     "timeline": 7,
     "year": 2017
+  },
+  {
+    "id": "korodecki-axis-egzekucja",
+    "title": "Korodecki",
+    "series": "Wladza",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Wladza.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 18,
+    "year": 2021
   }
 ]

@@ -9,6 +9,15 @@
     "avatar": "avatars/Chylka.png"
   },
   {
+    "id": "joanna-chylka-egzekucja",
+    "name": "Joanna Chyłka",
+    "role": "Była mecenas, obecnie prowadząca biuro porad prawnych Adiuvame",
+    "series": "Chylka",
+    "debut": "Kasacja",
+    "description": "była mecenas, obecnie prowadząca biuro porad prawnych Adiuvame",
+    "avatar": "avatars/Chylka.png"
+  },
+  {
     "id": "kordian-orynski",
     "name": "Kordian Oryński",
     "pseudonym": "ZORDON",
@@ -214,6 +223,7 @@
     "name": "Szczerbiński",
     "pseudonym": "Szczerbaty",
     "role": "Policjant",
+    "hiddenRole": "Na usługach Langera",
     "series": "Chylka",
     "debut": "Rewizja",
     "description": "policjant.",
@@ -380,6 +390,16 @@
     "avatar": "avatars/wiliam.png"
   },
   {
+    "id": "wiliam-langer",
+    "name": "William McVay",
+    "role": "Syn Harry’ego McVaya",
+    "hiddenRole": "Współpracownik Langera",
+    "series": "Chylka",
+    "debut": "Inwigilacja",
+    "description": "Syn Harry’ego McVaya",
+    "avatar": "avatars/wiliam.png"
+  },
+  {
     "id": "kranz",
     "name": "Rafał Kranz",
     "role": "Ginekolog",
@@ -502,7 +522,7 @@
     "name": "Zuzanna Chylka",
     "role": "Matka Chyłki",
     "series": "Chylka",
-    "debut": "Ekstradycja",
+    "debut": "Skazanie",
     "description": "Matka Chyłki",
     "avatar": "avatars/zuzanna-chylka.png"
   },
@@ -573,13 +593,152 @@
   {
     "id": "asia",
     "name": "Joanna Piechodzka",
-    "pseudonym": "Asia",
+    "pseudonym": "Aśkanna",
     "role": "Była dziewczyna Kordiana",
     "series": "Chylka"  ,
     "debut": "Afekt",
     "description": "Była dziewczyna Kordiana",
     "avatar": "avatars/asia.png"
   },
+  {
+    "id": "zawada",
+    "name": "Iga Zawada",
+    "role": "Młoda aplikantka adwokacka",
+    "series": "Chylka"  ,
+    "debut": "Afekt",
+    "description": "Młoda aplikantka adwokacka",
+    "avatar": "avatars/zawada.png"
+  },
+  {
+    "id": "gabala",
+    "name": "Anna Gabała",
+    "pseudonym": "Kobieton",
+    "role": "Prokuratorka z wydziału do walki z przestępczością zorganizowaną",
+    "hiddenRole": "Działa dla Konsorcjum i Kreona",
+    "series": "Chylka"  ,
+    "debut": "Egzekucja",
+    "description": "Prokuratorka z wydziału do walki z przestępczością zorganizowaną",
+    "avatar": "avatars/gabala.png"
+  },
+  {
+    "id": "kreon",
+    "name": "Kreon",
+    "role": "Faktyczny przywódca KONSORCJUM",
+    "series": "Chylka"  ,
+    "debut": "Egzekucja",
+    "description": "Była dziewczyna Kordiana",
+    "avatar": "avatars/kreon.png"
+  },
+  {
+    "id": "hajmon",
+    "name": "Hajmon",
+    "role": "Członek Konsorcjum",
+    "series": "Chylka"  ,
+    "debut": "Egzekucja",
+    "description": "Członek Konsorcjum",
+    "avatar": "avatars/hajmon.png"
+  },
+  {
+    "id": "korodecki-egzekucja",
+    "name": "Hubert Korodecki",
+    "role": "Minister sprawiedliwości i prokurator generalny",
+    "series": "Wladza"  ,
+    "debut": "Wotum nieufności",
+    "description": "Minister sprawiedliwości i prokurator generalny",
+    "avatar": "avatars/korodecki-egzekucja.png"
+  },
+  {
+    "id": "hader",
+    "name": "Radosław Hader",
+    "role": "Adwokat",
+    "series": "Chylka"  ,
+    "debut": "Egzekucja",
+    "description": "Adwokat",
+    "avatar": "avatars/Hader.png"
+  },
+  {
+    "id": "klejn",
+    "name": "Mariusz Klejn",
+    "role": "Wspólnik w kancelarii",
+    "series": "Chylka"  ,
+    "debut": "Skazanie",
+    "description": "Adwokat",
+    "avatar": "avatars/klejn.png"
+  },
+    {
+    "id": "madej",
+    "name": "Łukasz Madej",
+    "role": "Wspólnik w kancelarii",
+    "series": "Chylka"  ,
+    "debut": "Skazanie",
+    "description": "Wspólnik w kancelarii",
+    "avatar": "avatars/madej.png"
+  },
+  {
+    "id": "brulinski",
+    "name": "Bruliński",
+    "role": "Wspólnik w kancelarii",
+    "series": "Chylka"  ,
+    "debut": "Skazanie",
+    "description": "Adwokat",
+    "avatar": "avatars/brulinski.png"
+  },
+  {
+    "id": "p-byszkiewicz",
+    "name": "Pola Byszkiewicz",
+    "role": "Matka Julii, klientka Chyłki",
+    "series": "Chylka"  ,
+    "debut": "Skazanie",
+    "description": "Matka Julii, klientka Chyłki",
+    "avatar": "avatars/p-byszkiewicz.png"
+  },
+  {
+    "id": "j-byszkiewicz",
+    "name": "Julia Byszkiewicz",
+    "role": "Ofiara, technik systemów informatycznych",
+    "series": "Chylka"  ,
+    "debut": "Skazanie",
+    "description": "Ofiara, technik systemów informatycznych",
+    "avatar": "avatars/j-byszkiewicz.png"
+  },
+  {
+    "id": "winiecki",
+    "name": "Dawid Winiecki",
+    "role": "Chłopak Julii",
+    "series": "Chylka"  ,
+    "debut": "Skazanie",
+    "description": "Chłopak Julii,",
+    "avatar": "avatars/winiecki.png"
+  },
+  {
+    "id": "koscecki",
+    "name": "Kacper Kosecki",
+    "role": "Były Chłopak Julii",
+    "series": "Chylka"  ,
+    "debut": "Skazanie",
+    "description": "Były Chłopak Julii,",
+    "avatar": "avatars/kosecki.png"
+  },
+  {
+    "id": "roza",
+    "name": "Róża",
+    "role": "Siostra Poli Byszkiewicz",
+    "series": "Chylka"  ,
+    "debut": "Skazanie",
+    "description": "Siostra Poli Byszkiewicz",
+    "avatar": "avatars/roza.png"
+  },
+  {
+    "id": "sara",
+    "name": "Sara",
+    "role": "Przyjaciółka Julii",
+    "series": "Chylka"  ,
+    "debut": "Skazanie",
+    "description": "Przyjaciółka Julii",
+    "avatar": "avatars/sara.png"
+  },
+
+
 
 
 

@@ -172,5 +172,41 @@
     "targetHandle": "target-bottom",
     "characters": ["piotr-langer"],
     "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+  },
+  {
+    "source": "langer-axis-egzekucja",
+    "target": "egzekucja",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "straight",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-bottom",
+    "characters": ["piotr-langer"],
+    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+  },
+  {
+    "source": "korodecki-axis-egzekucja",
+    "target": "egzekucja",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "step",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-right",
+    "characters": ["korodecki-egzekucja"],
+    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+  },
+  {
+    "source": "langer-axis-skazanie",
+    "target": "skazanie",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "straight",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-bottom",
+    "characters": ["piotr-langer"],
+    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
   }
 ]
