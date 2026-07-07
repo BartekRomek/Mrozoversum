@@ -3,7 +3,7 @@
   { "characterId": "edmund-osica", "isFirstAppearance": true, "role": "main", "isNew": false },
   { "characterId": "wadris-hansen", "isFirstAppearance": true, "role": "main", "isNew": false },
   { "characterId": "balajew", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
-  { "characterId": "krieger-forst", "isFirstAppearance": true, "role": "main", "isNew": true, "hiddenIdentity": "Fałszywa tożsamość Forsta" },
+  { "characterId": "krieger-forst", "isFirstAppearance": true, "role": "main", "isNew": true, "hiddenIdentity": "Fałszywa tożsamość" },
   { "characterId": "krieger", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
   { "characterId": "gerc", "isFirstAppearance": true, "role": "supporting", "isNew": false },
   { "characterId": "mysza", "isFirstAppearance": true, "role": "supporting", "isNew": true, "isDead": true },

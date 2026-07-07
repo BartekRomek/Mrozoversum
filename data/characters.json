@@ -2,10 +2,10 @@
   {
     "id": "joanna-chylka",
     "name": "Joanna Chyłka",
-    "role": "Prawniczka",
+    "role": "Mecenas",
     "series": "Chylka",
     "debut": "Kasacja",
-    "description": "Prawniczka, główna bohaterka serii.",
+    "description": "Mecenas, główna bohaterka serii.",
     "avatar": "avatars/Chylka.png"
   },
   {
@@ -18,10 +18,20 @@
     "avatar": "avatars/Chylka.png"
   },
   {
+    "id": "kordian-orynski-aplikant",
+    "name": "Kordian Oryński",
+    "pseudonym": "ZORDON",
+    "role": "Aplikant Adwokacki",
+    "series": "Chylka",
+    "debut": "Kasacja",
+    "description": "Prawnik, główny bohaterky serii.",
+    "avatar": "avatars/Kordzian-Oryński.png"
+  },
+  {
     "id": "kordian-orynski",
     "name": "Kordian Oryński",
     "pseudonym": "ZORDON",
-    "role": "Prawnik",
+    "role": "Adwokat",
     "series": "Chylka",
     "debut": "Kasacja",
     "description": "Prawnik, główny bohaterky serii.",
@@ -939,7 +949,7 @@
   {
     "id": "krieger-forst",
     "name": "Robert Krieger",
-    "role": "Wiktor Forst",
+    "role": "Fałszywa torzsamość Forsta",
     "series": "Forst",
     "debut": "Deniwelacja",
     "description": "Fałszywa torzsamość Forsta",

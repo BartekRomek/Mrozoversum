@@ -1,6 +1,6 @@
 [
   { "characterId": "joanna-chylka", "isFirstAppearance": true, "role": "main" },
-  { "characterId": "kordian-orynski", "isFirstAppearance": true, "role": "main" },
+  { "characterId": "kordian-orynski-aplikant", "isFirstAppearance": true, "role": "main" },
   { "characterId": "kormak", "isFirstAppearance": true, "role": "supporting" },
   { "characterId": "awit-szlezyngier", "isFirstAppearance": true, "role": "supporting", "isNew": true },
   { "characterId": "angelika-szlezyngier", "isFirstAppearance": true, "role": "supporting", "isNew": true },

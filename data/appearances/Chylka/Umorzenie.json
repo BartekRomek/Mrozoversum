@@ -1,6 +1,6 @@
 [
   { "characterId": "joanna-chylka", "isFirstAppearance": true, "role": "main", "isNew": false },
-  { "characterId": "kordian-orynski", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "kordian-orynski-aplikant", "isFirstAppearance": true, "role": "main", "isNew": false },
   { "characterId": "skalski", "isFirstAppearance": true, "role": "main", "isNew": true },
   { "characterId": "paderborn", "isFirstAppearance": true, "role": "main", "isNew": false },
   { "characterId": "smaga", "isFirstAppearance": true, "role": "main", "isNew": true },
