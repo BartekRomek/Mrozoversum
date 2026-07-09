@@ -27,6 +27,8 @@
     "source": "werdykt",
     "target": "widmo-brockenu",
     "type": "kontynuacja",
+    "sourceHandle": "source-right",
+    "targetHandle": "target-bottom",
     "certainty": 100,
     "importance": "major",
     "characters": ["joanna-chylka", "kordian-orynski"],
@@ -182,7 +184,7 @@
     "pathType": "step",
     "sourceHandle": "source-bottom",
     "targetHandle": "target-left",
-    "characters": ["k-halski-afekt"],
+    "characters": ["k-halski-afekt", "milena-hauer-prezydent"],
     "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
   },
   {
@@ -219,6 +221,18 @@
     "sourceHandle": "source-bottom",
     "targetHandle": "target-bottom",
     "characters": ["piotr-langer"],
+    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+  },
+  {
+    "source": "forst-axis-werdykt",
+    "target": "werdykt",
+    "type": "epizod",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "straight",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-top",
+    "characters": ["wiktor-forst"],
     "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
   }
 ]

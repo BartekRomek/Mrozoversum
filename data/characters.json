@@ -25,7 +25,7 @@
     "series": "Chylka",
     "debut": "Kasacja",
     "description": "Prawnik, główny bohaterky serii.",
-    "avatar": "avatars/Kordzian-Oryński.png"
+    "avatar": "avatars/zordon.png"
   },
   {
     "id": "kordian-orynski",
@@ -35,7 +35,7 @@
     "series": "Chylka",
     "debut": "Kasacja",
     "description": "Prawnik, główny bohaterky serii.",
-    "avatar": "avatars/Kordzian-Oryński.png"
+    "avatar": "avatars/zordon.png"
   },
   {
     "id": "kormak",
@@ -747,8 +747,62 @@
     "description": "Przyjaciółka Julii",
     "avatar": "avatars/sara.png"
   },
-
-
+  {
+    "id": "brzostowska",
+    "name": "Judyta Brzostowska",
+    "role": "Była partnerka Rabanta",
+    "hiddenRole": "Prawdziwa morderczyni",
+    "series": "Chylka"  ,
+    "debut": "Werdykt",
+    "description": "Była partnerka Rabanta",
+    "avatar": "avatars/brzostowska.png"
+  },
+  {
+    "id": "rabant",
+    "name": "Paweł Rabant",
+    "role": "Znany aktor",
+    "series": "Chylka"  ,
+    "debut": "Werdykt",
+    "description": "Znany aktor",
+    "avatar": "avatars/rabant.png"
+  },
+  {
+    "id": "s-klejn",
+    "name": "Sebastian Klejn",
+    "role": "Syn Mariusza Klejna i aplikant Kordiana",
+    "series": "Chylka"  ,
+    "debut": "Werdykt",
+    "description": "Syn Mariusza Klejna i aplikant Kordiana",
+    "avatar": "avatars/s-klejn.png"
+  },
+  {
+    "id": "uptas",
+    "name": "Elwira Uptas",
+    "role": "Prokuratorka",
+    "series": "Chylka"  ,
+    "debut": "Werdykt",
+    "description": "Prokuratorka",
+    "avatar": "avatars/uptas.png"
+  },
+  {
+    "id": "derwich",
+    "name": "Antoni Derwich",
+    "role": "Młody sędzia",
+    "series": "Chylka"  ,
+    "debut": "Werdykt",
+    "description": "Młody sędzia",
+    "avatar": "avatars/derwich.png"
+  },
+  {
+    "id": "iwanski",
+    "name": "Kacper Iwański ",
+    "role": "Aktualny partner Judyty Brzostowskiej",
+    "hiddenRole": "Prawdziwy morderca",
+    "series": "Chylka"  ,
+    "debut": "Werdykt",
+    "description": "Aktualny partner Judyty Brzostowskiej",
+    "avatar": "avatars/iwanski.png"
+  },
 
 
 

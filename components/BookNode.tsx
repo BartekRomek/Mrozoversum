@@ -23,7 +23,7 @@ export function BookNode({ data }: NodeProps) {
         <div 
           className="absolute top-1/2 left-1/2 -z-10 h-[260px] -translate-x-1/2 -translate-y-1/2 rounded-2xl border transition-all shadow-2xl"
           style={{ 
-            width: glassWidth,
+            width: glassWidth || undefined,
             // Solidny kolor tła (z dużą przezroczystością) całkowicie zakrywa linię pod spodem
             backgroundColor: `${color}15`,
             borderColor: `${color}40`,

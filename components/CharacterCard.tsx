@@ -38,8 +38,8 @@ export function CharacterCard({ character, showSpoilers = false }: CharacterCard
     setIsLocallyRevealed(showSpoilers && (!!character.isAntagonist || !!character.isDead || !!character.hiddenIdentity));
   }, [showSpoilers, character.isAntagonist, character.isDead, character.hiddenIdentity]);
 
-  const seriesId = (character.series as any) || "Chylka";
-  const brandColor = seriesColors[seriesId] || "#00ff1a"; 
+  const seriesId = (character.series as keyof typeof seriesColors) || "Chylka";
+  const brandColor = seriesColors[seriesId] || "#00ff1a";
 
   // Stany pokazywania poszczególnych "sekretów"
   const isShowingAntagonist = isLocallyRevealed && character.isAntagonist;

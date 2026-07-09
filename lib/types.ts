@@ -1,4 +1,4 @@
-export type SeriesId = "Chylka" | "Forst" | "Langer" | "Behawiorysta" | "Zaorski";
+export type SeriesId = "Chylka" | "Forst" | "Langer" | "Wladza" | "Behawiorysta" | "Zaorski";
 export type RelationType = "wzmianka" | "crossover" | "kontynuacja" | "epizod";
 
 export type Book = {

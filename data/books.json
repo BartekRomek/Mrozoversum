@@ -548,5 +548,16 @@
     "order": 0,
     "timeline": 18,
     "year": 2021
+  },
+  {
+    "id": "forst-axis-werdykt",
+    "title": "Wiktor Forst",
+    "series": "Forst",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Wladza.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 19,
+    "year": 2021
   }
 ]
