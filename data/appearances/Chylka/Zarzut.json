@@ -1,0 +1,25 @@
+[
+  { "characterId": "joanna-chylka", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "kordian-orynski", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "brencz", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+  { "characterId": "ks.kasjusz", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "d-ganko", "isFirstAppearance": true, "role": "main", "isNew": true, "isDead": true },
+  { "characterId": "bielska", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
+  { "characterId": "l-bochucki", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
+  { "characterId": "a-bochucki", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
+  { "characterId": "artur-zelazny", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+  { "characterId": "klejn", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "kormak", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "magdalena-obertal", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+  { "characterId": "daria", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "zuzanna-chylka", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+  { "characterId": "szczerbaty", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "paderborn", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "anka", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "zawada-adwokat", "isFirstAppearance": true, "role": "main", "isNew": false }
+
+
+
+
+
+]

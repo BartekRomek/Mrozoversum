@@ -4,6 +4,7 @@
   { "characterId": "kabelis", "isFirstAppearance": true, "role": "main", "isNew": true },
   { "characterId": "lemur", "isFirstAppearance": true, "role": "main", "isNew": true, "hiddenIdentity": "Świadek koronny" },
   { "characterId": "magdalena-obertal", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+  { "characterId": "daria", "isFirstAppearance": true, "role": "main", "isNew": true },
   { "characterId": "artur-zelazny", "isFirstAppearance": true, "role": "supporting", "isNew": false },
   { "characterId": "william", "isFirstAppearance": true, "role": "supporting", "isNew": false },
   { "characterId": "kormak", "isFirstAppearance": true, "role": "supporting", "isNew": false },

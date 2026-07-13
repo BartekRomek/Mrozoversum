@@ -15,6 +15,9 @@ import afekt from './chylka/Afekt.json';
 import egzekucja from './chylka/Egzekucja.json';
 import skazanie from './chylka/Skazanie.json';
 import werdykt from './chylka/Werdykt.json';
+import zarzut from './chylka/Zarzut.json';
+import obrona from './chylka/Obrona.json';
+
 
 //FORST
 import ekspozycja from './forst/Ekspozycja.json';
@@ -22,6 +25,8 @@ import przewieszenie from './forst/Przewieszenie.json';
 import trawers from './forst/Trawers.json';
 import deniwelacja from './forst/Deniwelacja.json';
 import zerwa from './forst/Zerwa.json';
+
+
 
 export const appearancesData = [
   //chylka
@@ -41,6 +46,9 @@ export const appearancesData = [
   ...egzekucja.map((char: any) => ({ ...char, bookId: 'egzekucja' })),
   ...skazanie.map((char: any) => ({ ...char, bookId: 'skazanie' })),
   ...werdykt.map((char: any) => ({ ...char, bookId: 'werdykt' })),
+  ...zarzut.map((char: any) => ({ ...char, bookId: 'zarzut' })),
+  ...obrona.map((char: any) => ({ ...char, bookId: 'obrona' })),
+
 
   //forst
   ...ekspozycja.map((char: any) => ({ ...char, bookId: 'ekspozycja' })),

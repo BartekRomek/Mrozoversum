@@ -392,7 +392,7 @@
     "description": "Strefa 5. Przedostatni tom górskich przygód komisarza, ustawiony nad Zarzutem i Obroną.",
     "certainty": 100,
     "order": 10,
-    "timeline": 25.5,
+    "timeline": 27.5,
     "year": 2025
   },
   {
@@ -425,7 +425,7 @@
     "description": "Strefa 6. Ostatni tom dedykowany Chyłce. Zapadają kluczowe decyzje i sojusze, w tym zgoda na obronę Piotra Langera przed procesem stulecia.",
     "certainty": 100,
     "order": 19,
-    "timeline": 27.5,
+    "timeline": 28.5,
     "year": 2026
   },
   {
@@ -436,7 +436,7 @@
     "description": "Strefa 6. Wielki finał górnej osi. Dzieje się w tym samym czasie co proces w Arachnii, gdy Forst toczy ostateczną walkę o przetrwanie w Tatrach.",
     "certainty": 100,
     "order": 11,
-    "timeline": 28.5,
+    "timeline": 29.5,
     "year": 2026
   },
   {
@@ -447,7 +447,7 @@
     "description": "Strefa 6. Właściwy proces Langera. Joanna Chyłka staje naprzeciw prokurator Karoliny Siarkowskiej i walczy o uniewinnienie potwora.",
     "certainty": 100,
     "order": 4,
-    "timeline": 28.5,
+    "timeline": 29.5,
     "year": 2026
   },
   {
@@ -559,5 +559,16 @@
     "order": 0,
     "timeline": 19,
     "year": 2021
+  },
+  {
+    "id": "langer-axis-obrona",
+    "title": "Langer",
+    "series": "Langer",
+    "cover": "/covers/obrona.jpg.avif",
+    "description": "Strefa 5. Bezpośredni poprzednik finałowego rozbicia i ostatnich decyzji Chyłki.",
+    "certainty": 100,
+    "order": 18,
+    "timeline": 25.5,
+    "year": 2024
   }
 ]

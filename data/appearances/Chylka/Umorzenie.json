@@ -8,6 +8,7 @@
   { "characterId": "architekt", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
   { "characterId": "tesa", "isFirstAppearance": true, "role": "supporting", "isNew": true },
   { "characterId": "magdalena-obertal", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+  { "characterId": "daria", "isFirstAppearance": true, "role": "main", "isNew": false },
   { "characterId": "szczerbaty", "isFirstAppearance": true, "role": "supporting", "isNew": false },
   { "characterId": "artur-zelazny", "isFirstAppearance": true, "role": "supporting", "isNew": false },
   { "characterId": "wiliam", "isFirstAppearance": true, "role": "supporting", "isNew": false },

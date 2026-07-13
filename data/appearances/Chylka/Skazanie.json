@@ -17,7 +17,9 @@
   { "characterId": "anka", "isFirstAppearance": true, "role": "supporting", "isNew": false },
   { "characterId": "siarka", "isFirstAppearance": true, "role": "supporting", "isNew": false },
   { "characterId": "szczerbaty", "isFirstAppearance": true, "role": "supporting", "isNew": false, "hiddenIdentity": "Współpraca" },
-  { "characterId": "messer", "isFirstAppearance": true, "role": "antagonist", "isNew": false, "hiddenIdentity": "Konsorcjum" }
+  { "characterId": "messer", "isFirstAppearance": true, "role": "antagonist", "isNew": false, "hiddenIdentity": "Konsorcjum" },
+  { "characterId": "ks.kasjusz-skazanie", "isFirstAppearance": true, "role": "main", "isNew": true }
+
 
 
 ]

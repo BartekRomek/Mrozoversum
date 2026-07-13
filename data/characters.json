@@ -448,6 +448,15 @@
     "avatar": "avatars/kabelis.png"
   },
   {
+    "id": "daria",
+    "name": "Daria Brencz",
+    "role": "Córka MAgdaleny i Juliana",
+    "series": "Chylka",
+    "debut": "Kontratyp",
+    "description": "Córka MAgdaleny i Juliana",
+    "avatar": "avatars/dziecko.png"
+  },
+  {
     "id": "lemur",
     "name": "Julian Brencz",
     "hiddenName": "Zdun",
@@ -458,6 +467,26 @@
     "description": "Mąż Magdaleny",
     "avatar": "avatars/lemur.png",
     "hiddenAvatar": "avatars/lemur_hidden.png"
+  },
+  {
+    "id": "brencz",
+    "name": "Julian Brencz",
+    "role": "Były mąż Magdaleny",
+    "hiddenRole": "Mózg intrygi",
+    "series": "Chylka",
+    "debut": "Kontratyp",
+    "description": "Były mąż Magdaleny",
+    "avatar": "avatars/lemur.png"
+  },
+ {
+    "id": "brencz-obrona",
+    "name": "Julian Brencz",
+    "role": "Były mąż Magdaleny",
+    "hiddenRole": "Manipularot i szantarzysta",
+    "series": "Chylka",
+    "debut": "Kontratyp",
+    "description": "Manipularot i szantarzysta",
+    "avatar": "avatars/lemur.png"
   },
   {
     "id": "skalski",
@@ -617,6 +646,15 @@
     "series": "Chylka"  ,
     "debut": "Afekt",
     "description": "Młoda aplikantka adwokacka",
+    "avatar": "avatars/zawada.png"
+  },
+  {
+    "id": "zawada-adwokat",
+    "name": "Iga Zawada",
+    "role": "Młoda adwokat",
+    "series": "Chylka"  ,
+    "debut": "Afekt",
+    "description": "Młoda adwokat",
     "avatar": "avatars/zawada.png"
   },
   {
@@ -795,13 +833,129 @@
   },
   {
     "id": "iwanski",
-    "name": "Kacper Iwański ",
+    "name": "Kacper Iwański",
     "role": "Aktualny partner Judyty Brzostowskiej",
     "hiddenRole": "Prawdziwy morderca",
     "series": "Chylka"  ,
     "debut": "Werdykt",
     "description": "Aktualny partner Judyty Brzostowskiej",
     "avatar": "avatars/iwanski.png"
+  },
+  {
+    "id": "ks.kasjusz",
+    "name": "Ksiądz Kasjusz",
+    "role": "Wieloletni znajomy i klient Chyłki",
+    "series": "Chylka"  ,
+    "debut": "Skazanie",
+    "description": "Wieloletni znajomy i klient Chyłki",
+    "avatar": "avatars/ks.kasjusz.png"
+  },
+  {
+    "id": "ks.kasjusz-skazanie",
+    "name": "Ksiądz Kasjusz",
+    "role": "Wieloletni znajomy Chyłki",
+    "series": "Chylka"  ,
+    "debut": "Skazanie",
+    "description": "Wieloletni znajomy i Chyłki",
+    "avatar": "avatars/ks.kasjusz.png"
+  },
+  {
+    "id": "bielska",
+    "name": "Klaudia Bielska",
+    "hiddenName": "Anna Bohucka",
+    "role": "Prokurator prowadząca sprawę",
+    "hiddenRole": "Siostra Łukasza i Alana Bohuckich",
+    "series": "Chylka",
+    "debut": "Zarzut",
+    "description": "Prokurator prowadząca sprawę",
+    "avatar": "avatars/bielska.png"
+  },
+  {
+    "id": "l-bochucki",
+    "name": "Łukasz Bohucki",
+    "role": "Oskarżyciel księdza",
+    "series": "Chylka",
+    "debut": "Zarzut",
+    "description": "Były współwięzień Brencza",
+    "avatar": "avatars/l-bochucki.png"
+  },
+  {
+    "id": "a-bochucki",
+    "name": "Alan Bohucki",
+    "pseudonym": "Bohun",
+    "role": "Brat Łukasza",
+    "hiddenRole": "Były współwięzień Brencza",
+    "series": "Chylka",
+    "debut": "Zarzut",
+    "description": "Były współwięzień Brencza",
+    "avatar": "avatars/a-bochucki.png"
+  },
+    {
+    "id": "d-ganko",
+    "name": "Daniel Gańko",
+    "role": "Jedenastoletni chłopak",
+    "series": "Chylka",
+    "debut": "Zarzut",
+    "description": "Jedenastoletni chłopak",
+    "avatar": "avatars/dziecko.png"
+  },
+  {
+    "id": "dzieci-chylki",
+    "name": "Hanna i Bruno",
+    "role": "Dzieci Joanny i Kordiana",
+    "series": "Chylka",
+    "debut": "Obrona",
+    "description": "Dzieci Joanny i Kordiana",
+    "avatar": "avatars/dzieci-chylki.png"
+  },
+ {
+    "id": "klich",
+    "name": "Kajetan Klich",
+    "role": "Skazany na dożywocie za brutalne morderstwo",
+    "hiddenRole": "Po wznowieniu postępowania zostaje uznany za niewinnego",
+    "series": "Chylka",
+    "debut": "Obrona",
+    "description": "Skazany na dożywocie za brutalne morderstwo",
+    "avatar": "avatars/klich.png"
+  },
+  {
+    "id": "a-zamojska",
+    "name": "Aleksandra Zamojska",
+    "role": "Deweloperka",
+    "series": "Chylka",
+    "debut": "Obrona",
+    "description": "Deweloperka",
+    "avatar": "avatars/a-zamojska.png"
+  },
+  {
+    "id": "serafin",
+    "name": "Oliwier Serafin",
+    "role": "Prywatny detektyw",
+    "hiddenRole": "Potwór Powiatów Południowych",
+    "series": "Chylka",
+    "debut": "Obrona",
+    "description": "Prywatny detektyw",
+    "avatar": "avatars/serafin.png",
+    "hiddenAvatar": "avatars/serafin-morderca.png"
+  },
+  {
+    "id": "liberda",
+    "name": "Janusz Liberda",
+    "role": "Podinspektor policji",
+    "hiddenRole": "Szantażowany przez Serafina",
+    "series": "Chylka",
+    "debut": "Obrona",
+    "description": "Podinspektor policji",
+    "avatar": "avatars/liberda.png"
+  },
+  {
+    "id": "eberhard",
+    "name": "Kamelia Eberhard",
+    "role": "Bezwzględna prokuratorka w stanie spoczynku",
+    "series": "Chylka",
+    "debut": "Obrona",
+    "description": "Bezwzględna prokuratorka w stanie spoczynku",
+    "avatar": "avatars/eberhard.png"
   },
 
 

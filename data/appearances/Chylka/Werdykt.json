@@ -12,7 +12,8 @@
   { "characterId": "s-klejn", "isFirstAppearance": true, "role": "main", "isNew": true },
   { "characterId": "uptas", "isFirstAppearance": true, "role": "main", "isNew": true },
   { "characterId": "derwich", "isFirstAppearance": true, "role": "main", "isNew": true },
-  { "characterId": "iwanski", "isFirstAppearance": true, "role": "antagonist", "isNew": true }
+  { "characterId": "iwanski", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
+  { "characterId": "zawada-adwokat", "isFirstAppearance": true, "role": "main", "isNew": false }
 
 
 
