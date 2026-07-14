@@ -1,5 +1,5 @@
 export type SeriesId = "Chylka" | "Forst" | "Langer" | "Wladza" | "Behawiorysta" | "Zaorski";
-export type RelationType = "wzmianka" | "crossover" | "kontynuacja" | "epizod";
+export type RelationType = "wzmianka" | "crossover" | "kontynuacja" | "epizod" | "zmiana_serii"; // <-- DODAJ TO TUTAJ
 
 export type Book = {
   id: string;

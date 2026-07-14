@@ -1,0 +1,29 @@
+[
+  { "characterId": "joanna-chylka", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "kordian-orynski", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "dzieci-chylki", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "kormak", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "zuzanna-chylka", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "gromadzka", "isFirstAppearance": true, "role": "main", "isNew": true },
+  { "characterId": "falczewski", "isFirstAppearance": true, "role": "main", "isNew": true },
+  { "characterId": "prokopiuk", "isFirstAppearance": true, "role": "main", "isNew": true },
+  { "characterId": "wicher", "isFirstAppearance": true, "role": "main", "isNew": true },
+  { "characterId": "dobrowolska", "isFirstAppearance": true, "role": "main", "isNew": true },
+  { "characterId": "rewers", "isFirstAppearance": true, "role": "main", "isNew": true },
+  { "characterId": "dobrowolski", "isFirstAppearance": true, "role": "main", "isNew": true },
+  { "characterId": "olszewska", "isFirstAppearance": true, "role": "main", "isNew": true },
+  { "characterId": "magdalena-obertal", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "daria", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "anka", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "artur-zelazny", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+  { "characterId": "szczerbaty", "isFirstAppearance": true, "role": "supporting", "isNew": false }
+
+
+
+
+
+
+
+
+
+]

@@ -17,6 +17,8 @@ import skazanie from './chylka/Skazanie.json';
 import werdykt from './chylka/Werdykt.json';
 import zarzut from './chylka/Zarzut.json';
 import obrona from './chylka/Obrona.json';
+import substytucja from './chylka/Substytucja.json';
+
 
 
 //FORST
@@ -48,6 +50,8 @@ export const appearancesData = [
   ...werdykt.map((char: any) => ({ ...char, bookId: 'werdykt' })),
   ...zarzut.map((char: any) => ({ ...char, bookId: 'zarzut' })),
   ...obrona.map((char: any) => ({ ...char, bookId: 'obrona' })),
+  ...substytucja.map((char: any) => ({ ...char, bookId: 'substytucja' })),
+
 
 
   //forst

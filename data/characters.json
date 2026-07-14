@@ -957,10 +957,88 @@
     "description": "Bezwzględna prokuratorka w stanie spoczynku",
     "avatar": "avatars/eberhard.png"
   },
+  {
+    "id": "gromadzka",
+    "name": "Paulina Gromadzka",
+    "role": "Siedemnastoletnia dziewczyna oskarżona o brutalne zabójstwo",
+    "series": "Chylka",
+    "debut": "Substytucja",
+    "description": "Siedemnastoletnia dziewczyna oskarżona o brutalne zabójstwo",
+    "avatar": "avatars/gromadzka.png"
+  },
+  {
+    "id": "falczewski",
+    "name": "Mikołaj Falczewski",
+    "pseudonym": "Miki",
+    "role": "Siedemnastoletni chłopak Pauliny Gromadzkiej",
+    "series": "Chylka",
+    "debut": "Substytucja",
+    "description": "Siedemnastoletni chłopak Pauliny Gromadzkiej",
+    "avatar": "avatars/falczewski.png"
+  },
+  {
+    "id": "prokopiuk",
+    "name": "Antoni Prokopiuk",
+    "role": "Prokurator prowadzący sprawę zabójstwa w Izabelinie",
+    "series": "Chylka",
+    "debut": "Substytucja",
+    "description": "Prokurator prowadzący sprawę zabójstwa w Izabelinie",
+    "avatar": "avatars/prokopiuk.png"
+  },
+  {
+    "id": "wicher",
+    "name": "Bruno Wichrowski",
+    "pseudonym": "Wicher",
+    "role": "Adwokat",
+    "series": "Chylka",
+    "debut": "Substytucja",
+    "description": "Adwokat",
+    "avatar": "avatars/wicher.png"
+  },
+  {
+    "id": "dobrowolska",
+    "name": "Alina Dobrowolska",
+    "role": "Siostra Zygmunta Dobrowolskiego",
+    "series": "Chylka",
+    "debut": "Substytucja",
+    "description": "Siostra Zygmunta Dobrowolskiego",
+    "avatar": "avatars/dobrowolska.png"
+  },
+  {
+    "id": "rewers",
+    "name": "Rewers",
+    "role": "Niebezpieczny przestępca",
+    "series": "Chylka",
+    "debut": "Substytucja",
+    "description": "Niebezpieczny przestępca",
+    "avatar": "avatars/rewers.png"
+  },
+  {
+    "id": "dobrowolski",
+    "name": "Zygmunt Dobrowolski",
+    "role": "Schorowany milioner",
+    "series": "Chylka",
+    "debut": "Substytucja",
+    "description": "Schorowany milioner",
+    "avatar": "avatars/dobrowolski.png"
+  },
+  {
+    "id": "olszewska",
+    "name": "Maria Olszewska",
+    "role": "Biologiczna matka Pauliny Gromadzkiej",
+    "series": "Chylka",
+    "debut": "Substytucja",
+    "description": "Biologiczna matka Pauliny Gromadzkiej",
+    "avatar": "avatars/olszewska.png"
+  },
 
 
 
 
+
+
+
+  
 
 
   {

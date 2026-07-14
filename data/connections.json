@@ -246,5 +246,17 @@
     "targetHandle": "target-bottom",
     "characters": ["piotr-langer", "paderborn", "siarka"],
     "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+  },
+  {
+    "source": "pader-siarka-axis-langer",
+    "target": "langer",
+    "type": "zmiana_serii",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "straight",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-top",
+    "characters": ["paderborn", "siarka"],
+    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
   }
 ]
