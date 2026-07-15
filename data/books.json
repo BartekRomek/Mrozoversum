@@ -581,5 +581,16 @@
     "order": 18,
     "timeline": 22.5,
     "year": 2024
+  },
+  {
+    "id": "siarka-axis-wyrok",
+    "title": "Siarkowska",
+    "series": "Behawiorysta",
+    "cover": "/covers/obrona.jpg.avif",
+    "description": "Strefa 5. Bezpośredni poprzednik finałowego rozbicia i ostatnich decyzji Chyłki.",
+    "certainty": 100,
+    "order": 18,
+    "timeline": 22.5,
+    "year": 2024
   }
 ]

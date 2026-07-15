@@ -7,6 +7,7 @@ import {
   useViewport,
   Handle,
   Position,
+  MarkerType,
   type Edge,
   type Node,
   type EdgeMouseHandler,
@@ -47,6 +48,8 @@ function AxisPointNode({ data }: { data: any }) {
       }}
     >
       <Handle type="target" position={Position.Top} id="target-top" className="opacity-0" />
+      <Handle type="target" position={Position.Bottom} id="target-bottom" className="opacity-0" />
+      <Handle type="source" position={Position.Top} id="source-top" className="opacity-0" />
       <Handle type="source" position={Position.Bottom} id="source-bottom" className="opacity-0" />
     </div>
   );
@@ -74,6 +77,14 @@ const relationDash: Record<RelationType, string | undefined> = {
   zmiana_serii: undefined
 };
 
+const relationTitles: Record<RelationType, string> = {
+  kontynuacja: "Kontynuacja",
+  wzmianka: "Wzmianka",
+  crossover: "Crossover",
+  epizod: "Epizod",
+  zmiana_serii: "Zmiana głównej serii"
+};
+
 function TimelineLines() {
   const { x, y, zoom } = useViewport();
   const offset = 150;
@@ -82,7 +93,10 @@ function TimelineLines() {
     { key: "Wladza", label: "W KRĘGACH WŁADZY", y: rowY.Wladza + offset },
     { key: "Forst", label: "FORST", y: rowY.Forst + offset },
     { key: "Chylka", label: "CHYŁKA", y: rowY.Chylka + offset },
-    { key: "Langer", label: "LANGER", y: rowY.Langer + offset }
+    { key: "Langer", label: "LANGER", y: rowY.Langer + offset },
+    { key: "Zaorski", label: "SEWERYN ZAORSKI", y: rowY.Zaorski + offset },
+    { key: "Behawiorysta", label: "Gerard Edling", y: rowY.Behawiorysta + offset }
+
   ];
 
   return (
@@ -213,15 +227,14 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
     [connections, filteredBookIds, selectedRelations]
   );
 
-  const activeConnection = useMemo(() => {
-    const activeConnectionId = selectedConnectionId ?? hoveredConnectionId;
-    if (!activeConnectionId) return null;
+const activeConnection = useMemo(() => {
+  if (!selectedConnectionId) return null;
 
-    return visibleConnections.find(
-      (connection) =>
-        `${connection.source}-${connection.target}-${connection.type}` === activeConnectionId
-    ) ?? null;
-  }, [hoveredConnectionId, selectedConnectionId, visibleConnections]);
+  return visibleConnections.find(
+    (connection) =>
+      `${connection.source}-${connection.target}-${connection.type}` === selectedConnectionId
+  ) ?? null;
+}, [selectedConnectionId, visibleConnections]);
 
   const connectedToSelected = useMemo(() => {
     if (!selectedBookId) return new Set<string>();
@@ -307,67 +320,82 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
       });
   }, [displayBooks, connectedToSelected, filteredBookIds, selectedBookId, connections, activeConnection]);
 
-  const edges: Edge[] = useMemo(() => {
-    return visibleConnections.map((connection) => {
-      const id = `${connection.source}-${connection.target}-${connection.type}`;
-      const activeConnectionId = selectedConnectionId ?? hoveredConnectionId;
-      const isActiveConnection = activeConnectionId === id;
-      const isRelatedToSelectedBook =
-        selectedBookId &&
-        (connection.source === selectedBookId || connection.target === selectedBookId);
+const edges: Edge[] = useMemo(() => {
+  return visibleConnections.map((connection) => {
+    const id = `${connection.source}-${connection.target}-${connection.type}`;
+    const activeConnectionId = selectedConnectionId;
+    const isFocusedConnection = activeConnectionId === id;
+    const isRelatedToSelectedBook =
+      selectedBookId &&
+      (connection.source === selectedBookId || connection.target === selectedBookId);
 
-      return {
-        id,
-        source: connection.source,
-        target: connection.target,
-        sourceHandle: connection.sourceHandle,
-        targetHandle: connection.targetHandle,
-        type: connection.pathType || "smoothstep",
-        animated: isActiveConnection || connection.type === "crossover" || connection.type === "epizod",
-        label: isActiveConnection || isRelatedToSelectedBook
-          ? `${relationLabels[connection.type] ?? connection.type} ${connection.certainty}%`
-          : undefined,
-        labelStyle: {
-          fill: "#f4f1ea",
-          fontSize: 11,
-          fontWeight: 700
-        },
-        labelBgPadding: [8, 5],
-        labelBgBorderRadius: 7,
-        labelBgStyle: {
-          fill: isActiveConnection
-            ? "rgba(225, 29, 72, 0.95)"
-            : "rgba(9, 10, 15, 0.92)",
-          stroke: "rgba(255, 255, 255, 0.18)"
-        },
-        style: {
-          stroke: relationColors[connection.type],
-          strokeWidth:
-            isActiveConnection
-              ? 5
-              : connection.importance === "finale"
-                ? 5
-                : connection.importance === "major" || connection.type === "crossover" || connection.type === "kontynuacja" || connection.type === "epizod" || connection.type === "zmiana_serii"
-                  ? 3
-                  : 2,
-          strokeDasharray: relationDash[connection.type],
-          opacity:
-            selectedBookId &&
-            connection.source !== selectedBookId &&
-            connection.target !== selectedBookId
-              ? 0.12
-              : activeConnectionId && !isActiveConnection
-                ? 0.18
-                : isActiveConnection
-                  ? 1
+    const relationColor = relationColors[connection.type];
+    const relationTitle = relationTitles[connection.type];
+
+    return {
+      id,
+      source: connection.source,
+      target: connection.target,
+      sourceHandle: connection.sourceHandle,
+      targetHandle: connection.targetHandle,
+      type: connection.pathType || "smoothstep",
+      animated: true,
+      interactionWidth: isFocusedConnection ? 34 : 28,
+      markerEnd: {
+        type: MarkerType.ArrowClosed,
+        color: relationColor,
+        width: isFocusedConnection ? 13 : 10,
+        height: isFocusedConnection ? 13 : 10
+      },
+      label: relationTitle,
+      labelStyle: {
+        fill: "#f4f1ea",
+        fontSize: isFocusedConnection ? 12 : 11,
+        fontWeight: 800
+      },
+      labelBgPadding: [10, 6],
+      labelBgBorderRadius: 8,
+      labelBgStyle: {
+        fill: isFocusedConnection
+          ? "rgba(7, 8, 12, 0.92)"
+          : "rgba(7, 8, 12, 0.74)",
+        stroke: relationColor,
+        strokeWidth: isFocusedConnection ? 1.2 : 0.8
+      },
+      style: {
+        cursor: "pointer",
+        stroke: relationColor,
+        strokeWidth: isFocusedConnection
+          ? 3.5
+          : connection.importance === "finale"
+            ? 3
+            : connection.importance === "major" ||
+                connection.type === "crossover" ||
+                connection.type === "kontynuacja" ||
+                connection.type === "epizod" ||
+                connection.type === "zmiana_serii"
+              ? 2.5
+              : 2,
+        strokeDasharray: relationDash[connection.type],
+        opacity:
+          activeConnectionId && !isFocusedConnection
+            ? 0.16
+            : selectedBookId &&
+                connection.source !== selectedBookId &&
+                connection.target !== selectedBookId
+              ? 0.28
+              : isFocusedConnection
+                ? 0.98
+                : isRelatedToSelectedBook
+                  ? 0.86
                   : 0.78,
-          filter: isActiveConnection
-            ? `drop-shadow(0 0 10px ${relationColors[connection.type]})`
-            : undefined
-        }
-      };
-    });
-  }, [selectedBookId, selectedConnectionId, hoveredConnectionId, visibleConnections]);
+        filter: isFocusedConnection
+          ? `drop-shadow(0 0 8px ${relationColor}cc)`
+          : `drop-shadow(0 0 5px ${relationColor}88)`
+      }
+    };
+  });
+}, [selectedBookId, selectedConnectionId, hoveredConnectionId, visibleConnections]);
 
   const selectedBook = selectedBookId ? bookById.get(selectedBookId) ?? null : null;
   const selectedConnection = selectedConnectionId
@@ -691,24 +719,34 @@ export function MrozoversumMap({ books, connections, characters = [] }: Mrozover
 
 function ConnectionLegend() {
   return (
-    <div className="pointer-events-none absolute bottom-6 left-6 z-30 rounded-xl border border-white/10 bg-[#07080c]/78 p-4 shadow-[0_18px_60px_rgba(0,0,0,0.38)] backdrop-blur-xl">
-      <p className="mb-3 font-mono text-[9px] font-bold uppercase tracking-[0.24em] text-white/38">
-        Legenda relacji
-      </p>
-      <div className="grid gap-2">
-        {relationTypes.map((relation) => (
-          <div key={relation} className="flex items-center gap-3 text-xs font-medium text-white/62">
-            <span
-              className="h-px w-9"
-              style={{
-                backgroundColor: relationColors[relation],
-                borderTop: relationDash[relation] ? `2px dashed ${relationColors[relation]}` : undefined,
-                boxShadow: `0 0 10px ${relationColors[relation]}66`
-              }}
-            />
-            <span>{relationLabels[relation] ?? relation}</span>
-          </div>
-        ))}
+    <div className="group absolute bottom-6 left-6 z-30">
+      <div className="flex h-12 min-w-[116px] items-center justify-center rounded-2xl border border-white/10 bg-[#08090d]/82 px-4 text-[11px] font-black uppercase tracking-[0.18em] text-white/72 shadow-2xl shadow-black/50 backdrop-blur-xl transition duration-300 group-hover:scale-95 group-hover:border-rose-400/25 group-hover:text-rose-100">
+      LEGENDA
+      </div>
+      <div className="pointer-events-none absolute bottom-0 left-0 w-[250px] translate-y-3 scale-95 rounded-2xl border border-white/10 bg-[#08090d]/88 p-5 opacity-0 shadow-2xl shadow-black/55 backdrop-blur-xl transition duration-300 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100">
+        <div className="mb-4 flex items-center justify-between">
+          <h3 className="font-mono text-[10px] font-bold uppercase tracking-[0.24em] text-white/42">
+            Legenda relacji
+          </h3>
+          <span className="rounded-full border border-white/10 bg-white/[0.04] px-2 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-white/35">
+            Hover
+          </span>
+        </div>
+
+        <div className="space-y-3">
+          {relationTypes.map((type) => (
+            <div key={type} className="flex items-center gap-3 text-sm font-semibold text-white/64">
+              <span
+                className="h-0.5 w-12 rounded-full"
+                style={{
+                  backgroundColor: relationColors[type],
+                  boxShadow: `0 0 10px ${relationColors[type]}66`
+                }}
+              />
+              <span>{relationLabels[type]}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -731,7 +769,7 @@ function ConnectionDetailsSidebar({
 }) {
   if (!connection || !source || !target) return null;
 
-  const title = relationLabels[connection.type] ?? connection.type;
+  const title = relationTitles[connection.type];
   const involvedCharacters = connection.characters
     ? allCharacters.filter(char => connection.characters!.includes(char.id))
     : [];
