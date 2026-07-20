@@ -592,5 +592,16 @@
     "order": 18,
     "timeline": 22.5,
     "year": 2024
+  },
+  {
+    "id": "korodecki-axis-halny",
+    "title": "Korodecki",
+    "series": "Wladza",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Wladza.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 16,
+    "year": 2021
   }
 ]

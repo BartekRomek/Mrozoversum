@@ -27,6 +27,7 @@ import przewieszenie from './forst/Przewieszenie.json';
 import trawers from './forst/Trawers.json';
 import deniwelacja from './forst/Deniwelacja.json';
 import zerwa from './forst/Zerwa.json';
+import halny from './forst/Halny.json';
 
 
 
@@ -59,5 +60,6 @@ export const appearancesData = [
   ...przewieszenie.map((char: any) => ({ ...char, bookId: 'przewieszenie' })),
   ...trawers.map((char: any) => ({ ...char, bookId: 'trawers' })),
   ...deniwelacja.map((char: any) => ({ ...char, bookId: 'deniwelacja' })),
-  ...zerwa.map((char: any) => ({ ...char, bookId: 'zerwa' }))
+  ...zerwa.map((char: any) => ({ ...char, bookId: 'zerwa' })),
+  ...halny.map((char: any) => ({ ...char, bookId: 'halny' }))
 ];

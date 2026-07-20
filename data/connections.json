@@ -183,7 +183,7 @@
     "importance": "finale",
     "pathType": "step",
     "sourceHandle": "source-bottom",
-    "targetHandle": "target-left",
+    "targetHandle": "target-top",
     "characters": ["k-halski-afekt", "milena-hauer-prezydent"],
     "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
   },
@@ -207,7 +207,7 @@
     "importance": "finale",
     "pathType": "step",
     "sourceHandle": "source-bottom",
-    "targetHandle": "target-right",
+    "targetHandle": "target-top",
     "characters": ["korodecki-egzekucja"],
     "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
   },
@@ -269,6 +269,18 @@
     "sourceHandle": "source-bottom",
     "targetHandle": "target-top",
     "characters": ["siarka"],
+    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+  },
+  {
+    "source": "korodecki-axis-halny",
+    "target": "halny",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "step",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-top",
+    "characters": ["korodecki-egzekucja"],
     "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
   }
 ]

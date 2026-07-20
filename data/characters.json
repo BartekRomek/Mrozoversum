@@ -1055,6 +1055,7 @@
     "name": "Olga Szrebska",
     "pseudonym": "",
     "role": "Dziennikarka NSI",
+    "hiddenRole": "Ofiara Gjorda Hansena",
     "series": "Forst",
     "debut": "Zaginięcie",
     "description": "Dziennikarka NSI, która śledzi sprawę porwania Nikoli.",
@@ -1063,7 +1064,6 @@
   {
     "id": "edmund-osica",
     "name": "Edmund Osica",
-    "pseudonym": "",
     "role": "Inspektor Policji w Zakopanem",
     "series": "Forst",
     "debut": "Ekspozycja",
@@ -1161,6 +1161,18 @@
     "hiddenPseudonym": "Iwo Eliasz",
     "description": "Mąż Dominiki Wadryś-Hansen",
     "avatar": "avatars/gjord-hansen.png",
+    "hiddenAvatar": "/avatars/bestia.png"
+  },
+  {
+    "id": "gjord-hansen-2",
+    "name": "Gjord Hansen",
+    "role": "Były mąż Dominiki Wadryś-Hansen",
+    "series": "Forst",
+    "debut": "Przewieszenie",
+    "hiddenRole": "BESTIA Z GIWEONTU i TWÓRCA ZAKONU ŚWIATŁA",
+    "hiddenPseudonym": "Iwo Eliasz",
+    "description": "Były mąż Dominiki Wadryś-Hansen",
+    "avatar": "avatars/gjord-hansen-2.png",
     "hiddenAvatar": "/avatars/bestia.png"
   },
   {
@@ -1295,6 +1307,65 @@
     "description": "jeden z Fińskiego Czteropaku",
     "avatar": "avatars/hirvonen.png"
   },
+  {
+    "id": "cajdler",
+    "name": "Piotr Cajdler",
+    "role": "Nowy komendant zakopiańskiej policji",
+    "series": "Forst",
+    "debut": "Halny",
+    "description": "Nowy komendant zakopiańskiej policji",
+    "avatar": "avatars/cajdler.png"
+  },
+  {
+    "id": "irek",
+    "name": "Ireneusz Widacki",
+    "pseudonym": "Irek",
+    "role": "Narzeczony Dominiki Wadryś-Hansen",
+    "hiddenRole": "Zaufany członek Zakonu Światła",
+    "series": "Forst",
+    "debut": "Halny",
+    "description": "Narzeczony Dominiki Wadryś-Hansen",
+    "avatar": "avatars/irek.png"
+  },
+  {
+    "id": "egist",
+    "name": "Kacper Jegor",
+    "hiddenName": "Oskar Rogej",
+    "hiddenPseudonym": "Egist",
+    "role": "Strażnik z więzienia w Nowej Hucie",
+    "hiddenRole": "Cheć zostania nowym przywódcą sekty",
+    "series": "Forst",
+    "debut": "Halny",
+    "description": "Strażnik z więzienia w Nowej Hucie",
+    "avatar": "avatars/egist.png"
+  },
+  {
+    "id": "klitajmestra",
+    "name": "Klitajmestra",
+    "role": "Strażniczka z więzienia w Wadowicach",
+    "hiddenRole": "Zakochana w Gjordzie i w pełni mu podległa",
+    "series": "Forst",
+    "debut": "Halny",
+    "description": "Strażniczka z więzienia w Wadowicach",
+    "avatar": "avatars/klitajmestra.png"
+  },
+  {
+    "id": "inga-olaf",
+    "name": "Inga i Olaf",
+    "role": "Dzieci Dominiki Wadryś-Hansen i Gjorda Hansena",
+    "series": "Forst",
+    "debut": "Halny",
+    "description": "Dzieci Dominiki Wadryś-Hansen i Gjorda Hansena",
+    "avatar": "avatars/dzieci-dominiki.png"
+  },
+
+
+
+
+
+
+
+
 
 
 
