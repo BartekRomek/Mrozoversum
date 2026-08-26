@@ -1406,6 +1406,15 @@
     "avatar": "avatars/b-wyszogrodzki.png"
   },
   {
+    "id": "b-wyszogrodzki-3",
+    "name": "Błażej Wyszogrodzki",
+    "role": "Premier",
+    "hiddenRole": "Wpływowy polityk powiązany z Gorganem",
+    "series": "Forst",
+    "debut": "Przepaść",
+    "avatar": "avatars/b-wyszogrodzki.png"
+  },
+  {
     "id": "madejski-1",
     "name": "Paweł Madejski",
     "role": "Sekretarz stanu w ministerstwie spraw wewnętrznych",
@@ -1453,6 +1462,15 @@
     "avatar": "avatars/olga-szrebska.png"
   },
   {
+    "id": "olga-szrebska-5",
+    "name": "Olga Szrebska",
+    "pseudonym": "",
+    "role": "Dziennikarka śledcza i podcasterka true crime",
+    "series": "Forst",
+    "debut": "Zaginięcie",
+    "avatar": "avatars/olga-szrebska.png"
+  },
+  {
     "id": "warda",
     "name": "Ewelina Warda",
     "pseudonym": "",
@@ -1476,6 +1494,15 @@
     "name": "Wojciech Malm",
     "pseudonym": "Gorgan",
     "role": "Boss świata przestępczego",
+    "series": "Forst",
+    "debut": "Berdo",
+    "avatar": "avatars/gorgan.png"
+  },
+  {
+    "id": "gorgan-3",
+    "name": "Wojciech Malm",
+    "pseudonym": "Gorgan",
+    "role": "Główny mocodawca Nemroda",
     "series": "Forst",
     "debut": "Berdo",
     "avatar": "avatars/gorgan.png"
@@ -1546,9 +1573,35 @@
     "debut": "Kasprowy",
     "avatar": "avatars/grzymek.png"
   },
-
-
-
+  {
+    "id": "nemrod",
+    "name": "Szymon Dettmajer",
+    "hiddenPseudonym": "Nemrod",
+    "role": "Jedyn ocalały z tzw. Trójpaku",
+    "hiddenRole": "Płatny zabójca wynajęty do likwidacji Forsta i jego bliskich",
+    "series": "Forst",
+    "debut": "Urwisko",
+    "avatar": "avatars/nemrod.png"
+  },
+  {
+    "id": "stara-walmina",
+    "name": "Malwina Rokić",
+    "pseudonym": "Stara Walmina",
+    "role": "Wiekowa góralka przepowiadająca przyszłość",
+    "hiddenRole": "Biologiczna matka Jagny Jakubiec współpracująca z Nemrodem",
+    "series": "Forst",
+    "debut": "Urwisko",
+    "avatar": "avatars/stara-walmina.png"
+  },
+  {
+    "id": "butor",
+    "name": "Klemens Butor ",
+    "pseudonym": "",
+    "role": "Podstarzały góral z Kościeliska",
+    "series": "Forst",
+    "debut": "Urwisko",
+    "avatar": "avatars/butor.png"
+  },
 
 
 

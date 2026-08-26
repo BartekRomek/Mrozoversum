@@ -1,0 +1,16 @@
+[
+  { "characterId": "wiktor-forst", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "edmund-osica", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "wadris-hansen", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "olga-szrebska-5", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "gorgan-3", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+  { "characterId": "nemrod", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
+  { "characterId": "stara-walmina", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
+  { "characterId": "butor", "isFirstAppearance": true, "role": "supporting", "isNew": true, "isDead": true },
+  { "characterId": "b-wyszogrodzki-3", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+  { "characterId": "cajdler", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "warda", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+  { "characterId": "inga-olaf", "isFirstAppearance": true, "role": "main", "isNew": false }
+
+
+]

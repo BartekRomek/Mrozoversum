@@ -603,5 +603,27 @@
     "order": 10,
     "timeline": 27.5,
     "year": 2025
+  },
+  {
+    "id": "zaorski-axis-urwisko",
+    "title": "Seweryn Zaorski",
+    "series": "Zaorski",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Langera.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 29.5,
+    "year": 2026
+  },
+  {
+    "id": "chylka-axis-urwisko",
+    "title": "Joanna Chyłka",
+    "series": "Chylka",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi chylka.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 29.5,
+    "year": 2026
   }
 ]

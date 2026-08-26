@@ -40,9 +40,10 @@
     "type": "wzmianka",
     "certainty": 100,
     "importance": "finale",
-    "pathType": "straight",
-    "sourceHandle": "source-bottom",
-    "targetHandle": "target-top",
+    "pathType": "step",
+    "sourceHandle": "source-left",
+    "targetHandle": "target-left",
+    "characters": ["wiktor-forst"],
     "note": "Urwisko i Arachnia dzieją się w tym samym czasie: w Warszawie ważą się losy Langera, a na Podhalu Forst walczy o przetrwanie."
   },
   {
@@ -293,6 +294,30 @@
     "sourceHandle": "source-top",
     "targetHandle": "target-bottom",
     "characters": ["zaorski-kasprowy", "zaorska-kasprowy"],
+    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+  },
+  {
+    "source": "zaorski-axis-urwisko",
+    "target": "urwisko",
+    "type": "wzmianka",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "step",
+    "sourceHandle": "source-top",
+    "targetHandle": "target-right",
+    "characters": ["zaorski-kasprowy"],
+    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+  },
+  {
+    "source": "chylka-axis-urwisko",
+    "target": "urwisko",
+    "type": "wzmianka",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "step",
+    "sourceHandle": "source-top",
+    "targetHandle": "target-bottom",
+    "characters": ["joanna-chylka"],
     "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
   }
 ]

@@ -10,9 +10,7 @@
   { "characterId": "cajdler", "isFirstAppearance": true, "role": "main", "isNew": true },
   { "characterId": "irek", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
   { "characterId": "egist", "isFirstAppearance": true, "role": "antagonist", "isNew": true, "hiddenIdentity": true},
-  { "characterId": "klitajmestra", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
-  { "characterId": "korodecki-egzekucja", "isFirstAppearance": true, "role": "main", "isNew": true }
-
+  { "characterId": "klitajmestra", "isFirstAppearance": true, "role": "antagonist", "isNew": true }
 
 
 

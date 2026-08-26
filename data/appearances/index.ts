@@ -32,7 +32,7 @@ import przepasc from './forst/Przepasc.json';
 import widmo from './forst/Widmo.json';
 import berdo from './forst/Berdo.json';
 import kasprowy from './forst/Kasprowy.json';
-
+import urwisko from './forst/Urwisko.json';
 
 
 
@@ -73,7 +73,8 @@ export const appearancesData = [
   ...przepasc.map((char: any) => ({ ...char, bookId: 'przepasc' })),
   ...widmo.map((char: any) => ({ ...char, bookId: 'widmo-brockenu' })),
   ...berdo.map((char: any) => ({ ...char, bookId: 'berdo' })),
-  ...kasprowy.map((char: any) => ({ ...char, bookId: 'kasprowy' }))
+  ...kasprowy.map((char: any) => ({ ...char, bookId: 'kasprowy' })),
+  ...urwisko.map((char: any) => ({ ...char, bookId: 'urwisko' }))
 
 
 
