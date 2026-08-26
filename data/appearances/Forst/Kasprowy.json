@@ -1,0 +1,18 @@
+[
+    { "characterId": "wiktor-forst", "isFirstAppearance": true, "role": "main", "isNew": false },
+    { "characterId": "edmund-osica", "isFirstAppearance": true, "role": "main", "isNew": false },
+    { "characterId": "warda", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+    { "characterId": "olga-szrebska-4", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+    { "characterId": "gorgan-2", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+    { "characterId": "inga-olaf", "isFirstAppearance": true, "role": "main", "isNew": false },
+    { "characterId": "wadris-hansen-kasprowy", "isFirstAppearance": true, "role": "main", "isNew": false, "hiddenIdentity": "FAŁSZYWA TOŻSAMOŚĆ" },
+    { "characterId": "b-wyszogrodzki-2", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+    { "characterId": "buchtar", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
+    { "characterId": "grzymek", "isFirstAppearance": true, "role": "supporting", "isNew": true },
+    { "characterId": "zaorski-kasprowy", "isFirstAppearance": true, "role": "supporting", "isNew": true },
+    { "characterId": "zaorska-kasprowy", "isFirstAppearance": true, "role": "supporting", "isNew": true, "hiddenIdentity": "PRZESZŁOŚĆ" }
+
+
+
+
+]

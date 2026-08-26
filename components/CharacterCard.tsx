@@ -9,7 +9,8 @@ const seriesIcons: Record<string, string> = {
   "Chylka": "/icons/chylka.svg",
   "Forst": "/icons/forst.svg",
   "Langer": "/icons/langer.svg",
-  "Wladza": "/icons/wladza.svg"
+  "Wladza": "/icons/wladza.svg",
+  "Zaorski": "/icons/zaorski.svg"
 };
 
 interface CharacterCardProps {

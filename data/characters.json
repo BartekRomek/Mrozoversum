@@ -1152,6 +1152,17 @@
     "avatar": "avatars/wadris-hansen.png"
   },
   {
+    "id": "wadris-hansen-kasprowy",
+    "name": "Ilona Wolska",
+    "hiddenName": "Dominika Wadryś-Hansen",
+    "role": "Profesjonalistka w świecie handlarzy żywym towarem",
+    "hiddenRole": "Praca pod przykrywką",
+    "series": "Forst",
+    "debut": "Przewieszenie",
+    "description": "Prokurator okręgowa z Krakowa",
+    "avatar": "avatars/i-wolska.png"
+  },
+  {
     "id": "gjord-hansen",
     "name": "Gjord Hansen",
     "role": "Mąż Dominiki Wadryś-Hansen",
@@ -1351,13 +1362,192 @@
   },
   {
     "id": "inga-olaf",
-    "name": "Inga i Olaf",
+    "name": "Inga Olaf",
     "role": "Dzieci Dominiki Wadryś-Hansen i Gjorda Hansena",
     "series": "Forst",
     "debut": "Halny",
     "description": "Dzieci Dominiki Wadryś-Hansen i Gjorda Hansena",
     "avatar": "avatars/dzieci-dominiki.png"
   },
+  {
+    "id": "g-preiss",
+    "name": "Grzegorz Preiss",
+    "role": "Instalator systemów alarmowych z Białego Dunajca",
+    "hiddenRole": "Zabójca AP",
+    "series": "Forst",
+    "debut": "Przepaść",
+    "avatar": "avatars/g-preiss.png"
+  },
+  {
+    "id": "a-petrow",
+    "name": "Adam Petrow",
+    "role": "Rzekomy „Upiór z Przeworska”",
+    "hiddenRole": "Inicjator i manipulator działań swojego brata",
+    "series": "Forst",
+    "debut": "Przepaść",
+    "avatar": "avatars/a-petrow.png"
+  },
+  {
+    "id": "b-wyszogrodzki-1",
+    "name": "Błażej Wyszogrodzki",
+    "role": "Minister spraw wewnętrznych",
+    "hiddenRole": "Zlecił działania mające na celu eliminację córki",
+    "series": "Forst",
+    "debut": "Przepaść",
+    "avatar": "avatars/b-wyszogrodzki.png"
+  },
+  {
+    "id": "b-wyszogrodzki-2",
+    "name": "Błażej Wyszogrodzki",
+    "role": "Minister spraw wewnętrznych",
+    "hiddenRole": "Soujusznik Gorgana",
+    "series": "Forst",
+    "debut": "Przepaść",
+    "avatar": "avatars/b-wyszogrodzki.png"
+  },
+  {
+    "id": "madejski-1",
+    "name": "Paweł Madejski",
+    "role": "Sekretarz stanu w ministerstwie spraw wewnętrznych",
+    "hiddenRole": "Organizator morderstwa Hanny Broniewskiej i przeniesienia Petrowa",
+    "series": "Forst",
+    "debut": "Przepaść",
+    "avatar": "avatars/madejski.png"
+  },
+  {
+    "id": "regnal",
+    "name": "Cyprian Regnal",
+    "role": "History z Murzasichla",
+    "hiddenRole": "Mordecra",
+    "series": "Forst",
+    "debut": "Widmo Brokenu",
+    "avatar": "avatars/regnal.png"
+  },
+  {
+    "id": "olga-szrebska-2",
+    "name": "Olga Szrebska",
+    "pseudonym": "",
+    "role": "Freelancerka",
+    "hiddenRole": "Ofiara Gjorda Hansena",
+    "series": "Forst",
+    "debut": "Zaginięcie",
+    "avatar": "avatars/olga-szrebska.png"
+  },
+  {
+    "id": "olga-szrebska-3",
+    "name": "Olga Szrebska",
+    "pseudonym": "",
+    "role": "Freelancerka",
+    "hiddenRole": "Reżyserka intrygi",
+    "series": "Forst",
+    "debut": "Zaginięcie",
+    "avatar": "avatars/olga-szrebska.png"
+  },
+  {
+    "id": "olga-szrebska-4",
+    "name": "Olga Szrebska",
+    "pseudonym": "",
+    "role": "Dziennikarka ścigana listem gończym",
+    "series": "Forst",
+    "debut": "Zaginięcie",
+    "avatar": "avatars/olga-szrebska.png"
+  },
+  {
+    "id": "warda",
+    "name": "Ewelina Warda",
+    "pseudonym": "",
+    "role": "Młodsza aspirant z Wydziału Kryminalnego Komendy Powiatowej Policji",
+    "series": "Forst",
+    "debut": "Berdo",
+    "avatar": "avatars/warda.png"
+  },
+  {
+    "id": "gorgan-1",
+    "name": "Wojciech Malm",
+    "pseudonym": "Gorgan",
+    "role": "Właściciel stadniny koni",
+    "hiddenRole": "Boss świata przestępczego",
+    "series": "Forst",
+    "debut": "Berdo",
+    "avatar": "avatars/gorgan.png"
+  },
+  {
+    "id": "gorgan-2",
+    "name": "Wojciech Malm",
+    "pseudonym": "Gorgan",
+    "role": "Boss świata przestępczego",
+    "series": "Forst",
+    "debut": "Berdo",
+    "avatar": "avatars/gorgan.png"
+  },
+  {
+    "id": "mlody-malm",
+    "name": "Tobiasz Malm",
+    "pseudonym": "",
+    "role": "Syn Wojciecha Malma",
+    "series": "Forst",
+    "debut": "Berdo",
+    "avatar": "avatars/mlody-malm.png"
+  },
+  {
+    "id": "w-malmyk",
+    "name": "Władysława Malmyk",
+    "pseudonym": "",
+    "role": "Starsza głęboko religijna kobieta mieszkająca w Dwerniku",
+    "hiddenRole": "Matka Gorgana",
+    "series": "Forst",
+    "debut": "Berdo",
+    "avatar": "avatars/m-malmyk.png"
+  },
+  {
+    "id": "kabal",
+    "name": "Kabal",
+    "pseudonym": "",
+    "role": "Zaufany człowiek Wojciecha Malma",
+    "series": "Forst",
+    "debut": "Berdo",
+    "avatar": "avatars/kabal.png"
+  },
+  {
+    "id": "m-warda",
+    "name": "Mirosław Warda",
+    "pseudonym": "Mirek",
+    "role": "starszy aspirant policji w Lesku, mąż Eweliny Wardy",
+    "hiddenRole": "Skorumpowany policjant działający dla Wojciecha Malma.",
+    "series": "Forst",
+    "debut": "Berdo",
+    "avatar": "avatars/m-warda.png"
+  },
+  {
+    "id": "danuta",
+    "name": "Danuta",
+    "pseudonym": "",
+    "role": "Barmanka w barze „Baza Ludzi z Mgły” w Wetlinie",
+    "series": "Forst",
+    "debut": "Berdo",
+    "avatar": "avatars/danuta.png"
+  },
+  {
+    "id": "buchtar",
+    "name": "Paweł Buchtar",
+    "pseudonym": "",
+    "role": "Podpułkownik i dyrektor krakowskiej delegatury ABW",
+    "hiddenRole": "Realizował opłacaną przez Rosję prowokację",
+    "series": "Forst",
+    "debut": "Kasprowy",
+    "avatar": "avatars/buchtar.png"
+  },
+  {
+    "id": "grzymek",
+    "name": "Juliusz Grzymowski",
+    "pseudonym": "Grzymek",
+    "role": "Wieloletni oficer ABW i szef Biura Bezpieczeństwa Narodowego",
+    "series": "Forst",
+    "debut": "Kasprowy",
+    "avatar": "avatars/grzymek.png"
+  },
+
+
 
 
 
@@ -1399,5 +1589,51 @@
     "debut": "Inwigilacja",
     "description": "Prokurator",
     "avatar": "avatars/paderborn.png"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "id": "zaorski-kasprowy",
+    "name": "Seweryn Zaorski",
+    "role": "Lekarz medycyny sądowej",
+    "series": "Zaorski",
+    "debut": "Listy zza grobu",
+    "description": "Patomorfolog",
+    "avatar": "avatars/zaorski.png"
+  },
+  {
+    "id": "zaorska-kasprowy",
+    "name": "Martyna Zaorska",
+    "role": "Była żona Seweryna Zaorskiego",
+    "hiddenRole": "W przeszłości była zaangażowana w przestępcze plany Gorgana",
+    "series": "Zaorski",
+    "debut": "Listy zza grobu",
+    "avatar": "avatars/zaorska-kasprowy.png"
   }
+
+
+
+
 ]

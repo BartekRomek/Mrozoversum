@@ -282,5 +282,17 @@
     "targetHandle": "target-top",
     "characters": ["korodecki-egzekucja"],
     "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+  },
+  {
+    "source": "zaorski-axis-kasprowy",
+    "target": "kasprowy",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "step",
+    "sourceHandle": "source-top",
+    "targetHandle": "target-bottom",
+    "characters": ["zaorski-kasprowy", "zaorska-kasprowy"],
+    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
   }
 ]

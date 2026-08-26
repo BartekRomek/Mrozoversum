@@ -528,17 +528,6 @@
     "year": 2021
   },
   {
-    "id": "wotum-nieufnosci",
-    "title": "Wotum nieufności",
-    "series": "Wladza",
-    "cover": "/covers/wotum-nieufnosci.jpg", 
-    "description": "Marszałek Sejmu Daria Seyda budzi się w pokoju hotelowym, nie pamiętając, jak się w nim znalazła...",
-    "certainty": 100,
-    "order": 1,
-    "timeline": 7,
-    "year": 2017
-  },
-  {
     "id": "korodecki-axis-egzekucja",
     "title": "Korodecki",
     "series": "Wladza",
@@ -603,5 +592,16 @@
     "order": 0,
     "timeline": 16,
     "year": 2021
+  },
+  {
+    "id": "zaorski-axis-kasprowy",
+    "title": "Seweryn i Martyna Zaorscy",
+    "series": "Zaorski",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Strefa 5. Przedostatni tom górskich przygód komisarza, ustawiony nad Zarzutem i Obroną.",
+    "certainty": 100,
+    "order": 10,
+    "timeline": 27.5,
+    "year": 2025
   }
 ]

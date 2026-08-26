@@ -1,0 +1,13 @@
+[
+    { "characterId": "wiktor-forst", "isFirstAppearance": true, "role": "main", "isNew": false },
+    { "characterId": "edmund-osica", "isFirstAppearance": true, "role": "main", "isNew": false },
+    { "characterId": "warda", "isFirstAppearance": true, "role": "supporting", "isNew": true },
+    { "characterId": "gorgan-1", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
+    { "characterId": "mlody-malm", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
+    { "characterId": "w-malmyk", "isFirstAppearance": true, "role": "supporting", "isNew": true, "hiddenIdentity": "Rodzina" },
+    { "characterId": "kabal", "isFirstAppearance": true, "role": "antagonist", "isNew": true, "isDead": true },
+    { "characterId": "m-warda", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
+    { "characterId": "danuta", "isFirstAppearance": true, "role": "supporting", "isNew": true },
+    { "characterId": "olga-szrebska-4", "isFirstAppearance": true, "role": "supporting", "isNew": false }
+
+]

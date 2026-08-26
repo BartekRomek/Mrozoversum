@@ -28,6 +28,14 @@ import trawers from './forst/Trawers.json';
 import deniwelacja from './forst/Deniwelacja.json';
 import zerwa from './forst/Zerwa.json';
 import halny from './forst/Halny.json';
+import przepasc from './forst/Przepasc.json';
+import widmo from './forst/Widmo.json';
+import berdo from './forst/Berdo.json';
+import kasprowy from './forst/Kasprowy.json';
+
+
+
+
 
 
 
@@ -61,5 +69,14 @@ export const appearancesData = [
   ...trawers.map((char: any) => ({ ...char, bookId: 'trawers' })),
   ...deniwelacja.map((char: any) => ({ ...char, bookId: 'deniwelacja' })),
   ...zerwa.map((char: any) => ({ ...char, bookId: 'zerwa' })),
-  ...halny.map((char: any) => ({ ...char, bookId: 'halny' }))
+  ...halny.map((char: any) => ({ ...char, bookId: 'halny' })),
+  ...przepasc.map((char: any) => ({ ...char, bookId: 'przepasc' })),
+  ...widmo.map((char: any) => ({ ...char, bookId: 'widmo-brockenu' })),
+  ...berdo.map((char: any) => ({ ...char, bookId: 'berdo' })),
+  ...kasprowy.map((char: any) => ({ ...char, bookId: 'kasprowy' }))
+
+
+
+
+
 ];
