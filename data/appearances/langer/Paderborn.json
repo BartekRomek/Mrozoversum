@@ -1,0 +1,13 @@
+[
+    { "characterId": "piotr-langer", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+    { "characterId": "pokora-2", "isFirstAppearance": true, "role": "main", "isNew": false },
+    { "characterId": "siarka", "isFirstAppearance": true, "role": "main", "isNew": false },
+    { "characterId": "paderborn", "isFirstAppearance": true, "role": "main", "isNew": false },
+    { "characterId": "olmow", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+    { "characterId": "zymelka", "isFirstAppearance": true, "role": "antagonist", "isNew": true, "isDead": true },
+    { "characterId": "joanna-chylka", "isFirstAppearance": true, "role": "main", "isNew": true },
+    { "characterId": "kordian-orynski", "isFirstAppearance": true, "role": "main", "isNew": true },
+    { "characterId": "kormak", "isFirstAppearance": true, "role": "main", "isNew": true }
+
+
+]

@@ -38,6 +38,21 @@ import urwisko from './forst/Urwisko.json';
 
 
 
+//LANGER
+import langer from './langer/Langer.json';
+import paderborn from './langer/Paderborn.json';
+import ozyrys from './langer/Ozyrys.json';
+import arachnia from './langer/Arachnia.json';
+
+
+
+
+
+
+
+
+
+
 
 export const appearancesData = [
   //chylka
@@ -74,9 +89,18 @@ export const appearancesData = [
   ...widmo.map((char: any) => ({ ...char, bookId: 'widmo-brockenu' })),
   ...berdo.map((char: any) => ({ ...char, bookId: 'berdo' })),
   ...kasprowy.map((char: any) => ({ ...char, bookId: 'kasprowy' })),
-  ...urwisko.map((char: any) => ({ ...char, bookId: 'urwisko' }))
+  ...urwisko.map((char: any) => ({ ...char, bookId: 'urwisko' })),
 
 
+
+
+
+
+  //langer
+  ...langer.map((char: any) => ({ ...char, bookId: 'langer' })),
+  ...paderborn.map((char: any) => ({ ...char, bookId: 'paderborn' })),
+  ...ozyrys.map((char: any) => ({ ...char, bookId: 'ozyrys' })),
+  ...arachnia.map((char: any) => ({ ...char, bookId: 'arachnia' }))
 
 
 

@@ -9,7 +9,7 @@
     "sourceHandle": "source-top",
     "targetHandle": "target-bottom",
     "characters": ["piotr-langer"],
-    "note": "Piotr Langer jest głównym klientem Joanny Chyłki i Kordiana Oryńskiego, oskarżonym o brutalne morderstwo dwóch osób, z których zwłokami przebywał w mieszkaniu przez dziesięć dni. Przyjmuje postawę milczenia i apatii, co początkowo sugeruje chorobę psychiczną, jednak ostatecznie przed sądem stanowczo zaprzecza swojej niepoczytalności. Udział Langera opiera się na genialnej manipulacji systemem prawnym i własnymi obrońcami: zza krat steruje procesem, nadając ukryte wiadomości alfabetem Morse’a za pomocą mrugania powiekami. Wiadomości te prowadzą prawników do Siwowłosego oraz grobu Antoniego Wansela, co staje się kluczowe dla podważenia ustaleń faktycznych i ostatecznego uniewinnienia go przez Sąd Najwyższy. Finał ujawnia, że Langer faktycznie dokonał zbrodni, a cały proces i rzekomy spisek mafii były zaplanowaną mistyfikacją."
+    "note": "Piotr Langer junior zostaje oskarżony o zabójstwo ze szczególnym okrucieństwem. Ofiary przez dziesięć dni znajdowały się w jego mieszkaniu. Mężczyzna nie przyznaje się do winy, ale odmawia składania wyjaśnień i manifestuje nienaturalny spokój. W sądzie reprezentuje go duet mecenasów: Joanna Chyłka i Kordian Oryński, zatrudnieni przez zamożnego ojca oskarżonego. Sprawa staje się dynamiczną batalią prawną."
   },
   {
     "source": "langer-axis-rewizja",
@@ -21,7 +21,7 @@
     "sourceHandle": "source-top",
     "targetHandle": "target-bottom",
     "characters": ["piotr-langer"],
-    "note": "Mroza Piotr Langer junior pełni rolę głównego antagonisty, który z ukrycia manipuluje kluczowymi wydarzeniami i bohaterami. Jako prokurent oraz większościowy udziałowiec firmy ubezpieczeniowej Salus, wykorzystuje ją jako narzędzie do prania brudnych pieniędzy. Langer wywiera silną presję psychiczną na Kordiana Oryńskiego, grożąc mu zniszczeniem kariery, jeśli ten nie doprowadzi do odsunięcia Joanny Chyłki od sprawy Roberta Horwata (Bukano). Jego macki sięgają głęboko w struktury wymiaru sprawiedliwości oraz kancelarii Żelazny & McVay; potajemnie współpracuje z ambitnym prokuratorem Mateuszem Zakiertskim oraz ma wpływ na decyzje kadrowe Artura Żelaznego, co skutkuje m.in. przymusowym przeniesieniem Kormaka do Krakowa. Pod koniec powieści to właśnie Langer ujawnia Chyłce tożsamość prawdziwego mordercy – członka zarządu Salusa – twierdząc, że sam został przez niego oszukany i okradziony. Jednocześnie nakazuje prawnikom odnalezienie zwłok Bukano, aby ostatecznie potwierdzić jego śmierć."
+    "note": "Piotr Langer jako wpływowy biznesmen, a zarazem wspólnik i prokurent firmy ubezpieczeniowej Salus. Choć osobiście nie angażuje się w procesy sądowe bezpośrednio na sali, to z ukrycia, posługując się szantażem i groźbami, bezwzględnie steruje działaniami prokuratury oraz obrony. Dąży do całkowitego zniszczenia i odsunięcia Joanny Chyłki od sprawy polisy."
   },
   {
     "source": "werdykt",
@@ -32,19 +32,7 @@
     "certainty": 100,
     "importance": "major",
     "characters": ["joanna-chylka", "kordian-orynski"],
-    "note": "Chyłka jedzie w Tatry, Forst pojawia się w Afekcie, a w Widmie Brockenu oboje prowadzą pełnoprawne wspólne śledztwo."
-  },
-  {
-    "source": "urwisko",
-    "target": "arachnia",
-    "type": "wzmianka",
-    "certainty": 100,
-    "importance": "finale",
-    "pathType": "step",
-    "sourceHandle": "source-left",
-    "targetHandle": "target-left",
-    "characters": ["wiktor-forst"],
-    "note": "Urwisko i Arachnia dzieją się w tym samym czasie: w Warszawie ważą się losy Langera, a na Podhalu Forst walczy o przetrwanie."
+    "note": "Wydarzenia w schronisku w Dolinie Pięciu Stawów splatają losy bohaterów różnych serii. Joanna Chyłka i Kordian Oryński włączają się w sprawę jako obrońcy komisarza Wiktora Forsta, który zostaje uwikłany w sprawę tajemniczych morderstw na Podhalu. Prawnicy dynamicznie wkraczają do akcji, by wyciągnąć go z aresztu, a następnie wspólnie prowadzą śledztwo w Tatrach."
   },
   {
     "source": "immunitet",
@@ -54,8 +42,8 @@
     "importance": "major",
     "sourceHandle": "source-right",
     "targetHandle": "target-right",
-    "characters": ["kormak", "joanna-chylka", "marcin-pruszko"],
-    "note": "Crossover pomiędzy cyklami o Joannie Chyłce i Wiktorze Forście rozpoczyna się pod koniec powieści „Immunitet”, gdy Joanna Chyłka otrzymuje telefon od Wiktora Forsta. W „Trawersie” prawniczka osobiście odwiedza go w krakowskim areszcie na Podgórzu i podejmuje się jego obrony, mimo że sprawa wydaje się beznadziejna. Dzięki odnalezieniu nowego świadka na Ukrainie doprowadza ostatecznie do uniewinnienia Forsta i jego wyjścia na wolność. Towarzyszy jej Kordian „Zordon” Oryński, aplikant kancelarii Żelazny & McVay, który pojawia się u boku Joanny podczas jej wizyt w Krakowie. Istotną rolę odgrywa również Kormak, współpracujący z Wiktorem Forstem za pośrednictwem telefonu. Dostarcza mu informacji niezbędnych do prowadzenia śledztwa, analizuje zdobyte materiały, rozszyfrowuje współrzędne GPS prowadzące na Szpiglasowy Wierch oraz pomaga w interpretacji kolejnych tropów. Kolejną postacią łączącą oba cykle jest prokurator Marcin Pruszko, który w serii o Joannie Chyłce prowadzi jako oskarżyciel proces sędziego Sebastiana Sendala, natomiast w „Trawersie” uczestniczy wspólnie z prokuratorem Aleksandrem Gercem w czynnościach procesowych dotyczących sprawy Wiktora Forsta oraz śledztwa prowadzonego w urzędzie wojewódzkim."
+    "characters": ["kormak", "joanna-chylka"],
+    "note": "Wiktor Forst trafia do krakowskiego aresztu, a Joanna Chyłka podejmuje się jego obrony, mimo że sprawa wydaje się beznadziejna. Wraz z Kordianem Oryńskim walczy o jego uniewinnienie i dzięki nowemu świadkowi doprowadza do jego uwolnienia. W sprawie pomaga również Kormak, który analizuje materiały i rozszyfrowuje kolejne tropy."
   },
   {
     "source": "rewizja",
@@ -66,19 +54,19 @@
     "sourceHandle": "source-right",
     "targetHandle": "target-right",
     "characters": ["kormak"],
-    "note": "Kormak współpracuje z Wiktorem Forstem za pośrednictwem Internetu (na portalu Reddit). Pomaga mu zidentyfikować tajemniczą monetę znalezioną w ustach Olgi Szrebskiej jako grecki obol Demetriusza I Baktryjskiego. Forst kontaktuje się z nim telefonicznie, a Kormak przekazuje mu analizy dotyczące symboliki Koła Dharmy i powiązań z kulturą Gandhary."
+    "note": "Kormak to użytkownik forum internetowego, który angażuje się w dyskusję pod wpisem komisarza Forsta na temat tajemniczej monety. Posiadając wiedzę z zakresu prawa i historii, szybko orientuje się, że ma do czynienia z materiałem dowodowym. W prywatnych wiadomościach i rozmowie telefonicznej pomaga Forstowi zidentyfikować numizmat jako starożytny obol, co pozwala śledczym odkryć nowy trop w sprawie."
   },
   {
     "source": "szrebska-axis-ekspozycja",
     "target": "ekspozycja",
-    "type": "crossover",
+    "type": "zmiana_serii",
     "certainty": 100,
     "importance": "major",
     "pathType": "straight",
     "sourceHandle": "source-top",
     "targetHandle": "target-bottom",
     "characters": ["olga-szrebska"],
-    "note": "Piotr Langer jest głównym klientem Joanny Chyłki i Kordiana Oryńskiego, oskarżonym o brutalne morderstwo dwóch osób, z których zwłokami przebywał w mieszkaniu przez dziesięć dni. Przyjmuje postawę milczenia i apatii, co początkowo sugeruje chorobę psychiczną, jednak ostatecznie przed sądem stanowczo zaprzecza swojej niepoczytalności. Udział Langera opiera się na genialnej manipulacji systemem prawnym i własnymi obrońcami: zza krat steruje procesem, nadając ukryte wiadomości alfabetem Morse’a za pomocą mrugania powiekami. Wiadomości te prowadzą prawników do Siwowłosego oraz grobu Antoniego Wansela, co staje się kluczowe dla podważenia ustaleń faktycznych i ostatecznego uniewinnienia go przez Sąd Najwyższy. Finał ujawnia, że Langer faktycznie dokonał zbrodni, a cały proces i rzekomy spisek mafii były zaplanowaną mistyfikacją."
+    "note": "Olga Szrebska to zdeterminowana i znana dziennikarka śledcza stacji NSI. Współpracuje z komisarzem Forstem w śledztwie dotyczącym zabójstwa na Giewoncie. Wykorzystuje media społecznościowe i crowdsourcing do identyfikacji ofiar oraz poszlak, narażając się na niebezpieczeństwo. Cechuje ją inteligencja, chłodna kalkulacja oraz odporność na stres. Mimo zagrożeń konsekwentnie dąży do odkrycia prawdy."
   },
   {
     "source": "langer-axis-oskarzenie",
@@ -90,7 +78,7 @@
     "sourceHandle": "source-top",
     "targetHandle": "target-bottom",
     "characters": ["piotr-langer"],
-    "note": "Piotr Langer jest głównym klientem Joanny Chyłki i Kordiana Oryńskiego, oskarżonym o brutalne morderstwo dwóch osób, z których zwłokami przebywał w mieszkaniu przez dziesięć dni. Przyjmuje postawę milczenia i apatii, co początkowo sugeruje chorobę psychiczną, jednak ostatecznie przed sądem stanowczo zaprzecza swojej niepoczytalności. Udział Langera opiera się na genialnej manipulacji systemem prawnym i własnymi obrońcami: zza krat steruje procesem, nadając ukryte wiadomości alfabetem Morse’a za pomocą mrugania powiekami. Wiadomości te prowadzą prawników do Siwowłosego oraz grobu Antoniego Wansela, co staje się kluczowe dla podważenia ustaleń faktycznych i ostatecznego uniewinnienia go przez Sąd Najwyższy. Finał ujawnia, że Langer faktycznie dokonał zbrodni, a cały proces i rzekomy spisek mafii były zaplanowaną mistyfikacją."
+    "note": "Piotr Langer to bezwzględny manipulator i psychopata. W całej intrydze pociąga za sznurki jako główny reżyser, dążąc do przejęcia kontroli nad życiem Chyłki i Zordona. Działał też z ukrycia, m.in. informując żonę Tesarewicza o nowych dowodach. Czerpie dziką satysfakcję z osaczania bohaterów i sterowania nimi jak pionkami na planszy."
   },
   {
     "source": "forst-axis-kontratyp",
@@ -102,7 +90,7 @@
     "sourceHandle": "source-bottom",
     "targetHandle": "target-top",
     "characters": ["wiktor-forst"],
-    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+    "note": "Joanna Chyłka prosi Forsta o przysługę, wykorzystując jego układy w zakopiańskiej policji. Forst aranżuje mistyfikacyjny telefon do Kordiana od podstawionego policjanta, który fałszywie informuje o tragicznej śmierci Klary Kabelis w Tatrach. Wybieg ten zmusza porywacza, Juliana Brencza, do przedwczesnego ujawnienia się i pozwala na jego aresztowanie."
   },
   {
     "source": "langer-axis-wyrok",
@@ -114,7 +102,7 @@
     "sourceHandle": "source-top",
     "targetHandle": "target-bottom",
     "characters": ["piotr-langer"],
-    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+    "note": "Piotr Langer zmusza Kordiana Oryńskiego do podjęcia się obrony 17-latka oskarżonego o brutalne morderstwo rówieśników. Jako warunek stawia uniewinnienie chłopaka - w zamian oferuje pomoc w zorganizowaniu leczenia dla ciężko chorej Joanny Chyłki. Langer zapewnia prawników, że ma alibi na czas zbrodni, lecz twierdzi, że oskarżony nastolatek jest winny."
   },
   {
     "source": "langer-axis-ekstradycja",
@@ -126,7 +114,7 @@
     "sourceHandle": "source-top",
     "targetHandle": "target-bottom",
     "characters": ["piotr-langer"],
-    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+    "note": "Piotr Langer to bezwzględny manipulator. Choć oficjalnie uważa się go za zmarłego, okazuje się, że sfingował swój zgon, by ukryć malwersacje finansowe w firmie Salus i zrzucić winę na Joannę Chyłkę. Z ukrycia pociąga za sznurki, prowadząc z bohaterami cyniczną grę i niszcząc każdego, kto odkryje jego sekret."
   },
     {
     "source": "chylka-axis-halny",
@@ -138,7 +126,7 @@
     "sourceHandle": "source-top",
     "targetHandle": "target-bottom",
     "characters": ["joanna-chylka", "kordian-orynski"],
-    "note": "Chyłka i Zordon reprezentują Olgę Szrebską"
+    "note": "Mecenas Joanna Chyłka i Kordian „Zordon” Oryński pojawiają się z ramienia kancelarii Kosmowski Messer Krat. Jako obrońcy zaangażowani przez Olgę Szrebską, reprezentują jej interesy przed śledczymi. Wykazują się pełnym profesjonalizmem i sprytem, ponieważ zbierają kluczowe dowody, czym skutecznie odpierają wysuwane zarzuty."
   },
     {
     "source": "dominika-axis-ekstradycja",
@@ -150,7 +138,7 @@
     "sourceHandle": "source-bottom",
     "targetHandle": "target-top",
     "characters": ["wadris-hansen"],
-    "note": "Dominika Wadriś-Hansen prowadzi postępowanie przeciwko Joannie Chyłce w sprawie zabójstwa Piotra Langera."
+    "note": "Dominika Wadryś-Hansen pełni rolę prokuratora. Prowadzi oficjalne postępowanie przeciwko Joannie Chyłce, oskarżając ją o zabójstwo. To doświadczona i wymagająca śledcza, znana m.in. ze sprawy Wiktora Forsta. Cechuje ją ogromny spokój, profesjonalizm, czujność oraz determinacja, by udowodnić winę oskarżonej. Wykazuje się dużym opanowaniem na sali sądowej."
   },
   {
   "source": "paderborn-axis-zerwa",
@@ -162,7 +150,7 @@
   "sourceHandle": "source-top",
   "targetHandle": "target-bottom",
   "characters": ["paderborn"],
-  "note": "Przydzielony do prowadzenia śledztwa w sprawie tragedii na Giewoncie; współpracuje z Dominiką i Forstem jednocześnie ich kontrolując."
+  "note": "Olgierd Paderborn, prokurator z Warszawy, wkracza do akcji jako zdeterminowany i rzetelny śledczy. Prowadzi sprawę zabójstw w Tatrach, zastępując odsuniętą Dominikę. Dynamicznie bada transgraniczne tropy, współpracując z zagranicznymi służbami. Wykazuje się dużą wyrozumiałością, lecz potrafi twardo dążyć do celu, osobiście przesłuchując kluczowych świadków."
   },
   {
     "source": "langer-axis-afekt",
@@ -174,7 +162,7 @@
     "sourceHandle": "source-top",
     "targetHandle": "target-bottom",
     "characters": ["piotr-langer"],
-    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+    "note": "Piotr Langer nie pojawia się fizycznie przez większość fabuły. Jego obecność zaznacza się głównie w domysłach bohaterów oraz poprzez anonimowe wiadomości z inicjałami „PL”. Choć wcześniej uznawany był za zmarłego, okazuje się, że sfingował własną śmierć i ukrywa się na Kajmanach. W finale ujawnia się osobiście, więżąc Kordiana Oryńskiego."
   },
   {
     "source": "halski-axis-afekt",
@@ -186,7 +174,7 @@
     "sourceHandle": "source-bottom",
     "targetHandle": "target-top",
     "characters": ["k-halski-afekt", "milena-hauer-prezydent"],
-    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+    "note": "Kazimierz Halski i Milena Hauer napędzają polityczną intrygę. Halski, lider opozycji i kandydat na prezydenta, traci poparcie, gdy szef jego sztabu (i brat) zostaje oskarżony o pedofilię. Urzędująca prezydent Hauer walczy o reelekcję. Przekazuje Chyłce akta o dawnym szantażu na jej zmarłym mężu, by chronić jego pamięć. Strona Halskiego oskarża ją o polityczną prowokację."
   },
   {
     "source": "langer-axis-egzekucja",
@@ -198,7 +186,7 @@
     "sourceHandle": "source-top",
     "targetHandle": "target-bottom",
     "characters": ["piotr-langer"],
-    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+    "note": "Piotr Langer jest kluczową postacią, od której zależy odnalezienie zaginionego Kordiana. Przetrzymuje go, chcąc wymusić na Chyłce współpracę, w tym załatwienie spraw z testamentem i Konsorcjum. Choć początkowo upozorowano śmierć Oryńskiego, Langer ratuje go z rąk najemników. Ostatecznie gra na wielu frontach i wykorzystuje sytuację, by wkupić się w łaski prokuratury."
   },
   {
     "source": "korodecki-axis-egzekucja",
@@ -210,7 +198,7 @@
     "sourceHandle": "source-bottom",
     "targetHandle": "target-top",
     "characters": ["korodecki-egzekucja"],
-    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+    "note": "Hubert Korodecki, jako minister sprawiedliwości i prokurator generalny, pojawia się w finale książki. Odbywa w pokoju przesłuchań rozmowę z uwięzionym Piotrem Langerem. Ten oferuje mu układ: w zamian za wycofanie zarzutów i wolność, Langer przekaże dowody pozwalające na rozbicie mafijnego układu Konsorcjum, co ma zapewnić politykowi i jego partii wygraną w wyborach."
   },
   {
     "source": "langer-axis-skazanie",
@@ -222,7 +210,7 @@
     "sourceHandle": "source-top",
     "targetHandle": "target-bottom",
     "characters": ["piotr-langer"],
-    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+    "note": "Piotr Langer jest uznany za zaginionego lub porwanego. Choć nie bierze czynnego udziału w procesie sądowym, jego postać rzuca cień na całą sprawę. Kluczowym powiązaniem jest motyw tatuażu z mandalą, identyczny jak u oskarżonego i ofiar, który Langer kazał kiedyś wykonać. Śledczy i prokuratura roztaczają nad nim parasol ochronny ze względu na zawarty układ."
   },
   {
     "source": "forst-axis-werdykt",
@@ -234,7 +222,7 @@
     "sourceHandle": "source-bottom",
     "targetHandle": "target-top",
     "characters": ["wiktor-forst"],
-    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+    "note": "Joanna Chyłka i Kordian Oryński, po zakończeniu trudnych spraw i reorganizacji kancelarii, planują upragniony urlop poślubny. Niespodziewanie w środku nocy dzwoni do nich komisarz Wiktor Forst. Przekazuje im informacje, które natychmiast determinują cel ich podróży. Ich losy splatają się, zapowiadając wspólną sprawę w Tatrach."
   },
   {
     "source": "langer-axis-obrona",
@@ -246,7 +234,7 @@
     "sourceHandle": "source-top",
     "targetHandle": "target-bottom",
     "characters": ["piotr-langer", "paderborn", "siarka"],
-    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+    "note": "Piotr Langer przebywa w areszcie, czekając na proces za brutalne morderstwo. Grozi mu dożywocie. Wykorzystuje swoje wpływy i pieniądze w więzieniu, by manipulować Kajetanem Klichem. Szantażem próbuje zmusić Chyłkę i Zordona, by zostali jego obrońcami. Ostatecznie jego intryga mająca na celu wymuszenie reprezentacji i zemstę kończy się niepowodzeniem."
   },
   {
     "source": "pader-siarka-axis-langer",
@@ -258,7 +246,7 @@
     "sourceHandle": "source-bottom",
     "targetHandle": "target-top",
     "characters": ["paderborn", "siarka"],
-    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+    "note": "Olgierd Paderborn, jako prokurator, prowadzi śledztwo w sprawie seryjnego mordercy „Ozyrysa”, współpracując z prokuraturą krajową. Z kolei Karolina Siarkowska (wcześniej zaangażowana w tropienie finansowych przekrętów podejrzanego) odkrywa makabryczne detale zbrodni i dąży do schwytania sprawcy za wszelką cenę, planując ryzykowną prowokację."
   },
   {
     "source": "siarka-axis-wyrok",
@@ -270,7 +258,7 @@
     "sourceHandle": "source-bottom",
     "targetHandle": "target-top",
     "characters": ["siarka"],
-    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+    "note": "Karolina Siarkowska to bezwzględna prokurator, ciesząca się dużą renomą. Prowadzi sprawę oskarżonego o brutalne zabójstwo rówieśników Grzegorza Benzowicza. Jest pewna wygranej z powodu mocnych dowodów. Równolegle kieruje śledztwem przeciwko Piotrowi Langerowi. W wyniku działań obrony Benzowicza, ujawniających nieprawidłowości w śledztwie, zostaje zawieszona w obowiązkach."
   },
   {
     "source": "korodecki-axis-halny",
@@ -282,7 +270,7 @@
     "sourceHandle": "source-bottom",
     "targetHandle": "target-top",
     "characters": ["korodecki-egzekucja"],
-    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+    "note": "Hubert Korodecki pełni funkcję prokuratora generalnego i ministra sprawiedliwości. W obliczu zagrożenia terrorystycznego w Tatrach wykazuje duże zaangażowanie, stawiając służby w stan najwyższej gotowości. Choć oczekuje twardych dowodów do podjęcia radykalnych kroków, jak ewakuacja Zakopanego, sprawnie koordynuje działania kryzysowe na szczeblu rządowym."
   },
   {
     "source": "zaorski-axis-kasprowy",
@@ -294,7 +282,7 @@
     "sourceHandle": "source-top",
     "targetHandle": "target-bottom",
     "characters": ["zaorski-kasprowy", "zaorska-kasprowy"],
-    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+    "note": "Martyna Zaorska, przebywająca w zakładzie karnym, staje się kluczowym elementem w poszukiwaniach niebezpiecznego Gorgana. Seweryn Zaorski podejmuje się trudnej roli mediatora, próbując skłonić swoją byłą żonę do współpracy ze śledczymi. Choć Martyna wykorzystuje okazję do manipulacji, to dzięki zaangażowaniu Seweryna bohaterowie zyskują szansę na zdobycie namiarów na przestępcę."
   },
   {
     "source": "zaorski-axis-urwisko",
@@ -306,7 +294,7 @@
     "sourceHandle": "source-top",
     "targetHandle": "target-right",
     "characters": ["zaorski-kasprowy"],
-    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+    "note": "Pojawia się wzmianka o Zaorskim na samym końcu powieści. Gdy bohaterowie zdają sobie sprawę, że padli ofiarą intrygi i pilnie potrzebują wsparcia zaufanych ludzi, aby zmierzyć się z potężnym przeciwnikiem, Dominika Wadryś-Hansen podejmuje decyzję o działaniu. Wyciąga telefon i decyduje się zadzwonić po pomoc bezpośrednio do Seweryna Zaorskiego."
   },
   {
     "source": "chylka-axis-urwisko",
@@ -318,6 +306,66 @@
     "sourceHandle": "source-top",
     "targetHandle": "target-bottom",
     "characters": ["joanna-chylka"],
-    "note": "Chyłka prosi Forsta który nie pracuje ju w policji o sprawdzenie czegoś w zakopanym"
+    "note": "W książce pojawia się krótka wzmianka o tym, że bohaterowie - aby bronić się w sądzie - nie uniknęliby więzienia. Stałoby się tak nawet wtedy, gdyby do swojej obrony zaangażowali Chyłkę i Oryńskiego, dając im najlepsze możliwe argumenty. Pod koniec powieści Olga Szrebska decyduje się ostatecznie zadzwonić po wsparcie bezpośrednio do Joanny Chyłki."
+  },
+  {
+    "source": "zaorski-axis-langer",
+    "target": "langer",
+    "type": "epizod",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "step",
+    "sourceHandle": "source-top",
+    "targetHandle": "target-bottom",
+    "characters": ["zaorski-kasprowy"],
+    "note": "Ekscentryczny patomorfolog, który bada ciała ofiar „Ozyrysa” pod Hrubieszowem i przekazuje prokuratorom istotne wskazówki dotyczące pedantyczności mordercy."
+  },
+  {
+    "source": "chylka-axis-paderborn",
+    "target": "paderborn",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "step",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-top",
+    "characters": ["joanna-chylka", "kordian-orynski", "kormak"],
+    "note": "Kormak za pomocą swoich hakerskich umiejętności nieoficjalnie pomaga prokuratorom w śledztwie, włamując się do baz danych, by ustalić tożsamość ofiary i odkrywając jej pasję do astrologii. Towarzyszy mu Kordian Oryński, który interesuje się sprawą Piotra Langera. Z kolei Joanna Chyłka pojawia się w epilogu, odwiedzając uwięzionego Langera w areszcie na Białołęce."
+  },
+  {
+    "source": "smaga-axis-ozyrys",
+    "target": "ozyrys",
+    "type": "epizod",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "step",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-top",
+    "characters": ["smaga"],
+    "note": "Wioletta Smaga to sędzia prowadząca głośny proces Piotra Langera. Na sali stara się utrzymać dyscyplinę, m.in. wyciszając mikrofon oskarżonego i nakazując policjantom posadzenie go na miejscu. Po podrzuceniu zwłok Chrystyny Biłokur decyduje o odroczeniu rozprawy. Gdy proces ruszona nowo, nie godzi się na jego utajnienie i ostatecznie przyjmuje w biegu wniosek o kolejne odroczenie, gdy prokuratorzy nagle wybiegają z sali."
+  },
+  {
+    "source": "chylka-axis-arachnia",
+    "target": "arachnia",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "finale",
+    "pathType": "step",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-top",
+    "characters": ["joanna-chylka", "kordian-orynski", "ferus"],
+    "note": "Mecenas Joanna Chyłka podjęła się obrony Piotra Langera. Podczas procesu podstępnie sprowokowała podkomisarz Ninę Pokorę do zeznań, że oskarżony planował bezkarne zabójstwo prokurator Karoliny Siarkowskiej. Kordian Oryński (Zordon) wspierał Ninę na sądowym korytarzu – radził, by grając rolę informatorki Arachnii, zdobyła dowód, że Siarkowska żyje, i wyciągnęła szczegóły spotkania. Paulina Feruś pomagała organizacyjnie w śledztwie, m.in. przekazując prokuratorom informacje o nagłym przełamaniu milczenia przez Langera w areszcie."
+  },
+  {
+    "source": "forst-axis-substytucja",
+    "target": "arachnia",
+    "type": "epizod",
+    "certainty": 100,
+    "importance": "standard",
+    "pathType": "smoothstep",
+    "sourceHandle": "source-top",
+    "targetHandle": "target-left",
+    "characters": ["gjord-hansen-3", "gorgan-2"],
+    "note": "Wojciech Malm i Bestia z Giewontu spotykają Piotra Langera w finale, na spacerniaku Zakładu Karnego w Gawiszynie. Gorgan, wpływowy przestępca rządzący na dziedzińcu, wita Langera i ostatecznie zaprowadza go do Gjorda/Eliasza. Ten wyraża podziw dla gry Langera w sądzie, który wyjawia, że celowo dał się tam pogrążyć, by trafić do tego samego więzienia."
   }
 ]

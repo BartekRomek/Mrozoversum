@@ -1187,6 +1187,17 @@
     "hiddenAvatar": "/avatars/bestia.png"
   },
   {
+    "id": "gjord-hansen-3",
+    "name": "Gjord Hansen",
+    "role": "BESTIA Z GIWEONTU",
+    "series": "Forst",
+    "debut": "Przewieszenie",
+    "hiddenPseudonym": "Iwo Eliasz",
+    "description": "Były mąż Dominiki Wadryś-Hansen",
+    "avatar": "avatars/gjord-hansen-2.png",
+    "hiddenAvatar": "/avatars/bestia.png"
+  },
+  {
     "id": "michal-sznajderman",
     "name": "Michał Sznajderman",
     "role": "Młodszy brat zmarłego Piotra",
@@ -1643,13 +1654,75 @@
     "description": "Prokurator",
     "avatar": "avatars/paderborn.png"
   },
-
-
-
-
-
-
-
+  {
+    "id": "pokora-1",
+    "name": "Nina Pokora",
+    "role": "Właścicielka marki modowej",
+    "series": "Langer",
+    "debut": "Langer",
+    "description": "Właścicielka marki modowej",
+    "hiddenRole": "Oficerka Centralnego Biura Śledczego Policji",
+    "avatar": "avatars/pokora.png"
+  },
+  {
+    "id": "pokora-2",
+    "name": "Nina Pokora",
+    "role": "Oficerka Centralnego Biura Śledczego Policji",
+    "series": "Langer",
+    "debut": "Langer",
+    "avatar": "avatars/pokora.png"
+  },
+  {
+    "id": "sokolenko",
+    "name": "Ołena Sokołenko",
+    "role": "Ukraińska uchodźczyni z Melitopola",
+    "series": "Langer",
+    "debut": "Langer",
+    "avatar": "avatars/sokolenko.png"
+  },
+  {
+    "id": "k-sokolenko",
+    "name": "Kateryna Sokołenko",
+    "role": "Ukraińska uchodźczyni z Melitopola",
+    "series": "Langer",
+    "debut": "Langer",
+    "avatar": "avatars/k-sokolenko.png"
+  },
+  {
+    "id": "woronina",
+    "name": "Nadija Woronina",
+    "role": "Uchodźczyni sprowadzona podstępem przez Ninę i Langera",
+    "series": "Langer",
+    "debut": "Langer",
+    "avatar": "avatars/woronina.png"
+  },
+  {
+    "id": "olmow",
+    "name": "Michaił Olmow",
+    "role": "Współpracownik i wykonawca poleceń Langera",
+    "series": "Langer",
+    "debut": "Langer",
+    "avatar": "avatars/olmow.png"
+  },
+  {
+    "id": "zymelka",
+    "name": "Kamila Żymełka",
+    "role": "Autorka podcastu kryminalnego Sekcja Zbrodni",
+    "hiddenRole": "Rzeźniczka znad Odry",
+    "series": "Langer",
+    "debut": "Paderborn",
+    "avatar": "avatars/zymelka.png"
+  },
+  {
+    "id": "ozyrys",
+    "name": "Natan Kerth",
+    "role": "Psycholog śledczy i terapeuta",
+    "hiddenRole": "OZYRYS",
+    "series": "Langer",
+    "debut": "Ozyrys",
+    "avatar": "avatars/ozyrys.png",
+    "hiddenAvatar": "avatars/ozyrys-psycho.png"
+  },
 
 
 

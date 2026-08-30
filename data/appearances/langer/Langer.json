@@ -1,0 +1,18 @@
+[
+    { "characterId": "piotr-langer", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
+    { "characterId": "pokora-1", "isFirstAppearance": true, "role": "main", "isNew": true, "hiddenIdentity": "Praca pod przykrywką" },
+    { "characterId": "siarka", "isFirstAppearance": true, "role": "main", "isNew": true },
+    { "characterId": "paderborn", "isFirstAppearance": true, "role": "main", "isNew": true },
+    { "characterId": "olmow", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
+    { "characterId": "zaorski-kasprowy", "isFirstAppearance": true, "role": "main", "isNew": true },
+    { "characterId": "sokolenko", "isFirstAppearance": true, "role": "main", "isNew": true, "isDead": true },
+    { "characterId": "k-sokolenko", "isFirstAppearance": true, "role": "main", "isNew": true, "isDead": true },
+    { "characterId": "woronina", "isFirstAppearance": true, "role": "main", "isNew": true, "isDead": true }
+
+
+
+
+
+
+
+] 
