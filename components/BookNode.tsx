@@ -5,6 +5,7 @@ import { clsx } from "clsx";
 import { ShieldCheck } from "lucide-react";
 import { seriesColors, seriesLabels } from "@/lib/catalog";
 import type { BookNodeData } from "@/lib/types";
+import { assetPath } from "@/lib/assetPath";
 
 export function BookNode({ data }: NodeProps) {
   const nodeData = data as BookNodeData;
@@ -62,7 +63,7 @@ export function BookNode({ data }: NodeProps) {
         >
           <div className="relative h-[214px] bg-[#171923]">
             <img
-              src={book.cover}
+              src={assetPath(book.cover)}
               alt={`Okładka: ${book.title}`}
               className="h-full w-full object-cover opacity-80"
             />

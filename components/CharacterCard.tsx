@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import { seriesColors } from "@/lib/catalog";
 import type { Character } from "@/lib/types";
+import { assetPath } from "@/lib/assetPath";
 
 const seriesIcons: Record<string, string> = {
   "Chylka": "/icons/chylka.svg",
@@ -115,8 +116,8 @@ export function CharacterCard({ character, showSpoilers = false }: CharacterCard
             className="absolute left-4 top-4 z-20 h-8 w-8 opacity-90"
             style={{
               backgroundColor: brandColor,
-              WebkitMaskImage: `url(${seriesIcons[seriesId]})`,
-              maskImage: `url(${seriesIcons[seriesId]})`,
+              WebkitMaskImage: `url(${assetPath(seriesIcons[seriesId])})`,
+              maskImage: `url(${assetPath(seriesIcons[seriesId])})`,
               WebkitMaskSize: "contain",
               maskSize: "contain",
               WebkitMaskRepeat: "no-repeat",
@@ -129,7 +130,7 @@ export function CharacterCard({ character, showSpoilers = false }: CharacterCard
         {currentAvatar && currentAvatar !== "" ? (
           <img
             key={currentAvatar}
-            src={currentAvatar}
+            src={assetPath(currentAvatar)}
             alt={currentNameToDisplay}
             className="absolute inset-0 z-10 h-full w-full object-cover animate-in fade-in duration-500"
           />

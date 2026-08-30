@@ -7,6 +7,7 @@ import type { Book, BookConnection, Character } from "@/lib/types";
 import { CharacterCard } from "@/components/CharacterCard";
 import charactersData from "@/data/characters.json";
 import { appearancesData } from "@/data/appearances";
+import { assetPath } from "@/lib/assetPath";
 
 type BookDetailsPanelProps = {
   book: Book | null;
@@ -21,7 +22,7 @@ type BookDetailsPanelProps = {
 const getBackgroundUrl = (coverPath: string) => {
   if (!coverPath) return "";
   const filename = coverPath.split("/").pop();
-  return `/background/${filename}`;
+  return assetPath(`/background/${filename}`);
 };
 
 const seriesGenres: Record<string, string> = {
@@ -197,7 +198,7 @@ export function BookDetailsPanel({
                     className="relative aspect-[2/3] w-full overflow-hidden rounded-xl border bg-black/40 shadow-[0_16px_50px_rgba(0,0,0,0.62)]"
                     style={{ borderColor: `${brandColor}55` }}
                   >
-                    <img src={book.cover} alt={book.title} className="h-full w-full object-cover" />
+                    <img src={assetPath(book.cover)} alt={book.title} className="h-full w-full object-cover" />
                     <div
                       className="absolute inset-x-0 top-0 h-1"
                       style={{ backgroundColor: brandColor }}
