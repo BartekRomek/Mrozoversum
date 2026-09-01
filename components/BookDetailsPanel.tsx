@@ -122,8 +122,8 @@ export function BookDetailsPanel({
   return (
     <>
       <aside
-        className={`fixed inset-y-0 right-0 z-50 w-[735px] max-w-[100vw] border-l border-white/10 shadow-2xl shadow-black/80 transition-transform duration-500 ${
-          book ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-x-0 bottom-0 z-50 flex h-[min(88dvh,760px)] w-full max-w-full flex-col rounded-t-3xl border-t border-white/10 shadow-2xl shadow-black/80 transition-transform duration-500 md:inset-y-0 md:right-0 md:bottom-auto md:h-full md:w-[735px] md:rounded-none md:border-l md:border-t-0 ${
+          book ? "translate-y-0 md:translate-x-0" : "translate-y-full md:translate-x-full"
         }`}
       >
         {book ? (
@@ -141,7 +141,7 @@ export function BookDetailsPanel({
               />
             </div>
 
-            <div className="sticky top-0 z-30 flex items-center justify-between border-b border-white/10 bg-[#08090d]/38 px-8 py-4 shadow-[0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-2xl">
+            <div className="sticky top-0 z-30 flex items-center justify-between border-b border-white/10 bg-[#08090d]/90 px-4 py-3 shadow-[0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-2xl sm:px-6 sm:py-4 md:px-8">
               <div className="flex items-center gap-3">
                 <span
                   className="h-9 w-1 rounded-full"
@@ -162,13 +162,14 @@ export function BookDetailsPanel({
 
               <button
                 onClick={onClose}
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/55 transition hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
+                aria-label="Zamknij kartę książki"
+                className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/55 transition hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
               >
                 <X size={20} />
               </button>
             </div>
 
-            <div className="relative z-10 flex min-h-full flex-col px-8 pb-12 pt-8">
+            <div className="relative z-10 flex min-h-full flex-col px-4 pb-10 pt-5 sm:px-6 md:px-8 md:pb-12 md:pt-8">
               <div className="pr-4">
                 <p
                   className="text-[10px] uppercase tracking-[0.22em] font-bold drop-shadow-md"
@@ -176,7 +177,7 @@ export function BookDetailsPanel({
                 >
                   {seriesLabels[book.series]}
                 </p>
-                <h2 className="mt-2 text-[42px] leading-tight font-bold text-white tracking-tight drop-shadow-lg">
+                <h2 className="mt-2 break-words text-3xl leading-tight font-bold tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-[42px]">
                   {book.title}
                 </h2>
 
@@ -192,8 +193,8 @@ export function BookDetailsPanel({
                 </div>
               </div>
 
-              <div className="mt-10 grid grid-cols-[180px_1fr] gap-8">
-                <div className="w-[180px]">
+              <div className="mt-7 grid grid-cols-1 gap-6 sm:grid-cols-[140px_1fr] sm:gap-6 md:mt-10 md:grid-cols-[180px_1fr] md:gap-8">
+                <div className="w-32 sm:w-[140px] md:w-[180px]">
                   <div
                     className="relative aspect-[2/3] w-full overflow-hidden rounded-xl border bg-black/40 shadow-[0_16px_50px_rgba(0,0,0,0.62)]"
                     style={{ borderColor: `${brandColor}55` }}
@@ -294,7 +295,7 @@ export function BookDetailsPanel({
                   </label>
                 </div>
 
-                <div className="grid grid-cols-3 gap-5 auto-rows-min">
+                <div className="grid grid-cols-2 gap-3 auto-rows-min sm:grid-cols-3 sm:gap-5">
                   {relatedCharacters.map((char) => (
                     <CharacterCard
                       key={char.id}
