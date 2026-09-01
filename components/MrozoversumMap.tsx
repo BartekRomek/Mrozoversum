@@ -19,6 +19,7 @@ import { clsx } from "clsx";
 import { BookNode } from "@/components/BookNode";
 import { BookDetailsPanel } from "@/components/BookDetailsPanel";
 import { CharacterCard } from "@/components/CharacterCard";
+import { MapGuide } from "@/components/MapGuide";
 import {
   relationColors,
   relationLabels,
@@ -32,6 +33,7 @@ type MrozoversumMapProps = {
   books: Book[];
   connections: BookConnection[];
   characters?: Character[];
+  introComplete?: boolean;
 };
 
 const relationTypes: RelationType[] = ["kontynuacja", "wzmianka", "crossover", "epizod", "zmiana_serii"];
@@ -147,16 +149,17 @@ function TimelineLines() {
   );
 }
 
-export function MrozoversumMap({ books, connections, characters = [] }: MrozoversumMapProps) {
+export function MrozoversumMap({ books, connections, characters = [], introComplete = false }: MrozoversumMapProps) {
   const [query, setQuery] = useState("");
   const [selectedSeries, setSelectedSeries] = useState<SeriesId[]>(seriesOrder);
   const [selectedRelations, setSelectedRelations] = useState<RelationType[]>(relationTypes);
-  const [selectedBookId, setSelectedBookId] = useState<string | null>("kasacja");
+  const [selectedBookId, setSelectedBookId] = useState<string | null>(null);
   const [selectedConnectionId, setSelectedConnectionId] = useState<string | null>(null);
   const [hoveredConnectionId, setHoveredConnectionId] = useState<string | null>(null);
   const [coverOverrides, setCoverOverrides] = useState<Record<string, string>>({});
   const [showSpoilers] = useState(false);
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+  const [guideRequest, setGuideRequest] = useState(0);
 
   const reactFlowInstanceRef = useRef<ReactFlowInstance | null>(null);
 
@@ -580,7 +583,8 @@ const edges: Edge[] = useMemo(() => {
           <TimelineLines />
         </ReactFlow>
 
-        <ConnectionLegend />
+        <ConnectionLegend onOpenGuide={() => setGuideRequest((value) => value + 1)} />
+        <MapGuide openRequest={guideRequest} introComplete={introComplete} />
         <div className="pointer-events-none absolute inset-0 z-20 bg-[radial-gradient(circle_at_50%_35%,transparent_0%,transparent_48%,rgba(0,0,0,0.32)_100%)]" />
         <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-16 bg-gradient-to-b from-black/35 to-transparent" />
       </section>
@@ -717,37 +721,59 @@ const edges: Edge[] = useMemo(() => {
   );
 }
 
-function ConnectionLegend() {
-  return (
-    <div className="group absolute bottom-6 left-6 z-30">
-      <div className="flex h-12 min-w-[116px] items-center justify-center rounded-2xl border border-white/10 bg-[#08090d]/82 px-4 text-[11px] font-black uppercase tracking-[0.18em] text-white/72 shadow-2xl shadow-black/50 backdrop-blur-xl transition duration-300 group-hover:scale-95 group-hover:border-rose-400/25 group-hover:text-rose-100">
-      LEGENDA
-      </div>
-      <div className="pointer-events-none absolute bottom-0 left-0 w-[250px] translate-y-3 scale-95 rounded-2xl border border-white/10 bg-[#08090d]/88 p-5 opacity-0 shadow-2xl shadow-black/55 backdrop-blur-xl transition duration-300 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100">
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="font-mono text-[10px] font-bold uppercase tracking-[0.24em] text-white/42">
-            Legenda relacji
-          </h3>
-          <span className="rounded-full border border-white/10 bg-white/[0.04] px-2 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-white/35">
-            Hover
-          </span>
-        </div>
+function ConnectionLegend({ onOpenGuide }: { onOpenGuide: () => void }) {
+  const [isHelpOpen, setIsHelpOpen] = useState(false);
 
-        <div className="space-y-3">
-          {relationTypes.map((type) => (
-            <div key={type} className="flex items-center gap-3 text-sm font-semibold text-white/64">
-              <span
-                className="h-0.5 w-12 rounded-full"
-                style={{
-                  backgroundColor: relationColors[type],
-                  boxShadow: `0 0 10px ${relationColors[type]}66`
-                }}
-              />
-              <span>{relationLabels[type]}</span>
-            </div>
-          ))}
+  return (
+    <div className="absolute bottom-6 left-6 z-30">
+      <button
+        type="button"
+        onClick={() => setIsHelpOpen((open) => !open)}
+        className="flex h-12 min-w-[116px] items-center justify-center rounded-2xl border border-white/10 bg-[#08090d]/82 px-4 text-[11px] font-black uppercase tracking-[0.18em] text-white/72 shadow-2xl shadow-black/50 backdrop-blur-xl transition duration-300 hover:scale-95 hover:border-rose-400/25 hover:text-rose-100"
+      >
+        POMOC
+      </button>
+      {isHelpOpen && (
+        <div className="map-help-popover" role="dialog" aria-label="Pomoc i legenda relacji">
+          <div className="map-help-popover__header">
+            <h3>Legenda relacji</h3>
+            <button
+              type="button"
+              onClick={() => setIsHelpOpen(false)}
+              className="map-help-popover__close"
+              aria-label="Zamknij pomoc"
+            >
+              <X size={15} />
+            </button>
+          </div>
+
+          <div className="map-help-popover__relations">
+            {relationTypes.map((type) => (
+              <div key={type} className="map-help-popover__relation">
+                <span
+                  className="map-help-popover__line"
+                  style={{
+                    backgroundColor: relationColors[type],
+                    boxShadow: `0 0 10px ${relationColors[type]}66`
+                  }}
+                />
+                <span>{relationLabels[type]}</span>
+              </div>
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={() => {
+              setIsHelpOpen(false);
+              onOpenGuide();
+            }}
+            className="map-help-popover__guide"
+          >
+            INSTRUKCJA
+          </button>
         </div>
-      </div>
+      )}
     </div>
   );
 }
