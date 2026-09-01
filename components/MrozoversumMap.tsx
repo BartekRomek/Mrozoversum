@@ -16,7 +16,8 @@ import {
   type ReactFlowInstance
 } from "@xyflow/react";
 import { sendGAEvent } from "@next/third-parties/google";
-import { X, SlidersHorizontal, Search } from "lucide-react";
+import { Menu, X, SlidersHorizontal, Search } from "lucide-react";
+import Link from "next/link";
 import { clsx } from "clsx";
 import { BookNode } from "@/components/BookNode";
 import { BookDetailsPanel } from "@/components/BookDetailsPanel";
@@ -220,9 +221,28 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
   const [coverOverrides, setCoverOverrides] = useState<Record<string, string>>({});
   const [showSpoilers] = useState(false);
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [guideRequest, setGuideRequest] = useState(0);
 
   const reactFlowInstanceRef = useRef<ReactFlowInstance | null>(null);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const closeMenuOnOutsidePointer = (event: PointerEvent) => {
+      if (
+        !menuRef.current ||
+        !(event.target instanceof Element) ||
+        !menuRef.current.contains(event.target)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", closeMenuOnOutsidePointer);
+    return () => document.removeEventListener("pointerdown", closeMenuOnOutsidePointer);
+  }, [isMenuOpen]);
 
   const focusMapPoint = useCallback((point: { x: number; y: number }) => {
     const instance = reactFlowInstanceRef.current;
@@ -679,7 +699,7 @@ const updateBookCover = (bookId: string, cover: string) => {
 
   return (
     <div className="relative flex h-[100dvh] min-h-[480px] flex-col overflow-hidden text-white">
-      <header className="relative z-30 overflow-hidden border-b border-white/10 bg-[rgba(7,8,12,0.88)] backdrop-blur-2xl">
+      <header className="relative z-30 overflow-visible border-b border-white/10 bg-[rgba(7,8,12,0.88)] backdrop-blur-2xl">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(225,29,72,0.16),transparent_32%),linear-gradient(90deg,rgba(225,29,72,0.06),transparent_30%,transparent_70%,rgba(225,29,72,0.06))]" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-rose-500/45 to-transparent" />
 
@@ -703,18 +723,10 @@ const updateBookCover = (bookId: string, cover: string) => {
             <div className="mt-2 h-px w-32 bg-gradient-to-r from-transparent via-rose-400 to-transparent shadow-[0_0_14px_rgba(244,63,94,0.65)]" />
           </div>
 
-          <div className="order-2 ml-auto flex w-auto items-center justify-end gap-3">
-            <div className="hidden items-center gap-2 rounded-xl border border-white/10 bg-white/[0.035] px-3 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] lg:flex">
-              <Stat
-                label="Książki"
-                value={books.filter((b) => !b.id.includes("axis")).length}
-              />
-              <div className="h-6 w-px bg-white/10" />
-              <Stat label="Relacje" value={connections.length} />
-              <div className="h-6 w-px bg-white/10" />
-              <Stat label="Serie" value={seriesOrder.length} />
-            </div>
-
+          <div
+            ref={menuRef}
+            className="relative order-2 ml-auto flex w-auto items-center justify-end gap-2 sm:gap-3"
+          >
             <button
               onClick={() => setIsFiltersOpen(true)}
               aria-label="Otwórz filtry"
@@ -725,6 +737,61 @@ const updateBookCover = (bookId: string, cover: string) => {
               </span>
               <span className="hidden lg:inline">Filtry</span>
             </button>
+
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen((open) => !open)}
+              aria-expanded={isMenuOpen}
+              aria-controls="mrozoversum-menu"
+              aria-label="Otwórz menu"
+              className="group flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.045] p-0 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_10px_28px_rgba(0,0,0,0.18)] transition hover:border-rose-400/35 hover:bg-rose-500/10 hover:text-rose-50 lg:h-10 lg:w-auto lg:gap-2 lg:px-4"
+            >
+              <span className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/10 bg-black/20 text-rose-200 transition group-hover:border-rose-300/35 group-hover:bg-rose-500/15">
+                <Menu size={15} />
+              </span>
+              <span className="hidden lg:inline">Menu</span>
+            </button>
+
+            {isMenuOpen && <>
+              <button
+                type="button"
+                aria-label="Zamknij menu"
+                onClick={() => setIsMenuOpen(false)}
+                className="fixed inset-0 z-50 bg-black/10 lg:hidden"
+              />
+              <div
+                id="mrozoversum-menu"
+                className="fixed inset-x-3 bottom-4 z-[60] rounded-2xl border border-white/10 bg-[#090a0f]/95 p-2 shadow-2xl shadow-black/60 backdrop-blur-xl lg:absolute lg:inset-x-auto lg:bottom-auto lg:right-0 lg:top-[calc(100%+0.75rem)] lg:w-[17rem]"
+              >
+                <div className="px-3 pb-2 pt-2 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-white/35">
+                  Nawigacja
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex w-full items-center rounded-xl px-3 py-3 text-left text-xs font-semibold uppercase tracking-[0.12em] text-white/75 transition hover:bg-white/[0.06] hover:text-white"
+                >
+                  Mapa uniwersum
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setGuideRequest((value) => value + 1);
+                  }}
+                  className="flex w-full items-center rounded-xl px-3 py-3 text-left text-xs font-semibold uppercase tracking-[0.12em] text-white/75 transition hover:bg-white/[0.06] hover:text-white"
+                >
+                  Instrukcja
+                </button>
+                <Link
+                  href="/postaw-kawe"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex w-full items-center rounded-xl px-3 py-3 text-left text-xs font-semibold uppercase tracking-[0.12em] text-rose-200 transition hover:bg-rose-500/10 hover:text-rose-100"
+                >
+                  Postaw kawę
+                </Link>
+              </div>
+            </>}
           </div>
         </div>
       </header>
@@ -774,6 +841,13 @@ const updateBookCover = (bookId: string, cover: string) => {
 
         <ConnectionLegend onOpenGuide={() => setGuideRequest((value) => value + 1)} />
         <MapGuide openRequest={guideRequest} introComplete={introComplete} />
+        <div className="pointer-events-none absolute bottom-20 right-4 z-30 sm:bottom-24 sm:right-6">
+          <div className="pointer-events-auto flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.035] px-3 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+            <Stat label="Relacje" value={connections.length} />
+            <div className="h-6 w-px bg-white/10" />
+            <Stat label="Serie" value={seriesOrder.length} />
+          </div>
+        </div>
         <div className="pointer-events-none absolute inset-0 z-20 bg-[radial-gradient(circle_at_50%_35%,transparent_0%,transparent_48%,rgba(0,0,0,0.32)_100%)]" />
         <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-16 bg-gradient-to-b from-black/35 to-transparent" />
       </section>
