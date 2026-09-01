@@ -14,6 +14,7 @@
 html,
 body {
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -29,6 +30,64 @@ body {
 button,
 input {
   font: inherit;
+}
+
+button,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+@media (max-width: 767px) {
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  .react-flow__controls {
+    border-radius: 12px;
+  }
+
+  .react-flow__controls-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .react-flow__controls-button:nth-child(1),
+  .react-flow__controls-button:nth-child(2) {
+    display: none;
+  }
+
+  .react-flow__edge-text {
+    font-size: 9px;
+  }
+
+  .timeline-series-label-bg {
+    stroke-width: 0.8px;
+  }
+
+  .timeline-series-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .connection-legend {
+    bottom: max(12px, env(safe-area-inset-bottom));
+    left: 12px;
+  }
+
+  .connection-legend-trigger {
+    min-width: 0;
+    width: 82px;
+    height: 40px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 12px;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+  }
+
 }
 
 .react-flow {

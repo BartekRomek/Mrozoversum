@@ -94,7 +94,7 @@ export function BookNode({ data }: NodeProps) {
                 <p className="text-[10px] uppercase tracking-[0.18em] text-white/50">
                   {seriesLabels[book.series]}
                 </p>
-                <h3 className="mt-1 text-lg font-semibold leading-tight text-white">
+                <h3 className="mt-1 text-base font-semibold leading-tight text-white md:text-lg">
                   {book.title}
                 </h3>
               </div>
