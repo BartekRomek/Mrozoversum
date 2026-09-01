@@ -1018,7 +1018,7 @@ function ConnectionDetailsSidebar({
     : [];
 
   return (
-    <aside className="fixed inset-x-0 bottom-0 z-50 flex h-[min(88dvh,760px)] w-full max-w-full flex-col rounded-t-3xl border-t border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl transition-transform md:inset-y-0 md:left-auto md:right-0 md:bottom-auto md:h-auto md:w-1/2 md:min-w-[520px] md:max-w-[960px] md:rounded-none md:border-l md:border-t-0">
+    <aside className="fixed inset-x-0 bottom-0 z-50 flex h-[min(88dvh,760px)] w-full max-w-full flex-col rounded-t-3xl border-t border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl transition-transform md:inset-y-0 md:left-auto md:right-0 md:bottom-auto md:h-full md:w-1/2 md:min-w-[520px] md:max-w-[960px] md:rounded-none md:border-l md:border-t-0">
       <header className="flex items-center justify-between border-b border-white/10 px-4 py-3 sm:px-6 sm:py-4 md:py-5">
         <div>
           <p className="text-xs uppercase tracking-[0.22em] text-rose-400">
@@ -1040,7 +1040,7 @@ function ConnectionDetailsSidebar({
         </button>
       </header>
 
-      <div className="relation-details-panel min-w-0 flex-1 overflow-y-auto p-4 sm:p-6">
+      <div className="relation-details-panel min-h-0 min-w-0 flex-1 overflow-y-auto p-4 sm:p-6">
         <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4 text-sm leading-6 text-white/80">
           {connection.note || "Brak szczegółowego opisu dla tego powiązania."}
         </div>
