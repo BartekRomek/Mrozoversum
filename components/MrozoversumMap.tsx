@@ -439,7 +439,7 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
         sourceHandle: connection.sourceHandle,
         targetHandle: connection.targetHandle,
         type: connection.pathType || "smoothstep",
-        animated: true,
+        animated: false,
         interactionWidth: isFocusedConnection ? 34 : 28,
         markerEnd: {
           type: MarkerType.ArrowClosed,
@@ -761,7 +761,7 @@ const updateBookCover = (bookId: string, cover: string) => {
           />
           <Controls
             position="bottom-right"
-            className="!bottom-4 !right-4 sm:!bottom-6 sm:!right-6"
+            className="!hidden max-[767px]:!flex !bottom-4 !right-4 sm:!bottom-6 sm:!right-6"
             showInteractive={false}
           />
           <Background
@@ -780,7 +780,7 @@ const updateBookCover = (bookId: string, cover: string) => {
 
       <aside
         className={clsx(
-          "fixed inset-x-0 bottom-0 z-40 flex h-[min(82dvh,640px)] w-full max-w-full flex-col rounded-t-3xl border-t border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl transition-transform duration-300 md:inset-y-0 md:right-0 md:bottom-auto md:h-auto md:w-[360px] md:rounded-none md:border-l md:border-t-0",
+          "fixed inset-x-0 bottom-0 z-40 flex h-[min(82dvh,640px)] w-full max-w-full flex-col rounded-t-3xl border-t border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl transition-transform duration-300 md:inset-y-0 md:left-auto md:right-0 md:bottom-auto md:h-auto md:w-[360px] md:rounded-none md:border-l md:border-t-0",
           isFiltersOpen ? "translate-y-0 md:translate-x-0" : "translate-y-full md:translate-x-full"
         )}
       >
@@ -1018,7 +1018,7 @@ function ConnectionDetailsSidebar({
     : [];
 
   return (
-    <aside className="fixed inset-x-0 bottom-0 z-50 flex h-[min(88dvh,760px)] w-full max-w-full flex-col rounded-t-3xl border-t border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl transition-transform md:inset-y-0 md:right-0 md:bottom-auto md:h-auto md:w-1/2 md:min-w-[520px] md:max-w-[960px] md:rounded-none md:border-l md:border-t-0">
+    <aside className="fixed inset-x-0 bottom-0 z-50 flex h-[min(88dvh,760px)] w-full max-w-full flex-col rounded-t-3xl border-t border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl transition-transform md:inset-y-0 md:left-auto md:right-0 md:bottom-auto md:h-auto md:w-1/2 md:min-w-[520px] md:max-w-[960px] md:rounded-none md:border-l md:border-t-0">
       <header className="flex items-center justify-between border-b border-white/10 px-4 py-3 sm:px-6 sm:py-4 md:py-5">
         <div>
           <p className="text-xs uppercase tracking-[0.22em] text-rose-400">
