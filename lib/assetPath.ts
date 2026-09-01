@@ -5,9 +5,12 @@ export function assetPath(path: string) {
 
   let assetPath = path;
 
-  if (path.startsWith("/avatars/")) {
+  // Obsługa avatarów zapisanych zarówno jako:
+  // "avatars/Chylka.png"
+  // jak i "/avatars/Chylka.png"
+  if (path.startsWith("avatars/") || path.startsWith("/avatars/")) {
     assetPath = path
-      .replace("/avatars/", "/avatars-optimized/")
+      .replace(/^\/?avatars\//, "/avatars-optimized/")
       .replace(/\.(png|jpe?g)$/i, ".webp");
   }
 
@@ -15,5 +18,5 @@ export function assetPath(path: string) {
     return `${basePath}${assetPath}`;
   }
 
-  return assetPath;
+  return `${basePath}/${assetPath}`;
 }
