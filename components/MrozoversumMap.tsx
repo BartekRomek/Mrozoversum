@@ -16,8 +16,7 @@ import {
   type ReactFlowInstance
 } from "@xyflow/react";
 import { sendGAEvent } from "@next/third-parties/google";
-import { Menu, X, SlidersHorizontal, Search } from "lucide-react";
-import Link from "next/link";
+import { Bug, Coffee, Map as MapIcon, Menu, Settings, X, SlidersHorizontal } from "lucide-react";
 import { clsx } from "clsx";
 import { BookNode } from "@/components/BookNode";
 import { BookDetailsPanel } from "@/components/BookDetailsPanel";
@@ -44,7 +43,12 @@ type MrozoversumMapProps = {
   connections: BookConnection[];
   characters?: Character[];
   introComplete?: boolean;
+  onOpenSupport?: () => void;
+  onOpenSettings?: () => void;
+  onOpenBugReport?: () => void;
 };
+
+type ActiveTopPanel = "menu" | "filters" | null;
 
 const relationTypes: RelationType[] = [
   "kontynuacja",
@@ -211,24 +215,25 @@ function TimelineLines() {
   );
 }
 
-export function MrozoversumMap({ books, connections, characters = [], introComplete = false }: MrozoversumMapProps) {
-  const [query, setQuery] = useState("");
+export function MrozoversumMap({ books, connections, characters = [], introComplete = false, onOpenSupport, onOpenSettings, onOpenBugReport }: MrozoversumMapProps) {
   const [selectedSeries, setSelectedSeries] = useState<SeriesId[]>(seriesOrder);
   const [selectedRelations, setSelectedRelations] = useState<RelationType[]>(relationTypes);
+  const [draftSeries, setDraftSeries] = useState<SeriesId[]>(seriesOrder);
+  const [draftRelations, setDraftRelations] = useState<RelationType[]>(relationTypes);
   const [selectedBookId, setSelectedBookId] = useState<string | null>(null);
   const [selectedConnectionId, setSelectedConnectionId] = useState<string | null>(null);
   const [hoveredConnectionId, setHoveredConnectionId] = useState<string | null>(null);
   const [coverOverrides, setCoverOverrides] = useState<Record<string, string>>({});
   const [showSpoilers] = useState(false);
-  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeTopPanel, setActiveTopPanel] = useState<ActiveTopPanel>(null);
   const [guideRequest, setGuideRequest] = useState(0);
 
   const reactFlowInstanceRef = useRef<ReactFlowInstance | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const menuItemClass = "group flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-xs font-semibold uppercase tracking-[0.12em] text-white/75 transition hover:bg-white/[0.06] hover:text-rose-100";
 
   useEffect(() => {
-    if (!isMenuOpen) return;
+    if (activeTopPanel !== "menu") return;
 
     const closeMenuOnOutsidePointer = (event: PointerEvent) => {
       if (
@@ -236,13 +241,13 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
         !(event.target instanceof Element) ||
         !menuRef.current.contains(event.target)
       ) {
-        setIsMenuOpen(false);
+        setActiveTopPanel(null);
       }
     };
 
     document.addEventListener("pointerdown", closeMenuOnOutsidePointer);
     return () => document.removeEventListener("pointerdown", closeMenuOnOutsidePointer);
-  }, [isMenuOpen]);
+  }, [activeTopPanel]);
 
   const focusMapPoint = useCallback((point: { x: number; y: number }) => {
     const instance = reactFlowInstanceRef.current;
@@ -272,8 +277,6 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
     }
   }, []);
 
-  const normalizedQuery = query.trim().toLowerCase();
-
   const displayBooks = useMemo(
     () =>
       books.map((book) => ({
@@ -292,19 +295,11 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
     return new Set(
       displayBooks
         .filter((book) => {
-          const matchesSeries = selectedSeries.includes(book.series);
-
-          const matchesQuery =
-            !normalizedQuery ||
-            `${book.title} ${book.series} ${book.description}`
-              .toLowerCase()
-              .includes(normalizedQuery);
-
-          return matchesSeries && matchesQuery;
+          return selectedSeries.includes(book.series);
         })
         .map((book) => book.id)
     );
-  }, [displayBooks, normalizedQuery, selectedSeries]);
+  }, [displayBooks, selectedSeries]);
 
   const visibleConnections = useMemo(
     () =>
@@ -639,7 +634,7 @@ const onEdgeClick: EdgeMouseHandler = useCallback(
   }, [selectedConnectionId]);
 
 const toggleSeries = (series: SeriesId) => {
-  const isCurrentlySelected = selectedSeries.includes(series);
+  const isCurrentlySelected = draftSeries.includes(series);
 
   sendGAEvent("event", "filter_change", {
     filter_type: "series",
@@ -647,7 +642,7 @@ const toggleSeries = (series: SeriesId) => {
     action: isCurrentlySelected ? "disabled" : "enabled"
   });
 
-  setSelectedSeries((current) =>
+  setDraftSeries((current) =>
     current.includes(series)
       ? current.filter((item) => item !== series)
       : [...current, series]
@@ -655,7 +650,7 @@ const toggleSeries = (series: SeriesId) => {
 };
 
 const toggleRelation = (relation: RelationType) => {
-  const isCurrentlySelected = selectedRelations.includes(relation);
+  const isCurrentlySelected = draftRelations.includes(relation);
 
   sendGAEvent("event", "filter_change", {
     filter_type: "relation",
@@ -663,7 +658,7 @@ const toggleRelation = (relation: RelationType) => {
     action: isCurrentlySelected ? "disabled" : "enabled"
   });
 
-  setSelectedRelations((current) =>
+  setDraftRelations((current) =>
     current.includes(relation)
       ? current.filter((item) => item !== relation)
       : [...current, relation]
@@ -673,9 +668,20 @@ const toggleRelation = (relation: RelationType) => {
  const resetFilters = () => {
   sendGAEvent("event", "filters_reset");
 
-  setQuery("");
-  setSelectedSeries(seriesOrder);
-  setSelectedRelations(relationTypes);
+  setDraftSeries(seriesOrder);
+  setDraftRelations(relationTypes);
+};
+
+const openFilters = () => {
+  setDraftSeries(selectedSeries);
+  setDraftRelations(selectedRelations);
+  setActiveTopPanel("filters");
+};
+
+const applyFilters = () => {
+  setSelectedSeries(draftSeries);
+  setSelectedRelations(draftRelations);
+  setActiveTopPanel(null);
 };
 
 const updateBookCover = (bookId: string, cover: string) => {
@@ -698,7 +704,7 @@ const updateBookCover = (bookId: string, cover: string) => {
 };
 
   return (
-    <div className="relative flex h-[100dvh] min-h-[480px] flex-col overflow-hidden text-white">
+    <div className="mrozoversum-map-shell relative flex h-[100dvh] min-h-[480px] flex-col overflow-hidden text-white">
       <header className="relative z-30 overflow-visible border-b border-white/10 bg-[rgba(7,8,12,0.88)] backdrop-blur-2xl">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(225,29,72,0.16),transparent_32%),linear-gradient(90deg,rgba(225,29,72,0.06),transparent_30%,transparent_70%,rgba(225,29,72,0.06))]" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-rose-500/45 to-transparent" />
@@ -728,7 +734,7 @@ const updateBookCover = (bookId: string, cover: string) => {
             className="relative order-2 ml-auto flex w-auto items-center justify-end gap-2 sm:gap-3"
           >
             <button
-              onClick={() => setIsFiltersOpen(true)}
+              onClick={openFilters}
               aria-label="Otwórz filtry"
               className="group flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.045] p-0 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_10px_28px_rgba(0,0,0,0.18)] transition hover:border-rose-400/35 hover:bg-rose-500/10 hover:text-rose-50 lg:h-10 lg:w-auto lg:gap-2 lg:px-4"
             >
@@ -740,8 +746,12 @@ const updateBookCover = (bookId: string, cover: string) => {
 
             <button
               type="button"
-              onClick={() => setIsMenuOpen((open) => !open)}
-              aria-expanded={isMenuOpen}
+              onClick={() =>
+                setActiveTopPanel((current) =>
+                  current === "menu" ? null : "menu"
+                )
+              }
+              aria-expanded={activeTopPanel === "menu"}
               aria-controls="mrozoversum-menu"
               aria-label="Otwórz menu"
               className="group flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.045] p-0 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_10px_28px_rgba(0,0,0,0.18)] transition hover:border-rose-400/35 hover:bg-rose-500/10 hover:text-rose-50 lg:h-10 lg:w-auto lg:gap-2 lg:px-4"
@@ -752,44 +762,61 @@ const updateBookCover = (bookId: string, cover: string) => {
               <span className="hidden lg:inline">Menu</span>
             </button>
 
-            {isMenuOpen && <>
+            {activeTopPanel === "menu" && <>
               <button
                 type="button"
                 aria-label="Zamknij menu"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => setActiveTopPanel(null)}
                 className="fixed inset-0 z-50 bg-black/10 lg:hidden"
               />
               <div
                 id="mrozoversum-menu"
-                className="fixed inset-x-3 bottom-4 z-[60] rounded-2xl border border-white/10 bg-[#090a0f]/95 p-2 shadow-2xl shadow-black/60 backdrop-blur-xl lg:absolute lg:inset-x-auto lg:bottom-auto lg:right-0 lg:top-[calc(100%+0.75rem)] lg:w-[17rem]"
+                className="mrozoversum-menu fixed inset-x-3 bottom-4 z-[60] rounded-2xl border border-white/10 bg-[#090a0f]/95 p-2 shadow-2xl shadow-black/60 backdrop-blur-xl lg:absolute lg:inset-x-auto lg:bottom-auto lg:right-0 lg:top-[calc(100%+0.75rem)] lg:w-[17rem]"
               >
                 <div className="px-3 pb-2 pt-2 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-white/35">
                   Nawigacja
                 </div>
                 <button
                   type="button"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="flex w-full items-center rounded-xl px-3 py-3 text-left text-xs font-semibold uppercase tracking-[0.12em] text-white/75 transition hover:bg-white/[0.06] hover:text-white"
+                  onClick={() => setActiveTopPanel(null)}
+                  className={menuItemClass}
                 >
+                  <MapIcon size={16} className="shrink-0 text-white/55 transition group-hover:text-rose-200" />
                   Mapa uniwersum
                 </button>
                 <button
                   type="button"
                   onClick={() => {
-                    setIsMenuOpen(false);
-                    setGuideRequest((value) => value + 1);
+                    setActiveTopPanel(null);
+                    onOpenSupport?.();
                   }}
-                  className="flex w-full items-center rounded-xl px-3 py-3 text-left text-xs font-semibold uppercase tracking-[0.12em] text-white/75 transition hover:bg-white/[0.06] hover:text-white"
+                  className={menuItemClass}
                 >
-                  Instrukcja
-                </button>
-                <Link
-                  href="/postaw-kawe"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="flex w-full items-center rounded-xl px-3 py-3 text-left text-xs font-semibold uppercase tracking-[0.12em] text-rose-200 transition hover:bg-rose-500/10 hover:text-rose-100"
-                >
+                  <Coffee size={16} className="shrink-0 text-white/55 transition group-hover:text-rose-200" />
                   Postaw kawę
-                </Link>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setActiveTopPanel(null);
+                    onOpenBugReport?.();
+                  }}
+                  className={menuItemClass}
+                >
+                  <Bug size={16} className="shrink-0 text-white/55 transition group-hover:text-rose-200" />
+                  Zgłoś błąd
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setActiveTopPanel(null);
+                    onOpenSettings?.();
+                  }}
+                  className={menuItemClass}
+                >
+                  <Settings size={16} className="shrink-0 text-white/55 transition group-hover:text-rose-200" />
+                  Ustawienia
+                </button>
               </div>
             </>}
           </div>
@@ -854,17 +881,17 @@ const updateBookCover = (bookId: string, cover: string) => {
 
       <aside
         className={clsx(
-          "fixed inset-x-0 bottom-0 z-40 flex h-[min(82dvh,640px)] w-full max-w-full flex-col rounded-t-3xl border-t border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl transition-transform duration-300 md:inset-y-0 md:left-auto md:right-0 md:bottom-auto md:h-auto md:w-[360px] md:rounded-none md:border-l md:border-t-0",
-          isFiltersOpen ? "translate-y-0 md:translate-x-0" : "translate-y-full md:translate-x-full"
+          "filters-panel fixed inset-x-0 bottom-0 z-40 flex h-[min(82dvh,640px)] w-full max-w-full flex-col rounded-t-3xl border-t border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl transition-transform duration-300 md:inset-y-0 md:left-auto md:right-0 md:bottom-auto md:h-full md:w-[360px] md:rounded-none md:border-l md:border-t-0",
+          activeTopPanel === "filters" ? "translate-y-0 md:translate-x-0" : "translate-y-full md:translate-x-full"
         )}
       >
         <header className="flex items-center justify-between border-b border-white/10 px-4 py-4 sm:px-6 sm:py-5">
           <h2 className="text-sm font-semibold uppercase tracking-widest text-white/80">
-            Wyszukiwanie i filtry
+            Filtry
           </h2>
 
           <button
-            onClick={() => setIsFiltersOpen(false)}
+            onClick={() => setActiveTopPanel(null)}
             aria-label="Zamknij filtry"
             className="flex h-11 w-11 items-center justify-center rounded-full bg-white/5 text-white/60 transition hover:bg-white/10 hover:text-white"
           >
@@ -872,27 +899,7 @@ const updateBookCover = (bookId: string, cover: string) => {
           </button>
         </header>
 
-        <div className="flex-1 space-y-7 overflow-y-auto p-4 sm:p-6">
-          <div>
-            <label className="mb-3 block text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
-              Szukaj
-            </label>
-
-            <div className="relative">
-              <Search
-                className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-white/40"
-                size={16}
-              />
-
-              <input
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                placeholder="Książka, seria, opis..."
-                className="h-11 w-full rounded-lg border border-white/10 bg-white/[0.03] pl-9 pr-3 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-rose-400/50 focus:bg-white/[0.05]"
-              />
-            </div>
-          </div>
-
+        <div className="min-h-0 flex-1 space-y-7 overflow-y-auto p-4 sm:p-6">
           <div>
             <label className="mb-3 block text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
               Serie
@@ -900,7 +907,7 @@ const updateBookCover = (bookId: string, cover: string) => {
 
             <div className="flex flex-col gap-2">
               {seriesOrder.map((series) => {
-                const isActive = selectedSeries.includes(series);
+                const isActive = draftSeries.includes(series);
 
                 return (
                   <button
@@ -931,7 +938,7 @@ const updateBookCover = (bookId: string, cover: string) => {
 
             <div className="flex flex-col gap-2">
               {relationTypes.map((relation) => {
-                const isActive = selectedRelations.includes(relation);
+                const isActive = draftRelations.includes(relation);
 
                 return (
                   <button
@@ -958,8 +965,14 @@ const updateBookCover = (bookId: string, cover: string) => {
 
         <div className="border-t border-white/10 p-4">
           <button
+            onClick={applyFilters}
+            className="min-h-11 w-full rounded-lg border border-rose-400/30 bg-rose-500/15 py-2.5 text-sm font-semibold uppercase tracking-[0.12em] text-rose-100 transition hover:border-rose-300/55 hover:bg-rose-500/25"
+          >
+            Zatwierdź
+          </button>
+          <button
             onClick={resetFilters}
-            className="min-h-11 w-full rounded-lg border border-white/10 bg-white/[0.02] py-2.5 text-sm font-medium text-white/60 transition hover:bg-white/[0.05] hover:text-white"
+            className="mt-2 min-h-11 w-full rounded-lg border border-white/10 bg-white/[0.02] py-2.5 text-sm font-medium text-white/60 transition hover:bg-white/[0.05] hover:text-white"
           >
             Resetuj wszystko
           </button>
@@ -1092,7 +1105,7 @@ function ConnectionDetailsSidebar({
     : [];
 
   return (
-    <aside className="fixed inset-x-0 bottom-0 z-50 flex h-[min(88dvh,760px)] w-full max-w-full flex-col rounded-t-3xl border-t border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl transition-transform md:inset-y-0 md:left-auto md:right-0 md:bottom-auto md:h-full md:w-1/2 md:min-w-[520px] md:max-w-[960px] md:rounded-none md:border-l md:border-t-0">
+    <aside className="connection-details-panel fixed inset-x-0 bottom-0 z-50 flex h-[min(88dvh,760px)] w-full max-w-full flex-col rounded-t-3xl border-t border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl transition-transform md:inset-y-0 md:left-auto md:right-0 md:bottom-auto md:h-full md:w-1/2 md:min-w-[520px] md:max-w-[960px] md:rounded-none md:border-l md:border-t-0">
       <header className="flex items-center justify-between border-b border-white/10 px-4 py-3 sm:px-6 sm:py-4 md:py-5">
         <div>
           <p className="text-xs uppercase tracking-[0.22em] text-rose-400">

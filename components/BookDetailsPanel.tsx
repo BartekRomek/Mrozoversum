@@ -122,7 +122,7 @@ export function BookDetailsPanel({
   return (
     <>
       <aside
-        className={`fixed inset-x-0 bottom-0 z-50 flex h-[min(88dvh,760px)] w-full max-w-full flex-col rounded-t-3xl border-t border-white/10 shadow-2xl shadow-black/80 transition-transform duration-500 md:inset-y-0 md:left-auto md:right-0 md:bottom-auto md:h-full md:w-[735px] md:rounded-none md:border-l md:border-t-0 ${
+        className={`book-details-panel fixed inset-x-0 bottom-0 z-50 flex h-[min(88dvh,760px)] w-full max-w-full flex-col rounded-t-3xl border-t border-white/10 shadow-2xl shadow-black/80 transition-transform duration-500 md:inset-y-0 md:left-auto md:right-0 md:bottom-auto md:h-full md:w-[735px] md:rounded-none md:border-l md:border-t-0 ${
           book ? "translate-y-0 md:translate-x-0" : "translate-y-full md:translate-x-full"
         }`}
       >
