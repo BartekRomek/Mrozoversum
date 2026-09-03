@@ -771,7 +771,7 @@ const updateBookCover = (bookId: string, cover: string) => {
               />
               <div
                 id="mrozoversum-menu"
-                className="mrozoversum-menu fixed inset-x-3 bottom-4 z-[60] max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain rounded-2xl border border-white/10 bg-[#090a0f]/95 p-2 shadow-2xl shadow-black/60 backdrop-blur-xl [-webkit-overflow-scrolling:touch] lg:absolute lg:inset-x-auto lg:bottom-auto lg:right-0 lg:top-[calc(100%+0.75rem)] lg:w-[17rem]"
+                className="mrozoversum-menu fixed inset-x-3 top-16 bottom-auto z-[60] max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain rounded-2xl border border-white/10 bg-[#090a0f]/95 p-2 shadow-2xl shadow-black/60 backdrop-blur-xl [-webkit-overflow-scrolling:touch] lg:absolute lg:inset-x-auto lg:bottom-auto lg:right-0 lg:top-[calc(100%+0.75rem)] lg:w-[17rem]"
               >
                 <div className="px-3 pb-2 pt-2 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-white/35">
                   Nawigacja
