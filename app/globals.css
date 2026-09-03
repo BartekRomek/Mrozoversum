@@ -17,6 +17,12 @@ body {
   overflow-x: hidden;
 }
 
+.ad-banner {
+  background:rgba(8,9,13,.96);
+  border-top:1px solid rgba(255,255,255,.06);
+}
+[data-mrozoversum-theme="light"] .ad-banner { background:#eef0f3; border-top-color:rgba(15,23,42,.1); }
+
 .support-back {
   display: inline-flex;
   align-items: center;
@@ -59,6 +65,7 @@ body {
 .report-error { color:#fda4af; font-size:.8rem; }
 .report-success { color:#86efac; font-size:.85rem; line-height:1.5; }
 .report-status { margin:0; color:rgba(255,255,255,.42); font-size:.72rem; line-height:1.5; text-align:center; }
+.mobile-scroll-content, .mobile-page-scroll { -webkit-overflow-scrolling:touch; overscroll-behavior-y:contain; }
 .report-file { display:flex; align-items:center; gap:.55rem; min-width:0; border:1px solid rgba(244,63,94,.24); border-radius:.75rem; padding:.65rem .75rem; color:rgba(255,255,255,.7); font-size:.75rem; }
 .report-file span { min-width:0; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .report-file button { display:flex; flex:0 0 auto; border:0; background:none; color:inherit; cursor:pointer; }
@@ -99,7 +106,10 @@ body {
 [data-mrozoversum-theme="light"] .mrozoversum-menu [class*="bg-black/"] { background-color:rgba(15,23,42,.06) !important; }
 [data-mrozoversum-theme="light"] .filters-panel [class*="bg-[#090a0f]"] { background:#f1f3f5 !important; }
 
-@media (max-width: 767px) { .settings-section, .report-form { padding:1rem; } }
+@media (max-width: 767px) {
+  .settings-section, .report-form { padding:1rem; }
+  .mobile-page-scroll { height:100dvh; overflow-y:auto; }
+}
 
 body {
   margin: 0;

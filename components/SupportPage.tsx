@@ -1,27 +1,13 @@
 "use client";
 
-import { useEffect } from "react";
 import Link from "next/link";
 import { ArrowLeft, BookOpen, Coffee, Heart, Sparkles } from "lucide-react";
+import { usePageScroll } from "@/components/usePageScroll";
 
 type SupportPageProps = { onBack?: () => void };
 
 export function SupportPage({ onBack }: SupportPageProps) {
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const previousHtmlOverflow = html.style.overflow;
-    const previousBodyOverflow = body.style.overflow;
-    const previousBodyOverscroll = body.style.overscrollBehavior;
-    html.style.overflow = "auto";
-    body.style.overflow = "auto";
-    body.style.overscrollBehavior = "auto";
-    return () => {
-      html.style.overflow = previousHtmlOverflow;
-      body.style.overflow = previousBodyOverflow;
-      body.style.overscrollBehavior = previousBodyOverscroll;
-    };
-  }, []);
+  usePageScroll();
 
   const backControl = onBack ? (
     <button type="button" onClick={onBack} className="group flex items-center gap-3 text-white/65 transition hover:text-white">
@@ -36,7 +22,7 @@ export function SupportPage({ onBack }: SupportPageProps) {
   );
 
   return (
-    <main className="support-page min-h-screen overflow-x-hidden bg-[#08090d] text-[#f4f1ea]">
+    <main className="support-page mobile-page-scroll min-h-screen overflow-x-hidden bg-[#08090d] text-[#f4f1ea]">
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(225,29,72,0.17),transparent_34rem),radial-gradient(circle_at_85%_18%,rgba(184,134,11,0.09),transparent_28rem)]" />
       <header className="relative border-b border-white/10 bg-[#08090d]/80 backdrop-blur-2xl"><div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-5 sm:px-8 sm:py-7">{backControl}<span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-rose-300/70">Mrozoversum</span></div></header>
       <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-12 sm:px-8 sm:pt-20">

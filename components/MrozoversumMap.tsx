@@ -704,7 +704,7 @@ const updateBookCover = (bookId: string, cover: string) => {
 };
 
   return (
-    <div className="mrozoversum-map-shell relative flex h-[100dvh] min-h-[480px] flex-col overflow-hidden text-white">
+    <div className="mrozoversum-map-shell relative flex h-full min-h-0 flex-col overflow-hidden text-white">
       <header className="relative z-30 overflow-visible border-b border-white/10 bg-[rgba(7,8,12,0.88)] backdrop-blur-2xl">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(225,29,72,0.16),transparent_32%),linear-gradient(90deg,rgba(225,29,72,0.06),transparent_30%,transparent_70%,rgba(225,29,72,0.06))]" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-rose-500/45 to-transparent" />
@@ -771,7 +771,7 @@ const updateBookCover = (bookId: string, cover: string) => {
               />
               <div
                 id="mrozoversum-menu"
-                className="mrozoversum-menu fixed inset-x-3 bottom-4 z-[60] rounded-2xl border border-white/10 bg-[#090a0f]/95 p-2 shadow-2xl shadow-black/60 backdrop-blur-xl lg:absolute lg:inset-x-auto lg:bottom-auto lg:right-0 lg:top-[calc(100%+0.75rem)] lg:w-[17rem]"
+                className="mrozoversum-menu fixed inset-x-3 bottom-4 z-[60] max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain rounded-2xl border border-white/10 bg-[#090a0f]/95 p-2 shadow-2xl shadow-black/60 backdrop-blur-xl [-webkit-overflow-scrolling:touch] lg:absolute lg:inset-x-auto lg:bottom-auto lg:right-0 lg:top-[calc(100%+0.75rem)] lg:w-[17rem]"
               >
                 <div className="px-3 pb-2 pt-2 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-white/35">
                   Nawigacja
@@ -881,8 +881,8 @@ const updateBookCover = (bookId: string, cover: string) => {
 
       <aside
         className={clsx(
-          "filters-panel fixed inset-x-0 bottom-0 z-40 flex h-[min(82dvh,640px)] w-full max-w-full flex-col rounded-t-3xl border-t border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl transition-transform duration-300 md:inset-y-0 md:left-auto md:right-0 md:bottom-auto md:h-full md:w-[360px] md:rounded-none md:border-l md:border-t-0",
-          activeTopPanel === "filters" ? "translate-y-0 md:translate-x-0" : "translate-y-full md:translate-x-full"
+          "filters-panel fixed inset-0 z-[60] flex h-[100dvh] w-full max-w-full flex-col rounded-none border border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl transition-transform duration-300 md:inset-y-0 md:left-auto md:right-0 md:bottom-auto md:h-full md:w-[360px] md:rounded-none md:border-l md:border-t-0",
+          activeTopPanel === "filters" ? "translate-x-0" : "translate-x-full"
         )}
       >
         <header className="flex items-center justify-between border-b border-white/10 px-4 py-4 sm:px-6 sm:py-5">
@@ -899,7 +899,7 @@ const updateBookCover = (bookId: string, cover: string) => {
           </button>
         </header>
 
-        <div className="min-h-0 flex-1 space-y-7 overflow-y-auto p-4 sm:p-6">
+        <div className="mobile-scroll-content min-h-0 flex-1 space-y-7 overflow-y-auto p-4 sm:p-6">
           <div>
             <label className="mb-3 block text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
               Serie

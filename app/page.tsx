@@ -9,6 +9,7 @@ import { MrozoversumIntro } from "@/components/MrozoversumIntro";
 import { SupportPage } from "@/components/SupportPage";
 import { SettingsPage } from "@/components/SettingsPage";
 import { BugReportPage } from "@/components/BugReportPage";
+import { AdBanner } from "@/components/AdBanner";
 import type { Book, BookConnection, Character } from "@/lib/types";
 
 export default function Home() {
@@ -23,8 +24,8 @@ export default function Home() {
   return (
     <main className={activeView === "map" ? "min-h-screen overflow-hidden" : "min-h-screen"}>
       <div className={activeView === "map" ? "" : "pointer-events-none invisible fixed inset-0 z-0"} aria-hidden={activeView !== "map"}>
-        <>
-          <div className="mrozoversum-map-enter">
+        <div className="mrozoversum-app-shell flex h-[100dvh] flex-col overflow-hidden">
+          <div className="mrozoversum-map-enter min-h-0 flex-1">
             <MrozoversumMap
               books={books as Book[]}
               connections={connections as BookConnection[]}
@@ -35,8 +36,9 @@ export default function Home() {
               onOpenBugReport={() => setActiveView("bug-report")}
             />
           </div>
+          <AdBanner />
           <MrozoversumIntro onComplete={() => setIsIntroComplete(true)} />
-        </>
+        </div>
       </div>
       {activeView === "support" ? (
         <div className="relative z-10"><SupportPage onBack={() => setActiveView("map")} /></div>
