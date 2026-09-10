@@ -128,16 +128,16 @@
     "series": "Chylka",
     "debut": "Zaginięcie",
     "description": "Matka Nikoli.",
-    "avatar": "avatars/angelika-szle.png"
+    "avatar": "avatars/Angelika-Szle.png"
   },
   {
     "id": "awit-szlezyngier",
     "name": "Awit Szlezyngier",
     "role": "Biznesmen",
     "series": "Chylka",
-    "debut": "Kasacja",
+    "debut": "Zaginięcie",
     "description": "-",
-    "avatar": "avatars/awit-szle.png"
+    "avatar": "avatars/Awit-Szle.png"
   },
   {
     "id": "tatar",
@@ -368,7 +368,7 @@
     "name": "Tadeusz Tesarewicz",
     "role": "Działacz opozycyjny z czasów PRL",
     "series": "Chylka",
-    "debut": "Inwigilacja",
+    "debut": "Oskarżenie",
     "description": "Działacz opozycyjny z czasów PRL",
     "avatar": "avatars/tesarewicz.png"
   },
@@ -377,7 +377,7 @@
     "name": "Paulina Feruś",
     "role": "Młoda prokurator",
     "series": "Chylka",
-    "debut": "Inwigilacja",
+    "debut": "Oskarżenie",
     "description": "Młoda prokurator",
     "avatar": "avatars/ferus.png"
   },
@@ -386,7 +386,7 @@
     "name": "Marian Skopiński",
     "role": " Emerytowany prokurator",
     "series": "Chylka",
-    "debut": "Inwigilacja",
+    "debut": "Oskarżenie",
     "description": "Emerytowany prokurator",
     "avatar": "avatars/skopinski.png"
   },
@@ -395,7 +395,7 @@
     "name": "William McVay",
     "role": "Syn Harry’ego McVaya",
     "series": "Chylka",
-    "debut": "Inwigilacja",
+    "debut": "Oskarżenie",
     "description": "Syn Harry’ego McVaya",
     "avatar": "avatars/wiliam.png"
   },
@@ -405,7 +405,7 @@
     "role": "Syn Harry’ego McVaya",
     "hiddenRole": "Współpracownik Langera",
     "series": "Chylka",
-    "debut": "Inwigilacja",
+    "debut": "Oskarżenie",
     "description": "Syn Harry’ego McVaya",
     "avatar": "avatars/wiliam.png"
   },
@@ -416,7 +416,7 @@
     "hiddenRole": "Prawdizy morderca",
     "series": "Chylka",
     "debut": "Testament",
-    "description": "Prawdizy morderca",
+    "description": "Prawdziwy morderca",
     "avatar": "avatars/kranz.png"
   },
   {

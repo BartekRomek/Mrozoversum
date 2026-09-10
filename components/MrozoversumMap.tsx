@@ -853,11 +853,6 @@ const updateBookCover = (bookId: string, cover: string) => {
             gap={28}
             color="rgba(255,255,255,0.035)"
           />
-          <Controls
-            position="bottom-right"
-            className="!hidden max-[767px]:!flex !bottom-4 !right-4 sm:!bottom-6 sm:!right-6"
-            showInteractive={false}
-          />
           <Background
             id="coarse"
             gap={140}
@@ -868,7 +863,7 @@ const updateBookCover = (bookId: string, cover: string) => {
 
         <ConnectionLegend onOpenGuide={() => setGuideRequest((value) => value + 1)} />
         <MapGuide openRequest={guideRequest} introComplete={introComplete} />
-        <div className="pointer-events-none absolute bottom-20 right-4 z-30 sm:bottom-24 sm:right-6">
+        <div className="pointer-events-none absolute bottom-4 right-4 z-30 sm:bottom-6 sm:right-6">
           <div className="pointer-events-auto flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.035] px-3 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
             <Stat label="Relacje" value={connections.length} />
             <div className="h-6 w-px bg-white/10" />
