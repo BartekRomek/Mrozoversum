@@ -15,8 +15,8 @@ import {
   type NodeMouseHandler,
   type ReactFlowInstance
 } from "@xyflow/react";
-import { sendGAEvent } from "@next/third-parties/google";
-import { Bug, Coffee, Map as MapIcon, Menu, Settings, X, SlidersHorizontal } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
+import { Bug, Coffee, LocateFixed, Map as MapIcon, Menu, Settings, X, SlidersHorizontal, Book as BookIcon } from "lucide-react";
 import { clsx } from "clsx";
 import { BookNode } from "@/components/BookNode";
 import { BookDetailsPanel } from "@/components/BookDetailsPanel";
@@ -46,6 +46,7 @@ type MrozoversumMapProps = {
   onOpenSupport?: () => void;
   onOpenSettings?: () => void;
   onOpenBugReport?: () => void;
+  onOpenCharacters?: () => void;
 };
 
 type ActiveTopPanel = "menu" | "filters" | null;
@@ -57,6 +58,21 @@ const relationTypes: RelationType[] = [
   "epizod",
   "zmiana_serii"
 ];
+
+const BOOK_NODE_WIDTH = 154;
+const BOOK_NODE_HEIGHT = 260;
+const MAP_BOUNDS_MARGIN = 650;
+const SERIES_LABEL_GUTTER = 1260;
+const FIT_VIEW_PADDING = 0.24;
+const INITIAL_VIEWPORT_X_OFFSET = 0;
+const MOBILE_VIEWPORT_X_OFFSET = 48;
+const INITIAL_FIT_VIEW_PADDING = FIT_VIEW_PADDING;
+
+function getInitialViewportXOffset() {
+  return typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches
+    ? MOBILE_VIEWPORT_X_OFFSET
+    : INITIAL_VIEWPORT_X_OFFSET;
+}
 
 function AxisPointNode({ data }: { data: any }) {
   const color = data?.color || "#e11d48";
@@ -73,24 +89,28 @@ function AxisPointNode({ data }: { data: any }) {
         type="target"
         position={Position.Top}
         id="target-top"
+        isConnectable={false}
         className="opacity-0"
       />
       <Handle
         type="target"
         position={Position.Bottom}
         id="target-bottom"
+        isConnectable={false}
         className="opacity-0"
       />
       <Handle
         type="source"
         position={Position.Top}
         id="source-top"
+        isConnectable={false}
         className="opacity-0"
       />
       <Handle
         type="source"
         position={Position.Bottom}
         id="source-bottom"
+        isConnectable={false}
         className="opacity-0"
       />
     </div>
@@ -143,79 +163,113 @@ function TimelineLines() {
   }, []);
 
   const rows = [
-    { key: "Wladza", label: "W KRĘGACH WŁADZY", y: rowY.Wladza + offset },
-    { key: "Forst", label: "FORST", y: rowY.Forst + offset },
-    { key: "Chylka", label: "CHYŁKA", y: rowY.Chylka + offset },
-    { key: "Langer", label: "LANGER", y: rowY.Langer + offset },
+    { key: "Wladza", series: "Wladza" as SeriesId, label: "W KRĘGACH WŁADZY", y: rowY.Wladza + offset },
+    { key: "Forst", series: "Forst" as SeriesId, label: "FORST", y: rowY.Forst + offset },
+    { key: "Chylka", series: "Chylka" as SeriesId, label: "CHYŁKA", y: rowY.Chylka + offset },
+    { key: "Langer", series: "Langer" as SeriesId, label: "LANGER", y: rowY.Langer + offset },
     {
       key: "Zaorski",
+      series: "Zaorski" as SeriesId,
       label: "SEWERYN ZAORSKI",
       y: rowY.Zaorski + offset
     },
     {
       key: "Behawiorysta",
+      series: "Behawiorysta" as SeriesId,
       label: "Gerard Edling",
       y: rowY.Behawiorysta + offset
     }
   ];
 
   return (
-    <svg className="absolute inset-0 pointer-events-none z-0 w-full h-full overflow-visible">
-      <g transform={`translate(${x}, ${y}) scale(${zoom})`}>
-        {rows.map((row) => (
-          <line
-            key={row.key}
-            x1="-50000"
-            y1={row.y}
-            x2="50000"
-            y2={row.y}
-            stroke="rgba(225, 29, 72, 0.16)"
-            strokeWidth="1"
-          />
-        ))}
-      </g>
-
-      {rows.map((row) => {
-        const labelY = row.y * zoom + y - 8;
-        const labelWidth = isMobile
-          ? row.label.length * 8 + 20
-          : row.label.length * 10 + 28;
-        const labelX = 18;
-        const labelTextX = isMobile ? labelX + labelWidth / 2 : 32;
-
-        return (
-          <g key={row.key}>
-            <rect
-              className="timeline-series-label-bg"
-              x={labelX}
-              y={labelY - (isMobile ? 14 : 18)}
-              width={labelWidth}
-              height={isMobile ? "22" : "28"}
-              rx={isMobile ? "6" : "8"}
-              fill="rgba(7, 8, 12, 0.62)"
-              stroke="rgba(225, 29, 72, 0.12)"
+    <>
+      <svg className="absolute inset-0 pointer-events-none z-0 w-full h-full overflow-visible">
+        <g transform={`translate(${x}, ${y}) scale(${zoom})`}>
+          {rows.map((row) => (
+            <line
+              key={row.key}
+              x1="-50000"
+              y1={row.y}
+              x2="50000"
+              y2={row.y}
+              stroke="rgba(225, 29, 72, 0.16)"
+              strokeWidth="1"
             />
-            <text
-              className="timeline-series-label font-mono"
-              x={labelTextX}
-              y={isMobile ? labelY - 3 : labelY}
-              fill="rgba(244, 63, 94, 0.78)"
-              fontSize="12"
-              fontWeight="800"
-              letterSpacing="3"
-              textAnchor={isMobile ? "middle" : undefined}
-              dominantBaseline={isMobile ? "middle" : undefined}
-            >
-              {row.label}
-            </text>
-          </g>
-        );
-      })}
-    </svg>
+          ))}
+        </g>
+
+        {rows.map((row) => {
+          const labelY = row.y * zoom + y + 4;
+          const seriesColor = seriesColors[row.series];
+          const labelWidth = isMobile
+            ? row.label.length * 8 + 20
+            : row.label.length * 10 + 28;
+          const labelX = 18;
+
+          return (
+            <line
+              key={row.key}
+              x1={labelX + labelWidth + 8}
+              y1={labelY - 4}
+              x2="100%"
+              y2={labelY - 4}
+              stroke={seriesColor}
+              strokeOpacity="0.2"
+              strokeWidth="1"
+              strokeLinecap="round"
+              style={{ filter: `drop-shadow(0 0 5px ${seriesColor}33)` }}
+            />
+          );
+        })}
+      </svg>
+
+      <svg className="absolute inset-0 pointer-events-none z-20 w-full h-full overflow-visible">
+        {rows.map((row) => {
+          const labelY = row.y * zoom + y + 4;
+          const seriesColor = seriesColors[row.series];
+          const labelWidth = isMobile
+            ? row.label.length * 8 + 20
+            : row.label.length * 10 + 28;
+          const labelX = 18;
+          const labelTextX = isMobile ? labelX + labelWidth / 2 : 32;
+
+          return (
+            <g key={row.key}>
+              <rect
+                className="timeline-series-label-bg"
+                x={labelX}
+                y={labelY - (isMobile ? 14 : 18)}
+                width={labelWidth}
+                height={isMobile ? "22" : "28"}
+                rx={isMobile ? "6" : "8"}
+                fill="rgba(7, 8, 12, 0.96)"
+                stroke={seriesColor}
+                strokeOpacity="0.34"
+                style={{ filter: `drop-shadow(0 0 7px ${seriesColor}55)` }}
+              />
+              <text
+                className="timeline-series-label font-mono"
+                x={labelTextX}
+                y={isMobile ? labelY - 3 : labelY}
+                fill={seriesColor}
+                fillOpacity="0.86"
+                fontSize="12"
+                fontWeight="800"
+                letterSpacing="3"
+                textAnchor={isMobile ? "middle" : undefined}
+                dominantBaseline={isMobile ? "middle" : undefined}
+              >
+                {row.label}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+    </>
   );
 }
 
-export function MrozoversumMap({ books, connections, characters = [], introComplete = false, onOpenSupport, onOpenSettings, onOpenBugReport }: MrozoversumMapProps) {
+export function MrozoversumMap({ books, connections, characters = [], introComplete = false, onOpenSupport, onOpenSettings, onOpenBugReport, onOpenCharacters, }: MrozoversumMapProps) {
   const [selectedSeries, setSelectedSeries] = useState<SeriesId[]>(seriesOrder);
   const [selectedRelations, setSelectedRelations] = useState<RelationType[]>(relationTypes);
   const [draftSeries, setDraftSeries] = useState<SeriesId[]>(seriesOrder);
@@ -229,8 +283,13 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
   const [guideRequest, setGuideRequest] = useState(0);
 
   const reactFlowInstanceRef = useRef<ReactFlowInstance | null>(null);
+  const initialFitAppliedRef = useRef(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const menuItemClass = "group flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-xs font-semibold uppercase tracking-[0.12em] text-white/75 transition hover:bg-white/[0.06] hover:text-rose-100";
+
+  useEffect(() => {
+    trackEvent("map_open");
+  }, []);
 
   useEffect(() => {
     if (activeTopPanel !== "menu") return;
@@ -380,12 +439,10 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
         let finalX = xPositions.get(book.id) ?? 0;
 
         if (isAxis) {
-          const parentBookId = book.id.split("-axis-")[1];
-          const parentX = parentBookId
-            ? xPositions.get(parentBookId) ?? 0
-            : finalX;
+          const timelineSlot = book.timeline ?? book.order;
+          const timelineX = (timelineSlot - 1) * 245;
 
-          finalX = parentX + 77;
+          finalX = timelineX + 77;
         }
 
         let axisColor = undefined;
@@ -517,6 +574,109 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
     visibleConnections
   ]);
 
+  const graphBounds = useMemo(() => {
+    if (nodes.length === 0) {
+      return {
+        minX: -MAP_BOUNDS_MARGIN,
+        minY: -MAP_BOUNDS_MARGIN,
+        maxX: MAP_BOUNDS_MARGIN,
+        maxY: MAP_BOUNDS_MARGIN
+      };
+    }
+
+    return nodes.reduce(
+      (current, node) => {
+        const isBook = node.type === "book";
+        const width = isBook ? BOOK_NODE_WIDTH : 16;
+        const height = isBook ? BOOK_NODE_HEIGHT : 16;
+
+        return {
+          minX: Math.min(current.minX, node.position.x),
+          minY: Math.min(current.minY, node.position.y),
+          maxX: Math.max(current.maxX, node.position.x + width),
+          maxY: Math.max(current.maxY, node.position.y + height)
+        };
+      },
+      {
+        minX: Number.POSITIVE_INFINITY,
+        minY: Number.POSITIVE_INFINITY,
+        maxX: Number.NEGATIVE_INFINITY,
+        maxY: Number.NEGATIVE_INFINITY
+      }
+    );
+  }, [nodes]);
+
+  const translateExtent = useMemo(() => {
+
+    return [
+      [
+        Number.NEGATIVE_INFINITY,
+        graphBounds.minY - MAP_BOUNDS_MARGIN
+      ],
+      [
+        Number.POSITIVE_INFINITY,
+        graphBounds.maxY + MAP_BOUNDS_MARGIN
+      ]
+    ] as [[number, number], [number, number]];
+  }, [graphBounds]);
+
+  const fitMapView = useCallback(
+    (duration = 0, xOffset = 0, padding = FIT_VIEW_PADDING) => {
+      const instance = reactFlowInstanceRef.current;
+
+      if (!instance || nodes.length === 0) return;
+
+      const kasacjaNode = nodes.find(
+        (node) =>
+          node.type === "book" &&
+          (node.data as BookNodeData | undefined)?.book.id === "kasacja"
+      );
+      const leftBound = Math.min(
+        graphBounds.minX,
+        kasacjaNode?.position.x ?? graphBounds.minX
+      );
+
+      void instance.fitBounds(
+        {
+          x: leftBound - SERIES_LABEL_GUTTER,
+          y: graphBounds.minY,
+          width: graphBounds.maxX - leftBound + SERIES_LABEL_GUTTER,
+          height: graphBounds.maxY - graphBounds.minY
+        },
+        {
+          padding,
+          duration
+        }
+      ).then(() => {
+        if (xOffset === 0) return;
+
+        const viewport = instance.getViewport();
+        instance.setViewport(
+          { ...viewport, x: viewport.x + xOffset },
+          { duration: 0 }
+        );
+      });
+    },
+    [graphBounds, nodes.length]
+  );
+
+  useEffect(() => {
+    if (
+      initialFitAppliedRef.current ||
+      !reactFlowInstanceRef.current ||
+      nodes.length === 0
+    ) {
+      return;
+    }
+
+    initialFitAppliedRef.current = true;
+    const frame = requestAnimationFrame(() =>
+      fitMapView(0, getInitialViewportXOffset(), INITIAL_FIT_VIEW_PADDING)
+    );
+
+    return () => cancelAnimationFrame(frame);
+  }, [fitMapView, nodes.length]);
+
   const selectedBook = selectedBookId
     ? bookById.get(selectedBookId) ?? null
     : null;
@@ -583,9 +743,8 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
       focusMapPoint(getNodeFocusPoint(node as Node<BookNodeData | any>));
 
       if (book) {
-        sendGAEvent("event", "book_open", {
+        trackEvent("book_open", {
           book_id: book.id,
-          book_title: book.title,
           series: book.series
         });
       }
@@ -609,10 +768,8 @@ const onEdgeClick: EdgeMouseHandler = useCallback(
       const sourceBook = bookById.get(connection.source);
       const targetBook = bookById.get(connection.target);
 
-      sendGAEvent("event", "connection_open", {
+      trackEvent("related_entity_open", {
         relation_id: edge.id,
-        source_book: sourceBook?.title ?? connection.source,
-        target_book: targetBook?.title ?? connection.target,
         relation_type: connection.type
       });
     }
@@ -636,7 +793,7 @@ const onEdgeClick: EdgeMouseHandler = useCallback(
 const toggleSeries = (series: SeriesId) => {
   const isCurrentlySelected = draftSeries.includes(series);
 
-  sendGAEvent("event", "filter_change", {
+  trackEvent("filter_change", {
     filter_type: "series",
     filter_value: series,
     action: isCurrentlySelected ? "disabled" : "enabled"
@@ -652,7 +809,7 @@ const toggleSeries = (series: SeriesId) => {
 const toggleRelation = (relation: RelationType) => {
   const isCurrentlySelected = draftRelations.includes(relation);
 
-  sendGAEvent("event", "filter_change", {
+  trackEvent("filter_change", {
     filter_type: "relation",
     filter_value: relation,
     action: isCurrentlySelected ? "disabled" : "enabled"
@@ -666,7 +823,7 @@ const toggleRelation = (relation: RelationType) => {
 };
 
  const resetFilters = () => {
-  sendGAEvent("event", "filters_reset");
+  trackEvent("filters_reset");
 
   setDraftSeries(seriesOrder);
   setDraftRelations(relationTypes);
@@ -722,7 +879,7 @@ const updateBookCover = (bookId: string, cover: string) => {
             </div>
           </div>
 
-          <div className="pointer-events-none relative order-1 flex shrink-0 flex-col items-center lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2">
+          <div className="pointer-events-none relative order-1 min-w-0 shrink items-center lg:absolute lg:left-1/2 lg:top-1/2 lg:flex lg:-translate-x-1/2 lg:-translate-y-1/2 lg:flex-col">
             <h1 className="text-xl font-extrabold tracking-tight text-white drop-shadow-[0_0_18px_rgba(255,255,255,0.12)] sm:text-3xl lg:text-4xl">
               MROZOVERSUM
             </h1>
@@ -733,16 +890,10 @@ const updateBookCover = (bookId: string, cover: string) => {
             ref={menuRef}
             className="relative order-2 ml-auto flex w-auto items-center justify-end gap-2 sm:gap-3"
           >
-            <button
-              onClick={openFilters}
-              aria-label="Otwórz filtry"
-              className="group flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.045] p-0 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_10px_28px_rgba(0,0,0,0.18)] transition hover:border-rose-400/35 hover:bg-rose-500/10 hover:text-rose-50 lg:h-10 lg:w-auto lg:gap-2 lg:px-4"
-            >
-              <span className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/10 bg-black/20 text-rose-200 transition group-hover:border-rose-300/35 group-hover:bg-rose-500/15">
-                <SlidersHorizontal size={15} />
-              </span>
-              <span className="hidden lg:inline">Filtry</span>
-            </button>
+            <MapStats
+              relationCount={connections.length}
+              seriesCount={seriesOrder.length}
+            />
 
             <button
               type="button"
@@ -810,6 +961,17 @@ const updateBookCover = (bookId: string, cover: string) => {
                   type="button"
                   onClick={() => {
                     setActiveTopPanel(null);
+                    onOpenCharacters?.();
+                  }}
+                  className={menuItemClass}
+                >
+                  <BookIcon size={16} className="shrink-0 text-white/55 transition group-hover:text-rose-200" />
+                  Bohaterowie
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setActiveTopPanel(null);
                     onOpenSettings?.();
                   }}
                   className={menuItemClass}
@@ -830,13 +992,15 @@ const updateBookCover = (bookId: string, cover: string) => {
           nodeTypes={nodeTypes}
           onInit={(instance) => {
             reactFlowInstanceRef.current = instance;
+            initialFitAppliedRef.current = true;
+            requestAnimationFrame(() =>
+              fitMapView(0, getInitialViewportXOffset(), INITIAL_FIT_VIEW_PADDING)
+            );
           }}
           onNodeClick={onNodeClick}
           onEdgeClick={onEdgeClick}
           onEdgeMouseEnter={onEdgeMouseEnter}
           onEdgeMouseLeave={onEdgeMouseLeave}
-          fitView
-          fitViewOptions={{ padding: 0.22, maxZoom: 1.05 }}
           minZoom={0.22}
           maxZoom={1.55}
           className="touch-none"
@@ -845,6 +1009,9 @@ const updateBookCover = (bookId: string, cover: string) => {
           zoomOnPinch
           preventScrolling
           nodesDraggable={false}
+          nodesConnectable={false}
+          edgesReconnectable={false}
+          translateExtent={translateExtent}
           proOptions={{ hideAttribution: true }}
           defaultEdgeOptions={{ type: "smoothstep" }}
         >
@@ -861,15 +1028,13 @@ const updateBookCover = (bookId: string, cover: string) => {
           <TimelineLines />
         </ReactFlow>
 
-        <ConnectionLegend onOpenGuide={() => setGuideRequest((value) => value + 1)} />
+        <ConnectionLegend
+          showFilter
+          onOpenFilters={openFilters}
+          onCenterMap={() => fitMapView(650, getInitialViewportXOffset())}
+          onOpenGuide={() => setGuideRequest((value) => value + 1)}
+        />
         <MapGuide openRequest={guideRequest} introComplete={introComplete} />
-        <div className="pointer-events-none absolute bottom-4 right-4 z-30 sm:bottom-6 sm:right-6">
-          <div className="pointer-events-auto flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.035] px-3 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
-            <Stat label="Relacje" value={connections.length} />
-            <div className="h-6 w-px bg-white/10" />
-            <Stat label="Serie" value={seriesOrder.length} />
-          </div>
-        </div>
         <div className="pointer-events-none absolute inset-0 z-20 bg-[radial-gradient(circle_at_50%_35%,transparent_0%,transparent_48%,rgba(0,0,0,0.32)_100%)]" />
         <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-16 bg-gradient-to-b from-black/35 to-transparent" />
       </section>
@@ -1015,20 +1180,72 @@ const updateBookCover = (bookId: string, cover: string) => {
   );
 }
 
-function ConnectionLegend({ onOpenGuide }: { onOpenGuide: () => void }) {
+function FilterButton({
+  onClick,
+  mobileToolbar = false
+}: {
+  onClick: () => void;
+  mobileToolbar?: boolean;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label="Otwórz filtry"
+      className={mobileToolbar ? "pointer-events-auto flex h-11 min-w-[88px] shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-[#08090d]/82 px-2 text-[9px] font-black uppercase tracking-[0.12em] text-white/72 shadow-2xl shadow-black/50 transition duration-300 hover:scale-95 hover:border-rose-400/25 hover:text-rose-100 max-md:!w-full max-md:!min-w-0 max-md:!max-w-none sm:h-12 sm:min-w-[116px] sm:px-4 sm:text-[11px] sm:tracking-[0.18em]" : "group flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.045] p-0 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_10px_28px_rgba(0,0,0,0.18)] transition hover:border-rose-400/35 hover:bg-rose-500/10 hover:text-rose-50 lg:h-10 lg:w-auto lg:gap-2 lg:px-4"}
+    >
+      <span className={mobileToolbar ? "hidden" : "flex h-7 w-7 items-center justify-center rounded-lg border border-white/10 bg-black/20 text-rose-200 transition group-hover:border-rose-300/35 group-hover:bg-rose-500/15"}>
+        <SlidersHorizontal size={15} />
+      </span>
+      <span className={mobileToolbar ? "block" : "hidden lg:inline"}>Filtry</span>
+    </button>
+  );
+}
+
+function MapStats({ relationCount, seriesCount }: { relationCount: number; seriesCount: number }) {
+  return (
+    <div className="pointer-events-none flex h-10 shrink-0 items-center gap-2 rounded-xl border border-white/10 bg-white/[0.035] px-3 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+      <Stat label="Relacje" value={relationCount} />
+      <div className="h-6 w-px bg-white/10" />
+      <Stat label="Serie" value={seriesCount} />
+    </div>
+  );
+}
+
+function ConnectionLegend({
+  showFilter = false,
+  onOpenFilters,
+  onCenterMap,
+  onOpenGuide
+}: {
+  showFilter?: boolean;
+  onOpenFilters?: () => void;
+  onCenterMap: () => void;
+  onOpenGuide: () => void;
+}) {
   const [isHelpOpen, setIsHelpOpen] = useState(false);
 
   return (
-    <div className="connection-legend absolute bottom-4 left-4 z-30 sm:bottom-6 sm:left-6">
+    <div className="connection-legend absolute bottom-[max(12px,env(safe-area-inset-bottom))] left-3 z-30 flex items-center gap-1 max-md:!grid max-md:!grid-cols-3 max-md:!gap-1 max-md:!w-[calc(100vw-24px)] max-md:!max-w-[calc(100vw-24px)] sm:bottom-6 sm:left-6 sm:gap-2">
+      <button
+        type="button"
+        aria-label="Wyśrodkuj mapę"
+        onClick={onCenterMap}
+        className="pointer-events-auto flex h-11 min-w-[120px] shrink-0 items-center justify-center gap-1.5 rounded-2xl border border-white/10 bg-[#08090d]/82 px-2 text-[9px] font-black uppercase tracking-[0.12em] text-white/72 shadow-2xl shadow-black/50 transition duration-300 hover:scale-95 hover:border-rose-400/25 hover:text-rose-100 max-md:!w-full max-md:!min-w-0 max-md:!max-w-none sm:h-12 sm:min-w-[142px] sm:gap-2 sm:px-4 sm:text-[11px] sm:tracking-[0.16em]"
+      >
+        <LocateFixed size={15} />
+        WYŚRODKUJ
+      </button>
       <button
         type="button"
         aria-expanded={isHelpOpen}
         aria-controls="connection-help"
         onClick={() => setIsHelpOpen((open) => !open)}
-        className="connection-legend-trigger pointer-events-auto flex h-11 min-w-[100px] items-center justify-center rounded-2xl border border-white/10 bg-[#08090d]/82 px-3 text-[10px] font-black uppercase tracking-[0.18em] text-white/72 shadow-2xl shadow-black/50 transition duration-300 hover:scale-95 hover:border-rose-400/25 hover:text-rose-100 sm:h-12 sm:min-w-[116px] sm:px-4 sm:text-[11px]"
+        className="pointer-events-auto flex h-11 min-w-[120px] shrink-0 items-center justify-center gap-1.5 rounded-2xl border border-white/10 bg-[#08090d]/82 px-2 text-[9px] font-black uppercase tracking-[0.12em] text-white/72 shadow-2xl shadow-black/50 transition duration-300 hover:scale-95 hover:border-rose-400/25 hover:text-rose-100 max-md:!w-full max-md:!min-w-0 max-md:!max-w-none sm:h-12 sm:min-w-[142px] sm:gap-2 sm:px-4 sm:text-[11px] sm:tracking-[0.16em]"
       >
         POMOC
       </button>
+      {showFilter && onOpenFilters && <FilterButton onClick={onOpenFilters} mobileToolbar />}
       {isHelpOpen && (
         <div id="connection-help" className="map-help-popover" role="dialog" aria-label="Pomoc i legenda relacji">
           <div className="map-help-popover__header">
@@ -1161,12 +1378,12 @@ function Stat({
   value: number;
 }) {
   return (
-    <div className="min-w-[54px] text-center">
-      <span className="block font-mono text-[8px] font-bold uppercase tracking-[0.18em] text-white/[0.35]">
+    <div className="min-w-[44px] text-center sm:min-w-[54px]">
+      <span className="block font-mono text-[7px] font-bold uppercase tracking-[0.08em] text-white/[0.35] sm:text-[8px] sm:tracking-[0.18em]">
         {label}
       </span>
 
-      <span className="mt-0.5 block text-sm font-semibold leading-none text-white">
+      <span className="mt-0.5 block text-xs font-semibold leading-none text-white sm:text-sm">
         {value}
       </span>
     </div>

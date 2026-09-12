@@ -35,15 +35,15 @@ export function BookNode({ data }: NodeProps) {
       )}
 
       <div className="relative w-[154px]">
-        <Handle type="target" position={Position.Top} id="target-top" className="!bg-transparent !border-transparent" />
-        <Handle type="target" position={Position.Right} id="target-right" className="!bg-transparent !border-transparent" />
-        <Handle type="target" position={Position.Bottom} id="target-bottom" className="!bg-transparent !border-transparent" />
-        <Handle type="target" position={Position.Left} id="target-left" className="!bg-transparent !border-transparent" />
+        <Handle type="target" position={Position.Top} id="target-top" isConnectable={false} className="!bg-transparent !border-transparent" />
+        <Handle type="target" position={Position.Right} id="target-right" isConnectable={false} className="!bg-transparent !border-transparent" />
+        <Handle type="target" position={Position.Bottom} id="target-bottom" isConnectable={false} className="!bg-transparent !border-transparent" />
+        <Handle type="target" position={Position.Left} id="target-left" isConnectable={false} className="!bg-transparent !border-transparent" />
 
-        <Handle type="source" position={Position.Top} id="source-top" className="!bg-transparent !border-transparent" />
-        <Handle type="source" position={Position.Right} id="source-right" className="!bg-transparent !border-transparent" />
-        <Handle type="source" position={Position.Bottom} id="source-bottom" className="!bg-transparent !border-transparent" />
-        <Handle type="source" position={Position.Left} id="source-left" className="!bg-transparent !border-transparent" />
+        <Handle type="source" position={Position.Top} id="source-top" isConnectable={false} className="!bg-transparent !border-transparent" />
+        <Handle type="source" position={Position.Right} id="source-right" isConnectable={false} className="!bg-transparent !border-transparent" />
+        <Handle type="source" position={Position.Bottom} id="source-bottom" isConnectable={false} className="!bg-transparent !border-transparent" />
+        <Handle type="source" position={Position.Left} id="source-left" isConnectable={false} className="!bg-transparent !border-transparent" />
 
         <article
           className={clsx(

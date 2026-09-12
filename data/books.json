@@ -546,7 +546,7 @@
     "description": "Punkt na osi Wladza.",
     "certainty": 100,
     "order": 0,
-    "timeline": 19,
+    "timeline": 21,
     "year": 2021
   },
   {
@@ -579,7 +579,7 @@
     "description": "Strefa 5. Bezpośredni poprzednik finałowego rozbicia i ostatnich decyzji Chyłki.",
     "certainty": 100,
     "order": 18,
-    "timeline": 22.5,
+    "timeline": 13,
     "year": 2024
   },
   {
@@ -645,7 +645,7 @@
     "description": "Punkt na osi Langera.",
     "certainty": 100,
     "order": 0,
-    "timeline": 23.5,
+    "timeline": 24.5,
     "year": 2017
   },
  {
@@ -656,7 +656,7 @@
     "description": "Punkt na osi Langera.",
     "certainty": 100,
     "order": 0,
-    "timeline": 24.5
+    "timeline": 26.5
   },
  {
     "id": "chylka-axis-arachnia",
@@ -666,7 +666,7 @@
     "description": "Punkt na osi Langera.",
     "certainty": 100,
     "order": 0,
-    "timeline": 25.5
+    "timeline": 29.5
   },
  {
     "id": "forst-axis-substytucja",
@@ -676,7 +676,7 @@
     "description": "Punkt na osi Langera.",
     "certainty": 100,
     "order": 0,
-    "timeline": 22.5,
+    "timeline": 28.5,
     "year": 2024
   }
 ]

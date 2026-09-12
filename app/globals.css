@@ -36,6 +36,15 @@ body {
   transition: color .2s ease;
 }
 .support-back:hover { color: #fff; }
+.subpage-layout__header { min-height: calc(72px + env(safe-area-inset-top)); }
+.subpage-layout__header > div { min-height: inherit; }
+.subpage-layout__back { display:inline-flex; align-items:center; gap:.75rem; min-width:0; color:rgba(255,255,255,.65); font-family:var(--font-geist-mono),monospace; font-size:.625rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; transition:color .2s ease; }
+.subpage-layout__back:hover { color:#fff; }
+.subpage-layout__back-icon { display:flex; height:2.75rem; width:2.75rem; flex:0 0 auto; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,.1); border-radius:.75rem; background:rgba(255,255,255,.04); transition:border-color .2s ease,background .2s ease; }
+.subpage-layout__back:hover .subpage-layout__back-icon { border-color:rgba(251,113,133,.35); background:rgba(225,29,72,.1); }
+.subpage-layout__glow { background:radial-gradient(circle at 20% 0%,rgba(225,29,72,.17),transparent 34rem),radial-gradient(circle at 85% 18%,rgba(184,134,11,.09),transparent 28rem),#08090d; }
+@media (min-width: 640px) { .subpage-layout__header { min-height:88px; } }
+@media (max-width: 420px) { .subpage-layout__back { gap:.5rem; font-size:.56rem; letter-spacing:.12em; } .subpage-layout__back-icon { height:2.5rem; width:2.5rem; } }
 .settings-section, .report-form {
   margin-top: 1.25rem;
   border: 1px solid rgba(255,255,255,.1);
@@ -166,20 +175,32 @@ button,
     letter-spacing: 2px;
   }
 
-  .connection-legend {
+  .mrozoversum-map-shell .connection-legend {
     bottom: max(12px, env(safe-area-inset-bottom));
     left: 12px;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    column-gap: 4px !important;
+    row-gap: 0 !important;
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+  }
+
+  .mrozoversum-map-shell .connection-legend > button {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    justify-self: stretch !important;
+    align-self: stretch !important;
+    height: 40px;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 9px !important;
+    letter-spacing: 0.08em;
   }
 
   .connection-legend-trigger {
-    min-width: 0;
-    width: 82px;
-    height: 40px;
-    padding-left: 8px;
-    padding-right: 8px;
     border-radius: 12px;
-    font-size: 8px;
-    letter-spacing: 0.12em;
   }
 
 }

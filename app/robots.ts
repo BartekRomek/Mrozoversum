@@ -6,7 +6,8 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      allow: "/"
+      allow: "/",
+      disallow: ["/ustawienia", "/zglos-blad", "/api/"]
     },
     sitemap: "https://mrozoversum.pl/sitemap.xml"
   };

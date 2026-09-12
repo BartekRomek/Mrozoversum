@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
 import {
-  ArrowLeft,
   BookOpen,
   Coffee,
   Heart,
@@ -11,6 +9,7 @@ import {
 
 import { usePageScroll } from "@/components/usePageScroll";
 import { assetPath } from "@/lib/assetPath";
+import { SubpageLayout } from "@/components/SubpageLayout";
 
 type SupportPageProps = {
   onBack?: () => void;
@@ -19,52 +18,8 @@ type SupportPageProps = {
 export function SupportPage({ onBack }: SupportPageProps) {
   usePageScroll();
 
-  const backControl = onBack ? (
-    <button
-      type="button"
-      onClick={onBack}
-      className="group flex items-center gap-3 text-white/65 transition hover:text-white"
-    >
-      <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] transition group-hover:border-rose-400/35 group-hover:bg-rose-500/10">
-        <ArrowLeft size={18} />
-      </span>
-
-      <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em]">
-        Wróć do mapy
-      </span>
-    </button>
-  ) : (
-    <Link
-      href="/"
-      className="group flex items-center gap-3 text-white/65 transition hover:text-white"
-    >
-      <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] transition group-hover:border-rose-400/35 group-hover:bg-rose-500/10">
-        <ArrowLeft size={18} />
-      </span>
-
-      <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em]">
-        Wróć do mapy
-      </span>
-    </Link>
-  );
-
   return (
-    <main className="support-page mobile-page-scroll min-h-screen overflow-x-hidden bg-[#08090d] text-[#f4f1ea]">
-
-      {/* TŁO */}
-      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(225,29,72,0.17),transparent_34rem),radial-gradient(circle_at_85%_18%,rgba(184,134,11,0.09),transparent_28rem)]" />
-
-      {/* HEADER */}
-      <header className="relative border-b border-white/10 bg-[#08090d]/80 backdrop-blur-2xl">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-5 sm:px-8 sm:py-7">
-          {backControl}
-
-          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-rose-300/70">
-            Mrozoversum
-          </span>
-        </div>
-      </header>
-
+    <SubpageLayout onBack={onBack} className="support-page">
       <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-12 sm:px-8 sm:pt-20">
 
         {/* HERO */}
@@ -275,6 +230,6 @@ export function SupportPage({ onBack }: SupportPageProps) {
 
       </div>
 
-    </main>
+    </SubpageLayout>
   );
 }
