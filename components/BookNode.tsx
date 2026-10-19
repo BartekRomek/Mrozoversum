@@ -50,6 +50,8 @@ export function BookNode({ data }: NodeProps) {
             "group relative h-full w-full overflow-hidden border bg-[#11131a]/95 shadow-2xl transition duration-300 hover:-translate-y-1 hover:scale-[1.015] hover:border-white/25",
             isSelected
               ? "border-rose-400 shadow-rose-950/60"
+              : book.isNew
+                ? "border-emerald-400 shadow-emerald-950/60"
               : "border-white/10 shadow-black/50",
             isDimmed && "opacity-25 grayscale"
           )}
@@ -58,6 +60,8 @@ export function BookNode({ data }: NodeProps) {
             background: `linear-gradient(180deg, ${seriesColors[book.series]}26, rgba(17, 19, 26, 0.98) 34%)`,
             boxShadow: isSelected
               ? `0 0 0 2px ${seriesColors[book.series]}99, 0 22px 70px rgba(0,0,0,.58), 0 0 24px ${seriesColors[book.series]}44`
+              : book.isNew
+                ? "0 0 0 2px rgba(52, 211, 153, .8), 0 18px 48px rgba(0,0,0,.48), 0 0 28px rgba(16, 185, 129, .3)"
               : `0 18px 48px rgba(0,0,0,.48), 0 0 24px ${seriesColors[book.series]}24`
           }}
         >
@@ -84,9 +88,16 @@ export function BookNode({ data }: NodeProps) {
                   boxShadow: `0 0 18px ${seriesColors[book.series]}`
                 }}
               />
-              <span className="rounded-sm bg-black/55 px-1.5 py-0.5 font-mono text-[10px] text-white/70">
-                {book.year ?? "----"}
-              </span>
+              <div className="flex items-center gap-1.5">
+                {book.isNew && (
+                  <span className="rounded-sm border border-emerald-300/70 bg-emerald-400/20 px-1.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-emerald-200 shadow-[0_0_12px_rgba(52,211,153,0.35)]">
+                    new
+                  </span>
+                )}
+                <span className="rounded-sm bg-black/55 px-1.5 py-0.5 font-mono text-[10px] text-white/70">
+                  {book.year ?? "----"}
+                </span>
+              </div>
             </div>
 
             <div className="absolute inset-x-0 bottom-0 p-3">

@@ -451,6 +451,18 @@
     "year": 2026
   },
   {
+    "id": "bezprawie",
+    "title": "Bezprawie",
+    "series": "Chylka",
+    "cover": "/covers/Bezprawie.jpg",
+    "description": "Warszawą wstrząsa seria makabrycznych morderstw. Ciała ofiar zostają wystawione w przestrzeni publicznej, a sposób działania wskazuje na wyjątkowo bezwzględnego i metodycznego sprawcę. Śledztwo prowadzi Karolina Siarkowska, która jednocześnie próbuje doprowadzić do skazania Piotra Langera. Sytuację komplikuje Joanna Chyłka, która podejmuje się jego obrony. Rozpoczyna się bezlitosna rozgrywka dwóch kobiet, w której każdy ruch może przesądzić o losie Langera.",
+    "certainty": 100,
+    "order": 4,
+    "timeline": 30.5,
+    "year": 2026,
+    "isNew": true
+  },
+  {
     "id": "szrebska-axis-ekspozycja",
     "title": "Szrebska",
     "series": "Chylka",

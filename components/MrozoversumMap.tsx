@@ -880,7 +880,7 @@ const updateBookCover = (bookId: string, cover: string) => {
           </div>
 
           <div className="pointer-events-none relative order-1 min-w-0 shrink items-center lg:absolute lg:left-1/2 lg:top-1/2 lg:flex lg:-translate-x-1/2 lg:-translate-y-1/2 lg:flex-col">
-            <h1 className="text-xl font-extrabold tracking-tight text-white drop-shadow-[0_0_18px_rgba(255,255,255,0.12)] sm:text-3xl lg:text-4xl">
+            <h1 className="text-lg font-extrabold tracking-tight text-white drop-shadow-[0_0_18px_rgba(255,255,255,0.12)] sm:text-3xl lg:text-4xl">
               MROZOVERSUM
             </h1>
             <div className="mt-2 h-px w-32 bg-gradient-to-r from-transparent via-rose-400 to-transparent shadow-[0_0_14px_rgba(244,63,94,0.65)]" />
@@ -1192,7 +1192,7 @@ function FilterButton({
       type="button"
       onClick={onClick}
       aria-label="Otwórz filtry"
-      className={mobileToolbar ? "pointer-events-auto flex h-11 min-w-[88px] shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-[#08090d]/82 px-2 text-[9px] font-black uppercase tracking-[0.12em] text-white/72 shadow-2xl shadow-black/50 transition duration-300 hover:scale-95 hover:border-rose-400/25 hover:text-rose-100 max-md:!w-full max-md:!min-w-0 max-md:!max-w-none sm:h-12 sm:min-w-[116px] sm:px-4 sm:text-[11px] sm:tracking-[0.18em]" : "group flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.045] p-0 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_10px_28px_rgba(0,0,0,0.18)] transition hover:border-rose-400/35 hover:bg-rose-500/10 hover:text-rose-50 lg:h-10 lg:w-auto lg:gap-2 lg:px-4"}
+    className={mobileToolbar ? "pointer-events-auto flex h-11 min-w-[88px] shrink-0 items-center justify-center rounded-xl border border-white/10 bg-[#08090d]/82 px-2 text-[9px] font-black uppercase tracking-[0.1em] text-white/72 shadow-2xl shadow-black/50 transition duration-300 hover:scale-95 hover:border-rose-400/25 hover:text-rose-100 max-md:!w-full max-md:!min-w-0 max-md:!max-w-none sm:h-11 sm:min-w-[124px] sm:gap-1.5 sm:px-3 sm:text-[10px] sm:tracking-[0.14em]" : "group flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.045] p-0 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_10px_28px_rgba(0,0,0,0.18)] transition hover:border-rose-400/35 hover:bg-rose-500/10 hover:text-rose-50 lg:h-10 lg:w-auto lg:gap-2 lg:px-4"}
     >
       <span className={mobileToolbar ? "hidden" : "flex h-7 w-7 items-center justify-center rounded-lg border border-white/10 bg-black/20 text-rose-200 transition group-hover:border-rose-300/35 group-hover:bg-rose-500/15"}>
         <SlidersHorizontal size={15} />
@@ -1204,7 +1204,7 @@ function FilterButton({
 
 function MapStats({ relationCount, seriesCount }: { relationCount: number; seriesCount: number }) {
   return (
-    <div className="pointer-events-none flex h-10 shrink-0 items-center gap-2 rounded-xl border border-white/10 bg-white/[0.035] px-3 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+    <div className="pointer-events-none flex h-10 shrink-0 items-center gap-1 rounded-xl border border-white/10 bg-white/[0.035] px-2 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] sm:gap-2 sm:px-3">
       <Stat label="Relacje" value={relationCount} />
       <div className="h-6 w-px bg-white/10" />
       <Stat label="Serie" value={seriesCount} />
@@ -1231,7 +1231,7 @@ function ConnectionLegend({
         type="button"
         aria-label="Wyśrodkuj mapę"
         onClick={onCenterMap}
-        className="pointer-events-auto flex h-11 min-w-[120px] shrink-0 items-center justify-center gap-1.5 rounded-2xl border border-white/10 bg-[#08090d]/82 px-2 text-[9px] font-black uppercase tracking-[0.12em] text-white/72 shadow-2xl shadow-black/50 transition duration-300 hover:scale-95 hover:border-rose-400/25 hover:text-rose-100 max-md:!w-full max-md:!min-w-0 max-md:!max-w-none sm:h-12 sm:min-w-[142px] sm:gap-2 sm:px-4 sm:text-[11px] sm:tracking-[0.16em]"
+        className="pointer-events-auto flex h-11 min-w-[108px] shrink-0 items-center justify-center gap-1 rounded-xl border border-white/10 bg-[#08090d]/82 px-2 text-[9px] font-black uppercase tracking-[0.1em] text-white/72 shadow-2xl shadow-black/50 transition duration-300 hover:scale-95 hover:border-rose-400/25 hover:text-rose-100 max-md:!w-full max-md:!min-w-0 max-md:!max-w-none sm:h-11 sm:min-w-[124px] sm:gap-1.5 sm:px-3 sm:text-[10px] sm:tracking-[0.14em]"
       >
         <LocateFixed size={15} />
         WYŚRODKUJ
@@ -1241,7 +1241,7 @@ function ConnectionLegend({
         aria-expanded={isHelpOpen}
         aria-controls="connection-help"
         onClick={() => setIsHelpOpen((open) => !open)}
-        className="pointer-events-auto flex h-11 min-w-[120px] shrink-0 items-center justify-center gap-1.5 rounded-2xl border border-white/10 bg-[#08090d]/82 px-2 text-[9px] font-black uppercase tracking-[0.12em] text-white/72 shadow-2xl shadow-black/50 transition duration-300 hover:scale-95 hover:border-rose-400/25 hover:text-rose-100 max-md:!w-full max-md:!min-w-0 max-md:!max-w-none sm:h-12 sm:min-w-[142px] sm:gap-2 sm:px-4 sm:text-[11px] sm:tracking-[0.16em]"
+        className="pointer-events-auto flex h-11 min-w-[108px] shrink-0 items-center justify-center gap-1 rounded-xl border border-white/10 bg-[#08090d]/82 px-2 text-[9px] font-black uppercase tracking-[0.1em] text-white/72 shadow-2xl shadow-black/50 transition duration-300 hover:scale-95 hover:border-rose-400/25 hover:text-rose-100 max-md:!w-full max-md:!min-w-0 max-md:!max-w-none sm:h-11 sm:min-w-[124px] sm:gap-1.5 sm:px-3 sm:text-[10px] sm:tracking-[0.14em]"
       >
         POMOC
       </button>

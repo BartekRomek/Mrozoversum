@@ -9,6 +9,7 @@ import { CharacterCard } from "@/components/CharacterCard";
 import type { Character } from "@/lib/types";
 import { seriesColors } from "@/lib/catalog";
 import { trackEvent } from "@/lib/analytics";
+import { assetPath } from "@/lib/assetPath";
 import { SubpageLayout } from "@/components/SubpageLayout";
 
 interface CharacterAlbumProps {
@@ -29,9 +30,9 @@ const seriesLabels: Record<string, string> = {
   Chylka: "CHYŁKA",
   Forst: "FORST",
   Langer: "LANGER",
-  Wladza: "WŁADZA",
+  Wladza: "W KRĘGACH WŁADZY",
   Behawiorysta: "BEHAWIORYSTA",
-  Zaorski: "ZAORSKI",
+  Zaorski: "SEWERYN ZAORSKI",
 };
 
 const seriesIcons: Record<string, string> = {
@@ -39,7 +40,6 @@ const seriesIcons: Record<string, string> = {
   Forst: "/icons/forst.svg",
   Langer: "/icons/langer.svg",
   Wladza: "/icons/wladza.svg",
-  Behawiorysta: "/icons/behawiorysta.svg",
   Zaorski: "/icons/zaorski.svg",
 };
 
@@ -224,8 +224,8 @@ export function CharacterAlbum({
                           className="h-5 w-5 opacity-90"
                           style={{
                             backgroundColor: brandColor,
-                            WebkitMaskImage: `url(${seriesIcons[series]})`,
-                            maskImage: `url(${seriesIcons[series]})`,
+                            WebkitMaskImage: `url(${assetPath(seriesIcons[series])})`,
+                            maskImage: `url(${assetPath(seriesIcons[series])})`,
                             WebkitMaskSize: "contain",
                             maskSize: "contain",
                             WebkitMaskRepeat: "no-repeat",

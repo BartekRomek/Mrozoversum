@@ -14,6 +14,7 @@ export type Book = {
   duration?: number; 
   volume?: string | number; 
   genre?: string;           
+  isNew?: boolean;
 };
 
 export type Character = {

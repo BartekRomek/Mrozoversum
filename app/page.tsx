@@ -13,6 +13,7 @@ import { MrozoversumIntro } from "@/components/MrozoversumIntro";
 import { SupportPage } from "@/components/SupportPage";
 import { SettingsPage } from "@/components/SettingsPage";
 import { BugReportPage } from "@/components/BugReportPage";
+import { UpdateBubble } from "@/components/UpdateBubble";
 const CharacterAlbum = dynamic(
   () => import("@/components/CharacterAlbum").then((module) => module.CharacterAlbum),
   { ssr: false, loading: () => <div className="min-h-screen bg-[#08090c]" /> }
@@ -96,6 +97,7 @@ export default function Home() {
           </div>
         ) : null}
       </main>
+      <UpdateBubble />
     </LaunchCountdown>
   );
 }
