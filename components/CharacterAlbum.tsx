@@ -11,9 +11,11 @@ import { seriesColors } from "@/lib/catalog";
 import { trackEvent } from "@/lib/analytics";
 import { assetPath } from "@/lib/assetPath";
 import { SubpageLayout } from "@/components/SubpageLayout";
+import { CharacterDetailsPanel } from "@/components/CharacterDetailsPanel";
 
 interface CharacterAlbumProps {
   onBack?: () => void;
+  onOpenBook?: (bookId: string) => void;
   showSpoilers?: boolean;
 }
 
@@ -49,9 +51,7 @@ function getUniqueCharacters(items: Character[]) {
   return items.filter((character) => {
     const key = character.name.trim().toLowerCase();
 
-    if (seen.has(key)) {
-      return false;
-    }
+    if (seen.has(key)) return false;
 
     seen.add(key);
     return true;
@@ -60,6 +60,7 @@ function getUniqueCharacters(items: Character[]) {
 
 export function CharacterAlbum({
   onBack,
+  onOpenBook,
   showSpoilers = false,
 }: CharacterAlbumProps) {
   const [openSeries, setOpenSeries] = useState<Record<string, boolean>>({
@@ -72,6 +73,7 @@ export function CharacterAlbum({
   });
 
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
 
   const characters = charactersData as Character[];
 
@@ -99,9 +101,7 @@ export function CharacterAlbum({
     const grouped: Record<string, Character[]> = {};
 
     for (const series of seriesOrder) {
-      grouped[series] = getUniqueCharacters(
-        charactersBySeries[series] || []
-      );
+      grouped[series] = getUniqueCharacters(charactersBySeries[series] || []);
     }
 
     return grouped;
@@ -144,6 +144,14 @@ export function CharacterAlbum({
 
     return items.filter((character) =>
       character.name.toLowerCase().includes(normalizedSearch)
+    );
+  };
+
+  const getCharacterVariants = (character: Character) => {
+    const normalizedName = character.name.trim().toLowerCase();
+
+    return (charactersBySeries[character.series] || []).filter(
+      (variant) => variant.name.trim().toLowerCase() === normalizedName
     );
   };
 
@@ -298,13 +306,15 @@ export function CharacterAlbum({
                         >
                           {visibleCharacters.map((character) => (
                             <div
-                              key={`${series}-${character.name}`}
+                              key={character.id}
                               className="min-w-0"
                             >
                               <CharacterCard
                                 character={character}
                                 showSpoilers={showSpoilers}
                                 compactOnMobile
+                                hideRole
+                                onSelect={() => setSelectedCharacter(character)}
                               />
                             </div>
                           ))}
@@ -331,6 +341,16 @@ export function CharacterAlbum({
           })}
         </div>
       </div>
+      <CharacterDetailsPanel
+        character={selectedCharacter}
+        variants={selectedCharacter ? getCharacterVariants(selectedCharacter) : []}
+        showSpoilers={showSpoilers}
+        onClose={() => setSelectedCharacter(null)}
+        onSelectBook={(bookId) => {
+          setSelectedCharacter(null);
+          onOpenBook?.(bookId);
+        }}
+      />
     </SubpageLayout>
   );
 }

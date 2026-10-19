@@ -1,6 +1,5 @@
 "use client";
 
-import { LaunchCountdown } from "@/components/LaunchCountdown";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
@@ -27,6 +26,7 @@ export default function Home() {
   const [activeView, setActiveView] = useState<
     "map" | "support" | "settings" | "bug-report" | "characters"
   >("map");
+  const [openBookId, setOpenBookId] = useState<string | null>(null);
 
   useEffect(() => {
     document.documentElement.dataset.mrozoversumTheme =
@@ -36,8 +36,8 @@ export default function Home() {
   }, []);
 
   return (
-    <LaunchCountdown>
-      <main
+    <>
+    <main
         className={
           activeView === "map"
             ? "min-h-screen overflow-hidden"
@@ -64,6 +64,8 @@ export default function Home() {
                 onOpenSettings={() => setActiveView("settings")}
                 onOpenBugReport={() => setActiveView("bug-report")}
                 onOpenCharacters={() => setActiveView("characters")}
+                openBookId={openBookId}
+                onBookRequestHandled={() => setOpenBookId(null)}
               />
             </div>
 
@@ -88,6 +90,10 @@ export default function Home() {
           <div className="relative z-10">
             <CharacterAlbum
               onBack={() => setActiveView("map")}
+              onOpenBook={(bookId) => {
+                setOpenBookId(bookId);
+                setActiveView("map");
+              }}
             />
           </div>
         ) : activeView === "bug-report" ? (
@@ -96,8 +102,8 @@ export default function Home() {
             <BugReportPage onBack={() => setActiveView("map")} />
           </div>
         ) : null}
-      </main>
-      <UpdateBubble />
-    </LaunchCountdown>
+    </main>
+    <UpdateBubble />
+    </>
   );
 }

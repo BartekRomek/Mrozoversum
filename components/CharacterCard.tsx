@@ -30,6 +30,8 @@ interface CharacterCardProps {
   showSpoilers?: boolean;
   compact?: boolean;
   compactOnMobile?: boolean;
+  onSelect?: () => void;
+  hideRole?: boolean;
 }
 
 export function CharacterCard({
@@ -37,6 +39,8 @@ export function CharacterCard({
   showSpoilers = false,
   compact: compactProp = false,
   compactOnMobile = false,
+  onSelect,
+  hideRole = false,
 }: CharacterCardProps) {
   const [isLocallyRevealed, setIsLocallyRevealed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -144,6 +148,15 @@ export function CharacterCard({
 
   return (
     <div
+      role={onSelect ? "button" : undefined}
+      tabIndex={onSelect ? 0 : undefined}
+      onClick={onSelect}
+      onKeyDown={(event) => {
+        if (onSelect && (event.key === "Enter" || event.key === " ")) {
+          event.preventDefault();
+          onSelect();
+        }
+      }}
       className="relative flex h-full w-full shrink-0 flex-col overflow-hidden rounded-xl border bg-[#0f1115] transition duration-300 hover:-translate-y-1 hover:border-white/16"
       style={{
         borderColor: hasRevealedState
@@ -354,7 +367,7 @@ export function CharacterCard({
 
         <div
           className={`flex flex-col items-center justify-start ${
-            compact ? "min-h-[86px]" : "min-h-[120px]"
+            compact ? "min-h-[72px]" : "min-h-[96px]"
           }`}
         >
           <div
@@ -399,14 +412,17 @@ export function CharacterCard({
               : '"BRAK"'}
           </span>
 
-          <span
-            className={`mt-0.5 font-bold uppercase tracking-widest transition-colors duration-300 ${
-              compact ? "text-[7px]" : "text-[10px]"
-            }`}
-            style={{ color: roleColor }}
-          >
-            {displayRole || "Brak danych"}
-          </span>
+          {!hideRole && (
+            <span
+              className={`mt-0.5 font-bold uppercase tracking-widest transition-colors duration-300 ${
+                compact ? "text-[7px]" : "text-[10px]"
+              }`}
+              style={{ color: roleColor }}
+            >
+              {displayRole || "Brak danych"}
+            </span>
+          )}
+
         </div>
 
         <div

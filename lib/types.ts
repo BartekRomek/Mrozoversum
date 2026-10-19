@@ -22,6 +22,7 @@ export type Character = {
   name: string;
   role: string;
   hiddenRole?: string;      
+  hiddenName?: string;
   isAntagonist?: boolean;   // Zostawiamy, jeśli definiujesz to czasem globalnie
   pseudonym?: string;       
   avatar: string;

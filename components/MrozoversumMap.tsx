@@ -47,6 +47,8 @@ type MrozoversumMapProps = {
   onOpenSettings?: () => void;
   onOpenBugReport?: () => void;
   onOpenCharacters?: () => void;
+  openBookId?: string | null;
+  onBookRequestHandled?: () => void;
 };
 
 type ActiveTopPanel = "menu" | "filters" | null;
@@ -64,9 +66,9 @@ const BOOK_NODE_HEIGHT = 260;
 const MAP_BOUNDS_MARGIN = 650;
 const SERIES_LABEL_GUTTER = 1260;
 const FIT_VIEW_PADDING = 0.24;
-const INITIAL_VIEWPORT_X_OFFSET = 0;
+const INITIAL_VIEWPORT_X_OFFSET = 190;
 const MOBILE_VIEWPORT_X_OFFSET = 48;
-const INITIAL_FIT_VIEW_PADDING = FIT_VIEW_PADDING;
+const INITIAL_FIT_VIEW_PADDING = 0.06;
 
 function getInitialViewportXOffset() {
   return typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches
@@ -269,7 +271,7 @@ function TimelineLines() {
   );
 }
 
-export function MrozoversumMap({ books, connections, characters = [], introComplete = false, onOpenSupport, onOpenSettings, onOpenBugReport, onOpenCharacters, }: MrozoversumMapProps) {
+export function MrozoversumMap({ books, connections, characters = [], introComplete = false, onOpenSupport, onOpenSettings, onOpenBugReport, onOpenCharacters, openBookId, onBookRequestHandled, }: MrozoversumMapProps) {
   const [selectedSeries, setSelectedSeries] = useState<SeriesId[]>(seriesOrder);
   const [selectedRelations, setSelectedRelations] = useState<RelationType[]>(relationTypes);
   const [draftSeries, setDraftSeries] = useState<SeriesId[]>(seriesOrder);
@@ -283,6 +285,7 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
   const [guideRequest, setGuideRequest] = useState(0);
 
   const reactFlowInstanceRef = useRef<ReactFlowInstance | null>(null);
+  const mapViewportRef = useRef<HTMLElement | null>(null);
   const initialFitAppliedRef = useRef(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const menuItemClass = "group flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-xs font-semibold uppercase tracking-[0.12em] text-white/75 transition hover:bg-white/[0.06] hover:text-rose-100";
@@ -307,22 +310,6 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
     document.addEventListener("pointerdown", closeMenuOnOutsidePointer);
     return () => document.removeEventListener("pointerdown", closeMenuOnOutsidePointer);
   }, [activeTopPanel]);
-
-  const focusMapPoint = useCallback((point: { x: number; y: number }) => {
-    const instance = reactFlowInstanceRef.current;
-    if (!instance || typeof window === "undefined") return;
-
-    const { zoom } = instance.getViewport();
-
-    instance.setViewport(
-      {
-        x: window.innerWidth * 0.28 - point.x * zoom,
-        y: window.innerHeight * 0.55 - point.y * zoom,
-        zoom
-      },
-      { duration: 650 }
-    );
-  }, []);
 
   useEffect(() => {
     const storedCovers = window.localStorage.getItem(
@@ -620,6 +607,29 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
     ] as [[number, number], [number, number]];
   }, [graphBounds]);
 
+  const focusMapPoint = useCallback((point: { x: number; y: number }) => {
+    const instance = reactFlowInstanceRef.current;
+    const viewportElement = mapViewportRef.current;
+
+    if (!instance || !viewportElement) return;
+
+    const { zoom } = instance.getViewport();
+    const { width, height } = viewportElement.getBoundingClientRect();
+    const [[, minY], [, maxY]] = translateExtent;
+    const targetY = height * 0.55 - point.y * zoom;
+    const minViewportY = height - maxY * zoom;
+    const maxViewportY = -minY * zoom;
+
+    instance.setViewport(
+      {
+        x: width * 0.28 - point.x * zoom,
+        y: Math.min(maxViewportY, Math.max(minViewportY, targetY)),
+        zoom
+      },
+      { duration: 650 }
+    );
+  }, [translateExtent]);
+
   const fitMapView = useCallback(
     (duration = 0, xOffset = 0, padding = FIT_VIEW_PADDING) => {
       const instance = reactFlowInstanceRef.current;
@@ -705,6 +715,25 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
     },
     []
   );
+
+  useEffect(() => {
+    if (!openBookId || !reactFlowInstanceRef.current || nodes.length === 0) return;
+
+    const node = nodes.find((item) => item.id === openBookId);
+    const book = bookById.get(openBookId);
+
+    if (!node || !book) return;
+
+    setSelectedBookId(openBookId);
+    setSelectedConnectionId(null);
+    setHoveredConnectionId(null);
+    focusMapPoint(getNodeFocusPoint(node as Node<BookNodeData | any>));
+    trackEvent("book_open", {
+      book_id: book.id,
+      series: book.series
+    });
+    onBookRequestHandled?.();
+  }, [bookById, focusMapPoint, getNodeFocusPoint, nodes, onBookRequestHandled, openBookId]);
 
   const focusConnectionById = useCallback(
     (connectionId: string) => {
@@ -985,7 +1014,7 @@ const updateBookCover = (bookId: string, cover: string) => {
         </div>
       </header>
 
-      <section className="relative min-h-0 flex-1 z-10">
+      <section ref={mapViewportRef} className="relative min-h-0 flex-1 z-10">
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -1031,7 +1060,9 @@ const updateBookCover = (bookId: string, cover: string) => {
         <ConnectionLegend
           showFilter
           onOpenFilters={openFilters}
-          onCenterMap={() => fitMapView(650, getInitialViewportXOffset())}
+          onCenterMap={() =>
+            fitMapView(0, getInitialViewportXOffset(), INITIAL_FIT_VIEW_PADDING)
+          }
           onOpenGuide={() => setGuideRequest((value) => value + 1)}
         />
         <MapGuide openRequest={guideRequest} introComplete={introComplete} />
