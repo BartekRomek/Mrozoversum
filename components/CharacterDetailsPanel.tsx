@@ -72,7 +72,7 @@ export function CharacterDetailsPanel({
         if (event.target === event.currentTarget) onClose();
       }}
     >
-      <section className="relative flex h-[calc(100dvh-1rem)] w-full max-w-[1080px] flex-col overflow-hidden rounded-t-3xl border border-white/10 bg-[#090a0f]/[.98] text-white shadow-2xl shadow-black/80 sm:h-[min(640px,calc(100dvh-2rem))] sm:rounded-3xl md:w-[min(1080px,calc(100vw-2rem))] md:flex-row">
+      <section className="relative flex min-h-0 h-[calc(100dvh-1rem)] w-full max-w-[1080px] flex-col touch-pan-y overflow-x-hidden overflow-y-auto overscroll-contain rounded-t-3xl border border-white/10 bg-[#090a0f]/[.98] text-white shadow-2xl shadow-black/80 sm:h-[min(640px,calc(100dvh-2rem))] sm:rounded-3xl md:overflow-hidden md:w-[min(1080px,calc(100vw-2rem))] md:flex-row">
         <button
           type="button"
           onClick={onClose}
@@ -110,7 +110,7 @@ export function CharacterDetailsPanel({
           />
         </div>
 
-        <div className="min-h-0 flex-1 overflow-y-auto p-5 sm:p-7 md:p-8">
+        <div className="flex-none p-5 sm:p-7 md:min-h-0 md:flex-1 md:overflow-y-auto md:p-8 md:[-webkit-overflow-scrolling:touch]">
           <div className="pr-10">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.24em]" style={{ color }}>
               {seriesLabels[character.series as keyof typeof seriesLabels] || character.series}

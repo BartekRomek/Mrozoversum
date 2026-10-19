@@ -67,13 +67,20 @@ const MAP_BOUNDS_MARGIN = 650;
 const SERIES_LABEL_GUTTER = 1260;
 const FIT_VIEW_PADDING = 0.24;
 const INITIAL_VIEWPORT_X_OFFSET = 190;
-const MOBILE_VIEWPORT_X_OFFSET = 48;
+const MOBILE_VIEWPORT_X_OFFSET = 210;
 const INITIAL_FIT_VIEW_PADDING = 0.06;
+const MOBILE_INITIAL_FIT_VIEW_PADDING = 0.02;
 
 function getInitialViewportXOffset() {
   return typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches
     ? MOBILE_VIEWPORT_X_OFFSET
     : INITIAL_VIEWPORT_X_OFFSET;
+}
+
+function getInitialFitViewPadding() {
+  return typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches
+    ? MOBILE_INITIAL_FIT_VIEW_PADDING
+    : INITIAL_FIT_VIEW_PADDING;
 }
 
 function AxisPointNode({ data }: { data: any }) {
@@ -283,6 +290,7 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
   const [showSpoilers] = useState(false);
   const [activeTopPanel, setActiveTopPanel] = useState<ActiveTopPanel>(null);
   const [guideRequest, setGuideRequest] = useState(0);
+  const [isInitialViewportReady, setIsInitialViewportReady] = useState(false);
 
   const reactFlowInstanceRef = useRef<ReactFlowInstance | null>(null);
   const mapViewportRef = useRef<HTMLElement | null>(null);
@@ -611,7 +619,14 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
     const instance = reactFlowInstanceRef.current;
     const viewportElement = mapViewportRef.current;
 
-    if (!instance || !viewportElement) return;
+    if (
+      !instance ||
+      !viewportElement ||
+      (typeof window !== "undefined" &&
+        window.matchMedia("(max-width: 767px)").matches)
+    ) {
+      return;
+    }
 
     const { zoom } = instance.getViewport();
     const { width, height } = viewportElement.getBoundingClientRect();
@@ -634,7 +649,7 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
     (duration = 0, xOffset = 0, padding = FIT_VIEW_PADDING) => {
       const instance = reactFlowInstanceRef.current;
 
-      if (!instance || nodes.length === 0) return;
+      if (!instance || nodes.length === 0) return Promise.resolve();
 
       const kasacjaNode = nodes.find(
         (node) =>
@@ -646,7 +661,7 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
         kasacjaNode?.position.x ?? graphBounds.minX
       );
 
-      void instance.fitBounds(
+      return instance.fitBounds(
         {
           x: leftBound - SERIES_LABEL_GUTTER,
           y: graphBounds.minY,
@@ -681,7 +696,7 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
 
     initialFitAppliedRef.current = true;
     const frame = requestAnimationFrame(() =>
-      fitMapView(0, getInitialViewportXOffset(), INITIAL_FIT_VIEW_PADDING)
+      fitMapView(0, getInitialViewportXOffset(), getInitialFitViewPadding())
     );
 
     return () => cancelAnimationFrame(frame);
@@ -1022,9 +1037,13 @@ const updateBookCover = (bookId: string, cover: string) => {
           onInit={(instance) => {
             reactFlowInstanceRef.current = instance;
             initialFitAppliedRef.current = true;
-            requestAnimationFrame(() =>
-              fitMapView(0, getInitialViewportXOffset(), INITIAL_FIT_VIEW_PADDING)
-            );
+            requestAnimationFrame(() => {
+              void fitMapView(
+                0,
+                getInitialViewportXOffset(),
+                getInitialFitViewPadding()
+              ).then(() => setIsInitialViewportReady(true));
+            });
           }}
           onNodeClick={onNodeClick}
           onEdgeClick={onEdgeClick}
@@ -1032,7 +1051,7 @@ const updateBookCover = (bookId: string, cover: string) => {
           onEdgeMouseLeave={onEdgeMouseLeave}
           minZoom={0.22}
           maxZoom={1.55}
-          className="touch-none"
+          className={clsx("touch-none", !isInitialViewportReady && "opacity-0")}
           panOnDrag
           zoomOnScroll
           zoomOnPinch
@@ -1061,7 +1080,7 @@ const updateBookCover = (bookId: string, cover: string) => {
           showFilter
           onOpenFilters={openFilters}
           onCenterMap={() =>
-            fitMapView(0, getInitialViewportXOffset(), INITIAL_FIT_VIEW_PADDING)
+            fitMapView(0, getInitialViewportXOffset(), getInitialFitViewPadding())
           }
           onOpenGuide={() => setGuideRequest((value) => value + 1)}
         />
