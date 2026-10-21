@@ -367,5 +367,29 @@
     "targetHandle": "target-left",
     "characters": ["gjord-hansen-3", "gorgan-2"],
     "note": "Wojciech Malm i Bestia z Giewontu spotykają Piotra Langera w finale, na spacerniaku Zakładu Karnego w Gawiszynie. Gorgan, wpływowy przestępca rządzący na dziedzińcu, wita Langera i ostatecznie zaprowadza go do Gjorda/Eliasza. Ten wyraża podziw dla gry Langera w sądzie, który wyjawia, że celowo dał się tam pogrążyć, by trafić do tego samego więzienia."
+  },
+  {
+    "source": "forst-axis-bezprawie",
+    "target": "bezprawie",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "standard",
+    "pathType": "smoothstep",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-top",
+    "characters": ["gorgan-2", "olga-szrebska-5"],
+    "note": "Wojciech Malm, pseudonim „Gorgan”, to boss świata przestępczego, który wykorzystał sytuację związaną ze śmiercią Murtaza Janjgavy do realizacji własnych celów. Kieruje całą akcją z więzienia w Gawiszynie, do którego trafia Wiktor Forst. To właśnie w jego sprawie Olga Szrebska telefonuje do Chyłki."
+  },
+  {
+    "source": "langer-axis-bezprawie",
+    "target": "bezprawie",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "standard",
+    "pathType": "smoothstep",
+    "sourceHandle": "source-top",
+    "targetHandle": "target-bottom",
+    "characters": ["paderborn"],
+    "note": "Olgier Paderborn jako prokurator uczestniczy w przesłuchaniu Chyłki przez Bergera."
   }
 ]

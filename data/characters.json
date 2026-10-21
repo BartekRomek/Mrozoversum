@@ -1031,6 +1031,52 @@
     "description": "Biologiczna matka Pauliny Gromadzkiej",
     "avatar": "avatars/olszewska.png"
   },
+  {
+    "id": "harpun",
+    "name": "Marcin Żelich",
+    "pseudonym": "Harpun",
+    "role": "Były funkcjonariusz CBŚP",
+    "series": "Chylka",
+    "debut": "Bezprawie",
+    "description": "Były funkcjonariusz CBŚP",
+    "avatar": "avatars/harpun.png"
+  },
+  {
+    "id": "sakson",
+    "name": "Sakson",
+    "role": "Tajemniczy mężczyzna",
+    "series": "Chylka",
+    "debut": "Bezprawie",
+    "description": "Tajemniczy mężczyzna",
+    "avatar": "avatars/sakson.png"
+  },
+  {
+    "id": "miga",
+    "name": "Miga",
+    "role": "Zaangażowana w porwanie dzieci",
+    "series": "Chylka",
+    "debut": "Bezprawie",
+    "description": "Zaangażowana w porwanie dzieci",
+    "avatar": "avatars/miga.png"
+  },
+  {
+    "id": "janjgava",
+    "name": "Murtaz Janjgava",
+    "role": "Gruziński przestępca",
+    "series": "Chylka",
+    "debut": "Bezprawie",
+    "description": "Gruziński przestępca",
+    "avatar": "avatars/janjgava.png"
+  },
+  {
+    "id": "berger",
+    "name": "Paweł Berger",
+    "role": "Podkomisarz CBŚP",
+    "series": "Chylka",
+    "debut": "Bezprawie",
+    "description": "Podkomisarz CBŚP",
+    "avatar": "avatars/berger.png"
+  },
 
 
 

@@ -3,13 +3,16 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Background,
+  BaseEdge,
   Controls,
+  getSmoothStepPath,
   ReactFlow,
   useViewport,
   Handle,
   Position,
   MarkerType,
   type Edge,
+  type EdgeProps,
   type Node,
   type EdgeMouseHandler,
   type NodeMouseHandler,
@@ -126,9 +129,61 @@ function AxisPointNode({ data }: { data: any }) {
   );
 }
 
+function LowerLabelSmoothStepEdge({
+  id,
+  sourceX,
+  sourceY,
+  targetX,
+  targetY,
+  sourcePosition = Position.Bottom,
+  targetPosition = Position.Top,
+  label,
+  labelStyle,
+  labelShowBg,
+  labelBgStyle,
+  labelBgPadding,
+  labelBgBorderRadius,
+  style,
+  markerEnd,
+  markerStart,
+  interactionWidth
+}: EdgeProps) {
+  const [path, labelX, labelY] = getSmoothStepPath({
+    sourceX,
+    sourceY,
+    sourcePosition,
+    targetX,
+    targetY,
+    targetPosition
+  });
+
+  return (
+    <BaseEdge
+      id={id}
+      path={path}
+      label={label}
+      labelX={labelX}
+      labelY={labelY + 24}
+      labelStyle={labelStyle}
+      labelShowBg={labelShowBg}
+      labelBgStyle={labelBgStyle}
+      labelBgPadding={labelBgPadding}
+      labelBgBorderRadius={labelBgBorderRadius}
+      style={style}
+      markerEnd={markerEnd}
+      markerStart={markerStart}
+      interactionWidth={interactionWidth}
+    />
+  );
+}
+
 const nodeTypes = {
   book: BookNode,
   axisPoint: AxisPointNode
+};
+
+const edgeTypes = {
+  lowerLabelSmoothStep: LowerLabelSmoothStepEdge
 };
 
 const rowY: Record<SeriesId, number> = {
@@ -397,41 +452,12 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
   }, [connections, selectedBookId]);
 
   const nodes: Node<BookNodeData | any>[] = useMemo(() => {
-    const groupedBySeries = new Map<SeriesId, Book[]>();
-
-    for (const book of displayBooks.filter((item) =>
-      filteredBookIds.has(item.id)
-    )) {
-      const items = groupedBySeries.get(book.series) ?? [];
-      items.push(book);
-      groupedBySeries.set(book.series, items);
-    }
-
-    const xPositions = new Map<string, number>();
-
-    for (const [, seriesBooks] of groupedBySeries) {
-      let lastX = Number.NEGATIVE_INFINITY;
-
-      for (const book of [...seriesBooks].sort((left, right) => {
-        const leftTimeline = left.timeline ?? left.order;
-        const rightTimeline = right.timeline ?? right.order;
-
-        return leftTimeline - rightTimeline;
-      })) {
-        const timelineSlot = book.timeline ?? book.order;
-        const baseX = (timelineSlot - 1) * 245;
-        const x = Math.max(baseX, lastX + 188);
-
-        xPositions.set(book.id, x);
-        lastX = x;
-      }
-    }
-
     return displayBooks
       .filter((book) => filteredBookIds.has(book.id))
       .map((book) => {
         const isAxis = book.id.includes("axis");
-        let finalX = xPositions.get(book.id) ?? 0;
+        const timelineSlot = book.timeline ?? book.order;
+        let finalX = (timelineSlot - 1) * 245;
 
         if (isAxis) {
           const timelineSlot = book.timeline ?? book.order;
@@ -498,6 +524,9 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
 
       const relationColor = relationColors[connection.type];
       const relationTitle = relationTitles[connection.type];
+      const lowerLabel =
+        connection.source === "forst-axis-bezprawie" &&
+        connection.target === "bezprawie";
 
       return {
         id,
@@ -505,7 +534,9 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
         target: connection.target,
         sourceHandle: connection.sourceHandle,
         targetHandle: connection.targetHandle,
-        type: connection.pathType || "smoothstep",
+        type: lowerLabel
+          ? "lowerLabelSmoothStep"
+          : connection.pathType || "smoothstep",
         animated: false,
         interactionWidth: isFocusedConnection ? 34 : 28,
         markerEnd: {
@@ -1034,6 +1065,7 @@ const updateBookCover = (bookId: string, cover: string) => {
           nodes={nodes}
           edges={edges}
           nodeTypes={nodeTypes}
+          edgeTypes={edgeTypes}
           onInit={(instance) => {
             reactFlowInstanceRef.current = instance;
             initialFitAppliedRef.current = true;

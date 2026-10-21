@@ -437,7 +437,8 @@
     "certainty": 100,
     "order": 11,
     "timeline": 29.5,
-    "year": 2026
+    "year": 2026,
+    "duration": 1
   },
   {
     "id": "arachnia",
@@ -455,9 +456,9 @@
     "title": "Bezprawie",
     "series": "Chylka",
     "cover": "/covers/Bezprawie.jpg",
-    "description": "Warszawą wstrząsa seria makabrycznych morderstw. Ciała ofiar zostają wystawione w przestrzeni publicznej, a sposób działania wskazuje na wyjątkowo bezwzględnego i metodycznego sprawcę. Śledztwo prowadzi Karolina Siarkowska, która jednocześnie próbuje doprowadzić do skazania Piotra Langera. Sytuację komplikuje Joanna Chyłka, która podejmuje się jego obrony. Rozpoczyna się bezlitosna rozgrywka dwóch kobiet, w której każdy ruch może przesądzić o losie Langera.",
+    "description": "Chyłka i Oryński podejmują się obrony Marcina Żelicha, znanego jako Harpun - byłego funkcjonariusza uwikłanego w sprawę, która okazuje się znacznie bardziej skomplikowana, niż wygląda. W tle narastają napięcia między grupami przestępczymi, a wydarzenia też wystawiają na próbę ich ogromne doświadczenie, spryt i relacje z najbliższymi. Tym razem stawka jest wyjątkowo osobista, a granica między prawem, lojalnością i niebezpieczną grą staje się coraz mniej wyraźna.",
     "certainty": 100,
-    "order": 4,
+    "order": 20,
     "timeline": 30.5,
     "year": 2026,
     "isNew": true
@@ -624,7 +625,7 @@
     "description": "Punkt na osi Langera.",
     "certainty": 100,
     "order": 0,
-    "timeline": 29.5,
+    "timeline": 30,
     "year": 2026
   },
   {
@@ -688,7 +689,29 @@
     "description": "Punkt na osi Langera.",
     "certainty": 100,
     "order": 0,
-    "timeline": 27.5,
+    "timeline": 28.5,
     "year": 2024
+  },
+ {
+    "id": "forst-axis-bezprawie",
+    "title": "Gorgan",
+    "series": "Forst",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Langera.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 30.5,
+    "year": 2026
+  },
+  {
+    "id": "langer-axis-bezprawie",
+    "title": "Paderborn",
+    "series": "Langer",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Langera.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 30.5,
+    "year": 2026
   }
 ]

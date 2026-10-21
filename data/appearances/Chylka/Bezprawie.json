@@ -7,5 +7,20 @@
   { "characterId": "magdalena-obertal", "isFirstAppearance": true, "role": "main", "isNew": false },
   { "characterId": "daria", "isFirstAppearance": true, "role": "main", "isNew": false },
   { "characterId": "anka", "isFirstAppearance": true, "role": "main", "isNew": false },
-  { "characterId": "artur-zelazny", "isFirstAppearance": true, "role": "supporting", "isNew": false }
+  { "characterId": "artur-zelazny", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+  { "characterId": "paderborn", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "hader", "isFirstAppearance": true, "role": "main", "isNew": false },
+  { "characterId": "brencz-obrona", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+  { "characterId": "gorgan-2", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+  { "characterId": "olga-szrebska-5", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+  { "characterId": "harpun", "isFirstAppearance": true, "role": "supporting", "isNew": true },
+  { "characterId": "sakson", "isFirstAppearance": true, "role": "supporting", "isNew": true, "hiddenIdentity": "Człowiek GORGANA" },
+  { "characterId": "miga", "isFirstAppearance": true, "role": "supporting", "isNew": true, "isDead": true },
+  { "characterId": "janjgava", "isFirstAppearance": true, "role": "antagonist", "isNew": true, "isDead": true },
+  { "characterId": "berger", "isFirstAppearance": true, "role": "supporting", "isNew": true }
+
+
+
+
+
 ]
