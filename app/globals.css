@@ -261,12 +261,48 @@ button,
 }
 
 .mrozoversum-intro__content {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1.5rem;
   text-align: center;
   animation: mrozoversum-intro-content-in 900ms ease-out both;
+}
+
+.mrozoversum-intro__glitch {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  animation: mrozoversum-intro-glitch 900ms steps(2, end) 650ms both;
+}
+
+.mrozoversum-intro__glitch span {
+  position: absolute;
+  width: min(68vw, 42rem);
+  aspect-ratio: 1;
+  border: clamp(1.35rem, 2.4vw, 2.75rem) solid rgba(220, 38, 38, 0.94);
+  border-radius: 50%;
+  box-shadow:
+    0 0 18px rgba(127, 29, 29, 0.5),
+    inset 0 0 18px rgba(127, 29, 29, 0.16);
+}
+
+.mrozoversum-intro__glitch span:nth-child(1) {
+  transform: scale(0.42);
+}
+
+.mrozoversum-intro__glitch span:nth-child(2) {
+  transform: scale(0.68);
+}
+
+.mrozoversum-intro__glitch span:nth-child(3) {
+  transform: scale(0.94);
 }
 
 .mrozoversum-intro h1 {
@@ -302,6 +338,17 @@ button,
   animation: mrozoversum-intro-subtitle-in 700ms ease-out 250ms both;
 }
 
+.mrozoversum-intro__feature {
+  margin-top: 1.3rem;
+  color: #fef3c7;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-shadow: 0 0 18px rgba(220, 38, 38, 0.65);
+  animation: mrozoversum-intro-feature-in 700ms ease-out 500ms both;
+}
+
 @keyframes mrozoversum-map-enter {
   from {
     opacity: 0.7;
@@ -324,6 +371,32 @@ button,
   }
 }
 
+@keyframes mrozoversum-intro-glitch {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.94);
+    filter: blur(2px);
+  }
+  18% {
+    opacity: 0.86;
+    transform: translate3d(-0.8%, 0, 0) scale(1.02);
+    filter: blur(0);
+  }
+  32% {
+    opacity: 0.38;
+    transform: translate3d(1.2%, -0.4%, 0) scale(0.98);
+  }
+  54% {
+    opacity: 0.72;
+    transform: translate3d(-0.4%, 0.6%, 0) scale(1.01);
+  }
+  76% {
+    opacity: 0.2;
+    transform: translate3d(0.8%, 0, 0) scale(1.04);
+  }
+}
+
 @keyframes mrozoversum-intro-out {
   to {
     opacity: 0;
@@ -342,10 +415,24 @@ button,
   }
 }
 
+@keyframes mrozoversum-intro-feature-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px) scaleX(0.9);
+    letter-spacing: 0.5em;
+  }
+  to {
+    opacity: 0.92;
+    transform: translateY(0) scaleX(1);
+    letter-spacing: 0.28em;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .mrozoversum-map-enter,
   .mrozoversum-intro,
   .mrozoversum-intro__content,
+  .mrozoversum-intro__feature,
   .mrozoversum-intro p {
     animation: none;
   }

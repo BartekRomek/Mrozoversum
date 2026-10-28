@@ -1,11 +1,13 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Handle, Position, type NodeProps } from "@xyflow/react";
 import { clsx } from "clsx";
 import { ShieldCheck } from "lucide-react";
 import { seriesColors, seriesLabels } from "@/lib/catalog";
 import type { BookNodeData } from "@/lib/types";
 import { assetPath } from "@/lib/assetPath";
+import { formatKonfrontacjaCountdown, getKonfrontacjaCountdown } from "@/lib/konfrontacja";
 
 export function BookNode({ data }: NodeProps) {
   const nodeData = data as BookNodeData;
@@ -14,9 +16,32 @@ export function BookNode({ data }: NodeProps) {
   const hasDuration = book.duration && book.duration > 0;
   const glassWidth = hasDuration ? `${book.duration! * 245 + 154}px` : null;
   const color = seriesColors[book.series] || "#ffffff";
+  const isVideo = book.mediaType === "video";
+  const isCrossSeries = book.spanAllAxes === true;
+  const [countdown, setCountdown] = useState(0);
+
+  useEffect(() => {
+    if (!isCrossSeries) return;
+
+    const updateCountdown = () => setCountdown(getKonfrontacjaCountdown());
+    updateCountdown();
+    const timer = window.setInterval(updateCountdown, 1000);
+
+    return () => window.clearInterval(timer);
+  }, [isCrossSeries]);
 
   return (
     <div className="group relative">
+      {isCrossSeries && countdown > 0 && (
+        <div className="absolute -top-32 left-1/2 z-30 flex min-w-[520px] -translate-x-1/2 flex-col items-center rounded-3xl border-4 border-red-700/90 bg-[#12080a]/[.98] px-10 py-6 text-center shadow-[0_0_44px_rgba(127,29,29,0.72)] backdrop-blur-xl">
+          <p className="font-mono text-base font-bold uppercase tracking-[0.3em] text-red-200/90">
+            Premiera za
+          </p>
+          <p className="mt-2 whitespace-nowrap font-mono text-4xl font-black tracking-[0.12em] text-red-50">
+            {formatKonfrontacjaCountdown(countdown)}
+          </p>
+        </div>
+      )}
       {hasDuration && (
         <div
           className="absolute inset-y-0 left-0 z-0 h-full cursor-pointer rounded-2xl border shadow-2xl transition duration-300 group-hover:-translate-y-1 group-hover:scale-[1.015] group-hover:!border-white/25"
@@ -31,7 +56,7 @@ export function BookNode({ data }: NodeProps) {
         />
       )}
 
-      <div className="relative w-[154px]">
+      <div className={isCrossSeries ? "relative h-[1460px] w-[930px]" : "relative w-[154px]"}>
         <Handle type="target" position={Position.Top} id="target-top" isConnectable={false} className="!bg-transparent !border-transparent" />
         <Handle type="target" position={Position.Right} id="target-right" isConnectable={false} className="!bg-transparent !border-transparent" />
         <Handle type="target" position={Position.Bottom} id="target-bottom" isConnectable={false} className="!bg-transparent !border-transparent" />
@@ -44,9 +69,12 @@ export function BookNode({ data }: NodeProps) {
 
         <article
           className={clsx(
-            "relative z-10 h-full w-full overflow-hidden border bg-[#11131a]/95 shadow-2xl transition duration-300 group-hover:-translate-y-1 group-hover:scale-[1.015] group-hover:border-white/25",
+            "relative z-10 h-full w-full overflow-hidden border bg-[#11131a]/95 shadow-2xl transition duration-300",
+            !book.disableDetails && "group-hover:-translate-y-1 group-hover:scale-[1.015] group-hover:border-white/25",
             isSelected
               ? "border-rose-400 shadow-rose-950/60"
+              : isCrossSeries
+                ? "border-red-900 shadow-red-950/80"
               : book.isNew
                 ? "border-emerald-400 shadow-emerald-950/60"
               : "border-white/10 shadow-black/50",
@@ -56,23 +84,43 @@ export function BookNode({ data }: NodeProps) {
             borderRadius: 8,
             borderColor: isSelected
               ? "#fb7185"
+              : isCrossSeries
+                ? "#8f1d1d"
               : book.isNew
                 ? "#34d399"
                 : "rgba(255, 255, 255, 0.1)",
             background: `linear-gradient(180deg, ${seriesColors[book.series]}1c, rgba(17, 19, 26, 0.98) 46%)`,
             boxShadow: isSelected
               ? `0 0 0 2px ${seriesColors[book.series]}99, 0 22px 70px rgba(0,0,0,.58), 0 0 24px ${seriesColors[book.series]}44`
+              : isCrossSeries
+                ? "0 0 0 2px rgba(127, 29, 29, .9), 0 22px 70px rgba(0,0,0,.62), 0 0 34px rgba(127, 29, 29, .55)"
               : book.isNew
                 ? "0 0 0 2px rgba(52, 211, 153, .8), 0 18px 48px rgba(0,0,0,.48), 0 0 28px rgba(16, 185, 129, .3)"
               : `0 18px 48px rgba(0,0,0,.48), 0 0 24px ${seriesColors[book.series]}24`
           }}
         >
-          <div className="relative h-[214px] bg-[#171923]">
-            <img
-              src={assetPath(book.cover)}
-              alt={`Okładka: ${book.title}`}
-              className="h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-[1.035] group-hover:opacity-100"
-            />
+          <div className={clsx("relative bg-[#171923]", isCrossSeries ? "h-full" : "h-[214px]")}>
+            {isVideo ? (
+              <video
+                src={assetPath(book.cover)}
+                aria-label={`Okładka: ${book.title}`}
+                className="h-full w-full object-cover opacity-90"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                onLoadedMetadata={(event) => {
+                  event.currentTarget.playbackRate = 0.75;
+                }}
+              />
+            ) : (
+              <img
+                src={assetPath(book.cover)}
+                alt={`Okładka: ${book.title}`}
+                className="h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-[1.035] group-hover:opacity-100"
+              />
+            )}
 
             <div className="absolute inset-0 bg-gradient-to-t from-[#08090d] via-black/35 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#08090d] via-[#08090d]/78 to-transparent" />
@@ -90,9 +138,11 @@ export function BookNode({ data }: NodeProps) {
 
             <div className="absolute inset-x-0 bottom-0 p-3">
               <div className="rounded-md bg-black/20 p-2 backdrop-blur-[2px]">
-                <p className="text-[10px] uppercase tracking-[0.18em] text-white/50">
-                  {seriesLabels[book.series]}
-                </p>
+                {!book.hideSeriesLabel && (
+                  <p className="text-[10px] uppercase tracking-[0.18em] text-white/50">
+                    {seriesLabels[book.series]}
+                  </p>
+                )}
                 <h3 className="mt-1 text-base font-semibold leading-tight text-white md:text-lg">
                   {book.title}
                 </h3>

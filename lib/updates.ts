@@ -7,6 +7,12 @@ export type UpdateEntry = {
 
 export const updates: UpdateEntry[] = [
   {
+    version: "1.2.1",
+    date: "28 Października 2026",
+    title: "KONFRONTACJA NADCHODZI",
+    changes: ["KONFRONTACJA NADCHODZI"]
+  },
+  {
     version: "1.2",
     date: "20 Października 2026",
     title: "Rozbudowa mapy i panelu postaci",

@@ -66,6 +66,8 @@ const relationTypes: RelationType[] = [
 
 const BOOK_NODE_WIDTH = 154;
 const BOOK_NODE_HEIGHT = 260;
+const CROSS_SERIES_NODE_WIDTH = 930;
+const CROSS_SERIES_NODE_HEIGHT = 1460;
 const MAP_BOUNDS_MARGIN = 650;
 const SERIES_LABEL_GUTTER = 1260;
 const FIT_VIEW_PADDING = 0.24;
@@ -404,7 +406,7 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
     return new Set(
       displayBooks
         .filter((book) => {
-          return selectedSeries.includes(book.series);
+          return book.spanAllAxes || selectedSeries.includes(book.series);
         })
         .map((book) => book.id)
     );
@@ -466,6 +468,8 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
           finalX = timelineX + 77;
         }
 
+        finalX += book.mapXOffset ?? 0;
+
         let axisColor = undefined;
 
         if (isAxis) {
@@ -483,7 +487,9 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
           type: isAxis ? "axisPoint" : "book",
           position: {
             x: finalX,
-            y: rowY[book.series] + (isAxis ? 150 : 0)
+            y: book.spanAllAxes
+              ? rowY.Forst
+              : rowY[book.series] + (isAxis ? 150 : 0)
           },
           data: {
             book,
@@ -613,8 +619,16 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
     return nodes.reduce(
       (current, node) => {
         const isBook = node.type === "book";
-        const width = isBook ? BOOK_NODE_WIDTH : 16;
-        const height = isBook ? BOOK_NODE_HEIGHT : 16;
+        const width = isBook
+          ? node.data?.book?.spanAllAxes
+            ? CROSS_SERIES_NODE_WIDTH
+            : BOOK_NODE_WIDTH
+          : 16;
+        const height = isBook
+          ? node.data?.book?.spanAllAxes
+            ? CROSS_SERIES_NODE_HEIGHT
+            : BOOK_NODE_HEIGHT
+          : 16;
 
         return {
           minX: Math.min(current.minX, node.position.x),
@@ -808,7 +822,9 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
 
   const onNodeClick: NodeMouseHandler = useCallback(
     (_, node) => {
-      if (node.id.includes("axis")) return;
+      const nodeBook = (node.data as BookNodeData | undefined)?.book;
+
+      if (node.id.includes("axis") || nodeBook?.disableDetails) return;
 
       const book = bookById.get(node.id);
 

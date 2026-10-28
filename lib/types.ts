@@ -15,6 +15,11 @@ export type Book = {
   volume?: string | number; 
   genre?: string;           
   isNew?: boolean;
+  mediaType?: "image" | "video";
+  hideSeriesLabel?: boolean;
+  spanAllAxes?: boolean;
+  disableDetails?: boolean;
+  mapXOffset?: number;
 };
 
 export type Character = {

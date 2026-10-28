@@ -461,7 +461,7 @@
     "order": 20,
     "timeline": 30.5,
     "year": 2026,
-    "isNew": true
+    "isNew": false
   },
   {
     "id": "szrebska-axis-ekspozycja",
@@ -713,5 +713,21 @@
     "order": 0,
     "timeline": 30.5,
     "year": 2026
+  },
+  {
+    "id": "konfrontacja",
+    "title": "KONFRONTACJA",
+    "series": "Chylka",
+    "cover": "/covers/konfrontacja.mp4",
+    "description": "Książka łącząca wszystkie serie Mrozoversum.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 31,
+    "year": 2026,
+    "mediaType": "video",
+    "hideSeriesLabel": true,
+    "spanAllAxes": true,
+    "disableDetails": true,
+    "mapXOffset": 245
   }
 ]
