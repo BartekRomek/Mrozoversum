@@ -6,7 +6,8 @@
     "series": "Chylka",
     "debut": "Kasacja",
     "description": "Mecenas, główna bohaterka serii.",
-    "avatar": "avatars/Chylka.png"
+    "avatar": "avatars/Chylka.png",
+    "audio": "audio/Chylka.mp3"
   },
   {
     "id": "joanna-chylka-egzekucja",
@@ -25,7 +26,9 @@
     "series": "Chylka",
     "debut": "Kasacja",
     "description": "Prawnik, główny bohaterky serii.",
-    "avatar": "avatars/zordon.png"
+    "avatar": "avatars/zordon.png",
+    "audio": "audio/Zordon.mp3"
+
   },
   {
     "id": "kordian-orynski",
@@ -1094,7 +1097,9 @@
     "series": "Forst",
     "debut": "Ekspozycja",
     "description": "Komisarz policji w Zakopane, główny bohater serii.",
-    "avatar": "/avatars/Forst.png"
+    "avatar": "/avatars/Forst.png",
+    "audio": "audio/forst.mp3"
+
   },
   {
     "id": "olga-szrebska",
@@ -1679,7 +1684,8 @@
     "series": "Langer",
     "debut": "Kasacja",
     "description": "Syn Piotra Langera seniora, biznesmen i filantrop z mrocznym charakterem",
-    "avatar": "avatars/Langer.png"
+    "avatar": "avatars/Langer.png",
+    "audio": "audio/Langer.mp3"
   },
   {
     "id": "siarka",

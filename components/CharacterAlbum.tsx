@@ -311,6 +311,7 @@ export function CharacterAlbum({
                             >
                               <CharacterCard
                                 character={character}
+                                audioAvailable={getCharacterVariants(character).some((variant) => Boolean(variant.audio))}
                                 showSpoilers={showSpoilers}
                                 compactOnMobile
                                 hideRole

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import { AudioLines, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import { seriesColors } from "@/lib/catalog";
 import type { Character } from "@/lib/types";
 import { assetPath } from "@/lib/assetPath";
@@ -26,7 +26,9 @@ interface CharacterCardProps {
     hiddenName?: string;
     hiddenPseudonym?: string;
     hiddenAvatar?: string;
+    audio?: string;
   };
+  audioAvailable?: boolean;
   showSpoilers?: boolean;
   compact?: boolean;
   compactOnMobile?: boolean;
@@ -41,6 +43,7 @@ export function CharacterCard({
   compactOnMobile = false,
   onSelect,
   hideRole = false,
+  audioAvailable = Boolean(character.audio),
 }: CharacterCardProps) {
   const [isLocallyRevealed, setIsLocallyRevealed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -184,10 +187,25 @@ export function CharacterCard({
           compact ? "h-[190px]" : "h-[260px]"
         }`}
       >
+        {audioAvailable && (
+          <div
+            className={`absolute right-2 top-2 z-30 flex items-center gap-1 rounded-sm border bg-black/55 font-mono font-bold uppercase tracking-[0.12em] backdrop-blur-sm ${
+              compact ? "px-1 py-0.5 text-[5.5px]" : "px-1.5 py-1 text-[7px]"
+            }`}
+            style={{ borderColor: `${brandColor}99`, color: brandColor }}
+            aria-label="Postać ma nagranie audio"
+          >
+            <AudioLines size={compact ? 8 : 10} />
+            AUDIO
+          </div>
+        )}
+
         {character.isNew && (
           <div
             className={`absolute z-30 ${
-              compact ? "right-2 top-2" : "right-4 top-4"
+              compact
+                ? audioAvailable ? "right-2 top-10" : "right-2 top-2"
+                : audioAvailable ? "right-4 top-12" : "right-4 top-4"
             }`}
           >
             <div

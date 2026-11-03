@@ -32,6 +32,7 @@ export type Character = {
   pseudonym?: string;       
   avatar: string;
   hiddenAvatar?: string;
+  audio?: string;
   description: string;
   series: string;
   debut: string;

@@ -1,7 +1,7 @@
 "use client";
 
-import { BookOpen, Calendar, ChevronRight, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { BookOpen, Calendar, ChevronRight, Pause, Play, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import booksData from "@/data/books.json";
 import { appearancesData } from "@/data/appearances";
 import { assetPath } from "@/lib/assetPath";
@@ -61,6 +61,9 @@ export function CharacterDetailsPanel({
   const displayAvatar = showSpoilers && activeCharacter.hiddenAvatar
     ? activeCharacter.hiddenAvatar
     : activeCharacter.avatar;
+  const audioCharacter = activeCharacter.audio
+    ? activeCharacter
+    : variants.find((variant) => variant.audio);
 
   return (
     <div
@@ -124,6 +127,16 @@ export function CharacterDetailsPanel({
               </p>
             )}
           </div>
+
+          {audioCharacter?.audio && (
+            <CharacterAudioPlayer
+              key={`${activeCharacter.id}-${audioCharacter.audio}`}
+              src={assetPath(audioCharacter.audio)}
+              color={color}
+              characterName={displayName}
+              seriesIcon={`/icons/${activeCharacter.series.toLowerCase()}.svg`}
+            />
+          )}
 
           {variants.length > 1 && (
             <div className="mt-5 rounded-xl border border-white/10 bg-white/[0.025] p-2">
@@ -228,6 +241,107 @@ export function CharacterDetailsPanel({
       </section>
     </div>
   );
+}
+
+function CharacterAudioPlayer({
+  src,
+  color,
+  characterName,
+  seriesIcon,
+}: {
+  src: string;
+  color: string;
+  characterName: string;
+  seriesIcon: string;
+}) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  const togglePlayback = async () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (audio.paused) {
+      await audio.play();
+      setIsPlaying(true);
+    } else {
+      audio.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const handleSeek = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const nextTime = Number(event.target.value);
+    if (audioRef.current) audioRef.current.currentTime = nextTime;
+    setCurrentTime(nextTime);
+  };
+
+  return (
+    <div className="mt-4 w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.035] shadow-[0_12px_30px_rgba(0,0,0,.2)] sm:mt-5 sm:rounded-2xl">
+      <div className="flex items-center gap-2.5 px-3 pb-2.5 pt-3 sm:gap-3 sm:px-4 sm:pb-3 sm:pt-3.5">
+        <div
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[#090a0f] shadow-lg transition hover:scale-105 sm:h-10 sm:w-10"
+          style={{ backgroundColor: color, boxShadow: `0 0 18px ${color}55` }}
+        >
+          <img src={seriesIcon} alt="" className="h-4 w-4 object-contain sm:h-5 sm:w-5" />
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className="font-mono text-[8px] font-bold uppercase tracking-[0.16em] text-white/40 sm:text-[9px] sm:tracking-[0.2em]">Posłuchaj postaci</p>
+          <p className="mt-0.5 truncate text-xs font-semibold text-white/85 sm:text-sm">{characterName}</p>
+        </div>
+        <button
+          type="button"
+          onClick={togglePlayback}
+          aria-label={isPlaying ? "Wstrzymaj nagranie" : "Odtwórz nagranie"}
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/[0.07] text-white transition hover:border-white/30 hover:bg-white/[0.14] sm:h-10 sm:w-10"
+        >
+          {isPlaying ? <Pause size={16} fill="currentColor" /> : <Play size={16} fill="currentColor" className="ml-0.5" />}
+        </button>
+      </div>
+
+      <div className="px-3 pb-3 sm:px-4">
+        <input
+          type="range"
+          min="0"
+          max={duration || 0}
+          step="0.01"
+          value={Math.min(currentTime, duration || 0)}
+          onChange={handleSeek}
+          aria-label="Postęp nagrania"
+          className="h-1.5 w-full cursor-pointer accent-white"
+          style={{ accentColor: color }}
+        />
+        <div className="mt-1 flex justify-between font-mono text-[9px] text-white/35">
+          <span>{formatAudioTime(currentTime)}</span>
+          <span>{formatAudioTime(duration)}</span>
+        </div>
+      </div>
+
+      <audio
+        ref={audioRef}
+        src={src}
+        preload="metadata"
+        onLoadedMetadata={(event) => setDuration(event.currentTarget.duration)}
+        onTimeUpdate={(event) => setCurrentTime(event.currentTarget.currentTime)}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        onEnded={() => {
+          setIsPlaying(false);
+          setCurrentTime(0);
+        }}
+        className="hidden"
+      />
+    </div>
+  );
+}
+
+function formatAudioTime(seconds: number) {
+  if (!Number.isFinite(seconds) || seconds < 0) return "00:00";
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = Math.floor(seconds % 60);
+  return `${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
 }
 
 function InfoItem({
