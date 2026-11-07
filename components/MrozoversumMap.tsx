@@ -19,7 +19,7 @@ import {
   type ReactFlowInstance
 } from "@xyflow/react";
 import { trackEvent } from "@/lib/analytics";
-import { Bug, Coffee, LocateFixed, Map as MapIcon, Menu, Settings, X, SlidersHorizontal, Book as BookIcon } from "lucide-react";
+import { LocateFixed, Map as MapIcon, Menu, Settings, X, SlidersHorizontal, Book as BookIcon } from "lucide-react";
 import { clsx } from "clsx";
 import { BookNode } from "@/components/BookNode";
 import { BookDetailsPanel } from "@/components/BookDetailsPanel";
@@ -46,9 +46,7 @@ type MrozoversumMapProps = {
   connections: BookConnection[];
   characters?: Character[];
   introComplete?: boolean;
-  onOpenSupport?: () => void;
   onOpenSettings?: () => void;
-  onOpenBugReport?: () => void;
   onOpenCharacters?: () => void;
   openBookId?: string | null;
   onBookRequestHandled?: () => void;
@@ -335,7 +333,7 @@ function TimelineLines() {
   );
 }
 
-export function MrozoversumMap({ books, connections, characters = [], introComplete = false, onOpenSupport, onOpenSettings, onOpenBugReport, onOpenCharacters, openBookId, onBookRequestHandled, }: MrozoversumMapProps) {
+export function MrozoversumMap({ books, connections, characters = [], introComplete = false, onOpenSettings, onOpenCharacters, openBookId, onBookRequestHandled, }: MrozoversumMapProps) {
   const [selectedSeries, setSelectedSeries] = useState<SeriesId[]>(seriesOrder);
   const [selectedRelations, setSelectedRelations] = useState<RelationType[]>(relationTypes);
   const [draftSeries, setDraftSeries] = useState<SeriesId[]>(seriesOrder);
@@ -353,7 +351,7 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
   const mapViewportRef = useRef<HTMLElement | null>(null);
   const initialFitAppliedRef = useRef(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
-  const menuItemClass = "group flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-xs font-semibold uppercase tracking-[0.12em] text-white/75 transition hover:bg-white/[0.06] hover:text-rose-100";
+  const menuItemClass = "group flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-[0.1em] text-white/75 transition hover:bg-white/[0.06] hover:text-rose-100";
 
   useEffect(() => {
     trackEvent("map_open");
@@ -1030,34 +1028,23 @@ const updateBookCover = (bookId: string, cover: string) => {
                   type="button"
                   onClick={() => {
                     setActiveTopPanel(null);
-                    onOpenSupport?.();
-                  }}
-                  className={menuItemClass}
-                >
-                  <Coffee size={16} className="shrink-0 text-white/55 transition group-hover:text-rose-200" />
-                  Postaw kawę
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setActiveTopPanel(null);
-                    onOpenBugReport?.();
-                  }}
-                  className={menuItemClass}
-                >
-                  <Bug size={16} className="shrink-0 text-white/55 transition group-hover:text-rose-200" />
-                  Zgłoś błąd
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setActiveTopPanel(null);
                     onOpenCharacters?.();
                   }}
                   className={menuItemClass}
                 >
                   <BookIcon size={16} className="shrink-0 text-white/55 transition group-hover:text-rose-200" />
                   Bohaterowie
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setActiveTopPanel(null);
+                    window.location.assign("/o-projekcie/");
+                  }}
+                  className={menuItemClass}
+                >
+                  <BookIcon size={16} className="shrink-0 text-white/55 transition group-hover:text-rose-200" />
+                  O projekcie
                 </button>
                 <button
                   type="button"

@@ -184,7 +184,7 @@ export function BookDetailsPanel({
                 <div className="mt-5 flex flex-wrap gap-3 text-[13px] text-white/72 font-medium">
                   <MetaItem icon={<User size={14} />} label="Seria" value={seriesLabels[book.series]} />
                   <MetaItem icon={<Calendar size={14} />} label="Rok" value={book.year ?? "---"} />
-                  <MetaItem icon={<BookOpen size={14} />} label="Tom" value={book.volume ?? book.order ?? "—"} />
+                  <MetaItem icon={<BookOpen size={14} />} label="Tom" value={book.volume ?? book.order ?? "-"} />
                   <MetaItem
                     icon={<Tag size={14} />}
                     label="Gatunek"

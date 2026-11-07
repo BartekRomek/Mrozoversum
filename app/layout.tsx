@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { StructuredData } from "@/components/StructuredData";
+import { ImageProtection } from "@/components/ImageProtection";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Odkrywaj świat książek Remigiusza Mroza. Interaktywna mapa chronologii, postaci, serii i powiązań między książkami.",
+    "Mrozoversum to niezależny projekt Bartłomieja Romka: interaktywna mapa chronologii, postaci, serii i powiązań między książkami Remigiusza Mroza.",
 
   keywords: [
     "Remigiusz Mróz",
@@ -40,11 +41,11 @@ export const metadata: Metadata = {
 
   authors: [
     {
-      name: "Bartek Romek"
+      name: "Bartłomiej Romek"
     }
   ],
 
-  creator: "Bartek Romek",
+  creator: "Bartłomiej Romek",
   publisher: "Mrozoversum",
 
   alternates: {
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
     siteName: "Mrozoversum",
     title: "Mrozoversum – Interaktywna mapa książek Remigiusza Mroza",
     description:
-      "Odkrywaj chronologię, postacie i powiązania między książkami Remigiusza Mroza.",
+      "Niezależny projekt Bartłomieja Romka - odkrywaj chronologię, postacie i powiązania między książkami Remigiusza Mroza.",
     images: [
       {
         url: "/og-image.jpg",
@@ -73,7 +74,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mrozoversum – Interaktywna mapa książek Remigiusza Mroza",
     description:
-      "Odkrywaj chronologię, postacie i powiązania między książkami Remigiusza Mroza.",
+      "Niezależny projekt Bartłomieja Romka - odkrywaj chronologię, postacie i powiązania między książkami Remigiusza Mroza.",
     images: ["/og-image.jpg"]
   },
 
@@ -99,6 +100,7 @@ export default function RootLayout({
     <html lang="pl">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <StructuredData />
+        <ImageProtection />
         {children}
         <GoogleAnalytics gaId="G-T19SCFY82Y" />
       </body>

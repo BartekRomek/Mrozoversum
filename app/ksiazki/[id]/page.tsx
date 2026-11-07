@@ -49,7 +49,7 @@ export default async function BookPage({ params }: Props) {
         <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">{book.description}</p>
         <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
           <Meta label="Seria" value={series} />
-          <Meta label="Rok" value={book.year ?? "—"} />
+          <Meta label="Rok" value={book.year ?? "-"} />
           <Meta label="Tom" value={(book as { volume?: string | number }).volume ?? book.order} />
           <Meta label="Pewność" value={`${book.certainty}%`} />
         </dl>

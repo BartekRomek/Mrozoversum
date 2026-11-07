@@ -7,6 +7,18 @@ export type UpdateEntry = {
 
 export const updates: UpdateEntry[] = [
   {
+    version: "1.2.2",
+    date: "5 Listopada 2026",
+    title: "Porządki i poprawki techniczne",
+    changes: [
+      "Dodano bezpośrednie adresy URL dla najważniejszych podstron projektu.",
+      "Ujednolicono informacje o Mrozoversum i jego twórcy w metadanych oraz na stronie projektu.",
+      "Poprawiono dane SEO i dane strukturalne strony.",
+      "Naprawiono wyświetlanie ikon serii w albumie bohaterów.",
+      "Uproszczono nawigację i usunięto tymczasową funkcję zgłaszania błędów."
+    ]
+  },
+  {
     version: "1.2.1",
     date: "28 Października 2026",
     title: "KONFRONTACJA NADCHODZI",

@@ -10,12 +10,14 @@ import {
 import { usePageScroll } from "@/components/usePageScroll";
 import { assetPath } from "@/lib/assetPath";
 import { SubpageLayout } from "@/components/SubpageLayout";
+import { ProjectCopyright } from "@/components/ProjectCopyright";
 
 type SupportPageProps = {
   onBack?: () => void;
+  showCopyright?: boolean;
 };
 
-export function SupportPage({ onBack }: SupportPageProps) {
+export function SupportPage({ onBack, showCopyright = false }: SupportPageProps) {
   usePageScroll();
 
   return (
@@ -30,7 +32,7 @@ export function SupportPage({ onBack }: SupportPageProps) {
           </p>
 
           <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white drop-shadow-[0_0_24px_rgba(255,255,255,0.12)] sm:text-6xl">
-            Postaw kawę twórcy
+            O PROJEKCIE
           </h1>
 
           <div className="mx-auto mt-6 h-px w-40 bg-gradient-to-r from-transparent via-rose-400 to-transparent shadow-[0_0_16px_rgba(244,63,94,0.6)]" />
@@ -58,7 +60,7 @@ export function SupportPage({ onBack }: SupportPageProps) {
 
               <img
                 src={assetPath("image/creator.png")}
-                alt="Bartek Romek – twórca Mrozoversum"
+                alt="Bartłomiej Romek - twórca Mrozoversum"
                 className="relative h-full w-full object-cover object-center"
               />
 
@@ -69,7 +71,7 @@ export function SupportPage({ onBack }: SupportPageProps) {
             <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.045] to-white/[0.015] px-7 py-6 text-center shadow-xl shadow-black/20">
 
               <h2 className="text-2xl font-bold text-white sm:text-3xl">
-                Bartek Romek
+                Bartłomiej Romek
               </h2>
 
               <p className="mt-2 text-sm leading-6 text-white/50">
@@ -101,7 +103,7 @@ export function SupportPage({ onBack }: SupportPageProps) {
 
 
             <p className="mt-5 text-sm leading-7 text-white/50">
-              Od samego początku obiecałem sobie jedno — Mrozoversum będzie
+              Od samego początku obiecałem sobie jedno - Mrozoversum będzie
               projektem w 100% darmowym i dostępnym dla każdego. Nie chcę
               zamykać wiedzy, ciekawostek i powiązań między książkami za
               paywallem ani zasypywać strony reklamami.
@@ -227,6 +229,8 @@ export function SupportPage({ onBack }: SupportPageProps) {
           </div>
 
         </section>
+
+        {showCopyright ? <ProjectCopyright /> : null}
 
       </div>
 

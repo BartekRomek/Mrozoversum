@@ -27,8 +27,7 @@
     "debut": "Kasacja",
     "description": "Prawnik, główny bohaterky serii.",
     "avatar": "avatars/zordon.png",
-    "audio": "audio/Zordon.mp3"
-
+    "audio": "audio/Chylka.mp3"
   },
   {
     "id": "kordian-orynski",
@@ -1098,8 +1097,7 @@
     "debut": "Ekspozycja",
     "description": "Komisarz policji w Zakopane, główny bohater serii.",
     "avatar": "/avatars/Forst.png",
-    "audio": "audio/forst.mp3"
-
+    "audio": "audio/Forst.mp3"
   },
   {
     "id": "olga-szrebska",
@@ -1686,7 +1684,7 @@
     "description": "Syn Piotra Langera seniora, biznesmen i filantrop z mrocznym charakterem",
     "avatar": "avatars/Langer.png",
     "audio": "audio/Langer.mp3"
-  },
+ },
   {
     "id": "siarka",
     "name": "Karolina Siarkowska",
@@ -1695,7 +1693,8 @@
     "series": "Langer",
     "debut": "Wyrok",
     "description": "Prokuratorka",
-    "avatar": "avatars/siarka.png"
+    "avatar": "avatars/siarka.png",
+    "audio": "audio/Siarka.mp3"
   },
   {
     "id": "paderborn",

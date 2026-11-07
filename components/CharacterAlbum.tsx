@@ -12,6 +12,7 @@ import { trackEvent } from "@/lib/analytics";
 import { assetPath } from "@/lib/assetPath";
 import { SubpageLayout } from "@/components/SubpageLayout";
 import { CharacterDetailsPanel } from "@/components/CharacterDetailsPanel";
+import { ProjectCopyright } from "@/components/ProjectCopyright";
 
 interface CharacterAlbumProps {
   onBack?: () => void;
@@ -341,6 +342,7 @@ export function CharacterAlbum({
             );
           })}
         </div>
+        <ProjectCopyright />
       </div>
       <CharacterDetailsPanel
         character={selectedCharacter}

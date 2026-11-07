@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 type SubpageLayoutProps = {
@@ -10,16 +9,28 @@ type SubpageLayoutProps = {
 };
 
 export function SubpageLayout({ children, onBack, className = "" }: SubpageLayoutProps) {
+  const goBackToMap = () => {
+    const cameFromThisSite =
+      document.referrer.startsWith(window.location.origin) && window.history.length > 1;
+
+    if (cameFromThisSite) {
+      window.history.back();
+      return;
+    }
+
+    window.location.assign("/");
+  };
+
   const backControl = onBack ? (
     <button type="button" onClick={onBack} className="subpage-layout__back">
       <span className="subpage-layout__back-icon"><ArrowLeft size={18} /></span>
       <span>Wróć do mapy</span>
     </button>
   ) : (
-    <Link href="/" className="subpage-layout__back">
+    <button type="button" onClick={goBackToMap} className="subpage-layout__back">
       <span className="subpage-layout__back-icon"><ArrowLeft size={18} /></span>
       <span>Wróć do mapy</span>
-    </Link>
+    </button>
   );
 
   return (

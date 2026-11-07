@@ -135,6 +135,22 @@ input {
   font: inherit;
 }
 
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.project-copyright {
+  margin: 3rem auto 0;
+  border-top: 1px solid rgba(255,255,255,.07);
+  padding-top: 1.25rem;
+  color: rgba(255,255,255,.3);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: .62rem;
+  letter-spacing: .12em;
+  text-align: center;
+}
+
 button,
 [role="button"] {
   touch-action: manipulation;
