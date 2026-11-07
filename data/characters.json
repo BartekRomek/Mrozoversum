@@ -27,7 +27,7 @@
     "debut": "Kasacja",
     "description": "Prawnik, główny bohaterky serii.",
     "avatar": "avatars/zordon.png",
-    "audio": "audio/Chylka.mp3"
+    "audio": "audio/Zordon.mp3"
   },
   {
     "id": "kordian-orynski",
@@ -46,7 +46,8 @@
     "series": "Chylka",
     "debut": "Kasacja",
     "description": "Współpracownik Joanny Chyłki i Kordiana Oryńskiego, prawnik.",
-    "avatar": "avatars/kormak.png"
+    "avatar": "avatars/kormak.png",
+    "audio": "audio/Kormak.mp3"
   },
   {
     "id": "artur-zelazny",
@@ -1117,7 +1118,8 @@
     "series": "Forst",
     "debut": "Ekspozycja",
     "description": "Inspektor Policji w Zakopanem.",
-    "avatar": "avatars/osica.png"
+    "avatar": "avatars/osica.png",
+    "audio": "audio/Osica.mp3"
   },
   {
     "id": "bieszynski",
@@ -1198,7 +1200,8 @@
     "series": "Forst",
     "debut": "Przewieszenie",
     "description": "Prokurator okręgowa z Krakowa",
-    "avatar": "avatars/wadris-hansen.png"
+    "avatar": "avatars/wadris-hansen.png",
+    "audio": "audio/Dominika.mp3"
   },
   {
     "id": "wadris-hansen-kasprowy",
@@ -1703,7 +1706,8 @@
     "series": "Langer",
     "debut": "Inwigilacja",
     "description": "Prokurator",
-    "avatar": "avatars/paderborn.png"
+    "avatar": "avatars/paderborn.png",
+    "audio": "audio/Paderborn.mp3"
   },
   {
     "id": "pokora-1",
