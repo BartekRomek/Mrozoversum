@@ -82,6 +82,10 @@ body {
 .settings-newsletter label { display:grid; gap:.4rem; }
 .settings-newsletter label span { color:rgba(255,255,255,.65); font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; }
 .settings-newsletter input { width:100%; min-width:0; border:1px solid rgba(255,255,255,.12); border-radius:.7rem; background:rgba(0,0,0,.18); padding:.7rem .8rem; color:#fff; outline:none; }
+.settings-auth-form { display:grid; gap:.8rem; }
+.settings-auth-form label { display:grid; gap:.4rem; }
+.settings-auth-form label span { color:rgba(255,255,255,.65); font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; }
+.settings-auth-form input { width:100%; min-width:0; border:1px solid rgba(255,255,255,.12); border-radius:.7rem; background:rgba(0,0,0,.18); padding:.7rem .8rem; color:#fff; outline:none; }
 .report-submit:disabled { cursor:wait; opacity:.6; }
 
 [data-mrozoversum-theme="light"] body { background:#eef0f3; color:#20222a; }
@@ -287,40 +291,6 @@ button,
   animation: mrozoversum-intro-content-in 900ms ease-out both;
 }
 
-.mrozoversum-intro__glitch {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  opacity: 0;
-  pointer-events: none;
-  animation: mrozoversum-intro-glitch 900ms steps(2, end) 650ms both;
-}
-
-.mrozoversum-intro__glitch span {
-  position: absolute;
-  width: min(68vw, 42rem);
-  aspect-ratio: 1;
-  border: clamp(1.35rem, 2.4vw, 2.75rem) solid rgba(220, 38, 38, 0.94);
-  border-radius: 50%;
-  box-shadow:
-    0 0 18px rgba(127, 29, 29, 0.5),
-    inset 0 0 18px rgba(127, 29, 29, 0.16);
-}
-
-.mrozoversum-intro__glitch span:nth-child(1) {
-  transform: scale(0.42);
-}
-
-.mrozoversum-intro__glitch span:nth-child(2) {
-  transform: scale(0.68);
-}
-
-.mrozoversum-intro__glitch span:nth-child(3) {
-  transform: scale(0.94);
-}
-
 .mrozoversum-intro h1 {
   margin: 0;
   color: #f4f1ea;
@@ -384,32 +354,6 @@ button,
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes mrozoversum-intro-glitch {
-  0%,
-  100% {
-    opacity: 0;
-    transform: scale(0.94);
-    filter: blur(2px);
-  }
-  18% {
-    opacity: 0.86;
-    transform: translate3d(-0.8%, 0, 0) scale(1.02);
-    filter: blur(0);
-  }
-  32% {
-    opacity: 0.38;
-    transform: translate3d(1.2%, -0.4%, 0) scale(0.98);
-  }
-  54% {
-    opacity: 0.72;
-    transform: translate3d(-0.4%, 0.6%, 0) scale(1.01);
-  }
-  76% {
-    opacity: 0.2;
-    transform: translate3d(0.8%, 0, 0) scale(1.04);
   }
 }
 

@@ -9,7 +9,6 @@ import characters from "@/data/characters.json";
 
 import { MrozoversumMap } from "@/components/MrozoversumMap";
 import { MrozoversumIntro } from "@/components/MrozoversumIntro";
-import { SettingsPage } from "@/components/SettingsPage";
 import { UpdateBubble } from "@/components/UpdateBubble";
 const CharacterAlbum = dynamic(
   () => import("@/components/CharacterAlbum").then((module) => module.CharacterAlbum),
@@ -21,9 +20,7 @@ import type { Book, BookConnection, Character } from "@/lib/types";
 export default function Home() {
   const [isIntroComplete, setIsIntroComplete] = useState(false);
 
-  const [activeView, setActiveView] = useState<
-    "map" | "settings" | "characters"
-  >("map");
+  const [activeView, setActiveView] = useState<"map" | "characters">("map");
   const [openBookId, setOpenBookId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -58,7 +55,6 @@ export default function Home() {
                 connections={connections as BookConnection[]}
                 characters={characters as Character[]}
                 introComplete={isIntroComplete}
-                onOpenSettings={() => setActiveView("settings")}
                 onOpenCharacters={() => setActiveView("characters")}
                 openBookId={openBookId}
                 onBookRequestHandled={() => setOpenBookId(null)}
@@ -71,12 +67,7 @@ export default function Home() {
           </div>
         </div>
 
-        {activeView === "settings" ? (
-          /* USTAWIENIA */
-          <div className="relative z-10">
-            <SettingsPage onBack={() => setActiveView("map")} />
-          </div>
-        ) : activeView === "characters" ? (
+        {activeView === "characters" ? (
           /* BOHATEROWIE */
           <div className="relative z-10">
             <CharacterAlbum

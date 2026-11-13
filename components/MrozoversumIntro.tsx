@@ -31,11 +31,6 @@ export function MrozoversumIntro({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div className="mrozoversum-intro" aria-label="Mrozoversum">
-      <div className="mrozoversum-intro__glitch" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-      </div>
       <div className="mrozoversum-intro__content">
         <h1>MROZOVERSUM</h1>
         <div className="mrozoversum-intro__accent" />

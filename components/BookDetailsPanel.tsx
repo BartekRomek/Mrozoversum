@@ -1,13 +1,15 @@
 "use client";
 
 import { useMemo, useState, useEffect, type ReactNode } from "react";
-import { X, User, Calendar, BookOpen, Tag, AlertTriangle } from "lucide-react";
+import { X, User, Calendar, BookOpen, Tag, AlertTriangle, Heart, Check } from "lucide-react";
 import { relationColors, relationLabels, seriesColors, seriesLabels } from "@/lib/catalog";
 import type { Book, BookConnection, Character } from "@/lib/types";
 import { CharacterCard } from "@/components/CharacterCard";
 import charactersData from "@/data/characters.json";
 import { appearancesData } from "@/data/appearances";
 import { assetPath } from "@/lib/assetPath";
+import { useSupabaseAuth } from "@/components/SupabaseAuthProvider";
+import { getBookStatus, type BookStatus } from "@/lib/supabase/books";
 
 type BookDetailsPanelProps = {
   book: Book | null;
@@ -43,11 +45,48 @@ export function BookDetailsPanel({
 }: BookDetailsPanelProps) {
   const [showSpoilers, setShowSpoilers] = useState(false);
   const [showWarningModal, setShowWarningModal] = useState(false);
+  const [bookStatus, setBookStatus] = useState<BookStatus>({ isFavorite: false, isRead: false });
+  const [bookStatusLoading, setBookStatusLoading] = useState(false);
+  const [bookStatusMessage, setBookStatusMessage] = useState("");
+  const { supabase, user, updateBookStatus } = useSupabaseAuth();
 
   useEffect(() => {
     setShowSpoilers(false);
     setShowWarningModal(false);
+    setBookStatus({ isFavorite: false, isRead: false });
+    setBookStatusMessage("");
   }, [book?.id]);
+
+  useEffect(() => {
+    if (!book || !supabase || !user) {
+      setBookStatusLoading(false);
+      return;
+    }
+
+    let active = true;
+    setBookStatusLoading(true);
+    void getBookStatus(supabase, user.id, book.id).then((status) => {
+      if (active) setBookStatus(status);
+    }).catch(() => {
+      if (active) setBookStatusMessage("Nie udało się pobrać oznaczeń książki.");
+    }).finally(() => {
+      if (active) setBookStatusLoading(false);
+    });
+
+    return () => { active = false; };
+  }, [book, supabase, user]);
+
+  const toggleBookStatus = (key: keyof BookStatus) => {
+    if (!book || !supabase || !user || bookStatusLoading) return;
+
+    const nextStatus = { ...bookStatus, [key]: !bookStatus[key] };
+    setBookStatus(nextStatus);
+    setBookStatusMessage("");
+    void updateBookStatus(book.id, nextStatus).catch(() => {
+      setBookStatus(bookStatus);
+      setBookStatusMessage("Nie udało się zapisać oznaczenia.");
+    });
+  };
 
   const relatedCharacters = useMemo(() => {
     if (!book) return [];
@@ -191,6 +230,33 @@ export function BookDetailsPanel({
                     value={book.genre ?? seriesGenres[book.series] ?? "Nie określono"}
                     />
                 </div>
+
+                <div className="mt-5 flex flex-wrap items-center gap-2">
+                  {!user && (
+                    <p className="basis-full mb-1 text-[10px] font-bold uppercase tracking-[0.16em] text-white/40">
+                      Zaloguj się, aby oznaczyć książkę
+                    </p>
+                  )}
+                    <button
+                      type="button"
+                      disabled={!user || bookStatusLoading}
+                      onClick={() => toggleBookStatus("isFavorite")}
+                      className={`flex min-h-10 items-center gap-2 rounded-xl border px-3 py-2 text-xs font-semibold transition ${bookStatus.isFavorite ? "border-rose-400/55 bg-rose-500/15 text-rose-200" : "border-white/10 bg-white/[0.04] text-white/58 hover:border-white/20 hover:text-white"}`}
+                    >
+                      <Heart size={15} fill={bookStatus.isFavorite ? "currentColor" : "none"} />
+                      {bookStatus.isFavorite ? "Ulubiona" : "Dodaj do ulubionych"}
+                    </button>
+                    <button
+                      type="button"
+                      disabled={!user || bookStatusLoading}
+                      onClick={() => toggleBookStatus("isRead")}
+                      className={`flex min-h-10 items-center gap-2 rounded-xl border px-3 py-2 text-xs font-semibold transition ${bookStatus.isRead ? "border-emerald-400/55 bg-emerald-500/15 text-emerald-200" : "border-white/10 bg-white/[0.04] text-white/58 hover:border-white/20 hover:text-white"}`}
+                    >
+                      <Check size={15} />
+                      {bookStatus.isRead ? "Przeczytana" : "Oznacz jako przeczytaną"}
+                    </button>
+                    {bookStatusMessage && <span className="basis-full text-xs text-rose-300">{bookStatusMessage}</span>}
+                  </div>
               </div>
 
               <div className="mt-7 grid grid-cols-1 gap-6 sm:grid-cols-[140px_1fr] sm:gap-6 md:mt-10 md:grid-cols-[180px_1fr] md:gap-8">

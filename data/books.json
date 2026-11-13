@@ -718,16 +718,36 @@
     "id": "konfrontacja",
     "title": "KONFRONTACJA",
     "series": "Chylka",
-    "cover": "/covers/konfrontacja.mp4",
+    "cover": "/covers/konfrontacja.jpg",
     "description": "Książka łącząca wszystkie serie Mrozoversum.",
     "certainty": 100,
     "order": 0,
     "timeline": 31,
     "year": 2026,
-    "mediaType": "video",
     "hideSeriesLabel": true,
     "spanAllAxes": true,
-    "disableDetails": true,
     "mapXOffset": 245
+  },
+  {
+    "id": "wladza-axis-konfrontacja",
+    "title": "Milena Hauer",
+    "series": "Wladza",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Langera.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 31,
+    "year": 2026
+  },
+    {
+    "id": "behawiorysta-axis-konfrontacja",
+    "title": "Gerard Edling",
+    "series": "Behawiorysta",
+    "cover": "/covers/mrozoversum-cover.svg",
+    "description": "Punkt na osi Langera.",
+    "certainty": 100,
+    "order": 0,
+    "timeline": 33,
+    "year": 2026
   }
 ]

@@ -1,6 +1,6 @@
 "use client";
-
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
 import {
   Background,
   BaseEdge,
@@ -19,12 +19,13 @@ import {
   type ReactFlowInstance
 } from "@xyflow/react";
 import { trackEvent } from "@/lib/analytics";
-import { LocateFixed, Map as MapIcon, Menu, Settings, X, SlidersHorizontal, Book as BookIcon } from "lucide-react";
+import { LocateFixed, Map as MapIcon, X, SlidersHorizontal, Book as BookIcon } from "lucide-react";
 import { clsx } from "clsx";
 import { BookNode } from "@/components/BookNode";
 import { BookDetailsPanel } from "@/components/BookDetailsPanel";
 import { CharacterCard } from "@/components/CharacterCard";
 import { MapGuide } from "@/components/MapGuide";
+import { AccountPopover } from "@/components/AccountPopover";
 import {
   relationColors,
   relationLabels,
@@ -46,13 +47,12 @@ type MrozoversumMapProps = {
   connections: BookConnection[];
   characters?: Character[];
   introComplete?: boolean;
-  onOpenSettings?: () => void;
   onOpenCharacters?: () => void;
   openBookId?: string | null;
   onBookRequestHandled?: () => void;
 };
 
-type ActiveTopPanel = "menu" | "filters" | null;
+type ActiveTopPanel = "filters" | null;
 
 const relationTypes: RelationType[] = [
   "kontynuacja",
@@ -79,13 +79,11 @@ function getInitialViewportXOffset() {
     ? MOBILE_VIEWPORT_X_OFFSET
     : INITIAL_VIEWPORT_X_OFFSET;
 }
-
 function getInitialFitViewPadding() {
   return typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches
     ? MOBILE_INITIAL_FIT_VIEW_PADDING
     : INITIAL_FIT_VIEW_PADDING;
 }
-
 function AxisPointNode({ data }: { data: any }) {
   const color = data?.color || "#e11d48";
 
@@ -128,7 +126,6 @@ function AxisPointNode({ data }: { data: any }) {
     </div>
   );
 }
-
 function LowerLabelSmoothStepEdge({
   id,
   sourceX,
@@ -176,7 +173,6 @@ function LowerLabelSmoothStepEdge({
     />
   );
 }
-
 const nodeTypes = {
   book: BookNode,
   axisPoint: AxisPointNode
@@ -227,20 +223,20 @@ function TimelineLines() {
   }, []);
 
   const rows = [
-    { key: "Wladza", series: "Wladza" as SeriesId, label: "W KRĘGACH WŁADZY", y: rowY.Wladza + offset },
+    { key: "Wladza", series: "Wladza" as SeriesId, label: "WŁADZA", y: rowY.Wladza + offset },
     { key: "Forst", series: "Forst" as SeriesId, label: "FORST", y: rowY.Forst + offset },
     { key: "Chylka", series: "Chylka" as SeriesId, label: "CHYŁKA", y: rowY.Chylka + offset },
     { key: "Langer", series: "Langer" as SeriesId, label: "LANGER", y: rowY.Langer + offset },
     {
       key: "Zaorski",
       series: "Zaorski" as SeriesId,
-      label: "SEWERYN ZAORSKI",
+      label: "ZAORSKI",
       y: rowY.Zaorski + offset
     },
     {
       key: "Behawiorysta",
       series: "Behawiorysta" as SeriesId,
-      label: "Gerard Edling",
+      label: "EDLING",
       y: rowY.Behawiorysta + offset
     }
   ];
@@ -332,8 +328,7 @@ function TimelineLines() {
     </>
   );
 }
-
-export function MrozoversumMap({ books, connections, characters = [], introComplete = false, onOpenSettings, onOpenCharacters, openBookId, onBookRequestHandled, }: MrozoversumMapProps) {
+export function MrozoversumMap({ books, connections, characters = [], introComplete = false, onOpenCharacters, openBookId, onBookRequestHandled, }: MrozoversumMapProps) {
   const [selectedSeries, setSelectedSeries] = useState<SeriesId[]>(seriesOrder);
   const [selectedRelations, setSelectedRelations] = useState<RelationType[]>(relationTypes);
   const [draftSeries, setDraftSeries] = useState<SeriesId[]>(seriesOrder);
@@ -350,29 +345,11 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
   const reactFlowInstanceRef = useRef<ReactFlowInstance | null>(null);
   const mapViewportRef = useRef<HTMLElement | null>(null);
   const initialFitAppliedRef = useRef(false);
-  const menuRef = useRef<HTMLDivElement | null>(null);
-  const menuItemClass = "group flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-[0.1em] text-white/75 transition hover:bg-white/[0.06] hover:text-rose-100";
+  const headerNavItemClass = "group flex shrink-0 items-center gap-1 rounded-lg border border-transparent px-2 py-2 text-[9px] font-semibold uppercase tracking-[0.08em] text-white/65 transition hover:border-white/10 hover:bg-white/[0.06] hover:text-white sm:gap-1.5 sm:px-2.5 sm:text-[10px] lg:px-3 lg:text-[11px]";
 
   useEffect(() => {
     trackEvent("map_open");
   }, []);
-
-  useEffect(() => {
-    if (activeTopPanel !== "menu") return;
-
-    const closeMenuOnOutsidePointer = (event: PointerEvent) => {
-      if (
-        !menuRef.current ||
-        !(event.target instanceof Element) ||
-        !menuRef.current.contains(event.target)
-      ) {
-        setActiveTopPanel(null);
-      }
-    };
-
-    document.addEventListener("pointerdown", closeMenuOnOutsidePointer);
-    return () => document.removeEventListener("pointerdown", closeMenuOnOutsidePointer);
-  }, [activeTopPanel]);
 
   useEffect(() => {
     const storedCovers = window.localStorage.getItem(
@@ -955,111 +932,29 @@ const updateBookCover = (bookId: string, cover: string) => {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(225,29,72,0.16),transparent_32%),linear-gradient(90deg,rgba(225,29,72,0.06),transparent_30%,transparent_70%,rgba(225,29,72,0.06))]" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-rose-500/45 to-transparent" />
 
-        <div className="relative mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-3 py-2 lg:h-auto lg:px-8 lg:py-5">
-          <div className="order-0 hidden min-w-0 items-center gap-2 lg:flex lg:min-w-[220px] lg:gap-3">
-            <div className="h-8 w-1 rounded-full bg-rose-500 shadow-[0_0_16px_rgba(244,63,94,0.7)]" />
-            <div>
-              <p className="font-mono text-[8px] font-bold uppercase tracking-[0.18em] text-rose-300/70 sm:text-[9px] sm:tracking-[0.28em]">
-                Interaktywna mapa
-              </p>
-              <p className="mt-0.5 hidden text-[11px] font-medium text-white/40 sm:block">
-                książki, serie i powiązania
-              </p>
-            </div>
-          </div>
-
-          <div className="pointer-events-none relative order-1 min-w-0 shrink items-center lg:absolute lg:left-1/2 lg:top-1/2 lg:flex lg:-translate-x-1/2 lg:-translate-y-1/2 lg:flex-col">
+        <div className="relative mx-auto flex h-auto w-full max-w-6xl items-center justify-between gap-3 px-3 py-2 lg:px-8 lg:py-4">
+          <div className="pointer-events-none flex min-w-0 shrink-0 items-center lg:flex-col lg:items-start">
             <h1 className="text-lg font-extrabold tracking-tight text-white drop-shadow-[0_0_18px_rgba(255,255,255,0.12)] sm:text-3xl lg:text-4xl">
               MROZOVERSUM
             </h1>
-            <div className="mt-2 h-px w-32 bg-gradient-to-r from-transparent via-rose-400 to-transparent shadow-[0_0_14px_rgba(244,63,94,0.65)]" />
+            <div className="mt-1 h-px w-24 bg-gradient-to-r from-rose-400 to-transparent shadow-[0_0_14px_rgba(244,63,94,0.65)] lg:mt-2 lg:w-32" />
           </div>
 
-          <div
-            ref={menuRef}
-            className="relative order-2 ml-auto flex w-auto items-center justify-end gap-2 sm:gap-3"
-          >
-            <MapStats
-              relationCount={connections.length}
-              seriesCount={seriesOrder.length}
-            />
-
-            <button
-              type="button"
-              onClick={() =>
-                setActiveTopPanel((current) =>
-                  current === "menu" ? null : "menu"
-                )
-              }
-              aria-expanded={activeTopPanel === "menu"}
-              aria-controls="mrozoversum-menu"
-              aria-label="Otwórz menu"
-              className="group flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.045] p-0 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_10px_28px_rgba(0,0,0,0.18)] transition hover:border-rose-400/35 hover:bg-rose-500/10 hover:text-rose-50 lg:h-10 lg:w-auto lg:gap-2 lg:px-4"
-            >
-              <span className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/10 bg-black/20 text-rose-200 transition group-hover:border-rose-300/35 group-hover:bg-rose-500/15">
-                <Menu size={15} />
-              </span>
-              <span className="hidden lg:inline">Menu</span>
-            </button>
-
-            {activeTopPanel === "menu" && <>
-              <button
-                type="button"
-                aria-label="Zamknij menu"
-                onClick={() => setActiveTopPanel(null)}
-                className="fixed inset-0 z-50 bg-black/10 lg:hidden"
-              />
-              <div
-                id="mrozoversum-menu"
-                className="mrozoversum-menu fixed inset-x-3 top-16 bottom-auto z-[60] max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain rounded-2xl border border-white/10 bg-[#090a0f]/95 p-2 shadow-2xl shadow-black/60 backdrop-blur-xl [-webkit-overflow-scrolling:touch] lg:absolute lg:inset-x-auto lg:bottom-auto lg:right-0 lg:top-[calc(100%+0.75rem)] lg:w-[17rem]"
-              >
-                <div className="px-3 pb-2 pt-2 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-white/35">
-                  Nawigacja
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setActiveTopPanel(null)}
-                  className={menuItemClass}
-                >
-                  <MapIcon size={16} className="shrink-0 text-white/55 transition group-hover:text-rose-200" />
-                  Mapa uniwersum
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setActiveTopPanel(null);
-                    onOpenCharacters?.();
-                  }}
-                  className={menuItemClass}
-                >
-                  <BookIcon size={16} className="shrink-0 text-white/55 transition group-hover:text-rose-200" />
-                  Bohaterowie
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setActiveTopPanel(null);
-                    window.location.assign("/o-projekcie/");
-                  }}
-                  className={menuItemClass}
-                >
-                  <BookIcon size={16} className="shrink-0 text-white/55 transition group-hover:text-rose-200" />
-                  O projekcie
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setActiveTopPanel(null);
-                    onOpenSettings?.();
-                  }}
-                  className={menuItemClass}
-                >
-                  <Settings size={16} className="shrink-0 text-white/55 transition group-hover:text-rose-200" />
-                  Ustawienia
-                </button>
-              </div>
-            </>}
-          </div>
+          <nav className="ml-auto flex min-w-0 items-center justify-end gap-1 sm:gap-2" aria-label="Główna nawigacja">
+            <Link href="/" className={headerNavItemClass}>
+              <MapIcon size={14} />
+              <span>Mapa</span>
+            </Link>
+            <Link href="/bohaterowie/" className={headerNavItemClass}>
+              <BookIcon size={14} />
+              <span>Bohaterowie</span>
+            </Link>
+            <Link href="/o-projekcie/" className={headerNavItemClass}>
+              <BookIcon size={14} />
+              <span>O projekcie</span>
+            </Link>
+            <AccountPopover />
+          </nav>
         </div>
       </header>
 
@@ -1287,16 +1182,6 @@ function FilterButton({
   );
 }
 
-function MapStats({ relationCount, seriesCount }: { relationCount: number; seriesCount: number }) {
-  return (
-    <div className="pointer-events-none flex h-10 shrink-0 items-center gap-1 rounded-xl border border-white/10 bg-white/[0.035] px-2 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] sm:gap-2 sm:px-3">
-      <Stat label="Relacje" value={relationCount} />
-      <div className="h-6 w-px bg-white/10" />
-      <Stat label="Serie" value={seriesCount} />
-    </div>
-  );
-}
-
 function ConnectionLegend({
   showFilter = false,
   onOpenFilters,
@@ -1452,25 +1337,5 @@ function ConnectionDetailsSidebar({
         )}
       </div>
     </aside>
-  );
-}
-
-function Stat({
-  label,
-  value
-}: {
-  label: string;
-  value: number;
-}) {
-  return (
-    <div className="min-w-[44px] text-center sm:min-w-[54px]">
-      <span className="block font-mono text-[7px] font-bold uppercase tracking-[0.08em] text-white/[0.35] sm:text-[8px] sm:tracking-[0.18em]">
-        {label}
-      </span>
-
-      <span className="mt-0.5 block text-xs font-semibold leading-none text-white sm:text-sm">
-        {value}
-      </span>
-    </div>
   );
 }

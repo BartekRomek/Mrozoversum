@@ -1,5 +1,5 @@
 [
-    { "characterId": "piotr-langer", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+    { "characterId": "piotr-langer-1", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
     { "characterId": "pokora-2", "isFirstAppearance": true, "role": "main", "isNew": false },
     { "characterId": "siarka", "isFirstAppearance": true, "role": "main", "isNew": false },
     { "characterId": "paderborn", "isFirstAppearance": true, "role": "main", "isNew": false },

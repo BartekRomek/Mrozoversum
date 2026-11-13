@@ -33,9 +33,9 @@ const seriesLabels: Record<string, string> = {
   Chylka: "CHYŁKA",
   Forst: "FORST",
   Langer: "LANGER",
-  Wladza: "W KRĘGACH WŁADZY",
+  Wladza: "WŁADZA",
   Behawiorysta: "BEHAWIORYSTA",
-  Zaorski: "SEWERYN ZAORSKI",
+  Zaorski: "ZAORSKI",
 };
 
 const seriesIcons: Record<string, string> = {
@@ -351,7 +351,11 @@ export function CharacterAlbum({
         onClose={() => setSelectedCharacter(null)}
         onSelectBook={(bookId) => {
           setSelectedCharacter(null);
-          onOpenBook?.(bookId);
+          if (onOpenBook) {
+            onOpenBook(bookId);
+          } else {
+            window.location.assign(`/ksiazki/${bookId}/`);
+          }
         }}
       />
     </SubpageLayout>

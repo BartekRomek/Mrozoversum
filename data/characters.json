@@ -37,7 +37,8 @@
     "series": "Chylka",
     "debut": "Kasacja",
     "description": "Prawnik, główny bohaterky serii.",
-    "avatar": "avatars/zordon.png"
+    "avatar": "avatars/zordon.png",
+    "audio": "audio/Zordon.mp3"
   },
   {
     "id": "kormak",
@@ -1282,6 +1283,15 @@
     "hiddenAvatar": "/avatars/bestia.png"
   },
   {
+    "id": "iwo-eliasz-1",
+    "name": "Iwo Eliasz",
+    "role": "BESTIA Z GIWEONTU",
+    "series": "Forst",
+    "debut": "Przewieszenie",
+    "description": "BESTIA Z GIWEONTU",
+    "avatar": "/avatars/bestia.png"
+  },
+  {
     "id": "agata-osica",
     "name": "Agata Osica",
     "role": "Córka Edmunda Osicy",
@@ -1688,6 +1698,16 @@
     "avatar": "avatars/Langer.png",
     "audio": "audio/Langer.mp3"
  },
+   {
+    "id": "piotr-langer-1",
+    "name": "Piotr Langer",
+    "role": "Sadysta z Mokotowa",
+    "series": "Langer",
+    "debut": "Kasacja",
+    "description": "Syn Piotra Langera seniora, biznesmen i filantrop z mrocznym charakterem",
+    "avatar": "avatars/Langer.png",
+    "audio": "audio/Langer.mp3"
+ },
   {
     "id": "siarka",
     "name": "Karolina Siarkowska",
@@ -1778,6 +1798,14 @@
     "avatar": "avatars/ozyrys.png",
     "hiddenAvatar": "avatars/ozyrys-psycho.png"
   },
+  {
+    "id": "ozyrys-1",
+    "name": "Natan Kerth",
+    "role": "OZYRYS",
+    "series": "Langer",
+    "debut": "Ozyrys",
+    "avatar": "avatars/ozyrys-psycho.png"
+  },
 
 
 
@@ -1812,7 +1840,29 @@
     "series": "Zaorski",
     "debut": "Listy zza grobu",
     "avatar": "avatars/zaorska-kasprowy.png"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+    "id": "gerard",
+    "name": "Gerard Edling",
+    "role": "Prokurator i ekspert kinezyki",
+    "series": "Behawiorysta",
+    "debut": "Behawiorysta",
+    "avatar": "avatars/gerard.png"
   }
+
 
 
 

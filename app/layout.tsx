@@ -4,6 +4,7 @@ import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { StructuredData } from "@/components/StructuredData";
 import { ImageProtection } from "@/components/ImageProtection";
+import { SupabaseAuthProvider } from "@/components/SupabaseAuthProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -101,7 +102,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <StructuredData />
         <ImageProtection />
-        {children}
+        <SupabaseAuthProvider>{children}</SupabaseAuthProvider>
         <GoogleAnalytics gaId="G-T19SCFY82Y" />
       </body>
     </html>

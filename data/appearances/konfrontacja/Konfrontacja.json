@@ -1,0 +1,20 @@
+[
+    { "characterId": "joanna-chylka", "isFirstAppearance": true, "role": "main", "isNew": false },
+    { "characterId": "wiktor-forst", "isFirstAppearance": true, "role": "main", "isNew": false },
+    { "characterId": "zaorski-kasprowy", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+    { "characterId": "gerard", "isFirstAppearance": true, "role": "main", "isNew": false },
+    { "characterId": "piotr-langer-1", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+    { "characterId": "iwo-eliasz-1", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+    { "characterId": "gorgan-2", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+    { "characterId": "ozyrys-1", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+    { "characterId": "edmund-osica", "isFirstAppearance": true, "role": "main", "isNew": false },
+    { "characterId": "kordian-orynski", "isFirstAppearance": true, "role": "main", "isNew": false },
+    { "characterId": "wadris-hansen", "isFirstAppearance": true, "role": "main", "isNew": false },
+    { "characterId": "kormak", "isFirstAppearance": true, "role": "main", "isNew": false },
+    { "characterId": "paderborn", "isFirstAppearance": true, "role": "main", "isNew": false },
+    { "characterId": "olga-szrebska-5", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+    { "characterId": "milena-hauer-prezydent", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+    { "characterId": "szczerbaty", "isFirstAppearance": true, "role": "supporting", "isNew": false }
+
+
+]

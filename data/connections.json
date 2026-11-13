@@ -391,5 +391,29 @@
     "targetHandle": "target-bottom",
     "characters": ["paderborn"],
     "note": "Olgier Paderborn jako prokurator uczestniczy w przesłuchaniu Chyłki przez Bergera."
+  },
+  {
+    "source": "wladza-axis-konfrontacja",
+    "target": "konfrontacja",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "standard",
+    "pathType": "smoothstep",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-left",
+    "characters": ["milena-hauer-prezydent"],
+    "note": "Olgier Paderborn jako prokurator uczestniczy w przesłuchaniu Chyłki przez Bergera."
+  },
+  {
+    "source": "behawiorysta-axis-konfrontacja",
+    "target": "konfrontacja",
+    "type": "crossover",
+    "certainty": 100,
+    "importance": "standard",
+    "pathType": "smoothstep",
+    "sourceHandle": "source-bottom",
+    "targetHandle": "target-top",
+    "characters": ["gerard"],
+    "note": "Olgier Paderborn jako prokurator uczestniczy w przesłuchaniu Chyłki przez Bergera."
   }
 ]

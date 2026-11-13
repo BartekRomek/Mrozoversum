@@ -1,5 +1,5 @@
 [
-    { "characterId": "piotr-langer", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
+    { "characterId": "piotr-langer-1", "isFirstAppearance": true, "role": "antagonist", "isNew": true },
     { "characterId": "pokora-1", "isFirstAppearance": true, "role": "main", "isNew": true, "hiddenIdentity": "Praca pod przykrywką" },
     { "characterId": "siarka", "isFirstAppearance": true, "role": "main", "isNew": true },
     { "characterId": "paderborn", "isFirstAppearance": true, "role": "main", "isNew": true },

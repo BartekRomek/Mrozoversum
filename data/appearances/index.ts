@@ -21,6 +21,9 @@ import substytucja from './chylka/Substytucja.json';
 import bezprawie from './chylka/Bezprawie.json';
 
 
+import konfrontacja from './konfrontacja/Konfrontacja.json';
+
+
 
 
 //FORST
@@ -78,6 +81,10 @@ export const appearancesData = [
   ...obrona.map((char: any) => ({ ...char, bookId: 'obrona' })),
   ...substytucja.map((char: any) => ({ ...char, bookId: 'substytucja' })),
   ...bezprawie.map((char: any) => ({ ...char, bookId: 'bezprawie' })),
+
+
+  ...konfrontacja.map((char: any) => ({ ...char, bookId: 'konfrontacja' })),
+
 
 
   //forst

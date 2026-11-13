@@ -3,23 +3,46 @@
 import { Bell, ChevronRight, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { currentVersion, updates } from "@/lib/updates";
+import { useSupabaseAuth } from "@/components/SupabaseAuthProvider";
+import { getReadNewsIds, markNewsAsRead, newsIdForVersion } from "@/lib/supabase/news";
 
 const LAST_READ_VERSION_KEY = "mrozoversum-last-read-version";
 
 export function UpdateBubble() {
   const [isOpen, setIsOpen] = useState(false);
   const [lastReadVersion, setLastReadVersion] = useState<string | null>(null);
+  const [readNewsIds, setReadNewsIds] = useState<Set<string>>(new Set());
+  const { supabase, user } = useSupabaseAuth();
 
   useEffect(() => {
     setLastReadVersion(window.localStorage.getItem(LAST_READ_VERSION_KEY));
   }, []);
 
-  const hasUnreadUpdate = lastReadVersion !== currentVersion;
+  useEffect(() => {
+    if (!supabase || !user) {
+      setReadNewsIds(new Set());
+      return;
+    }
+    let active = true;
+    void getReadNewsIds(supabase, user.id).then((ids) => {
+      if (active) setReadNewsIds(ids);
+    }).catch(() => undefined);
+    return () => { active = false; };
+  }, [supabase, user]);
+
+  const hasUnreadUpdate = user && supabase
+    ? !readNewsIds.has(newsIdForVersion(currentVersion))
+    : lastReadVersion !== currentVersion;
 
   const handleOpen = () => {
     setIsOpen((open) => !open);
     setLastReadVersion(currentVersion);
     window.localStorage.setItem(LAST_READ_VERSION_KEY, currentVersion);
+    if (supabase && user) {
+      const newsId = newsIdForVersion(currentVersion);
+      setReadNewsIds((ids) => new Set(ids).add(newsId));
+      void markNewsAsRead(supabase, user.id, newsId).catch(() => undefined);
+    }
   };
 
   return (

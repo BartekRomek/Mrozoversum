@@ -1,13 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { Handle, Position, type NodeProps } from "@xyflow/react";
 import { clsx } from "clsx";
-import { ShieldCheck } from "lucide-react";
+import { Check, ShieldCheck } from "lucide-react";
 import { seriesColors, seriesLabels } from "@/lib/catalog";
 import type { BookNodeData } from "@/lib/types";
 import { assetPath } from "@/lib/assetPath";
 import { formatKonfrontacjaCountdown, getKonfrontacjaCountdown } from "@/lib/konfrontacja";
+import { useSupabaseAuth } from "@/components/SupabaseAuthProvider";
 
 export function BookNode({ data }: NodeProps) {
   const nodeData = data as BookNodeData;
@@ -18,7 +19,23 @@ export function BookNode({ data }: NodeProps) {
   const color = seriesColors[book.series] || "#ffffff";
   const isVideo = book.mediaType === "video";
   const isCrossSeries = book.spanAllAxes === true;
+  const footerColor = isCrossSeries ? "#ffffff" : color;
   const [countdown, setCountdown] = useState(0);
+  const { user, bookStatuses, updateBookStatus } = useSupabaseAuth();
+  const isRead = bookStatuses[book.id]?.isRead === true;
+
+  const toggleRead = async (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+    if (!user) return;
+
+    const currentStatus = bookStatuses[book.id] ?? { isFavorite: false, isRead: false };
+    try {
+      await updateBookStatus(book.id, { ...currentStatus, isRead: !currentStatus.isRead });
+    } catch {
+      // The details panel remains the place for any future save-error messaging.
+    }
+  };
 
   useEffect(() => {
     if (!isCrossSeries) return;
@@ -44,7 +61,7 @@ export function BookNode({ data }: NodeProps) {
       )}
       {hasDuration && (
         <div
-          className="absolute inset-y-0 left-0 z-0 h-full cursor-pointer rounded-2xl border shadow-2xl transition duration-300 group-hover:-translate-y-1 group-hover:scale-[1.015] group-hover:!border-white/25"
+          className="absolute inset-y-0 left-0 z-0 h-full cursor-pointer rounded-2xl border shadow-2xl"
           style={{
             width: glassWidth || undefined,
             backgroundColor: `${color}${isSelected ? "28" : "18"}`,
@@ -69,12 +86,10 @@ export function BookNode({ data }: NodeProps) {
 
         <article
           className={clsx(
-            "relative z-10 h-full w-full overflow-hidden border bg-[#11131a]/95 shadow-2xl transition duration-300",
-            !book.disableDetails && "group-hover:-translate-y-1 group-hover:scale-[1.015] group-hover:border-white/25",
+            "relative z-10 overflow-hidden border bg-[#11131a]/95 shadow-2xl",
+            isCrossSeries ? "flex h-full w-full flex-col" : "h-full w-full",
             isSelected
               ? "border-rose-400 shadow-rose-950/60"
-              : isCrossSeries
-                ? "border-red-900 shadow-red-950/80"
               : book.isNew
                 ? "border-emerald-400 shadow-emerald-950/60"
               : "border-white/10 shadow-black/50",
@@ -84,22 +99,18 @@ export function BookNode({ data }: NodeProps) {
             borderRadius: 8,
             borderColor: isSelected
               ? "#fb7185"
-              : isCrossSeries
-                ? "#8f1d1d"
               : book.isNew
                 ? "#34d399"
                 : "rgba(255, 255, 255, 0.1)",
             background: `linear-gradient(180deg, ${seriesColors[book.series]}1c, rgba(17, 19, 26, 0.98) 46%)`,
             boxShadow: isSelected
               ? `0 0 0 2px ${seriesColors[book.series]}99, 0 22px 70px rgba(0,0,0,.58), 0 0 24px ${seriesColors[book.series]}44`
-              : isCrossSeries
-                ? "0 0 0 2px rgba(127, 29, 29, .9), 0 22px 70px rgba(0,0,0,.62), 0 0 34px rgba(127, 29, 29, .55)"
               : book.isNew
                 ? "0 0 0 2px rgba(52, 211, 153, .8), 0 18px 48px rgba(0,0,0,.48), 0 0 28px rgba(16, 185, 129, .3)"
               : `0 18px 48px rgba(0,0,0,.48), 0 0 24px ${seriesColors[book.series]}24`
           }}
         >
-          <div className={clsx("relative bg-[#171923]", isCrossSeries ? "h-full" : "h-[214px]")}>
+          <div className={clsx("relative bg-[#171923]", isCrossSeries ? "min-h-0 flex-1" : "h-[214px]")}>
             {isVideo ? (
               <video
                 src={assetPath(book.cover)}
@@ -118,7 +129,7 @@ export function BookNode({ data }: NodeProps) {
               <img
                 src={assetPath(book.cover)}
                 alt={`Okładka: ${book.title}`}
-                className="h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-[1.035] group-hover:opacity-100"
+                className="h-full w-full object-cover opacity-90"
               />
             )}
 
@@ -151,19 +162,28 @@ export function BookNode({ data }: NodeProps) {
           </div>
 
           <div
-            className="flex items-center justify-between border-t px-3 py-2 text-xs text-white/58"
+            className={clsx(
+              "relative z-20 flex shrink-0 items-center justify-between border-t px-3 py-2 text-xs text-white/58"
+            )}
             style={{
-              borderTopColor: `${seriesColors[book.series]}66`,
-              backgroundColor: `${seriesColors[book.series]}33`
+              borderTopColor: `${footerColor}66`,
+              backgroundColor: `${footerColor}24`
             }}
           >
-            <span className="font-semibold" style={{ color: seriesColors[book.series] }}>
+            <span className="font-semibold" style={{ color: footerColor }}>
               #{book.order}
             </span>
-            <span className="flex items-center gap-1">
-              <ShieldCheck size={13} />
+            <button
+              type="button"
+              disabled={!user}
+              title={user ? (isRead ? "Cofnij oznaczenie przeczytanej książki" : "Oznacz książkę jako przeczytaną") : "Zaloguj się, aby oznaczać książki jako przeczytane"}
+              aria-label={user ? (isRead ? "Cofnij oznaczenie przeczytanej książki" : "Oznacz książkę jako przeczytaną") : "Logowanie wymagane do oznaczania książki jako przeczytanej"}
+              onClick={toggleRead}
+              className={`nodrag flex items-center gap-1 rounded-md px-1 py-0.5 transition ${user ? "cursor-pointer hover:bg-white/10 hover:text-white" : "cursor-default"} ${isRead ? "text-emerald-300" : ""}`}
+            >
+              {isRead ? <Check size={13} strokeWidth={2.5} /> : <ShieldCheck size={13} />}
               {book.certainty}%
-            </span>
+            </button>
           </div>
         </article>
       </div>

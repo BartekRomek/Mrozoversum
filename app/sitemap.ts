@@ -25,6 +25,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8
     },
+    {
+      url: "https://mrozoversum.pl/bohaterowie/",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8
+    },
     ...seriesOrder.map((series) => ({ url: `https://mrozoversum.pl/serie/${series.toLowerCase()}`, changeFrequency: "monthly" as const, priority: 0.7 })),
     ...books.filter((book) => !book.id.includes("-axis-")).map((book) => ({ url: `https://mrozoversum.pl/ksiazki/${book.id}`, changeFrequency: "monthly" as const, priority: 0.6 })),
     ...characters.map((character) => ({ url: `https://mrozoversum.pl/postacie/${character.id}`, changeFrequency: "monthly" as const, priority: 0.5 }))
