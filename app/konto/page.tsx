@@ -3,7 +3,7 @@ import { AccountPage } from "@/components/AccountPage";
 
 export const metadata: Metadata = {
   title: "Konto użytkownika",
-  description: "Twoje ulubione książki i bohaterowie w Mrozoversum.",
+  description: "Twoje ulubione książki i postępy w Mrozoversum.",
   alternates: { canonical: "https://mrozoversum.pl/konto/" }
 };
 

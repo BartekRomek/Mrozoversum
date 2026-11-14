@@ -16,7 +16,7 @@ export function BookNode({ data }: NodeProps) {
 
   const hasDuration = book.duration && book.duration > 0;
   const glassWidth = hasDuration ? `${book.duration! * 245 + 154}px` : null;
-  const color = seriesColors[book.series] || "#ffffff";
+  const color = book.series ? seriesColors[book.series] : "#facc15";
   const isVideo = book.mediaType === "video";
   const isCrossSeries = book.spanAllAxes === true;
   const footerColor = isCrossSeries ? "#ffffff" : color;
@@ -102,12 +102,12 @@ export function BookNode({ data }: NodeProps) {
               : book.isNew
                 ? "#34d399"
                 : "rgba(255, 255, 255, 0.1)",
-            background: `linear-gradient(180deg, ${seriesColors[book.series]}1c, rgba(17, 19, 26, 0.98) 46%)`,
+            background: `linear-gradient(180deg, ${color}1c, rgba(17, 19, 26, 0.98) 46%)`,
             boxShadow: isSelected
-              ? `0 0 0 2px ${seriesColors[book.series]}99, 0 22px 70px rgba(0,0,0,.58), 0 0 24px ${seriesColors[book.series]}44`
+              ? `0 0 0 2px ${color}99, 0 22px 70px rgba(0,0,0,.58), 0 0 24px ${color}44`
               : book.isNew
                 ? "0 0 0 2px rgba(52, 211, 153, .8), 0 18px 48px rgba(0,0,0,.48), 0 0 28px rgba(16, 185, 129, .3)"
-              : `0 18px 48px rgba(0,0,0,.48), 0 0 24px ${seriesColors[book.series]}24`
+              : `0 18px 48px rgba(0,0,0,.48), 0 0 24px ${color}24`
           }}
         >
           <div className={clsx("relative bg-[#171923]", isCrossSeries ? "min-h-0 flex-1" : "h-[214px]")}>
@@ -151,7 +151,7 @@ export function BookNode({ data }: NodeProps) {
               <div className="rounded-md bg-black/20 p-2 backdrop-blur-[2px]">
                 {!book.hideSeriesLabel && (
                   <p className="text-[10px] uppercase tracking-[0.18em] text-white/50">
-                    {seriesLabels[book.series]}
+                    {book.series ? seriesLabels[book.series] : ""}
                   </p>
                 )}
                 <h3 className="mt-1 text-base font-semibold leading-tight text-white md:text-lg">

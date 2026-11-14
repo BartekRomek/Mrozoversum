@@ -160,6 +160,148 @@ button,
   touch-action: manipulation;
 }
 
+@keyframes mrozoversum-achievement-backdrop {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes mrozoversum-achievement-card {
+  from { opacity: 0; transform: translateY(18px) scale(.94); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes mrozoversum-achievement-seal {
+  0% { opacity: 0; transform: scale(.45) rotate(-12deg); }
+  65% { opacity: 1; transform: scale(1.08) rotate(3deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes mrozoversum-confetti {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(.2) rotate(0deg); }
+  12% { opacity: 1; }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--confetti-x)), calc(-50% + var(--confetti-y))) scale(1) rotate(var(--confetti-rotation)); }
+}
+
+.achievement-backdrop { animation: mrozoversum-achievement-backdrop .25s ease-out both; }
+.achievement-card { animation: mrozoversum-achievement-card .55s cubic-bezier(.22,1,.36,1) both; }
+.achievement-seal { animation: mrozoversum-achievement-seal .75s cubic-bezier(.22,1,.36,1) .1s both; }
+.achievement-confetti { position:absolute; left:50%; top:34%; width:6px; height:12px; border-radius:2px; animation: mrozoversum-confetti 1.45s cubic-bezier(.22,1,.36,1) var(--confetti-delay) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .achievement-backdrop, .achievement-card, .achievement-seal, .achievement-confetti { animation: none; }
+}
+
+@keyframes badge-details-modal-in {
+  from { opacity: 0; transform: translateY(0.75rem) scale(0.88); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.badge-details-modal {
+  animation: badge-details-modal-in 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge-details-modal {
+    animation: none;
+  }
+}
+
+/* Subtelne efekty ikon statusów serii — bez dodatkowej obwódki całej karty. */
+@keyframes series-status-metallic-shine {
+  0%, 55%, 100% { transform: translateX(-135%) rotate(10deg); opacity: 0; }
+  64% { opacity: .7; }
+  76% { transform: translateX(135%) rotate(10deg); opacity: 0; }
+}
+
+@keyframes series-status-gold-glint {
+  0%, 72%, 100% { opacity: 0; transform: scale(.7); }
+  78% { opacity: .65; transform: scale(1); }
+  86% { opacity: 0; transform: scale(1.12); }
+}
+
+@keyframes series-status-master-pulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(178, 31, 59, 0), 0 0 16px rgba(178, 31, 59, .08); }
+  50% { box-shadow: 0 0 0 2px rgba(178, 31, 59, .08), 0 0 24px rgba(178, 31, 59, .22); }
+}
+
+@keyframes series-status-master-spark {
+  0%, 68%, 100% { opacity: 0; transform: scale(.7) rotate(0deg); }
+  75% { opacity: .55; transform: scale(1) rotate(45deg); }
+  84% { opacity: 0; transform: scale(1.2) rotate(90deg); }
+}
+
+.series-status-card {
+  transition: background-color .25s ease, border-color .25s ease;
+}
+
+.series-status-icon {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.series-status-icon > * {
+  position: relative;
+  z-index: 2;
+}
+
+.series-status-icon::after {
+  position: absolute;
+  inset: -55%;
+  z-index: 1;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 39%, rgba(255,255,255,.36) 50%, transparent 61%);
+  transform: translateX(-135%) rotate(10deg);
+  opacity: 0;
+  animation: series-status-metallic-shine 8s ease-in-out infinite;
+}
+
+.series-status-icon--silver::after { animation-duration: 5.5s; }
+
+.series-status-icon--gold {
+  box-shadow: 0 0 18px rgba(213, 169, 40, .16);
+}
+
+.series-status-icon--gold::before {
+  position: absolute;
+  inset: 20%;
+  z-index: 0;
+  content: "";
+  border-radius: 999px;
+  background: rgba(213, 169, 40, .42);
+  filter: blur(9px);
+  opacity: .3;
+  animation: series-status-gold-glint 6.5s ease-in-out infinite;
+}
+
+.series-status-icon--master {
+  border-color: rgba(178, 31, 59, .5);
+  animation: series-status-master-pulse 4.8s ease-in-out infinite;
+}
+
+.series-status-icon--master::before {
+  position: absolute;
+  inset: 18%;
+  z-index: 0;
+  content: "";
+  border-radius: 999px;
+  background: rgba(178, 31, 59, .45);
+  filter: blur(10px);
+  opacity: .3;
+}
+
+.series-status-icon--master::after {
+  background: radial-gradient(circle at 28% 32%, rgba(255,255,255,.8) 0 1px, transparent 2px), linear-gradient(105deg, transparent 39%, rgba(255,220,220,.34) 50%, transparent 61%);
+  animation: series-status-master-spark 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .series-status-icon,
+  .series-status-icon::before,
+  .series-status-icon::after { animation: none; }
+}
+
 @media (max-width: 767px) {
   html,
   body {

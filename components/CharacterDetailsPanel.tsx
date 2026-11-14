@@ -1,14 +1,12 @@
 "use client";
 
-import { BookOpen, Calendar, ChevronRight, Heart, Pause, Play, X } from "lucide-react";
+import { BookOpen, Calendar, ChevronRight, Pause, Play, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import booksData from "@/data/books.json";
 import { appearancesData } from "@/data/appearances";
 import { assetPath } from "@/lib/assetPath";
 import { seriesColors, seriesLabels } from "@/lib/catalog";
 import type { Book, Character } from "@/lib/types";
-import { characterIdentity } from "@/lib/characters";
-import { useSupabaseAuth } from "@/components/SupabaseAuthProvider";
 
 type CharacterDetailsPanelProps = {
   character: Character | null;
@@ -35,8 +33,6 @@ export function CharacterDetailsPanel({
   onSelectBook,
 }: CharacterDetailsPanelProps) {
   const [activeVariantId, setActiveVariantId] = useState(character?.id || "");
-  const [favoriteError, setFavoriteError] = useState("");
-  const { user, characterFavorites, updateCharacterFavorite } = useSupabaseAuth();
 
   useEffect(() => {
     setActiveVariantId(character?.id || "");
@@ -68,8 +64,6 @@ export function CharacterDetailsPanel({
   const audioCharacter = activeCharacter.audio
     ? activeCharacter
     : variants.find((variant) => variant.audio);
-  const characterKey = characterIdentity(activeCharacter);
-  const isFavorite = Boolean(characterFavorites[characterKey]);
 
   return (
     <div
@@ -132,19 +126,6 @@ export function CharacterDetailsPanel({
                 „{activeCharacter.pseudonym}”
               </p>
             )}
-            <button
-              type="button"
-              disabled={!user}
-              onClick={() => {
-                setFavoriteError("");
-                void updateCharacterFavorite(characterKey, activeCharacter.name, !isFavorite).catch(() => setFavoriteError("Nie udało się zapisać ulubionej postaci."));
-              }}
-              className={`mt-4 inline-flex min-h-10 items-center gap-2 rounded-xl border px-3 py-2 text-xs font-semibold transition ${isFavorite ? "border-rose-300/50 bg-rose-500/15 text-rose-100" : "border-white/10 bg-white/[0.04] text-white/60 hover:border-white/20 hover:text-white"} disabled:cursor-not-allowed disabled:opacity-60`}
-            >
-              <Heart size={15} fill={isFavorite ? "currentColor" : "none"} />
-              {user ? (isFavorite ? "Ulubiona postać" : "Dodaj do ulubionych") : "Zaloguj się, aby dodać do ulubionych"}
-            </button>
-            {favoriteError && <p className="mt-2 text-xs text-rose-300">{favoriteError}</p>}
           </div>
 
           {audioCharacter?.audio && (

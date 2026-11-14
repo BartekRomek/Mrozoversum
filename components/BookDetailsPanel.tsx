@@ -138,7 +138,7 @@ export function BookDetailsPanel({
   }, [book]);
 
   const backgroundUrl = book ? getBackgroundUrl(book.cover) : "";
-  const brandColor = book ? seriesColors[book.series] || "#e11d48" : "#e11d48";
+  const brandColor = book?.series ? seriesColors[book.series] : "#facc15";
 
   const relatedConnections = useMemo(() => {
     if (!book) return [];
@@ -194,7 +194,7 @@ export function BookDetailsPanel({
                     Karta książki
                   </p>
                   <p className="text-xs font-medium text-white/55">
-                    {seriesLabels[book.series]}
+                    {book.series ? seriesLabels[book.series] : "Bez serii"}
                   </p>
                 </div>
               </div>
@@ -214,20 +214,20 @@ export function BookDetailsPanel({
                   className="text-[10px] uppercase tracking-[0.22em] font-bold drop-shadow-md"
                   style={{ color: brandColor }}
                 >
-                  {seriesLabels[book.series]}
+                  {book.series ? seriesLabels[book.series] : "Bez serii"}
                 </p>
                 <h2 className="mt-2 break-words text-3xl leading-tight font-bold tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-[42px]">
                   {book.title}
                 </h2>
 
                 <div className="mt-5 flex flex-wrap gap-3 text-[13px] text-white/72 font-medium">
-                  <MetaItem icon={<User size={14} />} label="Seria" value={seriesLabels[book.series]} />
+                  {book.series && <MetaItem icon={<User size={14} />} label="Seria" value={seriesLabels[book.series]} />}
                   <MetaItem icon={<Calendar size={14} />} label="Rok" value={book.year ?? "---"} />
                   <MetaItem icon={<BookOpen size={14} />} label="Tom" value={book.volume ?? book.order ?? "-"} />
                   <MetaItem
                     icon={<Tag size={14} />}
                     label="Gatunek"
-                    value={book.genre ?? seriesGenres[book.series] ?? "Nie określono"}
+                    value={book.genre ?? (book.series ? seriesGenres[book.series] : undefined) ?? "Nie określono"}
                     />
                 </div>
 

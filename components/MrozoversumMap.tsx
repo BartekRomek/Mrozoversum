@@ -381,7 +381,7 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
     return new Set(
       displayBooks
         .filter((book) => {
-          return book.spanAllAxes || selectedSeries.includes(book.series);
+          return book.spanAllAxes || book.series === null || selectedSeries.includes(book.series);
         })
         .map((book) => book.id)
     );
@@ -464,7 +464,9 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
             x: finalX,
             y: book.spanAllAxes
               ? rowY.Forst
-              : rowY[book.series] + (isAxis ? 150 : 0)
+              : book.series
+                ? rowY[book.series] + (isAxis ? 150 : 0)
+                : rowY.Forst
           },
           data: {
             book,
@@ -765,7 +767,7 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
     focusMapPoint(getNodeFocusPoint(node as Node<BookNodeData | any>));
     trackEvent("book_open", {
       book_id: book.id,
-      series: book.series
+      series: book.series ?? "none"
     });
     onBookRequestHandled?.();
   }, [bookById, focusMapPoint, getNodeFocusPoint, nodes, onBookRequestHandled, openBookId]);
@@ -811,7 +813,7 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
       if (book) {
         trackEvent("book_open", {
           book_id: book.id,
-          series: book.series
+          series: book.series ?? "none"
         });
       }
     },

@@ -16,9 +16,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const book = books.find((item) => item.id === id && !item.id.includes("-axis-"));
   if (!book) return { title: "Nie znaleziono książki" };
 
+  const series = book.series ? seriesLabels[book.series as keyof typeof seriesLabels] : "bez przypisanej serii";
+
   return entityMetadata({
     title: book.title,
-    description: `Informacje o książce ${book.title} z serii ${seriesLabels[book.series as keyof typeof seriesLabels]}. Odkryj jej miejsce na mapie Mrozoversum.`,
+    description: `Informacje o książce ${book.title}, ${series}. Odkryj jej miejsce na mapie Mrozoversum.`,
     path: `/ksiazki/${book.id}`,
     imageAlt: `Okładka książki ${book.title}`
   });
@@ -29,7 +31,7 @@ export default async function BookPage({ params }: Props) {
   const book = books.find((item) => item.id === id && !item.id.includes("-axis-"));
   if (!book) notFound();
 
-  const series = seriesLabels[book.series as keyof typeof seriesLabels];
+  const series = book.series ? seriesLabels[book.series as keyof typeof seriesLabels] : "Bez serii";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Book",

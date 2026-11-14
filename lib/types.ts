@@ -4,7 +4,7 @@ export type RelationType = "wzmianka" | "crossover" | "kontynuacja" | "epizod" |
 export type Book = {
   id: string;
   title: string;
-  series: SeriesId;
+  series: SeriesId | null;
   cover: string;
   description: string;
   certainty: number;
