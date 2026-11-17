@@ -34,7 +34,7 @@ export function SubpageLayout({ children, onBack, className = "" }: SubpageLayou
   );
 
   return (
-    <main className={`subpage-layout mobile-page-scroll min-h-screen overflow-x-hidden text-[#f4f1ea] ${className}`}>
+    <main className={`subpage-layout mobile-page-scroll h-[100dvh] min-h-screen touch-pan-y overflow-x-hidden overflow-y-auto overscroll-y-auto text-[#f4f1ea] ${className}`}>
       <div className="subpage-layout__glow pointer-events-none fixed inset-0" />
       <header className="subpage-layout__header relative z-10 border-b border-white/10 bg-[#08090d]/90 backdrop-blur-2xl">
         <div className="mx-auto flex h-full w-full max-w-[1500px] items-center justify-between gap-4 px-5 sm:px-8">

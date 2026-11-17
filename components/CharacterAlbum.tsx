@@ -27,6 +27,7 @@ const seriesOrder = [
   "Wladza",
   "Behawiorysta",
   "Zaorski",
+  "Konfrontacja"
 ];
 
 const seriesLabels: Record<string, string> = {
@@ -36,6 +37,7 @@ const seriesLabels: Record<string, string> = {
   Wladza: "WŁADZA",
   Behawiorysta: "BEHAWIORYSTA",
   Zaorski: "ZAORSKI",
+  Konfrontacja: "KONFRONTACJA",
 };
 
 const seriesIcons: Record<string, string> = {
@@ -44,6 +46,8 @@ const seriesIcons: Record<string, string> = {
   Langer: "/icons/langer.svg",
   Wladza: "/icons/wladza.svg",
   Zaorski: "/icons/zaorski.svg",
+  Behawiorysta: "/icons/behawiorysta.svg",
+  Konfrontacja: "/icons/konfrontacja.svg",
 };
 
 function getUniqueCharacters(items: Character[]) {

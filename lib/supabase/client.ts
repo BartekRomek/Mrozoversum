@@ -9,7 +9,13 @@ export function getSupabaseClient(): SupabaseClient | null {
 
   if (!url || !publishableKey) return null;
 
-  browserClient ??= createBrowserClient(url, publishableKey);
+  browserClient ??= createBrowserClient(url, publishableKey, {
+    auth: {
+      persistSession: true,
+      autoRefreshToken: true,
+      detectSessionInUrl: true,
+    },
+  });
   return browserClient;
 }
 

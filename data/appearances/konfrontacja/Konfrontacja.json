@@ -14,7 +14,14 @@
     { "characterId": "paderborn", "isFirstAppearance": true, "role": "main", "isNew": false },
     { "characterId": "olga-szrebska-5", "isFirstAppearance": true, "role": "supporting", "isNew": false },
     { "characterId": "milena-hauer-prezydent", "isFirstAppearance": true, "role": "supporting", "isNew": false },
-    { "characterId": "szczerbaty", "isFirstAppearance": true, "role": "supporting", "isNew": false }
+    { "characterId": "szczerbaty", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+    { "characterId": "b-wyszogrodzki-3", "isFirstAppearance": true, "role": "supporting", "isNew": false },
+    { "characterId": "nemrod", "isFirstAppearance": true, "role": "antagonist", "isNew": false },
+    { "characterId": "kasper", "isFirstAppearance": true, "role": "supporting", "isNew": true },
+    { "characterId": "woronow", "isFirstAppearance": true, "role": "antagonist", "isNew": true, "isDead": true }
+
+
+
 
 
 ]

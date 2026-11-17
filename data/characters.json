@@ -1481,7 +1481,7 @@
   {
     "id": "b-wyszogrodzki-3",
     "name": "Błażej Wyszogrodzki",
-    "role": "Premier",
+    "role": "Kandydat na Premiera",
     "hiddenRole": "Wpływowy polityk powiązany z Gorganem",
     "series": "Forst",
     "debut": "Przepaść",
@@ -1861,10 +1861,47 @@
     "series": "Behawiorysta",
     "debut": "Behawiorysta",
     "avatar": "avatars/gerard.png"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "id": "kasper",
+    "name": "Kasper",
+    "role": "Młody więzień przebywający w celi z Forstem",
+    "series": "Konfrontacja",
+    "debut": "Konfrontacja",
+    "avatar": "avatars/kasper.png"
+  },
+  {
+    "id": "woronow",
+    "name": "Stepan Woronow",
+    "role": "Ukraiński imigrant",
+    "hiddenRole": "Jeden z organizatorów działań terrorystycznych",
+    "series": "Konfrontacja",
+    "debut": "Konfrontacja",
+    "avatar": "avatars/woronow.png"
   }
-
-
-
-
 
 ]

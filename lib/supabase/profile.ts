@@ -7,15 +7,25 @@ export async function uploadUserAvatar(supabase: SupabaseClient, userId: string,
   if (file.size > 5 * 1024 * 1024) throw new Error("Zdjęcie może mieć maksymalnie 5 MB.");
 
   const extension = file.type === "image/png" ? "png" : file.type === "image/webp" ? "webp" : "jpg";
-  const path = `${userId}/avatar.${extension}`;
-  const { error: uploadError } = await supabase.storage.from("avatars").upload(path, file, {
+  const basePath = `${userId}/avatar.${extension}`;
+  const bucket = supabase.storage.from("avatars");
+  let path = basePath;
+  let { error: uploadError } = await bucket.upload(path, file, {
     upsert: true,
     cacheControl: "3600",
     contentType: file.type
   });
+  if (uploadError) {
+    path = `${userId}/avatar-${Date.now()}.${extension}`;
+    ({ error: uploadError } = await bucket.upload(path, file, {
+      upsert: false,
+      cacheControl: "3600",
+      contentType: file.type
+    }));
+  }
   if (uploadError) throw uploadError;
 
-  const { data } = supabase.storage.from("avatars").getPublicUrl(path);
+  const { data } = bucket.getPublicUrl(path);
   const url = `${data.publicUrl}?v=${Date.now()}`;
   const { error } = await supabase.auth.updateUser({ data: { avatar_url: url } });
   if (error) throw error;

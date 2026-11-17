@@ -18,6 +18,7 @@ type BookDetailsPanelProps = {
   onClose: () => void;
   onSelectBook: (bookId: string) => void;
   onSelectConnection: (connectionId: string) => void;
+  onSelectCharacter?: (character: Character) => void;
   onUpdateCover: (bookId: string, cover: string) => void;
 };
 
@@ -41,7 +42,8 @@ export function BookDetailsPanel({
   books,
   connections,
   onClose,
-  onSelectConnection
+  onSelectConnection,
+  onSelectCharacter
 }: BookDetailsPanelProps) {
   const [showSpoilers, setShowSpoilers] = useState(false);
   const [showWarningModal, setShowWarningModal] = useState(false);
@@ -367,6 +369,7 @@ export function BookDetailsPanel({
                       key={char.id}
                       character={char}
                       showSpoilers={showSpoilers}
+                    onSelect={onSelectCharacter ? () => onSelectCharacter(char) : undefined}
                     />
                   ))}
                 </div>

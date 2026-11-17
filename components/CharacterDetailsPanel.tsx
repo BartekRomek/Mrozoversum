@@ -6,6 +6,7 @@ import booksData from "@/data/books.json";
 import { appearancesData } from "@/data/appearances";
 import { assetPath } from "@/lib/assetPath";
 import { seriesColors, seriesLabels } from "@/lib/catalog";
+import { useSupabaseAuth } from "@/components/SupabaseAuthProvider";
 import type { Book, Character } from "@/lib/types";
 
 type CharacterDetailsPanelProps = {
@@ -33,6 +34,7 @@ export function CharacterDetailsPanel({
   onSelectBook,
 }: CharacterDetailsPanelProps) {
   const [activeVariantId, setActiveVariantId] = useState(character?.id || "");
+  const { awardBadge } = useSupabaseAuth();
 
   useEffect(() => {
     setActiveVariantId(character?.id || "");
@@ -135,6 +137,7 @@ export function CharacterDetailsPanel({
               color={color}
               characterName={displayName}
               seriesIcon={`/icons/${activeCharacter.series.toLowerCase()}.svg`}
+              onFirstPlay={() => void awardBadge("pierwsze-audio")}
             />
           )}
 
@@ -248,16 +251,19 @@ function CharacterAudioPlayer({
   color,
   characterName,
   seriesIcon,
+  onFirstPlay,
 }: {
   src: string;
   color: string;
   characterName: string;
   seriesIcon: string;
+  onFirstPlay?: () => void;
 }) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const hasReportedFirstPlay = useRef(false);
 
   const togglePlayback = async () => {
     const audio = audioRef.current;
@@ -266,6 +272,10 @@ function CharacterAudioPlayer({
     if (audio.paused) {
       await audio.play();
       setIsPlaying(true);
+      if (!hasReportedFirstPlay.current) {
+        hasReportedFirstPlay.current = true;
+        onFirstPlay?.();
+      }
     } else {
       audio.pause();
       setIsPlaying(false);

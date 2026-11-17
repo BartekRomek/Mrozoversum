@@ -7,6 +7,18 @@ export type UpdateEntry = {
 
 export const updates: UpdateEntry[] = [
   {
+    version: "1.3",
+    date: "17 Listopada 2026",
+    title: "Rozbudowa Mrozoversum",
+    changes: [
+      "Dodano system odznak przyznawanych automatycznie za aktywność użytkownika, między innymi za założenie konta, ulubione książki, ustawienie awatara oraz odkrywanie funkcji serwisu.",
+      "Dodano dynamiczny postęp serii, który pokazuje poziom zaawansowania na podstawie przeczytanych książek.",
+      "Dodano konto użytkownika z logowaniem, zapisem postępu, ulubionych książek, awatara i zdobytych odznak.",
+      "Dodano serię oraz książkę Konfrontacja wraz z powiązaniami w Mrozoversum i odznaką Mroźne AVENGERS.",
+      "Dodano AUDIO postaci, dzięki któremu można odsłuchać nagrania przypisane do bohaterów."
+    ]
+  },
+  {
     version: "1.2.2",
     date: "5 Listopada 2026",
     title: "Porządki i poprawki techniczne",

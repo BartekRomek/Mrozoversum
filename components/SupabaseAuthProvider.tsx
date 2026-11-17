@@ -4,7 +4,7 @@ import type { Session, SupabaseClient, User } from "@supabase/supabase-js";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { getSupabaseClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import { getUserBookStatuses, saveBookStatus, type BookStatus } from "@/lib/supabase/books";
-import { getUserBadges, type UserBadge } from "@/lib/supabase/badges";
+import { awardUserBadge, getUserBadges, type UserBadge } from "@/lib/supabase/badges";
 import { badgeById } from "@/data/badges";
 import { getUserCharacterFavorites, saveCharacterFavorite, type CharacterFavorite } from "@/lib/supabase/characters";
 import { uploadUserAvatar } from "@/lib/supabase/profile";
@@ -35,6 +35,7 @@ type AuthContextValue = {
   supabase: SupabaseClient | null;
   signIn: (email: string, password: string) => Promise<{ error: string | null }>;
   signInWithGoogle: () => Promise<{ error: string | null }>;
+  resetPassword: (email: string) => Promise<{ error: string | null }>;
   signUp: (email: string, password: string) => Promise<{ error: string | null; needsConfirmation: boolean }>;
   resendConfirmation: (email: string) => Promise<{ error: string | null }>;
   signOut: () => Promise<{ error: string | null }>;
@@ -45,8 +46,10 @@ type AuthContextValue = {
   refreshCharacterFavorites: () => Promise<void>;
   updateCharacterFavorite: (characterKey: string, characterName: string, isFavorite: boolean) => Promise<void>;
   uploadAvatar: (file: File) => Promise<{ url: string | null; error: string | null }>;
+  setAvatar: (url: string) => Promise<{ error: string | null }>;
   badges: UserBadge[];
   refreshBadges: (statusesOverride?: Record<string, BookStatus>) => Promise<UserBadge[]>;
+  awardBadge: (badgeId: string) => Promise<void>;
   isAdmin: boolean;
   adminUserCount: number | null;
   refreshAdminUserCount: () => Promise<number | null>;
@@ -67,7 +70,7 @@ export function SupabaseAuthProvider({ children }: { children: React.ReactNode }
   const [badges, setBadges] = useState<UserBadge[]>([]);
   const [adminUserCount, setAdminUserCount] = useState<number | null>(null);
   const [seriesAchievement, setSeriesAchievement] = useState<SeriesAchievement | null>(null);
-  const [badgeAchievement, setBadgeAchievement] = useState<BadgeAchievement | null>(null);
+  const [badgeAchievementQueue, setBadgeAchievementQueue] = useState<BadgeAchievement[]>([]);
   const books = booksData as Book[];
   const currentUser = session?.user ?? null;
   const isAdmin = currentUser?.app_metadata?.role === "admin";
@@ -117,13 +120,9 @@ export function SupabaseAuthProvider({ children }: { children: React.ReactNode }
     }
     const previousBadges = badges;
     const nextBadges = await refreshBadges(nextStatuses);
-    const newlyEarned = nextBadges.find((badge) => !previousBadges.some((current) => current.badgeId === badge.badgeId));
-    if (newlyEarned) {
-      const seenKey = `mrozoversum-badge-achievements:${newlyEarned.badgeId}`;
-      if (!window.localStorage.getItem(seenKey)) {
-        window.localStorage.setItem(seenKey, "1");
-        setBadgeAchievement(newlyEarned);
-      }
+    const newlyEarned = nextBadges.filter((badge) => !previousBadges.some((current) => current.badgeId === badge.badgeId));
+    if (newlyEarned.length > 0) {
+      setBadgeAchievementQueue((current) => [...current, ...newlyEarned]);
     }
   };
 
@@ -134,10 +133,20 @@ export function SupabaseAuthProvider({ children }: { children: React.ReactNode }
     }
     const nextBadges = (await getUserBadges(supabase, session.user.id)).filter((badge) => {
       const definition = badgeById[badge.badgeId];
-      return definition && statusesOverride[definition.bookId]?.isRead === true;
+      if (!definition) return false;
+      return definition.trigger !== "book_read" || Boolean(definition.bookId && statusesOverride[definition.bookId]?.isRead);
     });
     setBadges(nextBadges);
     return nextBadges;
+  };
+
+  const awardBadge = async (badgeId: string) => {
+    if (!supabase || !session?.user) return;
+    const previousBadges = badges;
+    await awardUserBadge(supabase, badgeId);
+    const nextBadges = await refreshBadges();
+    const newlyEarned = nextBadges.filter((badge) => !previousBadges.some((current) => current.badgeId === badge.badgeId));
+    if (newlyEarned.length > 0) setBadgeAchievementQueue((current) => [...current, ...newlyEarned]);
   };
 
   const refreshAdminUserCount = async (): Promise<number | null> => {
@@ -183,10 +192,26 @@ export function SupabaseAuthProvider({ children }: { children: React.ReactNode }
     try {
       const url = await uploadUserAvatar(supabase, session.user.id, file);
       setSession((current) => current ? { ...current, user: { ...current.user, user_metadata: { ...current.user.user_metadata, avatar_url: url } } } : current);
+      const previousBadges = badges;
+      const nextBadges = await refreshBadges();
+      const newlyEarned = nextBadges.filter((badge) => !previousBadges.some((current) => current.badgeId === badge.badgeId));
+      if (newlyEarned.length > 0) setBadgeAchievementQueue((current) => [...current, ...newlyEarned]);
       return { url, error: null };
     } catch (error) {
       return { url: null, error: error instanceof Error ? error.message : "Nie udało się zapisać zdjęcia." };
     }
+  };
+
+  const setAvatar = async (url: string) => {
+    if (!supabase || !session?.user) return { error: "Zaloguj się, aby zmienić awatar." };
+    const { error } = await supabase.auth.updateUser({ data: { avatar_url: url } });
+    if (error) return { error: error.message };
+    setSession((current) => current ? { ...current, user: { ...current.user, user_metadata: { ...current.user.user_metadata, avatar_url: url } } } : current);
+    const previousBadges = badges;
+    const nextBadges = await refreshBadges();
+    const newlyEarned = nextBadges.filter((badge) => !previousBadges.some((current) => current.badgeId === badge.badgeId));
+    if (newlyEarned.length > 0) setBadgeAchievementQueue((current) => [...current, ...newlyEarned]);
+    return { error: null };
   };
 
   useEffect(() => {
@@ -215,7 +240,7 @@ export function SupabaseAuthProvider({ children }: { children: React.ReactNode }
     setCharacterFavorites({});
     setBadges([]);
     setSeriesAchievement(null);
-    setBadgeAchievement(null);
+    setBadgeAchievementQueue([]);
     setAdminUserCount(null);
     if (!session?.user || !supabase) return;
 
@@ -263,6 +288,13 @@ export function SupabaseAuthProvider({ children }: { children: React.ReactNode }
       });
       return { error: error?.message ?? null };
     },
+    resetPassword: async (email) => {
+      if (!supabase) return { error: "Logowanie nie jest jeszcze skonfigurowane." };
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: typeof window !== "undefined" ? `${window.location.origin}/konto/` : undefined
+      });
+      return { error: error?.message ?? null };
+    },
   signUp: async (email, password) => {
       if (!supabase) return { error: "Rejestracja nie jest jeszcze skonfigurowana.", needsConfirmation: false };
     const { data, error } = await supabase.auth.signUp({
@@ -297,15 +329,17 @@ export function SupabaseAuthProvider({ children }: { children: React.ReactNode }
     refreshCharacterFavorites,
     updateCharacterFavorite,
     uploadAvatar,
+    setAvatar,
     badges,
     refreshBadges,
+    awardBadge,
     isAdmin,
     adminUserCount,
     refreshAdminUserCount,
     seriesAchievement,
-    badgeAchievement,
+    badgeAchievement: badgeAchievementQueue[0] ?? null,
     dismissSeriesAchievement: () => setSeriesAchievement(null),
-    dismissBadgeAchievement: () => setBadgeAchievement(null)
+    dismissBadgeAchievement: () => setBadgeAchievementQueue((current) => current.slice(1))
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

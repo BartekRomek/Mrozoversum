@@ -9,6 +9,7 @@ const GUIDE_STORAGE_KEY = "mrozoversum-hide-guide";
 type MapGuideProps = {
   openRequest: number;
   introComplete: boolean;
+  onOpenChange?: (open: boolean) => void;
 };
 
 const guideSections = [
@@ -62,21 +63,14 @@ const guideSections = [
   }
 ];
 
-export function MapGuide({ openRequest, introComplete }: MapGuideProps) {
+export function MapGuide({ openRequest, introComplete, onOpenChange }: MapGuideProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [openMode, setOpenMode] = useState<"auto" | "manual">("auto");
   const [dontShowAgain, setDontShowAgain] = useState(false);
 
   useEffect(() => {
-    if (!introComplete || window.localStorage.getItem(GUIDE_STORAGE_KEY) === "true") return;
-
-    const timeoutId = window.setTimeout(() => {
-      setOpenMode("auto");
-      setDontShowAgain(false);
-      setIsOpen(true);
-    }, 450);
-    return () => window.clearTimeout(timeoutId);
+    if (!introComplete) return;
   }, [introComplete]);
 
   useEffect(() => {
@@ -85,8 +79,9 @@ export function MapGuide({ openRequest, introComplete }: MapGuideProps) {
       setDontShowAgain(window.localStorage.getItem(GUIDE_STORAGE_KEY) === "true");
       setIsClosing(false);
       setIsOpen(true);
+      onOpenChange?.(true);
     }
-  }, [openRequest]);
+  }, [openRequest, onOpenChange]);
 
   const closeGuide = () => {
     if (dontShowAgain) {
@@ -95,7 +90,10 @@ export function MapGuide({ openRequest, introComplete }: MapGuideProps) {
       window.localStorage.removeItem(GUIDE_STORAGE_KEY);
     }
     setIsClosing(true);
-    window.setTimeout(() => setIsOpen(false), 260);
+    window.setTimeout(() => {
+      setIsOpen(false);
+      onOpenChange?.(false);
+    }, 260);
   };
 
   if (!isOpen) return null;

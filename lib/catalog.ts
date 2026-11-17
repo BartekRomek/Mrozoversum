@@ -23,8 +23,9 @@ export const seriesColors: Record<SeriesId, string> = {
   Forst: "#66d5fd",
   Langer: "#ff0000",
   Wladza: "#00ac0e",
-  Behawiorysta: "#a855f7", // fioletowy
-  Zaorski: "#eab308"       // złoty
+  Behawiorysta: "#a855f7",
+  Zaorski: "#ffbf00",
+  Konfrontacja: "#b8954a"
 };
 
 export const relationLabels: Record<RelationType, string> = {

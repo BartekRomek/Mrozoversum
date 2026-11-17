@@ -20,7 +20,8 @@ const seriesIcons: Partial<Record<SeriesId, string>> = {
   Forst: "/icons/forst.svg",
   Langer: "/icons/langer.svg",
   Wladza: "/icons/wladza.svg",
-  Zaorski: "/icons/zaorski.svg"
+  Zaorski: "/icons/zaorski.svg",
+  Konfrontacja: "/icons/konfrontacja.svg"
 };
 
 export const levelRank: Record<SeriesLevel, number> = { started: 0, bronze: 1, silver: 2, gold: 3, platinum: 4 };

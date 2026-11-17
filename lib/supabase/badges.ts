@@ -15,3 +15,8 @@ export async function getUserBadges(supabase: SupabaseClient, userId: string): P
   if (error) throw error;
   return (data ?? []).map((row) => ({ badgeId: row.badge_id as string, earnedAt: row.earned_at as string }));
 }
+
+export async function awardUserBadge(supabase: SupabaseClient, badgeId: string): Promise<void> {
+  const { error } = await supabase.rpc("award_user_badge", { target_badge_id: badgeId });
+  if (error) throw error;
+}

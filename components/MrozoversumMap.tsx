@@ -19,10 +19,11 @@ import {
   type ReactFlowInstance
 } from "@xyflow/react";
 import { trackEvent } from "@/lib/analytics";
-import { LocateFixed, Map as MapIcon, X, SlidersHorizontal, Book as BookIcon } from "lucide-react";
+import { LocateFixed, Map as MapIcon, Menu as MenuIcon, X, SlidersHorizontal, Book as BookIcon } from "lucide-react";
 import { clsx } from "clsx";
 import { BookNode } from "@/components/BookNode";
 import { BookDetailsPanel } from "@/components/BookDetailsPanel";
+import { CharacterDetailsPanel } from "@/components/CharacterDetailsPanel";
 import { CharacterCard } from "@/components/CharacterCard";
 import { MapGuide } from "@/components/MapGuide";
 import { AccountPopover } from "@/components/AccountPopover";
@@ -41,6 +42,8 @@ import type {
   SeriesId,
   Character
 } from "@/lib/types";
+import { characterIdentity } from "@/lib/characters";
+import { useSupabaseAuth } from "@/components/SupabaseAuthProvider";
 
 type MrozoversumMapProps = {
   books: Book[];
@@ -329,16 +332,21 @@ function TimelineLines() {
   );
 }
 export function MrozoversumMap({ books, connections, characters = [], introComplete = false, onOpenCharacters, openBookId, onBookRequestHandled, }: MrozoversumMapProps) {
+  const { awardBadge } = useSupabaseAuth();
   const [selectedSeries, setSelectedSeries] = useState<SeriesId[]>(seriesOrder);
   const [selectedRelations, setSelectedRelations] = useState<RelationType[]>(relationTypes);
   const [draftSeries, setDraftSeries] = useState<SeriesId[]>(seriesOrder);
   const [draftRelations, setDraftRelations] = useState<RelationType[]>(relationTypes);
   const [selectedBookId, setSelectedBookId] = useState<string | null>(null);
   const [selectedConnectionId, setSelectedConnectionId] = useState<string | null>(null);
+  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
+  const [characterReturnBookId, setCharacterReturnBookId] = useState<string | null>(null);
   const [hoveredConnectionId, setHoveredConnectionId] = useState<string | null>(null);
   const [coverOverrides, setCoverOverrides] = useState<Record<string, string>>({});
   const [showSpoilers] = useState(false);
   const [activeTopPanel, setActiveTopPanel] = useState<ActiveTopPanel>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isFloatingPanelOpen, setIsFloatingPanelOpen] = useState(false);
   const [guideRequest, setGuideRequest] = useState(0);
   const [isInitialViewportReady, setIsInitialViewportReady] = useState(false);
 
@@ -350,6 +358,12 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
   useEffect(() => {
     trackEvent("map_open");
   }, []);
+
+  useEffect(() => {
+    if (selectedBookId !== null || selectedConnectionId !== null || selectedCharacter !== null || activeTopPanel !== null) {
+      setIsMobileMenuOpen(false);
+    }
+  }, [selectedBookId, selectedConnectionId, selectedCharacter, activeTopPanel]);
 
   useEffect(() => {
     const storedCovers = window.localStorage.getItem(
@@ -736,6 +750,13 @@ export function MrozoversumMap({ books, connections, characters = [], introCompl
       ) ?? null
     : null;
 
+  const selectedCharacterVariants = useMemo(
+    () => selectedCharacter
+      ? characters.filter((character) => characterIdentity(character) === characterIdentity(selectedCharacter))
+      : [],
+    [characters, selectedCharacter]
+  );
+
   const getNodeFocusPoint = useCallback(
     (node: Node<BookNodeData | any>) => {
       if (node.type === "book") {
@@ -942,22 +963,59 @@ const updateBookCover = (bookId: string, cover: string) => {
             <div className="mt-1 h-px w-24 bg-gradient-to-r from-rose-400 to-transparent shadow-[0_0_14px_rgba(244,63,94,0.65)] lg:mt-2 lg:w-32" />
           </div>
 
-          <nav className="ml-auto flex min-w-0 items-center justify-end gap-1 sm:gap-2" aria-label="Główna nawigacja">
+          <button
+            type="button"
+            className="ml-auto inline-flex shrink-0 items-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/75 transition hover:border-white/20 hover:bg-white/[0.08] hover:text-white md:hidden"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-main-navigation"
+            disabled={isFloatingPanelOpen || activeTopPanel !== null || selectedBookId !== null || selectedConnectionId !== null || selectedCharacter !== null}
+            onClick={() => {
+              if (isFloatingPanelOpen || activeTopPanel !== null || selectedBookId !== null || selectedConnectionId !== null || selectedCharacter !== null) return;
+              setIsMobileMenuOpen((open) => !open);
+            }}
+          >
+            {isMobileMenuOpen ? <X size={15} /> : <MenuIcon size={15} />}
+            Menu
+          </button>
+
+          <nav className="ml-auto hidden min-w-0 items-center justify-end gap-1 sm:gap-2 md:flex" aria-label="Główna nawigacja">
             <Link href="/" className={headerNavItemClass}>
               <MapIcon size={14} />
               <span>Mapa</span>
             </Link>
-            <Link href="/bohaterowie/" className={headerNavItemClass}>
+            <Link href="/bohaterowie/" onClick={() => void awardBadge("katalog-postaci")} className={headerNavItemClass}>
               <BookIcon size={14} />
               <span>Bohaterowie</span>
             </Link>
-            <Link href="/o-projekcie/" className={headerNavItemClass}>
+            <Link href="/o-projekcie/" onClick={() => void awardBadge("o-projekcie")} className={headerNavItemClass}>
               <BookIcon size={14} />
               <span>O projekcie</span>
             </Link>
-            <AccountPopover />
           </nav>
+          <AccountPopover autoOpen={introComplete} responsive="desktop" className="hidden md:block" triggerClassName={headerNavItemClass} onOpenChange={setIsFloatingPanelOpen} />
+          <AccountPopover autoOpen={introComplete} responsive="mobile" className="md:hidden" triggerClassName="hidden" onOpenChange={setIsFloatingPanelOpen} />
         </div>
+
+        {isMobileMenuOpen && (
+          <nav
+            id="mobile-main-navigation"
+            className={`relative md:hidden ${isFloatingPanelOpen ? "border-transparent bg-transparent p-0 shadow-none" : "border-t border-white/10 bg-[#090a0f]/95 px-3 py-3 shadow-2xl shadow-black/40 backdrop-blur-2xl"}`}
+            aria-label="Główna nawigacja mobilna"
+          >
+            <div className={`mx-auto grid max-w-6xl gap-1 ${isFloatingPanelOpen ? "hidden" : ""}`}>
+              <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 rounded-xl border border-white/10 px-3 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white/75 transition hover:bg-white/[0.06] hover:text-white">
+                <MapIcon size={16} /> Mapa
+              </Link>
+              <Link href="/bohaterowie/" onClick={() => { void awardBadge("katalog-postaci"); setIsMobileMenuOpen(false); }} className="flex items-center gap-3 rounded-xl border border-white/10 px-3 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white/75 transition hover:bg-white/[0.06] hover:text-white">
+                <BookIcon size={16} /> Bohaterowie
+              </Link>
+              <Link href="/o-projekcie/" onClick={() => { void awardBadge("o-projekcie"); setIsMobileMenuOpen(false); }} className="flex items-center gap-3 rounded-xl border border-white/10 px-3 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white/75 transition hover:bg-white/[0.06] hover:text-white">
+                <BookIcon size={16} /> O projekcie
+              </Link>
+            </div>
+            <AccountPopover responsive="mobile" triggerClassName="flex w-full items-center gap-3 rounded-xl border border-white/10 px-3 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white/75 transition hover:bg-white/[0.06] hover:text-white" onOpenChange={setIsFloatingPanelOpen} />
+          </nav>
+        )}
       </header>
 
       <section ref={mapViewportRef} className="relative min-h-0 flex-1 z-10">
@@ -1016,7 +1074,7 @@ const updateBookCover = (bookId: string, cover: string) => {
           }
           onOpenGuide={() => setGuideRequest((value) => value + 1)}
         />
-        <MapGuide openRequest={guideRequest} introComplete={introComplete} />
+        <MapGuide openRequest={guideRequest} introComplete={introComplete} onOpenChange={(open) => { setIsFloatingPanelOpen(open); if (open) setIsMobileMenuOpen(false); }} />
         <div className="pointer-events-none absolute inset-0 z-20 bg-[radial-gradient(circle_at_50%_35%,transparent_0%,transparent_48%,rgba(0,0,0,0.32)_100%)]" />
         <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-16 bg-gradient-to-b from-black/35 to-transparent" />
       </section>
@@ -1128,6 +1186,7 @@ const updateBookCover = (bookId: string, cover: string) => {
         onClose={() => {
           setSelectedBookId(null);
           setHoveredConnectionId(null);
+          setCharacterReturnBookId(null);
         }}
         onSelectBook={setSelectedBookId}
         onSelectConnection={(connectionId) => {
@@ -1136,7 +1195,30 @@ const updateBookCover = (bookId: string, cover: string) => {
           setHoveredConnectionId(null);
           focusConnectionById(connectionId);
         }}
+        onSelectCharacter={(character) => {
+          setCharacterReturnBookId(selectedBookId);
+          setSelectedBookId(null);
+          setSelectedCharacter(character);
+        }}
         onUpdateCover={updateBookCover}
+      />
+
+      <CharacterDetailsPanel
+        character={selectedCharacter}
+        variants={selectedCharacterVariants}
+        showSpoilers={showSpoilers}
+        onClose={() => {
+          setSelectedCharacter(null);
+          if (characterReturnBookId) setSelectedBookId(characterReturnBookId);
+          setCharacterReturnBookId(null);
+        }}
+        onSelectBook={(bookId) => {
+          setSelectedCharacter(null);
+          setCharacterReturnBookId(null);
+          setSelectedConnectionId(null);
+          setHoveredConnectionId(null);
+          setSelectedBookId(bookId);
+        }}
       />
 
       <ConnectionDetailsSidebar
