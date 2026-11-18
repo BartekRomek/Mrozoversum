@@ -12,8 +12,6 @@ const seriesIcons: Record<string, string> = {
   Langer: "/icons/langer.svg",
   Wladza: "/icons/wladza.svg",
   Zaorski: "/icons/zaorski.svg",
-  Behawiorysta: "/icons/behawiorysta.svg",
-  Konfrontacja: "/icons/konfrontacja.svg",
 };
 
 interface CharacterCardProps {

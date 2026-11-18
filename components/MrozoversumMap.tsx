@@ -1013,7 +1013,7 @@ const updateBookCover = (bookId: string, cover: string) => {
                 <BookIcon size={16} /> O projekcie
               </Link>
             </div>
-            <AccountPopover responsive="mobile" triggerClassName="flex w-full items-center gap-3 rounded-xl border border-white/10 px-3 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white/75 transition hover:bg-white/[0.06] hover:text-white" onOpenChange={setIsFloatingPanelOpen} />
+            <AccountPopover className="mt-1 w-full" responsive="mobile" triggerClassName="flex min-h-0 w-full items-center gap-3 rounded-xl border border-white/10 px-3 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white/75 transition hover:bg-white/[0.06] hover:text-white" onOpenChange={setIsFloatingPanelOpen} />
           </nav>
         )}
       </header>
@@ -1081,7 +1081,8 @@ const updateBookCover = (bookId: string, cover: string) => {
 
       <aside
         className={clsx(
-          "filters-panel fixed inset-0 z-[60] flex h-[100dvh] w-full max-w-full flex-col rounded-none border border-white/10 bg-[#090a0f]/95 shadow-2xl backdrop-blur-xl transition-transform duration-300 md:inset-y-0 md:left-auto md:right-0 md:bottom-auto md:h-full md:w-[360px] md:rounded-none md:border-l md:border-t-0",
+          "filters-panel fixed inset-0 z-[60] flex h-[100dvh] w-full max-w-full flex-col rounded-none border border-white/10 bg-[#090a0f]/95 shadow-2xl shadow-black/50 md:inset-y-0 md:left-auto md:right-0 md:bottom-auto md:h-full md:w-[360px] md:rounded-none md:border-l md:border-t-0",
+          "transition-transform duration-300",
           activeTopPanel === "filters" ? "translate-x-0" : "translate-x-full"
         )}
       >

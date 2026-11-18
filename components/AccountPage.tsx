@@ -77,7 +77,7 @@ export function AccountPage() {
           </FavoriteSection>
           <FavoriteSection title="Moje odznaki" count={earnedBadges.length}>
             {earnedBadges.length ? <div className="max-h-[38rem] space-y-3 overflow-y-auto pr-1">{earnedBadges.map(({ badge, definition }) => <button key={badge.badgeId} type="button" onClick={() => setSelectedBadge({ badge, definition })} className="flex min-h-[88px] w-full items-center gap-3 rounded-xl border border-white/10 bg-white/[0.025] p-3 text-left transition-colors hover:border-rose-300/35 hover:bg-white/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-300/70">
-              <img src={assetPath(definition.icon)} alt={definition.name} className="h-16 w-16 object-contain" /><span><span className="block font-semibold text-white/90">{definition.name}</span><span className="mt-1 block text-xs leading-5 text-white/45">{definition.description}</span></span>
+            <img src={assetPath(definition.icon)} alt={definition.name} width={64} height={64} loading="eager" decoding="async" className="h-16 w-16 object-contain" /><span><span className="block font-semibold text-white/90">{definition.name}</span><span className="mt-1 block text-xs leading-5 text-white/45">{definition.description}</span></span>
             </button>)}</div> : <Empty>Odznaki pojawią się tutaj po spełnieniu warunków.</Empty>}
           </FavoriteSection>
         </div>
@@ -102,7 +102,7 @@ function BadgeDetailsModal({ badge, definition, bookTitle, onClose }: { badge: U
     <div role="dialog" aria-modal="true" aria-labelledby="badge-details-title" className="badge-details-modal relative w-full max-w-lg overflow-y-auto rounded-3xl border border-rose-300/20 bg-[#101014] p-6 shadow-[0_0_80px_rgba(190,24,93,0.18)] sm:p-8" onClick={(event) => event.stopPropagation()}>
       <button type="button" onClick={onClose} aria-label="Zamknij szczegóły odznaki" className="absolute right-4 top-4 flex min-h-11 min-w-11 items-center justify-center rounded-full border border-white/10 text-white/55 transition-colors hover:border-white/25 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-300/70"><X size={20} /></button>
       <div className="flex flex-col items-center text-center">
-        <div className="flex h-40 w-40 items-center justify-center rounded-3xl border border-white/10 bg-white/[0.025] p-4 shadow-[0_0_40px_rgba(190,24,93,0.12)] sm:h-48 sm:w-48"><img src={assetPath(definition.icon)} alt={definition.name} className="h-full w-full object-contain" /></div>
+        <div className="flex h-40 w-40 items-center justify-center rounded-3xl border border-white/10 bg-white/[0.025] p-4 shadow-[0_0_40px_rgba(190,24,93,0.12)] sm:h-48 sm:w-48"><img src={assetPath(definition.icon)} alt={definition.name} width={192} height={192} loading="eager" decoding="async" className="h-full w-full object-contain" /></div>
         <p className="mt-6 font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-rose-300/70">Odznaka zdobyta</p>
         <h2 id="badge-details-title" className="mt-3 text-3xl font-extrabold tracking-tight text-white">{definition.name}</h2>
         <p className="mt-4 max-w-md text-sm leading-6 text-white/60">{definition.description}</p>

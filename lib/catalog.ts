@@ -25,7 +25,6 @@ export const seriesColors: Record<SeriesId, string> = {
   Wladza: "#00ac0e",
   Behawiorysta: "#a855f7",
   Zaorski: "#ffbf00",
-  Konfrontacja: "#b8954a"
 };
 
 export const relationLabels: Record<RelationType, string> = {

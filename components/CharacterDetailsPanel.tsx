@@ -136,7 +136,7 @@ export function CharacterDetailsPanel({
               src={assetPath(audioCharacter.audio)}
               color={color}
               characterName={displayName}
-              seriesIcon={`/icons/${activeCharacter.series.toLowerCase()}.svg`}
+              seriesIcon={assetPath(`/icons/${activeCharacter.series.toLowerCase()}.svg`)}
               onFirstPlay={() => void awardBadge("pierwsze-audio")}
             />
           )}

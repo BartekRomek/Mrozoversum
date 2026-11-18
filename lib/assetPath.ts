@@ -14,6 +14,18 @@ export function assetPath(path: string) {
       .replace(/\.(png|jpe?g)$/i, ".webp");
   }
 
+  if (path.startsWith("badges/") || path.startsWith("/badges/")) {
+    assetPath = path
+      .replace(/^\/?badges\//, "/badges-optimized/")
+      .replace(/\.(png|jpe?g)$/i, ".webp");
+  }
+
+  if (path.startsWith("icons/") || path.startsWith("/icons/")) {
+    assetPath = path
+      .replace(/^\/?icons\//, "/icons-optimized/")
+      .replace(/\.svg$/i, ".webp");
+  }
+
   if (assetPath.startsWith("/")) {
     return `${basePath}${assetPath}`;
   }

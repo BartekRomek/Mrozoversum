@@ -11,6 +11,7 @@ import { uploadUserAvatar } from "@/lib/supabase/profile";
 import booksData from "@/data/books.json";
 import { getSeriesProgressForSeries, levelRank, type SeriesLevel } from "@/lib/seriesProgress";
 import type { Book } from "@/lib/types";
+import { getAuthRedirectUrl } from "@/lib/supabase/redirect";
 
 export type BadgeAchievement = UserBadge;
 
@@ -283,7 +284,7 @@ export function SupabaseAuthProvider({ children }: { children: React.ReactNode }
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo: typeof window !== "undefined" ? window.location.origin : undefined
+          redirectTo: getAuthRedirectUrl()
         }
       });
       return { error: error?.message ?? null };
@@ -291,7 +292,7 @@ export function SupabaseAuthProvider({ children }: { children: React.ReactNode }
     resetPassword: async (email) => {
       if (!supabase) return { error: "Logowanie nie jest jeszcze skonfigurowane." };
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: typeof window !== "undefined" ? `${window.location.origin}/konto/` : undefined
+        redirectTo: getAuthRedirectUrl("/konto/")
       });
       return { error: error?.message ?? null };
     },
@@ -301,7 +302,7 @@ export function SupabaseAuthProvider({ children }: { children: React.ReactNode }
       email,
       password,
       options: {
-        emailRedirectTo: typeof window !== "undefined" ? window.location.origin : undefined
+        emailRedirectTo: getAuthRedirectUrl()
       }
     });
       return { error: error?.message ?? null, needsConfirmation: Boolean(data.user && !data.session) };
@@ -312,7 +313,7 @@ export function SupabaseAuthProvider({ children }: { children: React.ReactNode }
       type: "signup",
       email,
       options: {
-        emailRedirectTo: typeof window !== "undefined" ? window.location.origin : undefined
+        emailRedirectTo: getAuthRedirectUrl()
       }
     });
     return { error: error?.message ?? null };

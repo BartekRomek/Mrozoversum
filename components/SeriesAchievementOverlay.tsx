@@ -73,7 +73,7 @@ export function SeriesAchievementOverlay() {
           <p className="relative z-10 mt-4 font-mono text-xs uppercase tracking-[0.18em] text-white/45">{seriesAchievement.readCount} / {seriesAchievement.totalCount} książek · {seriesAchievement.percentage}%</p>
         </>}
         {badge && <div className="relative z-10 mt-6 flex items-center gap-4 rounded-2xl border border-amber-300/20 bg-amber-300/[0.06] p-3 text-left">
-          <img src={assetPath(badge.icon)} alt="" className="h-16 w-16 object-contain" />
+          <img src={assetPath(badge.icon)} alt="" width={64} height={64} loading="eager" decoding="async" className="h-16 w-16 object-contain" />
           <div><p className="text-sm font-bold text-white">{badge.name}</p><p className="mt-1 text-xs leading-relaxed text-white/55">{badge.description}</p></div>
         </div>}
         <button type="button" onClick={dismiss} className="relative z-10 mt-8 rounded-xl border border-white/15 bg-white/[0.05] px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">Kontynuuj</button>
